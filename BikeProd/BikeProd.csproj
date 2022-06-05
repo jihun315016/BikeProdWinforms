@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBE4973A-9A67-4900-8CFF-34B141FF1023}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BikeProd</RootNamespace>
+    <AssemblyName>BikeProd</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseForm\baseCommon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\baseCommon.Designer.cs">
+      <DependentUpon>baseCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\bFrmList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\bFrmList.Designer.cs">
+      <DependentUpon>bFrmList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\bFrmListAndDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\bFrmListAndDetail.Designer.cs">
+      <DependentUpon>bFrmListAndDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm\bPopCommon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm\bPopCommon.Designer.cs">
+      <DependentUpon>bPopCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ccTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\ccTextBox.Designer.cs">
+      <DependentUpon>ccTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ucFormController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucFormController.Designer.cs">
+      <DependentUpon>ucFormController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepartment.Designer.cs">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\DepartmentService.cs" />
+    <Compile Include="Service\EmployeeService.cs" />
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Utility\DataGridViewUtil.cs" />
+    <Compile Include="Utility\TextBoxUtil.cs" />
+    <EmbeddedResource Include="BaseForm\baseCommon.resx">
+      <DependentUpon>baseCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\bFrmList.resx">
+      <DependentUpon>bFrmList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\bFrmListAndDetail.resx">
+      <DependentUpon>bFrmListAndDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm\bPopCommon.resx">
+      <DependentUpon>bPopCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ccTextBox.resx">
+      <DependentUpon>ccTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucFormController.resx">
+      <DependentUpon>ucFormController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BikeProd.DAC\BikeProd.DAC.csproj">
+      <Project>{ffa761dc-f4dd-489b-951e-163939eb5f19}</Project>
+      <Name>BikeProd.DAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BikeProd.VO\BikeProd.VO.csproj">
+      <Project>{d33370be-82bf-4716-b514-cc3ed49e0a7c}</Project>
+      <Name>BikeProd.VO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

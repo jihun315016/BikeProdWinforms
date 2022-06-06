@@ -13,7 +13,7 @@ namespace BikeProd.VO
         public int IsFinished { get; set; }
         public string Category { get; set; }
         public int Price { get; set; }
-        public string Image { get; set; }
+        public int Image { get; set; }
         public int Inventory { get; set; }
         public string State { get; set; }
         public int LeadTime { get; set; }

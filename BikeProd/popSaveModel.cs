@@ -49,7 +49,7 @@ namespace BikeProd
 
         private void btnSaveProd_Click(object sender, EventArgs e)
         {
-            string textBoxMsg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtProdName, ccTxtProdPrice });
+            string textBoxMsg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtProdName, ccTxtLeadTime ,ccTxtProdPrice });
             if (textBoxMsg.Length > 0)
             {
                 MessageBox.Show(textBoxMsg);
@@ -67,22 +67,39 @@ namespace BikeProd
                 return;
             }
 
-            int lastNum = categoryList.Find(c => c.Code == cmbProdCategory.SelectedValue).LastNum;
-            bool isImage = (!string.IsNullOrWhiteSpace(path) && isProdPath) ? true : false;
+            CommonCodeVO category = (CommonCodeVO)categoryList.Find(c => c.Code == cmbProdCategory.SelectedValue);
             ProductVO product = new ProductVO()
             {
-                ProdCode = $"{cmbProdCategory.SelectedValue}{lastNum}",
+                ProdCode = $"{cmbProdCategory.SelectedValue}{category.LastNum.ToString("0000")}",
                 ProdName = ccTxtProdName.Text,
                 IsFinished = (cmbProdCategory.SelectedIndex == 1) ? 1 : 0,
+                Category = cmbProdCategory.Text,
+                LeadTime = Convert.ToInt32(ccTxtLeadTime.Text),
                 Price = Convert.ToInt32(ccTxtProdPrice.Text),
-                Image = (!string.IsNullOrWhiteSpace(path) && isProdPath) ? path : null
+                Image = 0
             };
 
-            prodService.ImageTest("ee", path);
-
-            // TODO : 데이터 받아서 INSERT 수행
+            try
+            {
+                bool result = prodService.InsertProd(product, cmbProdCategory.SelectedValue.ToString(), path);
+                if (result)
+                {
+                    MessageBox.Show("제품이 등록되었습니다.");
+                    category.LastNum++;
+                }
+                else
+                {
+                    // 쿼리에 문제가 있을 확률
+                    MessageBox.Show("제품 등록에 실패했습니다.");
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.StackTrace);
+                MessageBox.Show(err.Message);
+            }           
         }
-
+        
         private void btnUploadProdImg_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

@@ -20,23 +20,60 @@ namespace BikeProd
             return list;
         }
 
-        public void ImageTest(string fileName, string path)
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 등록 Service
+        /// 이미지가 포함되었는지 확인하고, 포함되었다면 웹 서버에 이미지 데이터를 저장한다.
+        /// </summary>
+        /// <param name="product">등록할 제품 정보</param>
+        /// <param name="startCode">제품 코드</param>
+        /// <param name="path">이미지 로컬 경로</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool InsertProd(ProductVO product, string startCode, string path)
         {
-            byte[] imageByte;
-
-            // 1. FileSteam을 이용한 이미지 직렬화
-            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            // 이미지 포함 유무 체크
+            if (!string.IsNullOrWhiteSpace(path))
             {
-                BinaryReader br = new BinaryReader(fs);
-                imageByte = br.ReadBytes((int)fs.Length);
+                byte[] imageByte;
+
+                using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    BinaryReader br = new BinaryReader(fs);
+                    imageByte = br.ReadBytes((int)fs.Length);
+                }
+
+                string[] temp = path.Split('\\');
+                string fileName = temp[temp.Length - 1];
+
+                try
+                {
+                    ReqPost(fileName, imageByte);
+                    product.Image = 1;
+                }
+                catch (Exception err)
+                {
+                    throw new Exception(err.Message);
+                }
             }
 
-            ReqPost(fileName, imageByte);
+            ProductDAC dac = new ProductDAC();
+            bool result = dac.InsertProd(product, startCode);
+            dac.Dispose();
+            return result;
         }
 
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 이미지 데이터를 웹 서버에 저장하기 위한 메서드
+        /// Body에 JSON 데이터를 넣어 Post 요청
+        /// </summary>
+        /// <param name="fileName">저장될 파일명</param>
+        /// <param name="imageByte">이미지 Byte 데이터</param>
         void ReqPost(string fileName, byte[] imageByte)
-        {
-            string url = "http://127.0.0.1:5000/saveImg";  //테스트 사이트            
+        {                       
+            string url = "http://127.0.0.1:5000/saveImg";
             string responseText = string.Empty;
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
             webRequest.Method = "POST";
@@ -47,7 +84,6 @@ namespace BikeProd
 
             // json을 string type으로 입력해준다.
             string postData = "{\"img\":" + $"\"{string.Join("-", imageData)}\"" + ", \"fileName\" :" + $"\"{fileName}\"" + " }";
-            //string postData = "{\"img\":" + $"\"{string.Join("-", imageData)}\"" + "}";
 
             // 보낼 데이터를 byteArray로 바꿔준다.
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);

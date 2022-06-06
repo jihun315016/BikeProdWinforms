@@ -56,6 +56,8 @@
             this.ccTxtPartName = new BikeProd.ccTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ccTxtLeadTime = new BikeProd.ccTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SaveProduct.SuspendLayout();
@@ -81,6 +83,8 @@
             // 
             // SaveProduct
             // 
+            this.SaveProduct.Controls.Add(this.label8);
+            this.SaveProduct.Controls.Add(this.ccTxtLeadTime);
             this.SaveProduct.Controls.Add(this.btnProdCancel);
             this.SaveProduct.Controls.Add(this.btnSaveProd);
             this.SaveProduct.Controls.Add(this.btnUploadProdImg);
@@ -101,7 +105,7 @@
             // 
             // btnProdCancel
             // 
-            this.btnProdCancel.Location = new System.Drawing.Point(325, 140);
+            this.btnProdCancel.Location = new System.Drawing.Point(328, 140);
             this.btnProdCancel.Name = "btnProdCancel";
             this.btnProdCancel.Size = new System.Drawing.Size(53, 23);
             this.btnProdCancel.TabIndex = 9;
@@ -110,7 +114,7 @@
             // 
             // btnSaveProd
             // 
-            this.btnSaveProd.Location = new System.Drawing.Point(266, 140);
+            this.btnSaveProd.Location = new System.Drawing.Point(269, 140);
             this.btnSaveProd.Name = "btnSaveProd";
             this.btnSaveProd.Size = new System.Drawing.Size(53, 23);
             this.btnSaveProd.TabIndex = 8;
@@ -132,7 +136,7 @@
             // 
             this.ccTxtProdPrice.isNumeric = true;
             this.ccTxtProdPrice.isRequired = true;
-            this.ccTxtProdPrice.Location = new System.Drawing.Point(207, 111);
+            this.ccTxtProdPrice.Location = new System.Drawing.Point(210, 111);
             this.ccTxtProdPrice.Name = "ccTxtProdPrice";
             this.ccTxtProdPrice.PlaceHolder = null;
             this.ccTxtProdPrice.Size = new System.Drawing.Size(171, 23);
@@ -152,18 +156,18 @@
             // 
             this.cmbProdCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProdCategory.FormattingEnabled = true;
-            this.cmbProdCategory.Location = new System.Drawing.Point(207, 77);
+            this.cmbProdCategory.Location = new System.Drawing.Point(303, 40);
             this.cmbProdCategory.Name = "cmbProdCategory";
-            this.cmbProdCategory.Size = new System.Drawing.Size(171, 23);
+            this.cmbProdCategory.Size = new System.Drawing.Size(78, 23);
             this.cmbProdCategory.TabIndex = 4;
             // 
             // cmbIsFinished
             // 
             this.cmbIsFinished.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIsFinished.FormattingEnabled = true;
-            this.cmbIsFinished.Location = new System.Drawing.Point(207, 40);
+            this.cmbIsFinished.Location = new System.Drawing.Point(210, 40);
             this.cmbIsFinished.Name = "cmbIsFinished";
-            this.cmbIsFinished.Size = new System.Drawing.Size(171, 23);
+            this.cmbIsFinished.Size = new System.Drawing.Size(78, 23);
             this.cmbIsFinished.TabIndex = 3;
             // 
             // ccTxtProdName
@@ -171,7 +175,7 @@
             this.ccTxtProdName.ForeColor = System.Drawing.Color.Gray;
             this.ccTxtProdName.isNumeric = false;
             this.ccTxtProdName.isRequired = true;
-            this.ccTxtProdName.Location = new System.Drawing.Point(207, 6);
+            this.ccTxtProdName.Location = new System.Drawing.Point(210, 6);
             this.ccTxtProdName.Name = "ccTxtProdName";
             this.ccTxtProdName.PlaceHolder = null;
             this.ccTxtProdName.Size = new System.Drawing.Size(171, 23);
@@ -224,7 +228,7 @@
             // 
             this.ccTxtUnit.isNumeric = false;
             this.ccTxtUnit.isRequired = false;
-            this.ccTxtUnit.Location = new System.Drawing.Point(328, 111);
+            this.ccTxtUnit.Location = new System.Drawing.Point(331, 111);
             this.ccTxtUnit.Name = "ccTxtUnit";
             this.ccTxtUnit.PlaceHolder = null;
             this.ccTxtUnit.Size = new System.Drawing.Size(50, 23);
@@ -232,7 +236,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(261, 111);
+            this.label7.Location = new System.Drawing.Point(264, 111);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 20);
             this.label7.TabIndex = 24;
@@ -243,7 +247,7 @@
             // 
             this.ccTxtPartPrice.isNumeric = false;
             this.ccTxtPartPrice.isRequired = false;
-            this.ccTxtPartPrice.Location = new System.Drawing.Point(207, 40);
+            this.ccTxtPartPrice.Location = new System.Drawing.Point(210, 40);
             this.ccTxtPartPrice.Name = "ccTxtPartPrice";
             this.ccTxtPartPrice.PlaceHolder = null;
             this.ccTxtPartPrice.Size = new System.Drawing.Size(90, 23);
@@ -263,7 +267,7 @@
             this.ccTxtClient.ForeColor = System.Drawing.Color.Gray;
             this.ccTxtClient.isNumeric = false;
             this.ccTxtClient.isRequired = false;
-            this.ccTxtClient.Location = new System.Drawing.Point(207, 77);
+            this.ccTxtClient.Location = new System.Drawing.Point(210, 77);
             this.ccTxtClient.Name = "ccTxtClient";
             this.ccTxtClient.PlaceHolder = null;
             this.ccTxtClient.Size = new System.Drawing.Size(171, 23);
@@ -280,7 +284,7 @@
             // 
             // btnPartCancel
             // 
-            this.btnPartCancel.Location = new System.Drawing.Point(325, 140);
+            this.btnPartCancel.Location = new System.Drawing.Point(328, 140);
             this.btnPartCancel.Name = "btnPartCancel";
             this.btnPartCancel.Size = new System.Drawing.Size(53, 23);
             this.btnPartCancel.TabIndex = 19;
@@ -289,7 +293,7 @@
             // 
             // btnSavePart
             // 
-            this.btnSavePart.Location = new System.Drawing.Point(266, 140);
+            this.btnSavePart.Location = new System.Drawing.Point(269, 140);
             this.btnSavePart.Name = "btnSavePart";
             this.btnSavePart.Size = new System.Drawing.Size(53, 23);
             this.btnSavePart.TabIndex = 18;
@@ -309,7 +313,7 @@
             // 
             this.ccTxtSafeInv.isNumeric = false;
             this.ccTxtSafeInv.isRequired = false;
-            this.ccTxtSafeInv.Location = new System.Drawing.Point(207, 111);
+            this.ccTxtSafeInv.Location = new System.Drawing.Point(210, 111);
             this.ccTxtSafeInv.Name = "ccTxtSafeInv";
             this.ccTxtSafeInv.PlaceHolder = null;
             this.ccTxtSafeInv.Size = new System.Drawing.Size(50, 23);
@@ -328,7 +332,7 @@
             // 
             this.cmbPartCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPartCategory.FormattingEnabled = true;
-            this.cmbPartCategory.Location = new System.Drawing.Point(303, 40);
+            this.cmbPartCategory.Location = new System.Drawing.Point(306, 40);
             this.cmbPartCategory.Name = "cmbPartCategory";
             this.cmbPartCategory.Size = new System.Drawing.Size(75, 23);
             this.cmbPartCategory.TabIndex = 13;
@@ -338,7 +342,7 @@
             this.ccTxtPartName.ForeColor = System.Drawing.Color.Gray;
             this.ccTxtPartName.isNumeric = false;
             this.ccTxtPartName.isRequired = false;
-            this.ccTxtPartName.Location = new System.Drawing.Point(207, 6);
+            this.ccTxtPartName.Location = new System.Drawing.Point(210, 6);
             this.ccTxtPartName.Name = "ccTxtPartName";
             this.ccTxtPartName.PlaceHolder = null;
             this.ccTxtPartName.Size = new System.Drawing.Size(171, 23);
@@ -360,6 +364,26 @@
             this.pictureBox2.Size = new System.Drawing.Size(128, 128);
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
+            // 
+            // ccTxtLeadTime
+            // 
+            this.ccTxtLeadTime.isNumeric = true;
+            this.ccTxtLeadTime.isRequired = true;
+            this.ccTxtLeadTime.Location = new System.Drawing.Point(210, 77);
+            this.ccTxtLeadTime.Name = "ccTxtLeadTime";
+            this.ccTxtLeadTime.PlaceHolder = null;
+            this.ccTxtLeadTime.Size = new System.Drawing.Size(171, 23);
+            this.ccTxtLeadTime.TabIndex = 10;
+            this.ccTxtLeadTime.Tag = "제품 가격";
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(140, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 20);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Lead Time";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // popSaveModel
             // 
@@ -413,5 +437,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private ccTextBox ccTxtUnit;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private ccTextBox ccTxtLeadTime;
     }
 }

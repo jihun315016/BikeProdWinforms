@@ -121,6 +121,7 @@
     <Compile Include="Utility\ComboBoxUtil.cs" />
     <Compile Include="Utility\DataGridViewUtil.cs" />
     <Compile Include="Utility\TextBoxUtil.cs" />
+    <Compile Include="Utility\WebRequestUtil.cs" />
     <EmbeddedResource Include="BaseForm\baseCommon.resx">
       <DependentUpon>baseCommon.cs</DependentUpon>
     </EmbeddedResource>

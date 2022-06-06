@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -86,6 +87,7 @@ namespace BikeProd
                 {
                     MessageBox.Show("제품이 등록되었습니다.");
                     category.LastNum++;
+                    InputClear();
                 }
                 else
                 {
@@ -95,8 +97,17 @@ namespace BikeProd
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.StackTrace);
-                MessageBox.Show(err.Message);
+                string url = "http://127.0.0.1:5000/logging";
+
+                Regex engRegex = new Regex(@"[a-zA-Z]");
+                StringBuilder sb = new StringBuilder();
+                foreach (char c in err.StackTrace)
+                {
+                    if (char.IsDigit(c) || engRegex.IsMatch(c.ToString()) || 
+                        char.GetUnicodeCategory(c) == System.Globalization.UnicodeCategory.OtherLetter || c == ' ')                    
+                        sb.Append(c);                    
+                }
+                WebRequestUtil.WriteErrLog(url, err.Message, sb.ToString());
             }           
         }
         
@@ -113,6 +124,12 @@ namespace BikeProd
             }
 
             pictureBox1.Image = Image.FromFile(path);
+        }
+
+        void InputClear()
+        {
+            ccTxtProdName.Text = ccTxtProdPrice.Text = ccTxtLeadTime.Text = String.Empty;
+            cmbIsFinished.SelectedIndex = cmbProdCategory.SelectedIndex = 0;
         }
     }
 }

@@ -32,3 +32,4 @@ C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd.
 C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd.VO\obj\Debug\BikeProd.VO.dll
 C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd.VO\obj\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.AssemblyReference.cache

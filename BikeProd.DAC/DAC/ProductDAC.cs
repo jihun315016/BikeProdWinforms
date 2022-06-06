@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BikeProd.DAC
 {
-    public class LoginDAC : IDisposable
+    public class ProductDAC : IDisposable
     {
         SqlConnection conn;
 
-        public LoginDAC()
+        public ProductDAC()
         {
             string connStr = ConfigurationManager.ConnectionStrings["bike"].ConnectionString;
             conn = new SqlConnection(connStr);
@@ -28,17 +27,22 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
-        /// 입력 받은 직원 권한에 맞는 메뉴 조회
+        /// 제품과 부품에 대한 카테고리 목록 조회
+        /// 조회된 데이터는 제품 / 부품 등록 팝업에서 데이터 초기화에 사용된다.
         /// </summary>
-        /// <param name="empNo">직원 번호</param>
-        /// <returns>직원이 사용할 수 있는 메뉴 리스트</returns>
-        public List<MenuVO> GetMenuList(int empNo)
+        /// <returns>조회된 카테고리 리스트</returns>
+        public List<CommonCodeVO> GetCategory()
         {
-            SqlCommand cmd = new SqlCommand("SP_GetMenuList", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@empNo", empNo);
+            string sql = "SP_GetModelCategoryInfo";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader reader = cmd.ExecuteReader();
-            return DBConverter.DataReaderToList<MenuVO>(reader);
+            return DBConverter.DataReaderToList<CommonCodeVO>(reader);
+        }
+
+        public void SaveProductOrPart()
+        {
+
         }
     }
 }

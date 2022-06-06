@@ -32,8 +32,7 @@ namespace BikeProd
 
             if (sb.Length > 0)            
                 sb.Append($"{Environment.NewLine}필수 입력입니다.");
-
-            return sb.ToString();            
+            return sb.ToString();
         }
     }
 }

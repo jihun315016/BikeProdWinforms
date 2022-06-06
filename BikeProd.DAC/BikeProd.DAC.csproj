@@ -45,6 +45,7 @@
     <Compile Include="DAC\DepartmentDAC.cs" />
     <Compile Include="DAC\EmployeeDAC.cs" />
     <Compile Include="DAC\LoginDAC.cs" />
+    <Compile Include="DAC\ProductDAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\DBConverter.cs" />
   </ItemGroup>

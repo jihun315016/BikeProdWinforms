@@ -17,7 +17,7 @@ namespace BikeProd
     {        
         List<bool> pos; // ucFormController가 위치할 인덱스 번호
 
-        LoginService ls;
+        LoginService loginService;
         List<MenuVO> menuList;
         TreeView menuTree;
 
@@ -36,8 +36,8 @@ namespace BikeProd
         {
             base.IsNotVisibleLabel();            
 
-            ls = new LoginService();
-            menuList = ls.GetMenuList(10001); // 직원에 대해 권한 있는 메뉴 리스트 Get
+            loginService = new LoginService();
+            menuList = loginService.GetMenuList(10001); // 직원에 대해 권한 있는 메뉴 리스트 Get
 
             // 최상위 메뉴 버튼 초기화
             var list = menuList.FindAll(m => string.IsNullOrWhiteSpace(m.FrmName));
@@ -108,7 +108,14 @@ namespace BikeProd
 
         private void MenuTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            OpenCreateForm(e.Node.Tag.ToString());            
+            try
+            {
+                OpenCreateForm(e.Node.Tag.ToString());            
+            }
+            catch
+            {
+                MessageBox.Show("중비중입니다.");
+            }
         }
 
         /// <summary>

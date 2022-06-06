@@ -168,3 +168,5 @@ C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\
 C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
 C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.exe
 C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.pdb
+C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.frmProduct.resources
+C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources

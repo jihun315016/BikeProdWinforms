@@ -35,7 +35,7 @@
             // DescriptLabel1
             // 
             this.DescriptLabel1.AutoSize = true;
-            this.DescriptLabel1.Location = new System.Drawing.Point(3, 11);
+            this.DescriptLabel1.Location = new System.Drawing.Point(3, 0);
             this.DescriptLabel1.Name = "DescriptLabel1";
             this.DescriptLabel1.Size = new System.Drawing.Size(153, 15);
             this.DescriptLabel1.TabIndex = 5;
@@ -44,7 +44,7 @@
             // DescriptLabel2
             // 
             this.DescriptLabel2.AutoSize = true;
-            this.DescriptLabel2.Location = new System.Drawing.Point(179, 13);
+            this.DescriptLabel2.Location = new System.Drawing.Point(179, 2);
             this.DescriptLabel2.Name = "DescriptLabel2";
             this.DescriptLabel2.Size = new System.Drawing.Size(153, 15);
             this.DescriptLabel2.TabIndex = 7;

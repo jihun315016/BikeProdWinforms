@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BikeProd.DAC
 {
-    public class ProductDAC : IDisposable
+    public class MedelDAC : IDisposable
     {
         SqlConnection conn;
 
-        public ProductDAC()
+        public MedelDAC()
         {
             string connStr = ConfigurationManager.ConnectionStrings["bike"].ConnectionString;
             conn = new SqlConnection(connStr);

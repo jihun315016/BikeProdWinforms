@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SaveProduct = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ccTxtLeadTime = new BikeProd.ccTextBox();
             this.btnProdCancel = new System.Windows.Forms.Button();
             this.btnSaveProd = new System.Windows.Forms.Button();
             this.btnUploadProdImg = new System.Windows.Forms.Button();
@@ -56,8 +58,6 @@
             this.ccTxtPartName = new BikeProd.ccTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ccTxtLeadTime = new BikeProd.ccTextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SaveProduct.SuspendLayout();
@@ -102,6 +102,26 @@
             this.SaveProduct.TabIndex = 0;
             this.SaveProduct.Text = "제품 등록";
             this.SaveProduct.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(140, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 20);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Lead Time";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ccTxtLeadTime
+            // 
+            this.ccTxtLeadTime.isNumeric = true;
+            this.ccTxtLeadTime.isRequired = true;
+            this.ccTxtLeadTime.Location = new System.Drawing.Point(210, 77);
+            this.ccTxtLeadTime.Name = "ccTxtLeadTime";
+            this.ccTxtLeadTime.PlaceHolder = null;
+            this.ccTxtLeadTime.Size = new System.Drawing.Size(171, 23);
+            this.ccTxtLeadTime.TabIndex = 10;
+            this.ccTxtLeadTime.Tag = "제품 가격";
             // 
             // btnProdCancel
             // 
@@ -272,6 +292,7 @@
             this.ccTxtClient.PlaceHolder = null;
             this.ccTxtClient.Size = new System.Drawing.Size(171, 23);
             this.ccTxtClient.TabIndex = 21;
+            this.ccTxtClient.Click += new System.EventHandler(this.ccTxtClient_Click);
             // 
             // label5
             // 
@@ -364,26 +385,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(128, 128);
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
-            // 
-            // ccTxtLeadTime
-            // 
-            this.ccTxtLeadTime.isNumeric = true;
-            this.ccTxtLeadTime.isRequired = true;
-            this.ccTxtLeadTime.Location = new System.Drawing.Point(210, 77);
-            this.ccTxtLeadTime.Name = "ccTxtLeadTime";
-            this.ccTxtLeadTime.PlaceHolder = null;
-            this.ccTxtLeadTime.Size = new System.Drawing.Size(171, 23);
-            this.ccTxtLeadTime.TabIndex = 10;
-            this.ccTxtLeadTime.Tag = "제품 가격";
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(140, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 20);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Lead Time";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // popSaveModel
             // 

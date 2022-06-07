@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace BikeProd
 {
-    public class ProductService
+    public class ModelService
     {
         public List<CommonCodeVO> GetCategory()
         {
-            ProductDAC dac = new ProductDAC();
+            MedelDAC dac = new MedelDAC();
             List<CommonCodeVO> list = dac.GetCategory();
             dac.Dispose();
             return list;
@@ -58,7 +58,7 @@ namespace BikeProd
                 }
             }
 
-            ProductDAC dac = new ProductDAC();
+            MedelDAC dac = new MedelDAC();
             bool result = dac.InsertProd(product, startCode);
             dac.Dispose();
             return result;

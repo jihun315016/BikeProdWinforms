@@ -129,7 +129,7 @@
     <Compile Include="Service\DepartmentService.cs" />
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\LoginService.cs" />
-    <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\ModelService.cs" />
     <Compile Include="Service\PurchaseService.cs" />
     <Compile Include="Utility\ComboBoxUtil.cs" />
     <Compile Include="Utility\DataGridViewUtil.cs" />

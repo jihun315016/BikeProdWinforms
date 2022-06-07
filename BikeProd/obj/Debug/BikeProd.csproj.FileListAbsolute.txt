@@ -1,200 +1,28 @@
-C:\Users\admin\source\repos\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\source\repos\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\source\repos\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\source\repos\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmHighest.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\admin\Desktop\bike\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.Form1.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.Form2.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.Form3.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.Form4.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Form1.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Form2.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Form3.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Form4.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\admin\Desktop\BikeProd\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\1차 팀플\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.bFrmPopCommon.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\admin\Desktop\1차 프로젝트 SVN\강지훈\BikeProd-master\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.frmProduct.resources
-C:\Users\admin\Desktop\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmDepartment.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmProduct.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.popSavePurchase.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.bPopCommon.resources
-C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmLogin.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.exe.config
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.exe
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.pdb
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.DAC.dll
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.DAC.pdb
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.baseCommon.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.bFrmList.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.bPopCommon.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.ucFormController.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmDepartment.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmLogin.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmMenu.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmProduct.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.popSavePurchase.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.exe
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.pdb
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache

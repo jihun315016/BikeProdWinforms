@@ -14,7 +14,7 @@ namespace BikeProd
 {
     public partial class popSaveModel : bPopCommon
     {
-        ProductService prodService;
+        ModelService modelService;
         List<CommonCodeVO> categoryList;
 
         // 이미지 경로
@@ -31,21 +31,16 @@ namespace BikeProd
 
         private void popSaveModel_Load(object sender, EventArgs e)
         {
-            cmbIsFinished.Items.AddRange(new string[] { "분류", "완제품", "반제품" });
-            cmbIsFinished.SelectedIndex = 0;
-
-            prodService = new ProductService();
-            categoryList = prodService.GetCategory();            
+            modelService = new ModelService();
+            categoryList = modelService.GetCategory();
             categoryList.Insert(0, new CommonCodeVO()
             {
                 Name = "품목",
                 Code = String.Empty
             });
 
-            var list = categoryList.FindAll(c => c.Category == "제품" || string.IsNullOrWhiteSpace(c.Category));
-            ComboBoxUtil.SetComboBoxByList(cmbProdCategory, list, "Name", "Code");
-            list = categoryList.FindAll(c => c.Category == "부품" || string.IsNullOrWhiteSpace(c.Category));
-            ComboBoxUtil.SetComboBoxByList(cmbPartCategory, list, "Name", "Code");
+            InitProd();
+            InitPart();
         }
 
         private void btnSaveProd_Click(object sender, EventArgs e)
@@ -82,7 +77,7 @@ namespace BikeProd
 
             try
             {
-                bool result = prodService.InsertProd(product, cmbProdCategory.SelectedValue.ToString(), path);
+                bool result = modelService.InsertProd(product, cmbProdCategory.SelectedValue.ToString(), path);
                 if (result)
                 {
                     MessageBox.Show("제품이 등록되었습니다.");
@@ -124,6 +119,26 @@ namespace BikeProd
             }
 
             pictureBox1.Image = Image.FromFile(path);
+        }
+
+        private void ccTxtClient_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("??");
+        }
+
+        void InitProd()
+        {
+            cmbIsFinished.Items.AddRange(new string[] { "분류", "완제품", "반제품" });
+            cmbIsFinished.SelectedIndex = 0;            
+
+            var list = categoryList.FindAll(c => c.Category == "제품" || string.IsNullOrWhiteSpace(c.Category));
+            ComboBoxUtil.SetComboBoxByList(cmbProdCategory, list, "Name", "Code");
+        }
+
+        void InitPart()
+        {
+            var list = categoryList.FindAll(c => c.Category == "부품" || string.IsNullOrWhiteSpace(c.Category));
+            ComboBoxUtil.SetComboBoxByList(cmbPartCategory, list, "Name", "Code");
         }
 
         void InputClear()

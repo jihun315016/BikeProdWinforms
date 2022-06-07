@@ -88,11 +88,17 @@
     <Compile Include="Forms\frmDepartment.Designer.cs">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmEmployee.cs">
+    <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmEmployee.Designer.cs">
-      <DependentUpon>frmEmployee.cs</DependentUpon>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPurchase.Designer.cs">
+      <DependentUpon>frmPurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMenu.cs">
       <SubType>Form</SubType>
@@ -106,11 +112,17 @@
     <Compile Include="Forms\frmProduct.Designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="popSaveModel.cs">
+    <Compile Include="Popup\popSaveModel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popSaveModel.Designer.cs">
+    <Compile Include="Popup\popSaveModel.Designer.cs">
       <DependentUpon>popSaveModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popSavePurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popSavePurchase.Designer.cs">
+      <DependentUpon>popSavePurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +130,7 @@
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\PurchaseService.cs" />
     <Compile Include="Utility\ComboBoxUtil.cs" />
     <Compile Include="Utility\DataGridViewUtil.cs" />
     <Compile Include="Utility\TextBoxUtil.cs" />
@@ -140,14 +153,26 @@
     <EmbeddedResource Include="Control\ucFormController.resx">
       <DependentUpon>ucFormController.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDepartment.resx">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPurchase.resx">
+      <DependentUpon>frmPurchase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popSaveModel.resx">
+    <EmbeddedResource Include="Popup\popSaveModel.resx">
       <DependentUpon>popSaveModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popSavePurchase.resx">
+      <DependentUpon>popSavePurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -171,9 +196,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Popup\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BikeProd.DAC\BikeProd.DAC.csproj">
       <Project>{ffa761dc-f4dd-489b-951e-163939eb5f19}</Project>

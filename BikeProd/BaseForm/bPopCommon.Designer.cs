@@ -1,6 +1,6 @@
 ﻿namespace BikeProd
 {
-    partial class bFrmPopCommon
+    partial class bPopCommon
     {
         /// <summary>
         /// Required designer variable.

@@ -40,5 +40,94 @@ namespace BikeProd.DAC
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<MenuVO>(reader);
         }
+
+        /// <summary>
+        /// 로그인시 사원 정보 체크
+        /// </summary>
+        /// <param name="empNo"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public int GetLoginInfo(int empNo, string pwd)
+        {
+            string sql = @"select count(EmpNo) 
+                           from TB_Employees where EmpNo = @EmpNo 
+                           and Pwd = @Pwd and ToDate is null";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@EmpNo", empNo);
+            cmd.Parameters.AddWithValue("@Pwd", pwd);
+
+            return Convert.ToInt32(cmd.ExecuteScalar());
+
+        }
+
+
+        /// <summary>
+        /// 사번과 이름으로 해당 사원 조회
+        /// </summary>
+        /// <param name="EmpNo"></param>
+        /// <param name="EmpName"></param>
+        /// <returns></returns>
+        public EmployeeVO GetEmployeeInfo(int EmpNo, string EmpName) // string Email
+        {
+            //string sql = @"select EmpNo, EmpName, Email, Pwd, ToDate
+            //                from TB_Employees
+            //                where EmpNo = @EmpNo and EmpName = @EmpName and Email = @Email";
+
+            string sql = @"select EmpNo, EmpName, Email, Pwd, ToDate
+                            from TB_Employees
+                            where EmpNo = @EmpNo and EmpName = @EmpName";
+
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@EmpNo", EmpNo);
+                cmd.Parameters.AddWithValue("@EmpName", EmpName);
+                //cmd.Parameters.AddWithValue("@Email", Email);
+
+                List<EmployeeVO> list = DBConverter.DataReaderToList<EmployeeVO>(cmd.ExecuteReader());
+
+                if (list != null && list.Count > 0)
+                    return list[0];
+                else
+                    return null;
+            }
+        }
+
+
+        /// <summary>
+        /// 신규 비밀번호 업데이트
+        /// </summary>
+        /// <param name="empNo"></param>
+        /// <param name="newPwd"></param>
+        /// <returns></returns>
+        public bool ChangePassword(int empNo, string newPwd)
+        {
+            string sql = @"UPDATE TB_Employees 
+                           SET Pwd = @Pwd 
+                           WHERE EmpNo = @EmpNo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
+            cmd.Parameters.AddWithValue("@PASSWORD", newPwd);
+
+            int iRow;
+
+            try
+            {
+                iRow = cmd.ExecuteNonQuery();
+
+                if (iRow > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception err)
+            {
+                //Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
     }
 }

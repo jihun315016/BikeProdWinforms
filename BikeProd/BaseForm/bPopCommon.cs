@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BikeProd
 {
-    public partial class bFrmPopCommon : baseCommon
+    public partial class bPopCommon : baseCommon
     {
-        public bFrmPopCommon()
+        public bPopCommon()
         {
             InitializeComponent();
             IsNotVisibleLabel();

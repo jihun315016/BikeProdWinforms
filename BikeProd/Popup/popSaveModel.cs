@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace BikeProd
 {
-    public partial class popSaveModel : bFrmPopCommon
+    public partial class popSaveModel : bPopCommon
     {
         ProductService prodService;
         List<CommonCodeVO> categoryList;

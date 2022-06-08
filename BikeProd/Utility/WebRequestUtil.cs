@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BikeProd
@@ -32,8 +33,14 @@ namespace BikeProd
             ReqPost(postData, webRequest);
         }
 
-
-        public static void WriteErrLog(string url, string msg, string stack)
+        /// <summary>
+        /// Author : 강지훈
+        /// 웹 서버에 에러 로그 등록
+        /// </summary>
+        /// <param name="url">로그 경로</param>
+        /// <param name="msg">에러 메세지</param>
+        /// <param name="stackTrace">에러 Strack Trace</param>
+        public static void WriteErrLog(string url, string msg, string stackTrace)
         {
             string responseText = string.Empty;
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -41,9 +48,17 @@ namespace BikeProd
             webRequest.Timeout = 30 * 1000;
             webRequest.ContentType = "application/json; charset=utf-8";
 
-            string postData = "{\"msg\":" + $"\"{msg}\"" + ", \"stack\" :" + $"\"{stack}\"" + " }";
+            Regex engRegex = new Regex(@"[a-zA-Z]");
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in stackTrace)
+            {
+                if (char.IsDigit(c) || engRegex.IsMatch(c.ToString()) ||
+                    char.GetUnicodeCategory(c) == System.Globalization.UnicodeCategory.OtherLetter || c == ' ')
+                    sb.Append(c);
+            }
 
-            Console.WriteLine(postData);
+            string postData = "{\"msg\":" + $"\"{msg}\"" + ", \"stack\" :" + $"\"{sb.ToString()}\"" + " }";
+
             ReqPost(postData, webRequest);
         }
 
@@ -81,47 +96,6 @@ namespace BikeProd
                     responseText = streamReader.ReadToEnd();
                 }
             }
-            Console.WriteLine(responseText);
-        }
-
-        public static void test()
-        {
-            string url = "http://127.0.0.1:5000/logging";
-            string responseText = string.Empty;
-
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
-            webRequest.Method = "POST";
-            webRequest.Timeout = 30 * 1000; // 30초
-                                            // ContentType은 지정된 것이 있으면 그것을 사용해준다.
-            webRequest.ContentType = "application/json; charset=utf-8";
-
-            // json을 string type으로 입력해준다.
-            string postData = "{\"msg\":[{\"name\":\"abc\",\"id\":[\"efg\"]}]}";
-            // 보낼 데이터를 byteArray로 바꿔준다.
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-
-            // 요청 Data를 쓰는 데 사용할 Stream 개체를 가져온다.
-            Stream dataStream = webRequest.GetRequestStream();
-            // Data를 전송한다.
-            dataStream.Write(byteArray, 0, byteArray.Length);
-            // dataStream 개체 닫기
-            dataStream.Close();
-
-            // 응답 받기
-            using (HttpWebResponse resp = (HttpWebResponse)webRequest.GetResponse())
-            {
-                HttpStatusCode status = resp.StatusCode;
-                Console.WriteLine(status);      // status 가 정상일경우 OK가 입력된다.
-
-                // 응답과 관련된 stream을 가져온다.
-                Stream respStream = resp.GetResponseStream();
-                using (StreamReader streamReader = new StreamReader(respStream))
-                {
-                    responseText = streamReader.ReadToEnd();
-                }
-            }
-
-            Console.WriteLine(responseText);
-        }
+        }        
     }
 }

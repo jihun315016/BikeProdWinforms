@@ -125,7 +125,7 @@
         protected System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label DescriptLabel3;
         private System.Windows.Forms.Label DescriptLabel4;
-        private System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
     }
 }

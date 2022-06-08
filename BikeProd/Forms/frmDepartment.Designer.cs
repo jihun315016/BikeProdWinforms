@@ -39,7 +39,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeptDelete = new System.Windows.Forms.Button();
-            this.btnDeptUpdate = new System.Windows.Forms.Button();
             this.btnDeptInsert = new System.Windows.Forms.Button();
             this.txtDeptAuth = new System.Windows.Forms.TextBox();
             this.txtDeptName = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@
             this.cboDept = new System.Windows.Forms.ComboBox();
             this.btnTeamDelete = new System.Windows.Forms.Button();
             this.btnTeamInsert = new System.Windows.Forms.Button();
-            this.btnTeamUpdate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTeamName = new System.Windows.Forms.TextBox();
@@ -95,8 +93,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer2.Size = new System.Drawing.Size(1164, 533);
-            this.splitContainer2.SplitterDistance = 773;
-            this.splitContainer2.SplitterWidth = 4;
+            this.splitContainer2.SplitterDistance = 793;
             // 
             // dgvDept
             // 
@@ -197,7 +194,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnDeptDelete);
-            this.groupBox1.Controls.Add(this.btnDeptUpdate);
             this.groupBox1.Controls.Add(this.btnDeptInsert);
             this.groupBox1.Controls.Add(this.txtDeptAuth);
             this.groupBox1.Controls.Add(this.txtDeptName);
@@ -221,20 +217,10 @@
             this.btnDeptDelete.Text = "삭제";
             this.btnDeptDelete.UseVisualStyleBackColor = true;
             // 
-            // btnDeptUpdate
-            // 
-            this.btnDeptUpdate.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDeptUpdate.Location = new System.Drawing.Point(140, 159);
-            this.btnDeptUpdate.Name = "btnDeptUpdate";
-            this.btnDeptUpdate.Size = new System.Drawing.Size(72, 28);
-            this.btnDeptUpdate.TabIndex = 5;
-            this.btnDeptUpdate.Text = "수정";
-            this.btnDeptUpdate.UseVisualStyleBackColor = true;
-            // 
             // btnDeptInsert
             // 
             this.btnDeptInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDeptInsert.Location = new System.Drawing.Point(62, 159);
+            this.btnDeptInsert.Location = new System.Drawing.Point(140, 159);
             this.btnDeptInsert.Name = "btnDeptInsert";
             this.btnDeptInsert.Size = new System.Drawing.Size(72, 28);
             this.btnDeptInsert.TabIndex = 4;
@@ -283,7 +269,6 @@
             this.groupBox2.Controls.Add(this.cboDept);
             this.groupBox2.Controls.Add(this.btnTeamDelete);
             this.groupBox2.Controls.Add(this.btnTeamInsert);
-            this.groupBox2.Controls.Add(this.btnTeamUpdate);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtTeamName);
@@ -317,22 +302,13 @@
             // btnTeamInsert
             // 
             this.btnTeamInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnTeamInsert.Location = new System.Drawing.Point(62, 156);
+            this.btnTeamInsert.Location = new System.Drawing.Point(140, 156);
             this.btnTeamInsert.Name = "btnTeamInsert";
             this.btnTeamInsert.Size = new System.Drawing.Size(72, 28);
             this.btnTeamInsert.TabIndex = 11;
             this.btnTeamInsert.Text = "등록";
             this.btnTeamInsert.UseVisualStyleBackColor = true;
-            // 
-            // btnTeamUpdate
-            // 
-            this.btnTeamUpdate.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnTeamUpdate.Location = new System.Drawing.Point(140, 156);
-            this.btnTeamUpdate.Name = "btnTeamUpdate";
-            this.btnTeamUpdate.Size = new System.Drawing.Size(72, 28);
-            this.btnTeamUpdate.TabIndex = 12;
-            this.btnTeamUpdate.Text = "수정";
-            this.btnTeamUpdate.UseVisualStyleBackColor = true;
+            this.btnTeamInsert.Click += new System.EventHandler(this.btnTeamInsert_Click);
             // 
             // label7
             // 
@@ -362,13 +338,13 @@
             this.txtTeamName.Size = new System.Drawing.Size(159, 25);
             this.txtTeamName.TabIndex = 10;
             // 
-            // frmDeptMain
+            // frmDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 601);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "frmDeptMain";
+            this.Name = "frmDepartment";
             this.Text = "frmDeptMain";
             this.Load += new System.EventHandler(this.frmDeptMain_Load);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -407,13 +383,11 @@
         private System.Windows.Forms.ComboBox cboDept;
         private System.Windows.Forms.Button btnTeamDelete;
         private System.Windows.Forms.Button btnTeamInsert;
-        private System.Windows.Forms.Button btnTeamUpdate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTeamName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDeptDelete;
-        private System.Windows.Forms.Button btnDeptUpdate;
         private System.Windows.Forms.Button btnDeptInsert;
         private System.Windows.Forms.TextBox txtDeptAuth;
         private System.Windows.Forms.TextBox txtDeptName;

@@ -43,23 +43,17 @@ namespace BikeProd
             InitPart();
         }
 
+        
+
         private void btnSaveProd_Click(object sender, EventArgs e)
         {
-            string textBoxMsg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtProdName, ccTxtLeadTime ,ccTxtProdPrice });
-            if (textBoxMsg.Length > 0)
-            {
-                MessageBox.Show(textBoxMsg);
-                return;
-            }
+            bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtProdName, ccTxtLeadTime, ccTxtProdPrice }));
+            if (!isRequired) return;
 
-            if (cmbProdCategory.SelectedIndex == 0)
+            string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cmbProdCategory, cmbIsFinished });
+            if (comboBoxMsg.Length > 0)
             {
-                MessageBox.Show("품목을 입력해주세요.");
-                return;
-            }
-            else if (cmbIsFinished.SelectedIndex == 0)
-            {
-                MessageBox.Show("분류를 입력해주세요.");
+                MessageBox.Show(comboBoxMsg);
                 return;
             }
 
@@ -93,16 +87,8 @@ namespace BikeProd
             catch (Exception err)
             {
                 string url = "http://127.0.0.1:5000/logging";
-
-                Regex engRegex = new Regex(@"[a-zA-Z]");
-                StringBuilder sb = new StringBuilder();
-                foreach (char c in err.StackTrace)
-                {
-                    if (char.IsDigit(c) || engRegex.IsMatch(c.ToString()) || 
-                        char.GetUnicodeCategory(c) == System.Globalization.UnicodeCategory.OtherLetter || c == ' ')                    
-                        sb.Append(c);                    
-                }
-                WebRequestUtil.WriteErrLog(url, err.Message, sb.ToString());
+                
+                WebRequestUtil.WriteErrLog(url, err.Message, err.StackTrace);
             }           
         }
         
@@ -124,6 +110,36 @@ namespace BikeProd
         private void ccTxtClient_Click(object sender, EventArgs e)
         {
             MessageBox.Show("??");
+        }
+
+        private void btnSavePart_Click(object sender, EventArgs e)
+        {            
+            bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtPartName, ccTxtPartPrice, ccTxtClient, ccTxtSafeInv, ccTxtUnit }));
+            if (!isRequired) return;
+
+            string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cmbPartCategory });
+            if (comboBoxMsg.Length > 0)
+            {
+                MessageBox.Show(comboBoxMsg);
+                return;
+            }
+        }
+
+        bool IsRequiredTextBox(Func<string> func)
+        {
+            string textBoxMsg = func();
+            if (textBoxMsg.Length > 0)
+            {
+                MessageBox.Show(textBoxMsg);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         void InitProd()

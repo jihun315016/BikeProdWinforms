@@ -59,11 +59,19 @@
             // 
             this.panel1.Controls.Add(this.textBox7);
             this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.ccTextBox1);
             this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.txtClientID);
+            this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
@@ -72,7 +80,7 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.PurName);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Size = new System.Drawing.Size(607, 178);
+            this.panel1.Size = new System.Drawing.Size(607, 444);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtClient
@@ -213,7 +221,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(59, 233);
+            this.comboBox1.Location = new System.Drawing.Point(3, 176);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 26;
@@ -221,7 +229,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(186, 233);
+            this.comboBox2.Location = new System.Drawing.Point(141, 176);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 26;
@@ -229,7 +237,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(313, 233);
+            this.comboBox3.Location = new System.Drawing.Point(274, 176);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 23);
             this.comboBox3.TabIndex = 26;
@@ -238,7 +246,7 @@
             // 
             this.ccTextBox1.isNumeric = false;
             this.ccTextBox1.isRequired = false;
-            this.ccTextBox1.Location = new System.Drawing.Point(440, 233);
+            this.ccTextBox1.Location = new System.Drawing.Point(416, 176);
             this.ccTextBox1.Name = "ccTextBox1";
             this.ccTextBox1.PlaceHolder = null;
             this.ccTextBox1.Size = new System.Drawing.Size(100, 23);
@@ -246,7 +254,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(562, 233);
+            this.button1.Location = new System.Drawing.Point(529, 176);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 28;
@@ -256,15 +264,15 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 282);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 208);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(607, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(601, 201);
             this.dataGridView1.TabIndex = 29;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(481, 490);
+            this.button2.Location = new System.Drawing.Point(448, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 30;
@@ -274,7 +282,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(562, 490);
+            this.button3.Location = new System.Drawing.Point(529, 415);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 30;
@@ -285,29 +293,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 525);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.ccTextBox1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(675, 473);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "popSavePurchase";
             this.Text = "popAddBalJu";
-            this.Controls.SetChildIndex(this.DescriptLabel2, 0);
-            this.Controls.SetChildIndex(this.DescriptLabel1, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.comboBox1, 0);
-            this.Controls.SetChildIndex(this.comboBox2, 0);
-            this.Controls.SetChildIndex(this.comboBox3, 0);
-            this.Controls.SetChildIndex(this.ccTextBox1, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
-            this.Controls.SetChildIndex(this.button3, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

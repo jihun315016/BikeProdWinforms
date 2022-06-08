@@ -14,7 +14,7 @@ namespace BikeProd
         /// </summary>
         /// <param name="txts">검사할 ccTextBox 컨트롤 배열</param>
         /// <returns>
-        /// isRequired 처리된 ccTextBox가 모두 입력되었다면 빈 StringBuilder 리턴,
+        /// isRequired 처리된 ccTextBox가 모두 입력되었다면 빈 문자열 리턴,
         /// 입력되지 않은 게 있다면 해당 컨트롤의 태그 값을 담아 리턴
         /// </returns>
         public static string IsRequiredCheck(ccTextBox[] txts)

@@ -24,5 +24,29 @@ namespace BikeProd
             cmb.DisplayMember = displayMember;
             cmb.ValueMember = valueMember;
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 필수 선택이지만 선택되지 않은 ccTextBox 컨트롤을 알려준다.
+        /// </summary>
+        /// <param name="cmbs">검사할 ComboBox 컨트롤 배열</param>
+        /// <returns>
+        /// 파라미터로 입력된 ComboBox가 모두 선택되었다면 빈 문자열 리턴
+        /// 선택되지 않은 ComboBox가 있다면 해당 컨트롤의 Text 값을 담아 리턴
+        /// </returns>
+        public static string IsRequiredCheck(ComboBox[] cmbs)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (ComboBox cmb in cmbs)
+            {
+                if (cmb.SelectedIndex == 0)
+                    sb.Append($"[{cmb.Text}] ");
+            }
+
+            if (sb.Length > 0)
+                sb.Append($"{Environment.NewLine}필수 입력입니다.");
+            return sb.ToString();
+        }
     }
 }

@@ -127,5 +127,10 @@ namespace BikeProd
             //frmAuthRegPopUp pop = new frmAuthRegPopUp();
             //pop.ShowDialog();
         }
+
+        private void btnTeamInsert_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

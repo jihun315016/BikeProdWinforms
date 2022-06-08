@@ -131,6 +131,7 @@
             this.btnProdCancel.TabIndex = 9;
             this.btnProdCancel.Text = "취소";
             this.btnProdCancel.UseVisualStyleBackColor = true;
+            this.btnProdCancel.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSaveProd
             // 
@@ -246,13 +247,14 @@
             // 
             // ccTxtUnit
             // 
-            this.ccTxtUnit.isNumeric = false;
-            this.ccTxtUnit.isRequired = false;
+            this.ccTxtUnit.isNumeric = true;
+            this.ccTxtUnit.isRequired = true;
             this.ccTxtUnit.Location = new System.Drawing.Point(331, 111);
             this.ccTxtUnit.Name = "ccTxtUnit";
             this.ccTxtUnit.PlaceHolder = null;
             this.ccTxtUnit.Size = new System.Drawing.Size(50, 23);
             this.ccTxtUnit.TabIndex = 25;
+            this.ccTxtUnit.Tag = "발주 단위";
             // 
             // label7
             // 
@@ -265,13 +267,14 @@
             // 
             // ccTxtPartPrice
             // 
-            this.ccTxtPartPrice.isNumeric = false;
-            this.ccTxtPartPrice.isRequired = false;
+            this.ccTxtPartPrice.isNumeric = true;
+            this.ccTxtPartPrice.isRequired = true;
             this.ccTxtPartPrice.Location = new System.Drawing.Point(210, 40);
             this.ccTxtPartPrice.Name = "ccTxtPartPrice";
             this.ccTxtPartPrice.PlaceHolder = null;
             this.ccTxtPartPrice.Size = new System.Drawing.Size(90, 23);
             this.ccTxtPartPrice.TabIndex = 23;
+            this.ccTxtPartPrice.Tag = "가격";
             // 
             // label6
             // 
@@ -286,12 +289,14 @@
             // 
             this.ccTxtClient.ForeColor = System.Drawing.Color.Gray;
             this.ccTxtClient.isNumeric = false;
-            this.ccTxtClient.isRequired = false;
+            this.ccTxtClient.isRequired = true;
             this.ccTxtClient.Location = new System.Drawing.Point(210, 77);
             this.ccTxtClient.Name = "ccTxtClient";
             this.ccTxtClient.PlaceHolder = null;
             this.ccTxtClient.Size = new System.Drawing.Size(171, 23);
             this.ccTxtClient.TabIndex = 21;
+            this.ccTxtClient.Tag = "거래처";
+            this.ccTxtClient.Text = "dd";
             this.ccTxtClient.Click += new System.EventHandler(this.ccTxtClient_Click);
             // 
             // label5
@@ -311,6 +316,7 @@
             this.btnPartCancel.TabIndex = 19;
             this.btnPartCancel.Text = "취소";
             this.btnPartCancel.UseVisualStyleBackColor = true;
+            this.btnPartCancel.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSavePart
             // 
@@ -320,6 +326,7 @@
             this.btnSavePart.TabIndex = 18;
             this.btnSavePart.Text = "등록";
             this.btnSavePart.UseVisualStyleBackColor = true;
+            this.btnSavePart.Click += new System.EventHandler(this.btnSavePart_Click);
             // 
             // btnUploadPart
             // 
@@ -332,13 +339,14 @@
             // 
             // ccTxtSafeInv
             // 
-            this.ccTxtSafeInv.isNumeric = false;
-            this.ccTxtSafeInv.isRequired = false;
+            this.ccTxtSafeInv.isNumeric = true;
+            this.ccTxtSafeInv.isRequired = true;
             this.ccTxtSafeInv.Location = new System.Drawing.Point(210, 111);
             this.ccTxtSafeInv.Name = "ccTxtSafeInv";
             this.ccTxtSafeInv.PlaceHolder = null;
             this.ccTxtSafeInv.Size = new System.Drawing.Size(50, 23);
             this.ccTxtSafeInv.TabIndex = 16;
+            this.ccTxtSafeInv.Tag = "안전 재고";
             // 
             // label3
             // 
@@ -362,12 +370,13 @@
             // 
             this.ccTxtPartName.ForeColor = System.Drawing.Color.Gray;
             this.ccTxtPartName.isNumeric = false;
-            this.ccTxtPartName.isRequired = false;
+            this.ccTxtPartName.isRequired = true;
             this.ccTxtPartName.Location = new System.Drawing.Point(210, 6);
             this.ccTxtPartName.Name = "ccTxtPartName";
             this.ccTxtPartName.PlaceHolder = null;
             this.ccTxtPartName.Size = new System.Drawing.Size(171, 23);
             this.ccTxtPartName.TabIndex = 12;
+            this.ccTxtPartName.Tag = "부품명";
             // 
             // label4
             // 

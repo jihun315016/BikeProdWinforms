@@ -29,8 +29,26 @@ namespace BikeProd
         /// <param name="startCode">제품 코드</param>
         /// <param name="path">이미지 로컬 경로</param>
         /// <returns></returns>
-        /// <exception cref="Exception"></exception>
         public bool InsertProd(ProductVO product, string startCode, string path)
+        {
+            if (IsExistImage(path))
+                product.Image = 1;
+
+            MedelDAC dac = new MedelDAC();
+            bool result = dac.InsertProd(product, startCode);
+            dac.Dispose();
+            return result;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 또는 부품 등록시 이미지가 포함되었는지 검사한다.
+        /// 이미지가 포함되었다면 이미지 byte[] 배열을 웹서버에 전송한다.
+        /// </summary>
+        /// <param name="path">이미지 로컬 경로</param>
+        /// <returns>이미지 포함 유무</returns>
+        /// <exception cref="Exception">웹서버가 꺼져있는지 확인할 것</exception>
+        bool IsExistImage(string path)
         {
             // 이미지 포함 유무 체크
             if (!string.IsNullOrWhiteSpace(path))
@@ -50,21 +68,17 @@ namespace BikeProd
                 try
                 {
                     WebRequestUtil.SaveImage(url, fileName, imageByte);
-                    product.Image = 1;
+                    return true;                    
                 }
                 catch (Exception err)
                 {
                     throw new Exception(err.Message);
                 }
             }
-
-            MedelDAC dac = new MedelDAC();
-            bool result = dac.InsertProd(product, startCode);
-            dac.Dispose();
-            return result;
+            else
+            {
+                return false;
+            }
         }
-
-
-        
     }
 }

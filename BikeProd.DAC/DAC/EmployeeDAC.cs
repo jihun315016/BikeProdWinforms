@@ -22,7 +22,8 @@ namespace BikeProd.DAC
         }
         public void Dispose()
         {
-            conn.Close();
+            if (conn != null && conn.State == ConnectionState.Open)
+                conn.Close();
         }
 
         /// <summary>

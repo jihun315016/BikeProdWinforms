@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,8 @@ namespace BikeProd.DAC
 
         public void Dispose()
         {
-            conn.Close();
+            if (conn != null && conn.State == ConnectionState.Open)
+                conn.Close();
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace BikeProd.DAC
         {
             string sql = "SP_GetModelCategoryInfo";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<CommonCodeVO>(reader);
         }
@@ -52,7 +54,7 @@ namespace BikeProd.DAC
         {
             string sql = "SP_SaveProd";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ProdCode", product.ProdCode);
             cmd.Parameters.AddWithValue("@ProdName", product.ProdName);
             cmd.Parameters.AddWithValue("@IsFinished", product.IsFinished);

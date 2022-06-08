@@ -82,6 +82,12 @@
     <Compile Include="Control\ucFormController.Designer.cs">
       <DependentUpon>ucFormController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\ucSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ucSelector.Designer.cs">
+      <DependentUpon>ucSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     <Compile Include="Forms\frmProduct.Designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="popSearchClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popSearchClient.Designer.cs">
+      <DependentUpon>popSearchClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popup\popAuthReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +150,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ClientService.cs" />
     <Compile Include="Service\DepartmentService.cs" />
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\LoginService.cs" />
@@ -165,6 +178,9 @@
     <EmbeddedResource Include="Control\ucFormController.resx">
       <DependentUpon>ucFormController.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\ucSelector.resx">
+      <DependentUpon>ucSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popSearchClient.resx">
+      <DependentUpon>popSearchClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popAuthReg.resx">
       <DependentUpon>popAuthReg.cs</DependentUpon>

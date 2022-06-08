@@ -123,6 +123,13 @@ namespace BikeProd
                 MessageBox.Show(comboBoxMsg);
                 return;
             }
+
+            //PartVO part = new PartVO()
+            //{
+            //    PartName = ccTxtPartName.Text,
+            //    Price= Convert.ToInt32(ccTxtPartPrice.Text),
+                
+            //}
         }
 
         bool IsRequiredTextBox(Func<string> func)

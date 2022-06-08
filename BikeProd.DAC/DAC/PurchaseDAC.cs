@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,10 @@ namespace BikeProd.DAC
 
         public void Dispose()
         {
-            conn.Close();
+            if (conn != null && conn.State == ConnectionState.Open)
+                conn.Close();
         }
+
         /// <summary>
         /// 류경석
         /// 발주서 리스트 가져오기

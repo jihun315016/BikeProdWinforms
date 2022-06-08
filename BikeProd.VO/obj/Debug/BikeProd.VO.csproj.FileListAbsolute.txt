@@ -42,3 +42,4 @@ C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\bin\Debug\BikeProd.VO.pdb
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.dll
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.AssemblyReference.cache

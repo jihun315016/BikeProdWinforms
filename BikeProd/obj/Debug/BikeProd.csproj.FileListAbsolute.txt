@@ -28,3 +28,5 @@ C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.pdb
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.frmEmployee.resources
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.PopAuthReg.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.ucSelector.resources
+C:\Users\admin\Desktop\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.popSearchClient.resources

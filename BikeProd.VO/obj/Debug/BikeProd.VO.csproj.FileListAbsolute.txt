@@ -3,3 +3,8 @@ C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd.VO\bin\Debug\Bike
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.dll
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd.VO\bin\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd.VO\bin\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.pdb

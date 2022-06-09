@@ -135,7 +135,7 @@ namespace BikeProd
 
             try
             {
-                bool result = modelSrv.SaveModel(null, part, cboProdCategory.SelectedValue.ToString(), ptbProd.Tag.ToString());
+                bool result = modelSrv.SaveModel(null, part, cboPartCategory.SelectedValue.ToString(), ptbProd.Tag.ToString());
                 if (result)
                 {
                     MessageBox.Show("부품이 등록되었습니다.");
@@ -165,7 +165,6 @@ namespace BikeProd
                 ptbProd.Image = Image.FromFile(dlg.FileName);
                 ptbProd.Tag = dlg.FileName;                
             }
-
         }
 
         private void btnUploadPart_Click(object sender, EventArgs e)
@@ -234,7 +233,7 @@ namespace BikeProd
         void InputClear()
         {
             txtProdName.Text = txtProdPrice.Text = txtLeadTime.Text = String.Empty;
-            txtPartName.Text = txtPartPrice.Text = txtSafeInv.Text = txtUnit.Text = String.Empty;
+            txtPartName.Text = txtPartPrice.Text = txtSafeInv.Text = txtUnit.Text = txtClient.Text = String.Empty;
 
             cboIsFinished.SelectedIndex = cboProdCategory.SelectedIndex = 0;
             cboPartCategory.SelectedIndex = 0;

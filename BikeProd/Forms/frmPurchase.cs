@@ -13,8 +13,8 @@ namespace BikeProd
 {
     public partial class frmPurchase : baseCommon
     {
-        PurchaseService srv = null;
-        List<PurchaseVO> purList = null;
+        PurchaseService purchaseSrv = null;
+        List<PurchaseVO> purchaseList = null;
 
         public frmPurchase()
         {
@@ -24,7 +24,7 @@ namespace BikeProd
         private void frmBalJu_Load(object sender, EventArgs e)
         {
             
-            DataGridViewUtil.SetInitGridView(dgvBaljuSeo);
+            DataGridViewUtil.SetInitGridView(dgvBaljuSeo); // dgvBaljuSeo 이름 바꿀 것
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "입고처", "BusinessNo", colWidth : 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "발주서", "PurchaseName", colWidth : 90);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "발주일자", "PurchaseNo", isVisible : false);
@@ -38,9 +38,9 @@ namespace BikeProd
         }
         public void LoadData()
         {
-            srv = new PurchaseService();
-            purList = srv.GetPurchase();
-            dgvBaljuSeo.DataSource = purList;
+            purchaseSrv = new PurchaseService();
+            purchaseList = purchaseSrv.GetPurchase();
+            dgvBaljuSeo.DataSource = purchaseList;
             
         }
 

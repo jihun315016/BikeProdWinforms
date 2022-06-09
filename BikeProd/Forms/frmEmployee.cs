@@ -14,9 +14,9 @@ namespace BikeProd
 {
     public partial class frmEmployee : bFrmList
     {
-        EmployeeService srv = new EmployeeService();
+        EmployeeService employeeSrv = new EmployeeService();
 
-        List<EmployeeVO> empList = null;
+        List<EmployeeVO> empList = null; // null 필요 없음
 
         public frmEmployee()
         {
@@ -60,13 +60,13 @@ namespace BikeProd
         }
         public void GetAllList()
         {
-            empList = srv.GetEmployeesAllList();
+            empList = employeeSrv.GetEmployeesAllList();
             dgvList.DataSource = empList;
         }
 
         public void ComboBinding()
         {
-            List<DepartmentVO> deptList = srv.GetCodeByDept();
+            List<DepartmentVO> deptList = employeeSrv.GetCodeByDept();
 
             cboDept.Items.Add("선택");
             cboDept.SelectedIndex = 0;
@@ -80,12 +80,12 @@ namespace BikeProd
 
         private void rdWorking_CheckedChanged(object sender, EventArgs e)
         {
-            dgvList.DataSource = srv.GetWorkingList();
+            dgvList.DataSource = employeeSrv.GetWorkingList();
         }
 
         private void rdOut_CheckedChanged(object sender, EventArgs e)
         {
-            dgvList.DataSource = srv.GetOutList();
+            dgvList.DataSource = employeeSrv.GetOutList();
         }
 
         private void cboDept_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace BikeProd
             else if (cboDept.Text.Equals("인사부서"))
                 detpCode = 1004;
 
-            empList = srv.GetSearchList(detpCode, ccTextBox1.Text);        
+            empList = employeeSrv.GetSearchList(detpCode, ccTextBox1.Text);        
             dgvList.DataSource = empList;
 
             if(empList.Count < 1)

@@ -14,7 +14,7 @@ namespace BikeProd
 {
     public partial class popSaveModel : bPopCommon
     {
-        ModelService modelService;
+        ModelService modelSrv;
         List<CommonCodeVO> categoryList;
 
         // 이미지 경로
@@ -31,8 +31,8 @@ namespace BikeProd
 
         private void popSaveModel_Load(object sender, EventArgs e)
         {
-            modelService = new ModelService();
-            categoryList = modelService.GetCategory();
+            modelSrv = new ModelService();
+            categoryList = modelSrv.GetCategory();
             categoryList.Insert(0, new CommonCodeVO()
             {
                 Name = "품목",
@@ -50,20 +50,20 @@ namespace BikeProd
             bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtProdName, ccTxtLeadTime, ccTxtProdPrice }));
             if (!isRequired) return;
 
-            string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cmbProdCategory, cmbIsFinished });
+            string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cboProdCategory, cboIsFinished });
             if (comboBoxMsg.Length > 0)
             {
                 MessageBox.Show(comboBoxMsg);
                 return;
             }
 
-            CommonCodeVO category = (CommonCodeVO)categoryList.Find(c => c.Code == cmbProdCategory.SelectedValue);
+            CommonCodeVO category = (CommonCodeVO)categoryList.Find(c => c.Code == cboProdCategory.SelectedValue);
             ProductVO product = new ProductVO()
             {
-                ProdCode = $"{cmbProdCategory.SelectedValue}{category.LastNum.ToString("0000")}",
+                ProdCode = $"{cboProdCategory.SelectedValue}{category.LastNum.ToString("0000")}",
                 ProdName = ccTxtProdName.Text,
-                IsFinished = (cmbProdCategory.SelectedIndex == 1) ? 1 : 0,
-                Category = cmbProdCategory.Text,
+                IsFinished = (cboProdCategory.SelectedIndex == 1) ? 1 : 0,
+                Category = cboProdCategory.Text,
                 LeadTime = Convert.ToInt32(ccTxtLeadTime.Text),
                 Price = Convert.ToInt32(ccTxtProdPrice.Text),
                 Image = 0
@@ -71,7 +71,7 @@ namespace BikeProd
 
             try
             {
-                bool result = modelService.InsertProd(product, cmbProdCategory.SelectedValue.ToString(), path);
+                bool result = modelSrv.InsertProd(product, cboProdCategory.SelectedValue.ToString(), path);
                 if (result)
                 {
                     MessageBox.Show("제품이 등록되었습니다.");
@@ -117,7 +117,7 @@ namespace BikeProd
             bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { ccTxtPartName, ccTxtPartPrice, ccTxtClient, ccTxtSafeInv, ccTxtUnit }));
             if (!isRequired) return;
 
-            string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cmbPartCategory });
+            string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cboPartCategory });
             if (comboBoxMsg.Length > 0)
             {
                 MessageBox.Show(comboBoxMsg);
@@ -151,23 +151,23 @@ namespace BikeProd
 
         void InitProd()
         {
-            cmbIsFinished.Items.AddRange(new string[] { "분류", "완제품", "반제품" });
-            cmbIsFinished.SelectedIndex = 0;            
+            cboIsFinished.Items.AddRange(new string[] { "분류", "완제품", "반제품" });
+            cboIsFinished.SelectedIndex = 0;            
 
             var list = categoryList.FindAll(c => c.Category == "제품" || string.IsNullOrWhiteSpace(c.Category));
-            ComboBoxUtil.SetComboBoxByList(cmbProdCategory, list, "Name", "Code");
+            ComboBoxUtil.SetComboBoxByList(cboProdCategory, list, "Name", "Code");
         }
 
         void InitPart()
         {
             var list = categoryList.FindAll(c => c.Category == "부품" || string.IsNullOrWhiteSpace(c.Category));
-            ComboBoxUtil.SetComboBoxByList(cmbPartCategory, list, "Name", "Code");
+            ComboBoxUtil.SetComboBoxByList(cboPartCategory, list, "Name", "Code");
         }
 
         void InputClear()
         {
             ccTxtProdName.Text = ccTxtProdPrice.Text = ccTxtLeadTime.Text = String.Empty;
-            cmbIsFinished.SelectedIndex = cmbProdCategory.SelectedIndex = 0;
+            cboIsFinished.SelectedIndex = cboProdCategory.SelectedIndex = 0;
         }
     }
 }

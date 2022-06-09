@@ -16,6 +16,7 @@ namespace BikeProd
     {
         List<DeptMenuVO> authlist = null;
         int MenuID;
+
         public popAuthReg()
         {
             InitializeComponent();

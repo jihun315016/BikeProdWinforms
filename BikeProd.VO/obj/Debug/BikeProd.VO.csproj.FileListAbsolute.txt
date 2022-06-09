@@ -43,3 +43,9 @@ C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.csproj
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.dll
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.pdb
 C:\Users\admin\Desktop\BikeProdWinforms\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.AssemblyReference.cache
+C:\Users\GDC9\Desktop\bike\BikeProd.VO\bin\Debug\BikeProd.VO.dll
+C:\Users\GDC9\Desktop\bike\BikeProd.VO\bin\Debug\BikeProd.VO.pdb
+C:\Users\GDC9\Desktop\bike\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.AssemblyReference.cache
+C:\Users\GDC9\Desktop\bike\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
+C:\Users\GDC9\Desktop\bike\BikeProd.VO\obj\Debug\BikeProd.VO.dll
+C:\Users\GDC9\Desktop\bike\BikeProd.VO\obj\Debug\BikeProd.VO.pdb

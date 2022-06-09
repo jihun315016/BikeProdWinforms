@@ -8,14 +8,16 @@ namespace BikeProd
 {
     public partial class frmDepartment : bFrmListAndDetail
     {
+        // = null 필요 없음
         List<DepartmentVO> deptList = null;
         List<TeamVO> teamList = null;
         List<EmployeeVO> empList = null;
-        EmployeeVO empV;
-        DeptMenuVO deptV;
+        EmployeeVO empVO; // VO 객체를 전역으로 둔 이유?
+        DeptMenuVO deptVO;
         DataTable dt = null;
-        DepartmentService deptService = new DepartmentService();
-        EmployeeService empService = new EmployeeService();
+        DepartmentService departmentSrv = new DepartmentService();
+        EmployeeService employeeSrv = new EmployeeService();
+
         public frmDepartment()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace BikeProd
 
         private void LoadDeptCBO()
         {
-            deptList = deptService.GetAllDeptInfo();
+            deptList = departmentSrv.GetAllDeptInfo();
 
             cboDept.ValueMember = "DeptNo";
             cboDept.DisplayMember = "DeptName";
@@ -54,7 +56,7 @@ namespace BikeProd
 
         private void LoadData()
         {
-            deptList = deptService.GetAllDeptInfo();
+            deptList = departmentSrv.GetAllDeptInfo();
             dgvDept.DataSource = deptList;
 
             dgvDept.Columns[0].Frozen = true;
@@ -66,10 +68,10 @@ namespace BikeProd
             if (e.RowIndex < 0) return;
 
             int DeptNo = Convert.ToInt32(dgvDept[0, e.RowIndex].Value);
-            teamList = deptService.GetAllTeamInfo(DeptNo);
-            empList = empService.GetEmpInfo(DeptNo);
-            dt = deptService.GetTeamInfoTable(DeptNo);
-            deptV = deptService.GetAuthMenuInfo(DeptNo);
+            teamList = departmentSrv.GetAllTeamInfo(DeptNo);
+            empList = employeeSrv.GetEmpInfo(DeptNo);
+            dt = departmentSrv.GetTeamInfoTable(DeptNo);
+            deptVO = departmentSrv.GetAuthMenuInfo(DeptNo);
 
             dgvTeam.DataSource = teamList;
             dgvTeam.Columns[0].Frozen = true;
@@ -91,7 +93,7 @@ namespace BikeProd
 
             txtEmpSearch.Text = "사원 검색";
 
-            txtDeptAuth.Text = deptV.MenuName.ToString();
+            txtDeptAuth.Text = deptVO.MenuName.ToString();
         }
 
         private void txtEmpSearch_Click(object sender, EventArgs e)
@@ -117,9 +119,9 @@ namespace BikeProd
         {
             int TeamNo = Convert.ToInt32(cboTeamselect.SelectedIndex);
             string EmpName = txtEmpSearch.Text;
-            empV = empService.searchEmpInfo(TeamNo, EmpName);
+            empVO = employeeSrv.searchEmpInfo(TeamNo, EmpName);
 
-            dgvDetail.DataSource = empV;
+            dgvDetail.DataSource = empVO;
         }
 
         private void btnDeptInsert_Click(object sender, EventArgs e)

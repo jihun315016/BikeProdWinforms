@@ -37,8 +37,8 @@
             this.btnUploadProdImg = new System.Windows.Forms.Button();
             this.ccTxtProdPrice = new BikeProd.ccTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbProdCategory = new System.Windows.Forms.ComboBox();
-            this.cmbIsFinished = new System.Windows.Forms.ComboBox();
+            this.cboProdCategory = new System.Windows.Forms.ComboBox();
+            this.cboIsFinished = new System.Windows.Forms.ComboBox();
             this.ccTxtProdName = new BikeProd.ccTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,7 +54,7 @@
             this.btnUploadPart = new System.Windows.Forms.Button();
             this.ccTxtSafeInv = new BikeProd.ccTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbPartCategory = new System.Windows.Forms.ComboBox();
+            this.cboPartCategory = new System.Windows.Forms.ComboBox();
             this.ccTxtPartName = new BikeProd.ccTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -90,8 +90,8 @@
             this.SaveProduct.Controls.Add(this.btnUploadProdImg);
             this.SaveProduct.Controls.Add(this.ccTxtProdPrice);
             this.SaveProduct.Controls.Add(this.label2);
-            this.SaveProduct.Controls.Add(this.cmbProdCategory);
-            this.SaveProduct.Controls.Add(this.cmbIsFinished);
+            this.SaveProduct.Controls.Add(this.cboProdCategory);
+            this.SaveProduct.Controls.Add(this.cboIsFinished);
             this.SaveProduct.Controls.Add(this.ccTxtProdName);
             this.SaveProduct.Controls.Add(this.label1);
             this.SaveProduct.Controls.Add(this.pictureBox1);
@@ -173,23 +173,23 @@
             this.label2.Text = "가격";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cmbProdCategory
+            // cboProdCategory
             // 
-            this.cmbProdCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProdCategory.FormattingEnabled = true;
-            this.cmbProdCategory.Location = new System.Drawing.Point(303, 40);
-            this.cmbProdCategory.Name = "cmbProdCategory";
-            this.cmbProdCategory.Size = new System.Drawing.Size(78, 23);
-            this.cmbProdCategory.TabIndex = 4;
+            this.cboProdCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProdCategory.FormattingEnabled = true;
+            this.cboProdCategory.Location = new System.Drawing.Point(303, 40);
+            this.cboProdCategory.Name = "cboProdCategory";
+            this.cboProdCategory.Size = new System.Drawing.Size(78, 23);
+            this.cboProdCategory.TabIndex = 4;
             // 
-            // cmbIsFinished
+            // cboIsFinished
             // 
-            this.cmbIsFinished.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbIsFinished.FormattingEnabled = true;
-            this.cmbIsFinished.Location = new System.Drawing.Point(210, 40);
-            this.cmbIsFinished.Name = "cmbIsFinished";
-            this.cmbIsFinished.Size = new System.Drawing.Size(78, 23);
-            this.cmbIsFinished.TabIndex = 3;
+            this.cboIsFinished.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIsFinished.FormattingEnabled = true;
+            this.cboIsFinished.Location = new System.Drawing.Point(210, 40);
+            this.cboIsFinished.Name = "cboIsFinished";
+            this.cboIsFinished.Size = new System.Drawing.Size(78, 23);
+            this.cboIsFinished.TabIndex = 3;
             // 
             // ccTxtProdName
             // 
@@ -233,7 +233,7 @@
             this.SavePart.Controls.Add(this.btnUploadPart);
             this.SavePart.Controls.Add(this.ccTxtSafeInv);
             this.SavePart.Controls.Add(this.label3);
-            this.SavePart.Controls.Add(this.cmbPartCategory);
+            this.SavePart.Controls.Add(this.cboPartCategory);
             this.SavePart.Controls.Add(this.ccTxtPartName);
             this.SavePart.Controls.Add(this.label4);
             this.SavePart.Controls.Add(this.pictureBox2);
@@ -357,14 +357,14 @@
             this.label3.Text = "안전 재고";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cmbPartCategory
+            // cboPartCategory
             // 
-            this.cmbPartCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPartCategory.FormattingEnabled = true;
-            this.cmbPartCategory.Location = new System.Drawing.Point(306, 40);
-            this.cmbPartCategory.Name = "cmbPartCategory";
-            this.cmbPartCategory.Size = new System.Drawing.Size(75, 23);
-            this.cmbPartCategory.TabIndex = 13;
+            this.cboPartCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPartCategory.FormattingEnabled = true;
+            this.cboPartCategory.Location = new System.Drawing.Point(306, 40);
+            this.cboPartCategory.Name = "cboPartCategory";
+            this.cboPartCategory.Size = new System.Drawing.Size(75, 23);
+            this.cboPartCategory.TabIndex = 13;
             // 
             // ccTxtPartName
             // 
@@ -423,8 +423,8 @@
         private System.Windows.Forms.TabPage SaveProduct;
         private ccTextBox ccTxtProdPrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbProdCategory;
-        private System.Windows.Forms.ComboBox cmbIsFinished;
+        private System.Windows.Forms.ComboBox cboProdCategory;
+        private System.Windows.Forms.ComboBox cboIsFinished;
         private ccTextBox ccTxtProdName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -441,7 +441,7 @@
         private System.Windows.Forms.Button btnUploadPart;
         private ccTextBox ccTxtSafeInv;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbPartCategory;
+        private System.Windows.Forms.ComboBox cboPartCategory;
         private ccTextBox ccTxtPartName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;

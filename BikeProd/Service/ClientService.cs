@@ -10,6 +10,12 @@ namespace BikeProd.Service
 {
     public class ClientService
     {
+        /// <summary>
+        /// Author : 강지훈
+        /// 입고 또는 출고 거래처의 사업자 번호와 이름을 가져와 폼에 전달
+        /// </summary>
+        /// <param name="isCustomer">출고처인지 여부</param>
+        /// <returns></returns>
         public List<ClientVO> GetClientNameByType(bool isCustomer)
         {
             string clientType = (isCustomer) ? "출고" : "입고";

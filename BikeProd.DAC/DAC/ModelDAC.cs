@@ -35,14 +35,38 @@ namespace BikeProd.DAC
         /// <returns>조회된 카테고리 리스트</returns>
         public List<CommonCodeVO> GetCategory()
         {
-            string sql = "SP_GetModelCategoryInfo";
+            string sql = @"SELECT Code, Name, Category, cc.LastNum
+	                        FROM TB_CommonCode c
+	                        JOIN TB_CodeCnt cc ON c.Code = cc.StartCode
+	                        WHERE c.Category in ('제품', '부품')";
+
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<CommonCodeVO>(reader);
         }
 
         /// <summary>
+        /// Author : 강지훈
+        /// 제품과 부품에 대한 기본적인 정보 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<ProdPartVO> GetModelList()
+        {
+            string sql = @"SELECT ProdCode Code, ProdName Name, 
+	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind, 
+	                            Category, Price, Inventory 
+                            FROM TB_Products
+                            UNION
+                            SELECT PartCode Code, PartName Name, '부품' Kind, Category, Price, Inventory 
+                            FROM TB_Parts";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);            
+            SqlDataReader reader = cmd.ExecuteReader();
+            return DBConverter.DataReaderToList<ProdPartVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록
         /// 등록된 모델의 코드에 따라 CodeCnt도 1씩 증가한다.
         /// </summary>

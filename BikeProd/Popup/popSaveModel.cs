@@ -31,7 +31,7 @@ namespace BikeProd
                 Name = "품목",
                 Code = String.Empty
             });
-            pictureBox1.Tag = pictureBox2.Tag = string.Empty;
+            ptbProd.Tag = ptbPart.Tag = string.Empty;
 
             InitProd();
             InitPart();
@@ -47,6 +47,12 @@ namespace BikeProd
             }
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 등록
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveProd_Click(object sender, EventArgs e)
         {
             bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtProdName, txtLeadTime, txtProdPrice }));
@@ -59,6 +65,7 @@ namespace BikeProd
                 return;
             }
 
+            // 선택된 품목에 대한 제품 코드를 가져온다.
             CommonCodeVO category = (CommonCodeVO)categoryList.Find(c => c.Code == cboProdCategory.SelectedValue);
             ProductVO product = new ProductVO()
             {
@@ -68,16 +75,16 @@ namespace BikeProd
                 Category = cboProdCategory.Text,
                 LeadTime = Convert.ToInt32(txtLeadTime.Text),
                 Price = Convert.ToInt32(txtProdPrice.Text),
-                Image = !string.IsNullOrWhiteSpace(pictureBox1.Tag.ToString()) ? 1 : 0
+                Image = !string.IsNullOrWhiteSpace(ptbProd.Tag.ToString()) ? 1 : 0
             };
 
             try
             {
-                bool result = modelSrv.SaveModel(product, null, cboProdCategory.SelectedValue.ToString(), pictureBox1.Tag.ToString());
+                bool result = modelSrv.SaveModel(product, null, cboProdCategory.SelectedValue.ToString(), ptbProd.Tag.ToString());
                 if (result)
                 {
                     MessageBox.Show("제품이 등록되었습니다.");
-                    category.LastNum++;
+                    category.LastNum++; // 제품 CodeCnt++
                     InputClear();
                 }
                 else
@@ -93,6 +100,13 @@ namespace BikeProd
                 WebRequestUtil.WriteErrLog(url, err.Message, err.StackTrace);
             }           
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 부품 등록
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSavePart_Click(object sender, EventArgs e)
         {            
             bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtPartName, txtPartPrice, txtClient, txtSafeInv, txtUnit }));
@@ -105,6 +119,7 @@ namespace BikeProd
                 return;
             }
 
+            // 선택된 품목에 대한 부품 코드 정보 정보를 가져온다.
             CommonCodeVO category = (CommonCodeVO)categoryList.Find(c => c.Code == cboPartCategory.SelectedValue);
             PartVO part = new PartVO()
             {
@@ -115,16 +130,16 @@ namespace BikeProd
                 BusinessNo = txtClient.Tag.ToString(),
                 SfInvn = Convert.ToInt32(txtSafeInv.Text),
                 Unit = Convert.ToInt32(txtUnit.Text),
-                Image = !string.IsNullOrWhiteSpace(pictureBox2.Tag.ToString()) ? 1 : 0
+                Image = !string.IsNullOrWhiteSpace(ptbPart.Tag.ToString()) ? 1 : 0
             };
 
             try
             {
-                bool result = modelSrv.SaveModel(null, part, cboProdCategory.SelectedValue.ToString(), pictureBox1.Tag.ToString());
+                bool result = modelSrv.SaveModel(null, part, cboProdCategory.SelectedValue.ToString(), ptbProd.Tag.ToString());
                 if (result)
                 {
                     MessageBox.Show("부품이 등록되었습니다.");
-                    category.LastNum++;
+                    category.LastNum++; // 부품 CodeCnt++
                     InputClear();
                 }
                 else
@@ -147,8 +162,8 @@ namespace BikeProd
             DialogResult result = dlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                pictureBox1.Image = Image.FromFile(dlg.FileName);
-                pictureBox1.Tag = dlg.FileName;                
+                ptbProd.Image = Image.FromFile(dlg.FileName);
+                ptbProd.Tag = dlg.FileName;                
             }
 
         }
@@ -161,8 +176,8 @@ namespace BikeProd
             DialogResult result = dlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                pictureBox2.Image = Image.FromFile(dlg.FileName);
-                pictureBox2.Tag = dlg.FileName;
+                ptbPart.Image = Image.FromFile(dlg.FileName);
+                ptbPart.Tag = dlg.FileName;
             }
         }
 
@@ -171,6 +186,12 @@ namespace BikeProd
             this.Close();
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// ccTextBoxUtil.IsRequiredCheck() 콜백을 위한 메서드
+        /// </summary>
+        /// <param name="func">콜백 메서드</param>
+        /// <returns></returns>
         bool IsRequiredTextBox(Func<string> func)
         {
             string textBoxMsg = func();
@@ -183,22 +204,33 @@ namespace BikeProd
             return true;
         }
 
-
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 초기화
+        /// </summary>
         void InitProd()
         {
             cboIsFinished.Items.AddRange(new string[] { "분류", "완제품", "반제품" });
-            cboIsFinished.SelectedIndex = 0;            
+            cboIsFinished.SelectedIndex = 0;
 
             var list = categoryList.FindAll(c => c.Category == "제품" || string.IsNullOrWhiteSpace(c.Category));
             ComboBoxUtil.SetComboBoxByList(cboProdCategory, list, "Name", "Code");
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 부품 초기화
+        /// </summary>
         void InitPart()
         {
             var list = categoryList.FindAll(c => c.Category == "부품" || string.IsNullOrWhiteSpace(c.Category));
             ComboBoxUtil.SetComboBoxByList(cboPartCategory, list, "Name", "Code");
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 또는 부품 등록 후 입력 컨트롤 초기화
+        /// </summary>
         void InputClear()
         {
             txtProdName.Text = txtProdPrice.Text = txtLeadTime.Text = String.Empty;
@@ -207,8 +239,8 @@ namespace BikeProd
             cboIsFinished.SelectedIndex = cboProdCategory.SelectedIndex = 0;
             cboPartCategory.SelectedIndex = 0;
 
-            pictureBox1.Image = pictureBox2.Image = null;
-            pictureBox1.Tag = pictureBox2.Tag = string.Empty;
+            ptbProd.Image = ptbPart.Image = null;
+            ptbProd.Tag = ptbPart.Tag = string.Empty;
         }
 
     }

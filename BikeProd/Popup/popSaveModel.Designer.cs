@@ -41,7 +41,7 @@
             this.cboIsFinished = new System.Windows.Forms.ComboBox();
             this.txtProdName = new BikeProd.ccTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbProd = new System.Windows.Forms.PictureBox();
             this.SavePart = new System.Windows.Forms.TabPage();
             this.txtUnit = new BikeProd.ccTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,13 +57,13 @@
             this.cboPartCategory = new System.Windows.Forms.ComboBox();
             this.txtPartName = new BikeProd.ccTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ptbPart = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SaveProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProd)).BeginInit();
             this.SavePart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbPart)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,7 +94,7 @@
             this.SaveProduct.Controls.Add(this.cboIsFinished);
             this.SaveProduct.Controls.Add(this.txtProdName);
             this.SaveProduct.Controls.Add(this.label1);
-            this.SaveProduct.Controls.Add(this.pictureBox1);
+            this.SaveProduct.Controls.Add(this.ptbProd);
             this.SaveProduct.Location = new System.Drawing.Point(4, 24);
             this.SaveProduct.Name = "SaveProduct";
             this.SaveProduct.Padding = new System.Windows.Forms.Padding(3);
@@ -212,13 +212,13 @@
             this.label1.Text = "제품명";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox1
+            // ptbProd
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ptbProd.Location = new System.Drawing.Point(6, 6);
+            this.ptbProd.Name = "ptbProd";
+            this.ptbProd.Size = new System.Drawing.Size(128, 128);
+            this.ptbProd.TabIndex = 0;
+            this.ptbProd.TabStop = false;
             // 
             // SavePart
             // 
@@ -236,7 +236,7 @@
             this.SavePart.Controls.Add(this.cboPartCategory);
             this.SavePart.Controls.Add(this.txtPartName);
             this.SavePart.Controls.Add(this.label4);
-            this.SavePart.Controls.Add(this.pictureBox2);
+            this.SavePart.Controls.Add(this.ptbPart);
             this.SavePart.Location = new System.Drawing.Point(4, 24);
             this.SavePart.Name = "SavePart";
             this.SavePart.Padding = new System.Windows.Forms.Padding(3);
@@ -387,13 +387,13 @@
             this.label4.Text = "부품명";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox2
+            // ptbPart
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
+            this.ptbPart.Location = new System.Drawing.Point(6, 6);
+            this.ptbPart.Name = "ptbPart";
+            this.ptbPart.Size = new System.Drawing.Size(128, 128);
+            this.ptbPart.TabIndex = 10;
+            this.ptbPart.TabStop = false;
             // 
             // popSaveModel
             // 
@@ -408,10 +408,10 @@
             this.tabControl1.ResumeLayout(false);
             this.SaveProduct.ResumeLayout(false);
             this.SaveProduct.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProd)).EndInit();
             this.SavePart.ResumeLayout(false);
             this.SavePart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbPart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,7 +427,7 @@
         private System.Windows.Forms.ComboBox cboIsFinished;
         private ccTextBox txtProdName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbProd;
         private System.Windows.Forms.TabPage SavePart;
         private System.Windows.Forms.Button btnUploadProdImg;
         private System.Windows.Forms.Button btnProdCancel;
@@ -444,7 +444,7 @@
         private System.Windows.Forms.ComboBox cboPartCategory;
         private ccTextBox txtPartName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox ptbPart;
         private ccTextBox txtUnit;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

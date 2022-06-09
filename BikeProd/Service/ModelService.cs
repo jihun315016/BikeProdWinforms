@@ -22,6 +22,19 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
+        /// 제품과 부품에 대한 기본적인 정보를 조회하여 폼에 전달한다.
+        /// </summary>
+        /// <returns></returns>
+        public List<ProdPartVO> GetModelList()
+        {
+            ModelDAC dac = new ModelDAC();
+            List<ProdPartVO> list = dac.GetModelList();
+            dac.Dispose();
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록 Service
         /// 이미지가 포함되었는지 확인하고, 포함되었다면 웹 서버에 이미지 데이터를 저장한다.
         /// </summary>

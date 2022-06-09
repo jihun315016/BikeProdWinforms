@@ -31,6 +31,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DescriptLabel3 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.DescriptLabel4 = new System.Windows.Forms.Label();
             this.DescriptLabel5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -41,6 +42,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -67,7 +69,7 @@
             // 
             this.DescriptLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DescriptLabel3.AutoSize = true;
-            this.DescriptLabel3.Location = new System.Drawing.Point(25, 48);
+            this.DescriptLabel3.Location = new System.Drawing.Point(25, 53);
             this.DescriptLabel3.Name = "DescriptLabel3";
             this.DescriptLabel3.Size = new System.Drawing.Size(158, 15);
             this.DescriptLabel3.TabIndex = 0;
@@ -82,7 +84,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.DescriptLabel4);
+            this.splitContainer2.Panel1.Controls.Add(this.panel1);
             // 
             // splitContainer2.Panel2
             // 
@@ -92,14 +94,22 @@
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.DescriptLabel4);
+            this.panel1.Location = new System.Drawing.Point(28, 15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(731, 484);
+            this.panel1.TabIndex = 2;
+            // 
             // DescriptLabel4
             // 
             this.DescriptLabel4.AutoSize = true;
-            this.DescriptLabel4.Location = new System.Drawing.Point(25, 15);
+            this.DescriptLabel4.Location = new System.Drawing.Point(3, 11);
             this.DescriptLabel4.Name = "DescriptLabel4";
-            this.DescriptLabel4.Size = new System.Drawing.Size(109, 15);
+            this.DescriptLabel4.Size = new System.Drawing.Size(163, 15);
             this.DescriptLabel4.TabIndex = 1;
-            this.DescriptLabel4.Text = "그리드 뷰 Location";
+            this.DescriptLabel4.Text = "그리드 뷰 Location, Dock Fill";
             // 
             // DescriptLabel5
             // 
@@ -127,11 +137,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +152,7 @@
 
         protected System.Windows.Forms.SplitContainer splitContainer1;
         protected System.Windows.Forms.SplitContainer splitContainer2;
+        protected System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label DescriptLabel3;
         private System.Windows.Forms.Label DescriptLabel4;
         private System.Windows.Forms.Label DescriptLabel5;

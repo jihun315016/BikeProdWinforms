@@ -16,7 +16,7 @@ namespace BikeProd
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new popSaveModel());
+            Application.Run(new frmMenu());
         }
     }
 }

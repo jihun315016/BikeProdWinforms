@@ -19,7 +19,6 @@ C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikePro
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.frmLogin.resources
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.frmProduct.resources
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.popSearchClient.resources
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.popAuthReg.resources
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
@@ -30,3 +29,4 @@ C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikePro
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.exe
 C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
+C:\Users\admin\Desktop\1차 프로젝트 SVN\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources

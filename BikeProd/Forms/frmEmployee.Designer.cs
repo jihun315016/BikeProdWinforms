@@ -74,7 +74,7 @@ namespace BikeProd
             this.panel1.Controls.Add(this.dgvList);
             this.panel1.Location = new System.Drawing.Point(28, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Size = new System.Drawing.Size(1650, 366);
+            this.panel1.Size = new System.Drawing.Size(1090, 366);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboDept
@@ -133,7 +133,7 @@ namespace BikeProd
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1036, 409);
+            this.button3.Location = new System.Drawing.Point(1036, 407);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 40);
             this.button3.TabIndex = 2;
@@ -154,18 +154,19 @@ namespace BikeProd
             // dgvList
             // 
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvList.Location = new System.Drawing.Point(0, 0);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1650, 366);
+            this.dgvList.Size = new System.Drawing.Size(1090, 366);
             this.dgvList.TabIndex = 1;
             this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(946, 409);
+            this.button1.Location = new System.Drawing.Point(946, 407);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 40);

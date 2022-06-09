@@ -439,7 +439,7 @@
             this.panel2.TabIndex = 16;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // frmBalJu
+            // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -449,7 +449,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.Name = "frmBalJu";
+            this.Name = "frmPurchase";
             this.Text = "frmBalJu";
             this.Load += new System.EventHandler(this.frmBalJu_Load);
             this.Controls.SetChildIndex(this.panel2, 0);

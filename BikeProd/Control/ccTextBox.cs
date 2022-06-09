@@ -64,7 +64,7 @@ namespace BikeProd
         /// <param name="e"></param>
         private void ccTextBox_Leave(object sender, EventArgs e)
         {
-            if (this.Text.Equals(string.Empty))
+            if (this.Text.Equals(string.Empty) && !string.IsNullOrWhiteSpace(this.PlaceHolder))
             {
                 this.Text = this.PlaceHolder;
                 this.ForeColor = Color.Gray;

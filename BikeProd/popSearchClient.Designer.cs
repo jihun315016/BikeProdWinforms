@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.ccTxtSearch = new BikeProd.ccTextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.txtSearch = new BikeProd.ccTextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlClientList = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pnlClientList);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.ccTxtSearch);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Size = new System.Drawing.Size(266, 312);
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(3, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "OOO 검색";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblTitle.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.Location = new System.Drawing.Point(3, 12);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(256, 38);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "OOO 검색";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ccTxtSearch
+            // txtSearch
             // 
-            this.ccTxtSearch.isNumeric = false;
-            this.ccTxtSearch.isRequired = false;
-            this.ccTxtSearch.Location = new System.Drawing.Point(3, 63);
-            this.ccTxtSearch.Name = "ccTxtSearch";
-            this.ccTxtSearch.PlaceHolder = null;
-            this.ccTxtSearch.Size = new System.Drawing.Size(175, 23);
-            this.ccTxtSearch.TabIndex = 1;
+            this.txtSearch.isNumeric = false;
+            this.txtSearch.isRequired = false;
+            this.txtSearch.Location = new System.Drawing.Point(3, 63);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceHolder = "거래처를 검색하세요.";
+            this.txtSearch.Size = new System.Drawing.Size(175, 23);
+            this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -71,17 +71,17 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "button1";
+            this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // panel2
+            // pnlClientList
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Location = new System.Drawing.Point(3, 92);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(256, 217);
-            this.panel2.TabIndex = 3;
+            this.pnlClientList.AutoScroll = true;
+            this.pnlClientList.Location = new System.Drawing.Point(3, 92);
+            this.pnlClientList.Name = "pnlClientList";
+            this.pnlClientList.Size = new System.Drawing.Size(256, 217);
+            this.pnlClientList.TabIndex = 3;
             // 
             // popSearchClient
             // 
@@ -100,9 +100,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSearch;
-        private ccTextBox ccTxtSearch;
-        private System.Windows.Forms.Panel panel2;
+        private ccTextBox txtSearch;
+        private System.Windows.Forms.Panel pnlClientList;
     }
 }

@@ -31,8 +31,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DescriptLabel3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DescriptLabel4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.DescriptLabel4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,6 +77,15 @@
             this.panel1.Size = new System.Drawing.Size(1090, 446);
             this.panel1.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(227, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "그리드뷰 Anchor :Top,left, Bottom, Right";
+            // 
             // DescriptLabel4
             // 
             this.DescriptLabel4.AutoSize = true;
@@ -85,15 +94,6 @@
             this.DescriptLabel4.Size = new System.Drawing.Size(160, 15);
             this.DescriptLabel4.TabIndex = 1;
             this.DescriptLabel4.Text = "버튼 Anchor : Bottom, Right";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "그리드뷰 Anchor : Bottom, Right";
             // 
             // bFrmList
             // 

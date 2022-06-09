@@ -31,31 +31,31 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SaveProduct = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
-            this.ccTxtLeadTime = new BikeProd.ccTextBox();
+            this.txtLeadTime = new BikeProd.ccTextBox();
             this.btnProdCancel = new System.Windows.Forms.Button();
             this.btnSaveProd = new System.Windows.Forms.Button();
             this.btnUploadProdImg = new System.Windows.Forms.Button();
-            this.ccTxtProdPrice = new BikeProd.ccTextBox();
+            this.txtProdPrice = new BikeProd.ccTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboProdCategory = new System.Windows.Forms.ComboBox();
             this.cboIsFinished = new System.Windows.Forms.ComboBox();
-            this.ccTxtProdName = new BikeProd.ccTextBox();
+            this.txtProdName = new BikeProd.ccTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SavePart = new System.Windows.Forms.TabPage();
-            this.ccTxtUnit = new BikeProd.ccTextBox();
+            this.txtUnit = new BikeProd.ccTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ccTxtPartPrice = new BikeProd.ccTextBox();
+            this.txtPartPrice = new BikeProd.ccTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.ccTxtClient = new BikeProd.ccTextBox();
+            this.txtClient = new BikeProd.ccTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnPartCancel = new System.Windows.Forms.Button();
             this.btnSavePart = new System.Windows.Forms.Button();
             this.btnUploadPart = new System.Windows.Forms.Button();
-            this.ccTxtSafeInv = new BikeProd.ccTextBox();
+            this.txtSafeInv = new BikeProd.ccTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPartCategory = new System.Windows.Forms.ComboBox();
-            this.ccTxtPartName = new BikeProd.ccTextBox();
+            this.txtPartName = new BikeProd.ccTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -84,15 +84,15 @@
             // SaveProduct
             // 
             this.SaveProduct.Controls.Add(this.label8);
-            this.SaveProduct.Controls.Add(this.ccTxtLeadTime);
+            this.SaveProduct.Controls.Add(this.txtLeadTime);
             this.SaveProduct.Controls.Add(this.btnProdCancel);
             this.SaveProduct.Controls.Add(this.btnSaveProd);
             this.SaveProduct.Controls.Add(this.btnUploadProdImg);
-            this.SaveProduct.Controls.Add(this.ccTxtProdPrice);
+            this.SaveProduct.Controls.Add(this.txtProdPrice);
             this.SaveProduct.Controls.Add(this.label2);
             this.SaveProduct.Controls.Add(this.cboProdCategory);
             this.SaveProduct.Controls.Add(this.cboIsFinished);
-            this.SaveProduct.Controls.Add(this.ccTxtProdName);
+            this.SaveProduct.Controls.Add(this.txtProdName);
             this.SaveProduct.Controls.Add(this.label1);
             this.SaveProduct.Controls.Add(this.pictureBox1);
             this.SaveProduct.Location = new System.Drawing.Point(4, 24);
@@ -112,16 +112,16 @@
             this.label8.Text = "Lead Time";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ccTxtLeadTime
+            // txtLeadTime
             // 
-            this.ccTxtLeadTime.isNumeric = true;
-            this.ccTxtLeadTime.isRequired = true;
-            this.ccTxtLeadTime.Location = new System.Drawing.Point(210, 77);
-            this.ccTxtLeadTime.Name = "ccTxtLeadTime";
-            this.ccTxtLeadTime.PlaceHolder = null;
-            this.ccTxtLeadTime.Size = new System.Drawing.Size(171, 23);
-            this.ccTxtLeadTime.TabIndex = 10;
-            this.ccTxtLeadTime.Tag = "제품 가격";
+            this.txtLeadTime.isNumeric = true;
+            this.txtLeadTime.isRequired = true;
+            this.txtLeadTime.Location = new System.Drawing.Point(210, 77);
+            this.txtLeadTime.Name = "txtLeadTime";
+            this.txtLeadTime.PlaceHolder = null;
+            this.txtLeadTime.Size = new System.Drawing.Size(171, 23);
+            this.txtLeadTime.TabIndex = 10;
+            this.txtLeadTime.Tag = "제품 가격";
             // 
             // btnProdCancel
             // 
@@ -153,16 +153,16 @@
             this.btnUploadProdImg.UseVisualStyleBackColor = true;
             this.btnUploadProdImg.Click += new System.EventHandler(this.btnUploadProdImg_Click);
             // 
-            // ccTxtProdPrice
+            // txtProdPrice
             // 
-            this.ccTxtProdPrice.isNumeric = true;
-            this.ccTxtProdPrice.isRequired = true;
-            this.ccTxtProdPrice.Location = new System.Drawing.Point(210, 111);
-            this.ccTxtProdPrice.Name = "ccTxtProdPrice";
-            this.ccTxtProdPrice.PlaceHolder = null;
-            this.ccTxtProdPrice.Size = new System.Drawing.Size(171, 23);
-            this.ccTxtProdPrice.TabIndex = 6;
-            this.ccTxtProdPrice.Tag = "제품 가격";
+            this.txtProdPrice.isNumeric = true;
+            this.txtProdPrice.isRequired = true;
+            this.txtProdPrice.Location = new System.Drawing.Point(210, 111);
+            this.txtProdPrice.Name = "txtProdPrice";
+            this.txtProdPrice.PlaceHolder = null;
+            this.txtProdPrice.Size = new System.Drawing.Size(171, 23);
+            this.txtProdPrice.TabIndex = 6;
+            this.txtProdPrice.Tag = "제품 가격";
             // 
             // label2
             // 
@@ -191,17 +191,17 @@
             this.cboIsFinished.Size = new System.Drawing.Size(78, 23);
             this.cboIsFinished.TabIndex = 3;
             // 
-            // ccTxtProdName
+            // txtProdName
             // 
-            this.ccTxtProdName.ForeColor = System.Drawing.Color.Gray;
-            this.ccTxtProdName.isNumeric = false;
-            this.ccTxtProdName.isRequired = true;
-            this.ccTxtProdName.Location = new System.Drawing.Point(210, 6);
-            this.ccTxtProdName.Name = "ccTxtProdName";
-            this.ccTxtProdName.PlaceHolder = null;
-            this.ccTxtProdName.Size = new System.Drawing.Size(171, 23);
-            this.ccTxtProdName.TabIndex = 2;
-            this.ccTxtProdName.Tag = "제품명";
+            this.txtProdName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtProdName.isNumeric = false;
+            this.txtProdName.isRequired = true;
+            this.txtProdName.Location = new System.Drawing.Point(210, 6);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.PlaceHolder = null;
+            this.txtProdName.Size = new System.Drawing.Size(171, 23);
+            this.txtProdName.TabIndex = 2;
+            this.txtProdName.Tag = "제품명";
             // 
             // label1
             // 
@@ -222,19 +222,19 @@
             // 
             // SavePart
             // 
-            this.SavePart.Controls.Add(this.ccTxtUnit);
+            this.SavePart.Controls.Add(this.txtUnit);
             this.SavePart.Controls.Add(this.label7);
-            this.SavePart.Controls.Add(this.ccTxtPartPrice);
+            this.SavePart.Controls.Add(this.txtPartPrice);
             this.SavePart.Controls.Add(this.label6);
-            this.SavePart.Controls.Add(this.ccTxtClient);
+            this.SavePart.Controls.Add(this.txtClient);
             this.SavePart.Controls.Add(this.label5);
             this.SavePart.Controls.Add(this.btnPartCancel);
             this.SavePart.Controls.Add(this.btnSavePart);
             this.SavePart.Controls.Add(this.btnUploadPart);
-            this.SavePart.Controls.Add(this.ccTxtSafeInv);
+            this.SavePart.Controls.Add(this.txtSafeInv);
             this.SavePart.Controls.Add(this.label3);
             this.SavePart.Controls.Add(this.cboPartCategory);
-            this.SavePart.Controls.Add(this.ccTxtPartName);
+            this.SavePart.Controls.Add(this.txtPartName);
             this.SavePart.Controls.Add(this.label4);
             this.SavePart.Controls.Add(this.pictureBox2);
             this.SavePart.Location = new System.Drawing.Point(4, 24);
@@ -245,16 +245,16 @@
             this.SavePart.Text = "부품 등록";
             this.SavePart.UseVisualStyleBackColor = true;
             // 
-            // ccTxtUnit
+            // txtUnit
             // 
-            this.ccTxtUnit.isNumeric = true;
-            this.ccTxtUnit.isRequired = true;
-            this.ccTxtUnit.Location = new System.Drawing.Point(331, 111);
-            this.ccTxtUnit.Name = "ccTxtUnit";
-            this.ccTxtUnit.PlaceHolder = null;
-            this.ccTxtUnit.Size = new System.Drawing.Size(50, 23);
-            this.ccTxtUnit.TabIndex = 25;
-            this.ccTxtUnit.Tag = "발주 단위";
+            this.txtUnit.isNumeric = true;
+            this.txtUnit.isRequired = true;
+            this.txtUnit.Location = new System.Drawing.Point(331, 111);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.PlaceHolder = null;
+            this.txtUnit.Size = new System.Drawing.Size(50, 23);
+            this.txtUnit.TabIndex = 25;
+            this.txtUnit.Tag = "발주 단위";
             // 
             // label7
             // 
@@ -265,16 +265,16 @@
             this.label7.Text = "발주 단위";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ccTxtPartPrice
+            // txtPartPrice
             // 
-            this.ccTxtPartPrice.isNumeric = true;
-            this.ccTxtPartPrice.isRequired = true;
-            this.ccTxtPartPrice.Location = new System.Drawing.Point(210, 40);
-            this.ccTxtPartPrice.Name = "ccTxtPartPrice";
-            this.ccTxtPartPrice.PlaceHolder = null;
-            this.ccTxtPartPrice.Size = new System.Drawing.Size(90, 23);
-            this.ccTxtPartPrice.TabIndex = 23;
-            this.ccTxtPartPrice.Tag = "가격";
+            this.txtPartPrice.isNumeric = true;
+            this.txtPartPrice.isRequired = true;
+            this.txtPartPrice.Location = new System.Drawing.Point(210, 40);
+            this.txtPartPrice.Name = "txtPartPrice";
+            this.txtPartPrice.PlaceHolder = null;
+            this.txtPartPrice.Size = new System.Drawing.Size(90, 23);
+            this.txtPartPrice.TabIndex = 23;
+            this.txtPartPrice.Tag = "가격";
             // 
             // label6
             // 
@@ -285,19 +285,18 @@
             this.label6.Text = "가격";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ccTxtClient
+            // txtClient
             // 
-            this.ccTxtClient.ForeColor = System.Drawing.Color.Gray;
-            this.ccTxtClient.isNumeric = false;
-            this.ccTxtClient.isRequired = true;
-            this.ccTxtClient.Location = new System.Drawing.Point(210, 77);
-            this.ccTxtClient.Name = "ccTxtClient";
-            this.ccTxtClient.PlaceHolder = null;
-            this.ccTxtClient.Size = new System.Drawing.Size(171, 23);
-            this.ccTxtClient.TabIndex = 21;
-            this.ccTxtClient.Tag = "거래처";
-            this.ccTxtClient.Text = "dd";
-            this.ccTxtClient.Click += new System.EventHandler(this.ccTxtClient_Click);
+            this.txtClient.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtClient.isNumeric = false;
+            this.txtClient.isRequired = true;
+            this.txtClient.Location = new System.Drawing.Point(210, 77);
+            this.txtClient.Name = "txtClient";
+            this.txtClient.PlaceHolder = null;
+            this.txtClient.Size = new System.Drawing.Size(171, 23);
+            this.txtClient.TabIndex = 21;
+            this.txtClient.Tag = "거래처";
+            this.txtClient.Click += new System.EventHandler(this.ccTxtClient_Click);
             // 
             // label5
             // 
@@ -336,17 +335,18 @@
             this.btnUploadPart.TabIndex = 17;
             this.btnUploadPart.Text = "업로드";
             this.btnUploadPart.UseVisualStyleBackColor = true;
+            this.btnUploadPart.Click += new System.EventHandler(this.btnUploadPart_Click);
             // 
-            // ccTxtSafeInv
+            // txtSafeInv
             // 
-            this.ccTxtSafeInv.isNumeric = true;
-            this.ccTxtSafeInv.isRequired = true;
-            this.ccTxtSafeInv.Location = new System.Drawing.Point(210, 111);
-            this.ccTxtSafeInv.Name = "ccTxtSafeInv";
-            this.ccTxtSafeInv.PlaceHolder = null;
-            this.ccTxtSafeInv.Size = new System.Drawing.Size(50, 23);
-            this.ccTxtSafeInv.TabIndex = 16;
-            this.ccTxtSafeInv.Tag = "안전 재고";
+            this.txtSafeInv.isNumeric = true;
+            this.txtSafeInv.isRequired = true;
+            this.txtSafeInv.Location = new System.Drawing.Point(210, 111);
+            this.txtSafeInv.Name = "txtSafeInv";
+            this.txtSafeInv.PlaceHolder = null;
+            this.txtSafeInv.Size = new System.Drawing.Size(50, 23);
+            this.txtSafeInv.TabIndex = 16;
+            this.txtSafeInv.Tag = "안전 재고";
             // 
             // label3
             // 
@@ -366,17 +366,17 @@
             this.cboPartCategory.Size = new System.Drawing.Size(75, 23);
             this.cboPartCategory.TabIndex = 13;
             // 
-            // ccTxtPartName
+            // txtPartName
             // 
-            this.ccTxtPartName.ForeColor = System.Drawing.Color.Gray;
-            this.ccTxtPartName.isNumeric = false;
-            this.ccTxtPartName.isRequired = true;
-            this.ccTxtPartName.Location = new System.Drawing.Point(210, 6);
-            this.ccTxtPartName.Name = "ccTxtPartName";
-            this.ccTxtPartName.PlaceHolder = null;
-            this.ccTxtPartName.Size = new System.Drawing.Size(171, 23);
-            this.ccTxtPartName.TabIndex = 12;
-            this.ccTxtPartName.Tag = "부품명";
+            this.txtPartName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtPartName.isNumeric = false;
+            this.txtPartName.isRequired = true;
+            this.txtPartName.Location = new System.Drawing.Point(210, 6);
+            this.txtPartName.Name = "txtPartName";
+            this.txtPartName.PlaceHolder = null;
+            this.txtPartName.Size = new System.Drawing.Size(171, 23);
+            this.txtPartName.TabIndex = 12;
+            this.txtPartName.Tag = "부품명";
             // 
             // label4
             // 
@@ -421,33 +421,33 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage SaveProduct;
-        private ccTextBox ccTxtProdPrice;
+        private ccTextBox txtProdPrice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboProdCategory;
         private System.Windows.Forms.ComboBox cboIsFinished;
-        private ccTextBox ccTxtProdName;
+        private ccTextBox txtProdName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage SavePart;
         private System.Windows.Forms.Button btnUploadProdImg;
         private System.Windows.Forms.Button btnProdCancel;
         private System.Windows.Forms.Button btnSaveProd;
-        private ccTextBox ccTxtPartPrice;
+        private ccTextBox txtPartPrice;
         private System.Windows.Forms.Label label6;
-        private ccTextBox ccTxtClient;
+        private ccTextBox txtClient;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnPartCancel;
         private System.Windows.Forms.Button btnSavePart;
         private System.Windows.Forms.Button btnUploadPart;
-        private ccTextBox ccTxtSafeInv;
+        private ccTextBox txtSafeInv;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPartCategory;
-        private ccTextBox ccTxtPartName;
+        private ccTextBox txtPartName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ccTextBox ccTxtUnit;
+        private ccTextBox txtUnit;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private ccTextBox ccTxtLeadTime;
+        private ccTextBox txtLeadTime;
     }
 }

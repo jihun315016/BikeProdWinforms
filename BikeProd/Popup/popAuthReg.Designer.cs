@@ -44,10 +44,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(519, 204);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Location = new System.Drawing.Point(454, 163);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 51);
+            this.button2.Size = new System.Drawing.Size(77, 41);
             this.button2.TabIndex = 10;
             this.button2.Text = "<<";
             this.button2.UseVisualStyleBackColor = true;
@@ -56,10 +55,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(519, 145);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(454, 116);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 51);
+            this.button1.Size = new System.Drawing.Size(77, 41);
             this.button1.TabIndex = 9;
             this.button1.Text = ">>";
             this.button1.UseVisualStyleBackColor = true;
@@ -68,29 +66,26 @@
             // lstAll
             // 
             this.lstAll.FormattingEnabled = true;
-            this.lstAll.ItemHeight = 15;
-            this.lstAll.Location = new System.Drawing.Point(295, 40);
-            this.lstAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstAll.ItemHeight = 12;
+            this.lstAll.Location = new System.Drawing.Point(258, 32);
             this.lstAll.Name = "lstAll";
-            this.lstAll.Size = new System.Drawing.Size(217, 334);
+            this.lstAll.Size = new System.Drawing.Size(190, 268);
             this.lstAll.TabIndex = 8;
             // 
             // lstSelect
             // 
             this.lstSelect.FormattingEnabled = true;
-            this.lstSelect.ItemHeight = 15;
-            this.lstSelect.Location = new System.Drawing.Point(614, 40);
-            this.lstSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstSelect.ItemHeight = 12;
+            this.lstSelect.Location = new System.Drawing.Point(537, 32);
             this.lstSelect.Name = "lstSelect";
-            this.lstSelect.Size = new System.Drawing.Size(217, 334);
+            this.lstSelect.Size = new System.Drawing.Size(190, 268);
             this.lstSelect.TabIndex = 7;
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(14, 40);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.treeView1.Location = new System.Drawing.Point(12, 32);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(274, 383);
+            this.treeView1.Size = new System.Drawing.Size(240, 307);
             this.treeView1.TabIndex = 6;
             this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -98,10 +93,9 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnCancel.Location = new System.Drawing.Point(675, 385);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Location = new System.Drawing.Point(591, 308);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(155, 39);
+            this.btnCancel.Size = new System.Drawing.Size(136, 31);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -111,9 +105,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(17, 11);
+            this.label1.Location = new System.Drawing.Point(12, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 25);
+            this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 13;
             this.label1.Text = "< 권한 메뉴 >";
             // 
@@ -121,9 +115,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(344, 11);
+            this.label2.Location = new System.Drawing.Point(301, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 25);
+            this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "< 전체 부서 >";
             // 
@@ -131,19 +125,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(664, 11);
+            this.label3.Location = new System.Drawing.Point(581, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 25);
+            this.label3.Size = new System.Drawing.Size(106, 20);
             this.label3.TabIndex = 15;
             this.label3.Text = "< 권한 부서 >";
             // 
             // btnReg
             // 
             this.btnReg.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnReg.Location = new System.Drawing.Point(513, 385);
-            this.btnReg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReg.Location = new System.Drawing.Point(449, 308);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(155, 39);
+            this.btnReg.Size = new System.Drawing.Size(136, 31);
             this.btnReg.TabIndex = 11;
             this.btnReg.Text = "등록";
             this.btnReg.UseVisualStyleBackColor = true;
@@ -152,16 +145,16 @@
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(481, 16);
+            this.lblPath.Location = new System.Drawing.Point(421, 13);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(0, 15);
+            this.lblPath.Size = new System.Drawing.Size(0, 12);
             this.lblPath.TabIndex = 16;
             // 
-            // frmAuthRegPopUp
+            // popAuthReg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 439);
+            this.ClientSize = new System.Drawing.Size(738, 351);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -173,8 +166,7 @@
             this.Controls.Add(this.lstAll);
             this.Controls.Add(this.lstSelect);
             this.Controls.Add(this.treeView1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmAuthRegPopUp";
+            this.Name = "popAuthReg";
             this.Text = "권한등록창";
             this.Load += new System.EventHandler(this.frmAuthRegPopUp_Load);
             this.ResumeLayout(false);

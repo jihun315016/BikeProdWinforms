@@ -33,39 +33,39 @@
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dgvBaljuSeo = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.dgvList = new System.Windows.Forms.DataGridView();
+            this.btnGetOK = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.dgvList2 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnOrderCancle = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBaljuSeo)).BeginInit();
+            this.txtPurNo = new BikeProd.ccTextBox();
+            this.ccTextBox2 = new BikeProd.ccTextBox();
+            this.txtBusinessNo = new BikeProd.ccTextBox();
+            this.ccPurName = new BikeProd.ccTextBox();
+            this.ccTextBox5 = new BikeProd.ccTextBox();
+            this.ccTextBox6 = new BikeProd.ccTextBox();
+            this.ccTextBox7 = new BikeProd.ccTextBox();
+            this.ccTextBox8 = new BikeProd.ccTextBox();
+            this.ccTextBox9 = new BikeProd.ccTextBox();
+            this.ccTextBox10 = new BikeProd.ccTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList2)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,14 +129,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "~";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(66, 49);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 23);
-            this.textBox1.TabIndex = 10;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(291, 48);
@@ -156,27 +148,27 @@
             this.comboBox1.Size = new System.Drawing.Size(58, 23);
             this.comboBox1.TabIndex = 12;
             // 
-            // dgvBaljuSeo
+            // dgvList
             // 
-            this.dgvBaljuSeo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBaljuSeo.Location = new System.Drawing.Point(6, 104);
-            this.dgvBaljuSeo.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvBaljuSeo.Name = "dgvBaljuSeo";
-            this.dgvBaljuSeo.RowHeadersWidth = 51;
-            this.dgvBaljuSeo.RowTemplate.Height = 27;
-            this.dgvBaljuSeo.Size = new System.Drawing.Size(343, 311);
-            this.dgvBaljuSeo.TabIndex = 13;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Location = new System.Drawing.Point(6, 104);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.RowHeadersWidth = 51;
+            this.dgvList.RowTemplate.Height = 27;
+            this.dgvList.Size = new System.Drawing.Size(343, 311);
+            this.dgvList.TabIndex = 13;
             // 
-            // button2
+            // btnGetOK
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(183, 435);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 32);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "입고완료";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGetOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGetOK.Location = new System.Drawing.Point(183, 435);
+            this.btnGetOK.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGetOK.Name = "btnGetOK";
+            this.btnGetOK.Size = new System.Drawing.Size(79, 32);
+            this.btnGetOK.TabIndex = 14;
+            this.btnGetOK.Text = "입고완료";
+            this.btnGetOK.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -188,59 +180,42 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "발주 번호";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(92, 5);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 23);
-            this.textBox2.TabIndex = 10;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.ccTextBox2);
+            this.panel1.Controls.Add(this.ccTextBox9);
+            this.panel1.Controls.Add(this.ccTextBox8);
+            this.panel1.Controls.Add(this.ccTextBox7);
+            this.panel1.Controls.Add(this.ccTextBox6);
+            this.panel1.Controls.Add(this.ccTextBox5);
+            this.panel1.Controls.Add(this.ccPurName);
+            this.panel1.Controls.Add(this.txtBusinessNo);
+            this.panel1.Controls.Add(this.txtPurNo);
+            this.panel1.Controls.Add(this.dgvList2);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox9);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(378, 33);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(511, 398);
             this.panel1.TabIndex = 15;
             // 
-            // dataGridView2
+            // dgvList2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 248);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(511, 150);
-            this.dataGridView2.TabIndex = 13;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(92, 171);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(390, 55);
-            this.textBox7.TabIndex = 10;
+            this.dgvList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvList2.Location = new System.Drawing.Point(0, 248);
+            this.dgvList2.Name = "dgvList2";
+            this.dgvList2.RowTemplate.Height = 23;
+            this.dgvList2.Size = new System.Drawing.Size(511, 150);
+            this.dgvList2.TabIndex = 13;
             // 
             // label9
             // 
@@ -251,22 +226,6 @@
             this.label9.Size = new System.Drawing.Size(31, 15);
             this.label9.TabIndex = 8;
             this.label9.Text = "주소";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(340, 134);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(142, 23);
-            this.textBox10.TabIndex = 10;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(92, 134);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(142, 23);
-            this.textBox6.TabIndex = 10;
             // 
             // label12
             // 
@@ -297,14 +256,6 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "입고 예정일";
             // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(340, 103);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(142, 23);
-            this.textBox9.TabIndex = 10;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -314,14 +265,6 @@
             this.label11.Size = new System.Drawing.Size(83, 15);
             this.label11.TabIndex = 8;
             this.label11.Text = "거래처 담당자";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(92, 103);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(142, 23);
-            this.textBox5.TabIndex = 10;
             // 
             // label7
             // 
@@ -333,14 +276,6 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "발주 일자";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(92, 70);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(265, 23);
-            this.textBox4.TabIndex = 10;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -350,14 +285,6 @@
             this.label6.Size = new System.Drawing.Size(55, 15);
             this.label6.TabIndex = 8;
             this.label6.Text = "발주서명";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(92, 37);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(265, 23);
-            this.textBox3.TabIndex = 10;
             // 
             // label5
             // 
@@ -369,14 +296,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "사업자 번호";
             // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(340, 5);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(142, 23);
-            this.textBox8.TabIndex = 10;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -387,49 +306,49 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "입고처";
             // 
-            // button3
+            // btnOrderCancle
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(263, 435);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(79, 32);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "주문취소";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnOrderCancle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOrderCancle.Location = new System.Drawing.Point(263, 435);
+            this.btnOrderCancle.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOrderCancle.Name = "btnOrderCancle";
+            this.btnOrderCancle.Size = new System.Drawing.Size(79, 32);
+            this.btnOrderCancle.TabIndex = 14;
+            this.btnOrderCancle.Text = "주문취소";
+            this.btnOrderCancle.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnExport
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(728, 451);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(79, 32);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "발주서";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(728, 451);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(79, 32);
+            this.btnExport.TabIndex = 14;
+            this.btnExport.Text = "발주서";
+            this.btnExport.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnAdd
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(811, 451);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 32);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "발주서 등록";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Location = new System.Drawing.Point(811, 451);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(79, 32);
+            this.btnAdd.TabIndex = 14;
+            this.btnAdd.Text = "발주서 등록";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvBaljuSeo);
+            this.panel2.Controls.Add(this.ccTextBox10);
+            this.panel2.Controls.Add(this.dgvList);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btnGetOK);
+            this.panel2.Controls.Add(this.btnOrderCancle);
             this.panel2.Controls.Add(this.dtpTo);
             this.panel2.Controls.Add(this.dtpFrom);
             this.panel2.Controls.Add(this.label3);
@@ -439,29 +358,130 @@
             this.panel2.TabIndex = 16;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // txtPurNo
+            // 
+            this.txtPurNo.isNumeric = false;
+            this.txtPurNo.isRequired = false;
+            this.txtPurNo.Location = new System.Drawing.Point(92, 9);
+            this.txtPurNo.Name = "txtPurNo";
+            this.txtPurNo.PlaceHolder = null;
+            this.txtPurNo.Size = new System.Drawing.Size(141, 23);
+            this.txtPurNo.TabIndex = 14;
+            // 
+            // ccTextBox2
+            // 
+            this.ccTextBox2.isNumeric = false;
+            this.ccTextBox2.isRequired = false;
+            this.ccTextBox2.Location = new System.Drawing.Point(325, 5);
+            this.ccTextBox2.Name = "ccTextBox2";
+            this.ccTextBox2.PlaceHolder = null;
+            this.ccTextBox2.Size = new System.Drawing.Size(141, 23);
+            this.ccTextBox2.TabIndex = 14;
+            // 
+            // txtBusinessNo
+            // 
+            this.txtBusinessNo.isNumeric = false;
+            this.txtBusinessNo.isRequired = false;
+            this.txtBusinessNo.Location = new System.Drawing.Point(92, 41);
+            this.txtBusinessNo.Name = "txtBusinessNo";
+            this.txtBusinessNo.PlaceHolder = null;
+            this.txtBusinessNo.Size = new System.Drawing.Size(264, 23);
+            this.txtBusinessNo.TabIndex = 14;
+            // 
+            // ccPurName
+            // 
+            this.ccPurName.isNumeric = false;
+            this.ccPurName.isRequired = false;
+            this.ccPurName.Location = new System.Drawing.Point(92, 71);
+            this.ccPurName.Name = "ccPurName";
+            this.ccPurName.PlaceHolder = null;
+            this.ccPurName.Size = new System.Drawing.Size(264, 23);
+            this.ccPurName.TabIndex = 14;
+            // 
+            // ccTextBox5
+            // 
+            this.ccTextBox5.isNumeric = false;
+            this.ccTextBox5.isRequired = false;
+            this.ccTextBox5.Location = new System.Drawing.Point(92, 106);
+            this.ccTextBox5.Name = "ccTextBox5";
+            this.ccTextBox5.PlaceHolder = null;
+            this.ccTextBox5.Size = new System.Drawing.Size(141, 23);
+            this.ccTextBox5.TabIndex = 14;
+            // 
+            // ccTextBox6
+            // 
+            this.ccTextBox6.isNumeric = false;
+            this.ccTextBox6.isRequired = false;
+            this.ccTextBox6.Location = new System.Drawing.Point(92, 136);
+            this.ccTextBox6.Name = "ccTextBox6";
+            this.ccTextBox6.PlaceHolder = null;
+            this.ccTextBox6.Size = new System.Drawing.Size(141, 23);
+            this.ccTextBox6.TabIndex = 14;
+            // 
+            // ccTextBox7
+            // 
+            this.ccTextBox7.isNumeric = false;
+            this.ccTextBox7.isRequired = false;
+            this.ccTextBox7.Location = new System.Drawing.Point(339, 135);
+            this.ccTextBox7.Name = "ccTextBox7";
+            this.ccTextBox7.PlaceHolder = null;
+            this.ccTextBox7.Size = new System.Drawing.Size(141, 23);
+            this.ccTextBox7.TabIndex = 14;
+            // 
+            // ccTextBox8
+            // 
+            this.ccTextBox8.isNumeric = false;
+            this.ccTextBox8.isRequired = false;
+            this.ccTextBox8.Location = new System.Drawing.Point(339, 104);
+            this.ccTextBox8.Name = "ccTextBox8";
+            this.ccTextBox8.PlaceHolder = null;
+            this.ccTextBox8.Size = new System.Drawing.Size(141, 23);
+            this.ccTextBox8.TabIndex = 14;
+            // 
+            // ccTextBox9
+            // 
+            this.ccTextBox9.isNumeric = false;
+            this.ccTextBox9.isRequired = false;
+            this.ccTextBox9.Location = new System.Drawing.Point(92, 171);
+            this.ccTextBox9.Multiline = true;
+            this.ccTextBox9.Name = "ccTextBox9";
+            this.ccTextBox9.PlaceHolder = null;
+            this.ccTextBox9.Size = new System.Drawing.Size(388, 59);
+            this.ccTextBox9.TabIndex = 14;
+            // 
+            // ccTextBox10
+            // 
+            this.ccTextBox10.isNumeric = false;
+            this.ccTextBox10.isRequired = false;
+            this.ccTextBox10.Location = new System.Drawing.Point(67, 49);
+            this.ccTextBox10.Name = "ccTextBox10";
+            this.ccTextBox10.PlaceHolder = null;
+            this.ccTextBox10.Size = new System.Drawing.Size(220, 23);
+            this.ccTextBox10.TabIndex = 15;
+            // 
             // frmPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 505);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "frmPurchase";
-            this.Text = "frmBalJu";
+            this.Text = "발주";
             this.Load += new System.EventHandler(this.frmBalJu_Load);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.button4, 0);
-            this.Controls.SetChildIndex(this.button5, 0);
+            this.Controls.SetChildIndex(this.btnExport, 0);
+            this.Controls.SetChildIndex(this.btnAdd, 0);
             this.Controls.SetChildIndex(this.DescriptLabel1, 0);
             this.Controls.SetChildIndex(this.DescriptLabel2, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBaljuSeo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -476,35 +496,35 @@
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dgvBaljuSeo;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgvList;
+        private System.Windows.Forms.Button btnGetOK;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvList2;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnOrderCancle;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel2;
+        private ccTextBox ccTextBox2;
+        private ccTextBox ccTextBox9;
+        private ccTextBox ccTextBox8;
+        private ccTextBox ccTextBox7;
+        private ccTextBox ccTextBox6;
+        private ccTextBox ccTextBox5;
+        private ccTextBox ccPurName;
+        private ccTextBox txtBusinessNo;
+        private ccTextBox txtPurNo;
+        private ccTextBox ccTextBox10;
     }
 }

@@ -64,10 +64,10 @@ namespace BikeProd
             return result;
         }
 
-        public List<TeamVO> GetCodeByTeam()
+        public List<TeamVO> GetCodeByTeam(int DeptNo)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            List<TeamVO> result = dac.GetCodeByTeam();
+            List<TeamVO> result = dac.GetCodeByTeam(DeptNo);
             dac.Dispose();
 
             return result;

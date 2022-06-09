@@ -48,11 +48,11 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.ccTextBox1 = new BikeProd.ccTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvList = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,7 +64,7 @@
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvList);
             this.panel1.Controls.Add(this.ccTextBox1);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.comboBox3);
@@ -261,14 +261,14 @@
             this.button1.Text = "추가";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 208);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(601, 201);
-            this.dataGridView1.TabIndex = 29;
+            this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvList.Location = new System.Drawing.Point(3, 208);
+            this.dgvList.Name = "dgvList";
+            this.dgvList.RowTemplate.Height = 23;
+            this.dgvList.Size = new System.Drawing.Size(601, 201);
+            this.dgvList.TabIndex = 29;
             // 
             // button2
             // 
@@ -296,10 +296,10 @@
             this.ClientSize = new System.Drawing.Size(675, 473);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "popSavePurchase";
-            this.Text = "popAddBalJu";
+            this.Text = "발주서 등록";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +326,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private ccTextBox ccTextBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
     }

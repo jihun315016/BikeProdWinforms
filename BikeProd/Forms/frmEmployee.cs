@@ -37,8 +37,7 @@ namespace BikeProd
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //popEmployee frm = new popEmployee();
-            //frm.ShowDialog();
+           
         }
 
         private void frmEmployee_Load(object sender, EventArgs e)
@@ -142,6 +141,12 @@ namespace BikeProd
             //popleave frm = new popleave(EmpNo);
             //frm.Show();
 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            popEmpReg frm = new popEmpReg();
+            frm.ShowDialog();
         }
     }
 }

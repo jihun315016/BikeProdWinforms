@@ -24,23 +24,23 @@ namespace BikeProd
         private void frmBalJu_Load(object sender, EventArgs e)
         {
             
-            DataGridViewUtil.SetInitGridView(dgvBaljuSeo); // dgvBaljuSeo 이름 바꿀 것
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "입고처", "BusinessNo", colWidth : 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "발주서", "PurchaseName", colWidth : 90);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "발주일자", "PurchaseNo", isVisible : false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "거래처번호", "BusinessNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "거래처 담당자", "Manager", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "발주일자", "PurchaseDate", colWidth : 90);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "도착일자", "ArriveDate", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "상태", "State" , colWidth : 70);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBaljuSeo, "도착일자", "SubManger", isVisible: false);
+            DataGridViewUtil.SetInitGridView(dgvList); // dgvBaljuSeo 이름 바꿀 것
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입고처", "BusinessNo", colWidth : 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주서", "PurchaseName", colWidth : 90);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주일자", "PurchaseNo", isVisible : false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처번호", "BusinessNo", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처 담당자", "Manager", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주일자", "PurchaseDate", colWidth : 90);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도착일자", "ArriveDate", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "상태", "State" , colWidth : 70);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도착일자", "SubManger", isVisible: false);
             LoadData();
         }
         public void LoadData()
         {
             purchaseSrv = new PurchaseService();
             purchaseList = purchaseSrv.GetPurchase();
-            dgvBaljuSeo.DataSource = purchaseList;
+            dgvList.DataSource = purchaseList;
             
         }
 

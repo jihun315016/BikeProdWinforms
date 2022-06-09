@@ -39,7 +39,6 @@ namespace BikeProd.DAC
                 cmd.Connection = conn;
                 cmd.CommandText = "SP_Employee";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
                 cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
                 cmd.Parameters.AddWithValue("@DeptNo", emp.DeptNo);
                 cmd.Parameters.AddWithValue("@TeamNo", emp.TeamNo);
@@ -138,7 +137,6 @@ namespace BikeProd.DAC
             {
                 list = DBConverter.DataReaderToList<EmployeeVO>(cmd.ExecuteReader());
             }
-
             return list;
         }
 
@@ -169,13 +167,16 @@ namespace BikeProd.DAC
         /// 팀 정보 가져오기
         /// </summary>
         /// <returns></returns>
-        public List<TeamVO> GetCodeByTeam()
+        public List<TeamVO> GetCodeByTeam(int DeptNo)
         {
             try
             {
-                string sql = "select TeamName from TB_Team";
+                string sql = @"select TeamName 
+                                from TB_Team T inner join TB_Department d on t.DeptNo = d.DeptNo
+                                where t.DeptNo = @DeptNo";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@DeptNo", DeptNo);
                 return DBConverter.DataReaderToList<TeamVO>(cmd.ExecuteReader());
             }
             catch (Exception err)
@@ -231,7 +232,7 @@ namespace BikeProd.DAC
         /// <returns></returns>
         public EmployeeVO searchEmpInfo(int TeamNo, string EmpName)
         {
-            string sql = @"[dbo].[SP_GetEmpInfo]";
+            string sql = @"SP_GetEmpInfo";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {

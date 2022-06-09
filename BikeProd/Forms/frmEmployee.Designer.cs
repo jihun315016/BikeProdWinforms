@@ -34,7 +34,7 @@ namespace BikeProd
             this.btnReturn = new System.Windows.Forms.Button();
             this.rdOut = new System.Windows.Forms.RadioButton();
             this.rdWorking = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.ccTextBox1 = new BikeProd.ccTextBox();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@ namespace BikeProd
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.button3);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSave);
             this.splitContainer1.SplitterDistance = 91;
             this.splitContainer1.SplitterWidth = 5;
             // 
@@ -84,7 +84,6 @@ namespace BikeProd
             this.cboDept.Name = "cboDept";
             this.cboDept.Size = new System.Drawing.Size(121, 23);
             this.cboDept.TabIndex = 0;
-            this.cboDept.SelectedIndexChanged += new System.EventHandler(this.cboDept_SelectedIndexChanged);
             // 
             // btnSearch
             // 
@@ -130,16 +129,16 @@ namespace BikeProd
             this.rdWorking.UseVisualStyleBackColor = true;
             this.rdWorking.CheckedChanged += new System.EventHandler(this.rdWorking_CheckedChanged);
             // 
-            // button3
+            // btnSave
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1036, 407);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "등록";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(1036, 406);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(87, 40);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "등록";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // ccTextBox1
             // 
@@ -166,7 +165,7 @@ namespace BikeProd
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(946, 407);
+            this.button1.Location = new System.Drawing.Point(946, 406);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 40);
@@ -206,7 +205,7 @@ namespace BikeProd
         private System.Windows.Forms.RadioButton rdWorking;
         private System.Windows.Forms.RadioButton rdOut;
         private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button button1;
     }

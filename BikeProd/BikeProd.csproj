@@ -124,6 +124,12 @@
     <Compile Include="Forms\frmModel.Designer.cs">
       <DependentUpon>frmModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Popup\popEmpReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popEmpReg.designer.cs">
+      <DependentUpon>popEmpReg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popup\popSearchClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmModel.resx">
       <DependentUpon>frmModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popEmpReg.resx">
+      <DependentUpon>popEmpReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSearchClient.resx">
       <DependentUpon>popSearchClient.cs</DependentUpon>

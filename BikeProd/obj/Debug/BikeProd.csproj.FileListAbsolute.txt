@@ -94,3 +94,4 @@ C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.VO.dll
 C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.DAC.pdb
 C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd\bin\Debug\BikeProd.VO.pdb
 C:\Users\admin\Desktop\aaaaa\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
+C:\Users\admin\Desktop\BikeProd\BikeProdWinforms\BikeProd\obj\Debug\BikeProd.popEmpReg.resources

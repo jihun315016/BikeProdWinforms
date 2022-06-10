@@ -113,6 +113,7 @@ namespace BikeProd
             // 
             // cboDept
             // 
+            this.cboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDept.FormattingEnabled = true;
             this.cboDept.Location = new System.Drawing.Point(117, 67);
             this.cboDept.Name = "cboDept";
@@ -122,18 +123,20 @@ namespace BikeProd
             // 
             // cboTeam
             // 
+            this.cboTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTeam.FormattingEnabled = true;
             this.cboTeam.Location = new System.Drawing.Point(117, 111);
             this.cboTeam.Name = "cboTeam";
             this.cboTeam.Size = new System.Drawing.Size(223, 23);
             this.cboTeam.TabIndex = 2;
+            this.cboTeam.SelectedIndexChanged += new System.EventHandler(this.cboTeam_SelectedIndexChanged);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(132, 252);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(111, 41);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "등록";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -146,7 +149,8 @@ namespace BikeProd
             this.txtName.Name = "txtName";
             this.txtName.PlaceHolder = null;
             this.txtName.Size = new System.Drawing.Size(223, 23);
-            this.txtName.TabIndex = 6;
+            this.txtName.TabIndex = 0;
+            this.txtName.Tag = "이름";
             // 
             // txtPhone
             // 
@@ -157,7 +161,8 @@ namespace BikeProd
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PlaceHolder = null;
             this.txtPhone.Size = new System.Drawing.Size(223, 23);
-            this.txtPhone.TabIndex = 6;
+            this.txtPhone.TabIndex = 3;
+            this.txtPhone.Tag = "전화번호";
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged_1);
             // 
             // txtEmail
@@ -168,7 +173,8 @@ namespace BikeProd
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceHolder = null;
             this.txtEmail.Size = new System.Drawing.Size(71, 23);
-            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TabIndex = 4;
+            this.txtEmail.Tag = "이메일";
             // 
             // label1
             // 
@@ -185,7 +191,7 @@ namespace BikeProd
             this.cboDomain.Location = new System.Drawing.Point(219, 194);
             this.cboDomain.Name = "cboDomain";
             this.cboDomain.Size = new System.Drawing.Size(121, 23);
-            this.cboDomain.TabIndex = 7;
+            this.cboDomain.TabIndex = 5;
             this.cboDomain.SelectedIndexChanged += new System.EventHandler(this.cboDomain_SelectedIndexChanged);
             // 
             // txtDomain
@@ -197,6 +203,7 @@ namespace BikeProd
             this.txtDomain.PlaceHolder = null;
             this.txtDomain.Size = new System.Drawing.Size(121, 23);
             this.txtDomain.TabIndex = 8;
+            this.txtDomain.Tag = "도메인";
             this.txtDomain.Visible = false;
             // 
             // popEmpReg

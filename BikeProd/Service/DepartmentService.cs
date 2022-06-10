@@ -44,5 +44,15 @@ namespace BikeProd
 
             return result;
         }
+        public List<DeptMenuVO> GetAllDeptMenuInfo()
+        {
+            DepartmentDAC dac = new DepartmentDAC();
+            List<DeptMenuVO> result = dac.GetAllDeptMenuInfo();
+            dac.Dispose();
+
+            return result;
+        }
+
+
     }
 }

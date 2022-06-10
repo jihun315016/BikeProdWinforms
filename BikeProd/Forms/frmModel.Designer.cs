@@ -35,6 +35,7 @@
             this.txtSearch = new BikeProd.ccTextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnInit = new System.Windows.Forms.Button();
+            this.cboDealing = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,11 +52,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.cboKind);
+            this.splitContainer1.Panel1.Controls.Add(this.cboDealing);
             this.splitContainer1.Panel1.Controls.Add(this.btnInit);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
             this.splitContainer1.Panel1.Controls.Add(this.cboCategory);
-            this.splitContainer1.Panel1.Controls.Add(this.cboKind);
             // 
             // splitContainer2
             // 
@@ -70,7 +72,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(178, 495);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(277, 480);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
@@ -83,11 +86,13 @@
             this.dgvList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(28, 15);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(745, 503);
+            this.dgvList.Size = new System.Drawing.Size(745, 488);
             this.dgvList.TabIndex = 2;
             // 
             // cboKind
@@ -95,7 +100,7 @@
             this.cboKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKind.FormattingEnabled = true;
-            this.cboKind.Location = new System.Drawing.Point(28, 42);
+            this.cboKind.Location = new System.Drawing.Point(155, 42);
             this.cboKind.Name = "cboKind";
             this.cboKind.Size = new System.Drawing.Size(121, 23);
             this.cboKind.TabIndex = 1;
@@ -106,7 +111,7 @@
             this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(155, 42);
+            this.cboCategory.Location = new System.Drawing.Point(282, 42);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(121, 23);
             this.cboCategory.TabIndex = 2;
@@ -116,7 +121,7 @@
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSearch.isNumeric = false;
             this.txtSearch.isRequired = false;
-            this.txtSearch.Location = new System.Drawing.Point(282, 42);
+            this.txtSearch.Location = new System.Drawing.Point(409, 42);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceHolder = "모델명 검색";
             this.txtSearch.Size = new System.Drawing.Size(143, 23);
@@ -125,7 +130,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSearch.Location = new System.Drawing.Point(431, 42);
+            this.btnSearch.Location = new System.Drawing.Point(558, 42);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(59, 23);
             this.btnSearch.TabIndex = 4;
@@ -136,12 +141,23 @@
             // btnInit
             // 
             this.btnInit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnInit.Location = new System.Drawing.Point(496, 42);
+            this.btnInit.Location = new System.Drawing.Point(623, 42);
             this.btnInit.Name = "btnInit";
             this.btnInit.Size = new System.Drawing.Size(59, 23);
             this.btnInit.TabIndex = 5;
             this.btnInit.Text = "초기화";
             this.btnInit.UseVisualStyleBackColor = true;
+            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+            // 
+            // cboDealing
+            // 
+            this.cboDealing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cboDealing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDealing.FormattingEnabled = true;
+            this.cboDealing.Location = new System.Drawing.Point(28, 42);
+            this.cboDealing.Name = "cboDealing";
+            this.cboDealing.Size = new System.Drawing.Size(121, 23);
+            this.cboDealing.TabIndex = 6;
             // 
             // frmModel
             // 
@@ -178,5 +194,6 @@
         private System.Windows.Forms.ComboBox cboKind;
         private System.Windows.Forms.Button btnInit;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cboDealing;
     }
 }

@@ -54,10 +54,12 @@ namespace BikeProd.DAC
         {
             string sql = @"SELECT ProdCode Code, ProdName Name, 
 	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind, 
-	                            Category, Price, Inventory 
+	                            Category, Price, Inventory, Dealing
                             FROM TB_Products
                             UNION
-                            SELECT PartCode Code, PartName Name, '부품' Kind, Category, Price, Inventory 
+                            SELECT 
+	                            PartCode Code, PartName Name, '부품' Kind, Category, 
+	                            Price, Inventory, Dealing
                             FROM TB_Parts";
 
             SqlCommand cmd = new SqlCommand(sql, conn);            

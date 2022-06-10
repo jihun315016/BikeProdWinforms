@@ -26,7 +26,7 @@ namespace BikeProd
         {
             modelSrv = new ModelService();
             prodPartList = modelSrv.GetModelList();
-            categoryList = modelSrv.GetCategory();
+            categoryList = modelSrv.GetCategory();            
             InitControls();
         }
 
@@ -36,11 +36,16 @@ namespace BikeProd
         /// </summary>
         void InitControls()
         {
+            cboDealing.Items.AddRange(new string[] { "거래 여부", "거래 물품", "미거래 물품" });
+            cboDealing.SelectedIndex = 0;
+
             cboKind.Items.AddRange(new string[] { "분류", "완제품", "반제품", "부품" });
             cboKind.SelectedIndex = 0;
 
             cboCategory.Items.Add("품목");
             cboCategory.SelectedIndex = 0;
+
+            txtSearch.SetPlaceHolder();
 
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 180);
@@ -85,20 +90,37 @@ namespace BikeProd
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            List<ProdPartVO> list = prodPartList.ConvertAll<ProdPartVO>(p => p);
+
+            if (cboDealing.SelectedIndex > 0)
+            {
+                list = list.FindAll(p => p.Discontinuance == cboDealing.SelectedIndex - 1);
+            }
+
             if (cboKind.SelectedIndex > 0)
             {
-
+                list = list.FindAll(p => p.Kind == cboKind.Text);
             }
 
             if (cboCategory.SelectedIndex > 0)
             {
-
+                list = list.FindAll(p => p.Category == cboCategory.Text);
             }
 
-            if (!string.IsNullOrWhiteSpace(txtSearch.Text))
+            if (!string.IsNullOrWhiteSpace(txtSearch.Text) && txtSearch.Text != txtSearch.PlaceHolder)
             {
-
+                list = list.FindAll(p => p.Name.Contains(txtSearch.Text));
             }
+
+            dgvList.DataSource = list;
+        }
+
+        private void btnInit_Click(object sender, EventArgs e)
+        {
+            dgvList.DataSource = prodPartList;
+            cboKind.SelectedIndex = cboCategory.SelectedIndex = 0;
+            txtSearch.Text = String.Empty;
+            txtSearch.SetPlaceHolder();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

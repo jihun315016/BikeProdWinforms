@@ -149,7 +149,7 @@ namespace BikeProd.DAC
         {
             try
             {
-                string sql = @"select DeptName
+                string sql = @"select DeptName, DeptNo
                                 from TB_Department
                                 where DeptName <> 'Admin'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -171,7 +171,7 @@ namespace BikeProd.DAC
         {
             try
             {
-                string sql = @"select TeamName 
+                string sql = @"select TeamName, TeamNo
                                 from TB_Team T inner join TB_Department d on t.DeptNo = d.DeptNo
                                 where t.DeptNo = @DeptNo";
 

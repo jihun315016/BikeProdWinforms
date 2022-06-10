@@ -15,63 +15,57 @@ namespace BikeProd
     public partial class popEmpReg : bPopCommon
     {
         EmployeeService employeeSrv = null;
-
-        //List<EmployeeVO> empList = null;
-        //List<TeamVO> teamList = null;
+        List<TeamVO> TeamList = null;
+        List<DepartmentVO> deptList = null;
+        TeamVO teamNo = null;
         int deptCode = 0;
         int TeamCode = 0;
+        string domain;
         public popEmpReg()
         {
             InitializeComponent();
         }
 
-        bool IsRequiredTextBox(Func<string> func)
-        {
-            string textBoxMsg = func();
-            if (textBoxMsg.Length > 0)
-            {
-                MessageBox.Show(textBoxMsg);
-                return false;
-            }
-
-            return true;
-        }
-
+      
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtName, txtPhone, txtEmail }));
-            if (!isRequired) return;
-            if(cboDept.Text.Equals("선택"))
+            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtName, txtPhone, txtEmail, txtDomain });
+            if (msg.Length > 0)
+            {
+                MessageBox.Show(msg);
+                return;
+            }
+            if (cboDomain.SelectedIndex == 0)
+            {
+                MessageBox.Show("이메일을 입력해주세요");
+                return;
+            }
+            // 직접 이력
+            else if (cboDomain.SelectedIndex == 1)
+            {
+                domain = txtDomain.Text;
+            }
+            else
+            {
+                domain = cboDomain.Text;
+            }
+            if(txtPhone.Text.Length < txtPhone.MaxLength)
+            {
+                MessageBox.Show("전화번호를 제대로 입력해주세요");
+            }
+            
+            if (cboDept.SelectedIndex == 0)
             {
                 MessageBox.Show("부서를 선택해주세요");
                 return;
             }
 
-            
-            string Email;
-
-            if (cboDept.Text.Equals("생산부서"))
-                deptCode = 1002;
-            else if (cboDept.Text.Equals("영업부서"))
-                deptCode = 1003;
-            else if (cboDept.Text.Equals("인사부서"))
-                deptCode = 1004;
-
-            if (cboTeam.Text.Equals("생산 1팀"))
-                TeamCode = 2001;
-            else if (cboTeam.Text.Equals("생산 2팀"))
-                TeamCode = 2002;
-
-            
-            if(txtDomain.Visible)
+            if(cboTeam.SelectedIndex != 0)
             {
-                
-                Email = string.Concat(txtEmail.Text, "@", txtDomain.Text);
+                TeamList = employeeSrv.GetCodeByTeam(deptCode);
+                TeamCode = TeamList.Find((c) => c.TeamName == cboTeam.Text).TeamNo;
             }
-            else
-            {
-                Email = string.Concat(txtEmail.Text, "@", cboDomain.Text);
-            }
+            
 
             EmployeeVO emp = new EmployeeVO
             {
@@ -79,7 +73,7 @@ namespace BikeProd
                 DeptNo = deptCode,
                 TeamNo = TeamCode,
                 Phone = txtPhone.Text,
-                Email = Email,
+                Email = string.Concat(txtEmail.Text, "@", domain),
                 Pwd = "1234",
                 FromDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")),
             };
@@ -95,11 +89,12 @@ namespace BikeProd
 
         private void popEmployee_Load(object sender, EventArgs e)
         {
-            ComboBinding();
+            
+            
             txtEmail.isRequired = true;
             txtPhone.isRequired = true;
             txtEmail.isRequired = true;
-
+            DeptComboBinding();
             DomainListBinding();
         }
 
@@ -117,29 +112,35 @@ namespace BikeProd
         }
 
 
-        public void ComboBinding()
+        public void DeptComboBinding()
+        {
+           
+            employeeSrv = new EmployeeService();
+            deptList = employeeSrv.GetCodeByDept();
+            deptList.Insert(0, new DepartmentVO()
+            {
+                DeptName = "선택",
+                DeptNo = 0
+            });
+            ComboBoxUtil.SetComboBoxByList<DepartmentVO>(cboDept, deptList, "DeptName", "DeptNo");
+            cboDept.SelectedIndex = 0;
+        }
+        public void TeamComboBinding()
         {
             employeeSrv = new EmployeeService();
-            List<DepartmentVO> deptList = employeeSrv.GetCodeByDept();
-            cboDept.Items.Add("선택");
-            cboDept.SelectedIndex = 0;
-
-            foreach (var lst in deptList)
+            TeamList = employeeSrv.GetCodeByTeam(deptCode);
+            TeamList.Insert(0, new TeamVO()
             {
-                cboDept.Items.Add(lst.DeptName);
-            }
-
-            /*List<TeamVO> TeamList = employeeSrv.GetCodeByTeam();
-            cboTeam.Items.Add("선택");
+                TeamName = "선택",
+                DeptNo = 0
+            });
+            ComboBoxUtil.SetComboBoxByList<TeamVO>(cboTeam, TeamList, "TeamName", "DeptNo");
             cboTeam.SelectedIndex = 0;
 
-            foreach (var lst in TeamList)
-            {
-                cboTeam.Items.Add(lst.TeamName);
-            }*/
-
+            
 
         }
+
 
 
         private void popEmployee_KeyPress(object sender, KeyPressEventArgs e)
@@ -170,46 +171,32 @@ namespace BikeProd
         {
             if (cboDomain.Text.Equals("직접입력"))
             {
-                cboDomain.Visible = false;
                 txtDomain.Visible = true;
-
-                txtDomain.Location = cboDomain.Location;
             }
+            else
+            {
+                txtDomain.Visible = false;
+            }
+            
         }
 
         private void cboDept_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cboDept.SelectedIndex != 0)
             {
-                cboTeam.Items.Clear();
-                if (cboDept.Text.Equals("생산부서"))
-                    deptCode = 1002;
-                else if (cboDept.Text.Equals("영업부서"))
-                    deptCode = 1003;
-                else if (cboDept.Text.Equals("인사부서"))
-                    deptCode = 1004;
+                DepartmentVO deptNo = deptList.Find((c) => c.DeptName == cboDept.Text);
+                deptCode = deptNo.DeptNo;
 
 
-                //cboTeam.Enabled = false;
+                TeamComboBinding();
 
-                List<TeamVO> TeamList = employeeSrv.GetCodeByTeam(deptCode);
 
-                if (TeamList == null)
-                {
-                    
-                }
-                else
-                {
-                    //cboTeam.Enabled = true;
-                    cboTeam.Items.Add("선택");
-                    cboTeam.SelectedIndex = 0;
-
-                    foreach (var lst in TeamList)
-                    {
-                        cboTeam.Items.Add(lst.TeamName);
-                    }
-                }
             }
+        }
+
+        private void cboTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

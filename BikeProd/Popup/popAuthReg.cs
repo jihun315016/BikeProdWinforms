@@ -14,7 +14,9 @@ namespace BikeProd
 {
     public partial class popAuthReg : Form
     {
+        DepartmentService departmentSrv = new DepartmentService();
         List<DeptMenuVO> authlist = null;
+        List<DepartmentVO> list = null;
         int MenuID;
 
         public popAuthReg()
@@ -59,9 +61,8 @@ namespace BikeProd
         
         private void DeptBinding()
         {
-            DepartmentDAC db = new DepartmentDAC();
-            List<DepartmentVO> list = db.GetAllDeptInfo();
-            db.Dispose();
+            
+            list = departmentSrv.GetAllDeptInfo();
 
             foreach (DepartmentVO dept in list)
             {
@@ -71,9 +72,7 @@ namespace BikeProd
 
         private void DeptAuthBinding()
         {
-            DepartmentDAC dac = new DepartmentDAC();
-            authlist = dac.GetAllDeptMenuInfo();
-            dac.Dispose();
+            authlist = departmentSrv.GetAllDeptMenuInfo();
         }
 
         private void button1_Click(object sender, EventArgs e)

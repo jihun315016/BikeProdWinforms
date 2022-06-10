@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BikeProd.VO
 {
+    /// <summary>
+    /// 정희록
+    /// 권한관련 설정을 위하여 TB_DepartmentAuth와 TB_Menu를 join한 데이터
+    /// </summary>
     public class DeptMenuVO
     {
         public int DeptNo { get; set; }

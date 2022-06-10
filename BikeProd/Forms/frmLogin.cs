@@ -19,30 +19,39 @@ namespace BikeProd
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            ccTextBox1.PlaceHolder = "사번";
-            ccTextBox1.SetPlaceHolder();
-            ccTextBox1.isNumeric = true;            
+            txtEmpNo.PlaceHolder = "사번";
+            txtEmpNo.SetPlaceHolder();
+            txtEmpNo.isNumeric = true;            
             
-            ccTextBox2.PlaceHolder = "비밀번호";            
-            ccTextBox2.SetPlaceHolder();           
+            txtPwd.PlaceHolder = "비밀번호";            
+            txtPwd.SetPlaceHolder();           
 
         }        
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {           
-            LoginService login = new LoginService();                  
-                                    
-            //if (login.GetLoginInfo(ccTextBox1.Text.Trim(), ccTextBox2.Text.Trim()))
-            //{               
-            //    ((frmMenu)this.Owner).empNo = int.Parse(ccTextBox1.Text);  
-            //    this.DialogResult = DialogResult.OK;
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("사번과 비밀번호를 확인해 주세요");
-            //}
+        {            
+            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtEmpNo, txtPwd });
+            if (msg.Length > 0)
+            {
+                MessageBox.Show(msg);
+                return;
+            }
+
+            LoginService LoginSrv = new LoginService();
+
+            if (LoginSrv.GetLoginInfo(txtEmpNo.Text.Trim(), txtPwd.Text.Trim()))
+            {
+                //((frmMenu)this.Owner).empNo = int.Parse(txtEmpNo.Text);
+                //this.DialogResult = DialogResult.OK;
+                //this.Close();
+            }
+            else
+            {
+                MessageBox.Show("사원의 정보를 확인해 주세요.");
+            }
         }
+
+      
 
         private void lblFPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

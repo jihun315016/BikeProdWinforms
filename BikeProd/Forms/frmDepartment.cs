@@ -11,9 +11,7 @@ namespace BikeProd
         // = null 필요 없음
         List<DepartmentVO> deptList = null;
         List<TeamVO> teamList = null;
-        List<EmployeeVO> empList = null;
-        EmployeeVO empVO; // VO 객체를 전역으로 둔 이유?
-        DeptMenuVO deptVO;
+        List<EmployeeVO> empList = null;                
         DataTable dt = null;
         DepartmentService departmentSrv = new DepartmentService();
         EmployeeService employeeSrv = new EmployeeService();
@@ -66,12 +64,12 @@ namespace BikeProd
         private void dgvDept_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
+            
             int DeptNo = Convert.ToInt32(dgvDept[0, e.RowIndex].Value);
             teamList = departmentSrv.GetAllTeamInfo(DeptNo);
             empList = employeeSrv.GetEmpInfo(DeptNo);
             dt = departmentSrv.GetTeamInfoTable(DeptNo);
-            deptVO = departmentSrv.GetAuthMenuInfo(DeptNo);
+            DeptMenuVO deptVO = departmentSrv.GetAuthMenuInfo(DeptNo);
 
             dgvTeam.DataSource = teamList;
             dgvTeam.Columns[0].Frozen = true;
@@ -119,7 +117,7 @@ namespace BikeProd
         {
             int TeamNo = Convert.ToInt32(cboTeamselect.SelectedIndex);
             string EmpName = txtEmpSearch.Text;
-            empVO = employeeSrv.searchEmpInfo(TeamNo, EmpName);
+            EmployeeVO empVO = employeeSrv.searchEmpInfo(TeamNo, EmpName);
 
             dgvDetail.DataSource = empVO;
         }

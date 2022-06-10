@@ -31,15 +31,15 @@ namespace BikeProd
         {
             this.lblFPwd = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.ccTextBox1 = new BikeProd.ccTextBox();
-            this.ccTextBox2 = new BikeProd.ccTextBox();
+            this.txtEmpNo = new BikeProd.ccTextBox();
+            this.txtPwd = new BikeProd.ccTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.ccTextBox2);
-            this.panel1.Controls.Add(this.ccTextBox1);
+            this.panel1.Controls.Add(this.txtPwd);
+            this.panel1.Controls.Add(this.txtEmpNo);
             this.panel1.Controls.Add(this.lblFPwd);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Size = new System.Drawing.Size(223, 155);
@@ -65,25 +65,27 @@ namespace BikeProd
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // ccTextBox1
+            // txtEmpNo
             // 
-            this.ccTextBox1.isNumeric = false;
-            this.ccTextBox1.isRequired = false;
-            this.ccTextBox1.Location = new System.Drawing.Point(17, 16);
-            this.ccTextBox1.Name = "ccTextBox1";
-            this.ccTextBox1.PlaceHolder = null;
-            this.ccTextBox1.Size = new System.Drawing.Size(190, 23);
-            this.ccTextBox1.TabIndex = 1;
+            this.txtEmpNo.isNumeric = false;
+            this.txtEmpNo.isRequired = false;
+            this.txtEmpNo.Location = new System.Drawing.Point(17, 16);
+            this.txtEmpNo.Name = "txtEmpNo";
+            this.txtEmpNo.PlaceHolder = null;
+            this.txtEmpNo.Size = new System.Drawing.Size(190, 23);
+            this.txtEmpNo.TabIndex = 1;
+            this.txtEmpNo.Tag = "사번";
             // 
-            // ccTextBox2
+            // txtPwd
             // 
-            this.ccTextBox2.isNumeric = false;
-            this.ccTextBox2.isRequired = false;
-            this.ccTextBox2.Location = new System.Drawing.Point(17, 60);
-            this.ccTextBox2.Name = "ccTextBox2";
-            this.ccTextBox2.PlaceHolder = null;
-            this.ccTextBox2.Size = new System.Drawing.Size(190, 23);
-            this.ccTextBox2.TabIndex = 2;
+            this.txtPwd.isNumeric = false;
+            this.txtPwd.isRequired = false;
+            this.txtPwd.Location = new System.Drawing.Point(17, 60);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.PlaceHolder = null;
+            this.txtPwd.Size = new System.Drawing.Size(190, 23);
+            this.txtPwd.TabIndex = 2;
+            this.txtPwd.Tag = "비밀번호";
             // 
             // frmLogin
             // 
@@ -104,7 +106,7 @@ namespace BikeProd
         #endregion
         private System.Windows.Forms.LinkLabel lblFPwd;
         private System.Windows.Forms.Button btnLogin;
-        private ccTextBox ccTextBox2;
-        private ccTextBox ccTextBox1;
+        private ccTextBox txtPwd;
+        private ccTextBox txtEmpNo;
     }
 }

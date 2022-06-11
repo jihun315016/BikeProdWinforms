@@ -21,6 +21,7 @@ C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.res
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popEmpReg.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popleave.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSearchClient.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popAuthReg.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources

@@ -54,17 +54,59 @@ namespace BikeProd.DAC
         {
             string sql = @"SELECT ProdCode Code, ProdName Name, 
 	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind, 
-	                            Category, Price, Inventory, Dealing
+	                            Category, Price, Inventory, Dealing, Image
                             FROM TB_Products
                             UNION
                             SELECT 
 	                            PartCode Code, PartName Name, '부품' Kind, Category, 
-	                            Price, Inventory, Dealing
+	                            Price, Inventory, Dealing, Image
                             FROM TB_Parts";
 
-            SqlCommand cmd = new SqlCommand(sql, conn);            
+            SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<ProdPartVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 특정 부품에 대한 거래처명과 재고 정보 조회
+        /// </summary>
+        /// <param name="PartCode"></param>
+        /// <returns></returns>
+        public PartVO GetPartClientAndQtyInfo(string PartCode)
+        {
+            string sql = @"WITH partCTE AS
+                        (
+	                        SELECT Image, BusinessNo, SfInvn, TotInvn, Unit
+	                        FROM TB_Parts
+	                        WHERE PartCode = @PartCode
+                        )
+                        SELECT Image, ClientName, SfInvn, TotInvn, Unit
+                        FROM partCTE p
+                        JOIN TB_Client c ON p.BusinessNo = c.BusinessNo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@PartCode", PartCode);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                try
+                {
+                    return new PartVO()
+                    {
+                        Image = Convert.ToInt32(reader["Image"]),
+                        ClientName = reader["ClientName"].ToString(),
+                        SfInvn = Convert.ToInt32(reader["SfInvn"]),
+                        TotInvn = Convert.ToInt32(reader["TotInvn"]),
+                        Unit = Convert.ToInt32(reader["Unit"])
+                    };
+                }
+                catch (Exception err)
+                {               
+                    throw new Exception(err.Message);
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -123,6 +165,54 @@ namespace BikeProd.DAC
             {
                 throw new Exception(err.Message);
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 또는 부품 수정
+        /// leadTime이 -1이면 부품, 아니면 제품이라고 판단하여 수정한다.
+        /// </summary>
+        /// <param name="code">수정할 모델 코드</param>
+        /// <param name="price">수정 가격</param>
+        /// <param name="leadTime">수정 Lead Time</param>
+        /// <param name="part">부품일 경우 수정할 재고 정보</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool UpdateProdPart(string code, int price, int leadTime, PartVO part)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+
+            // 부품 Update
+            if (leadTime < 0)
+            {
+                cmd.CommandText = @"UPDATE TB_Parts 
+                                    SET Price = @price, SfInvn = @SfInvn, Unit = @Unit, BusinessNo = @BusinessNo
+                                    WHERE PartCode = @Code";
+                cmd.Parameters.AddWithValue("@SfInvn", part.SfInvn);
+                cmd.Parameters.AddWithValue("@Unit", part.Unit);
+                cmd.Parameters.AddWithValue("@BusinessNo", part.BusinessNo);
+            }
+            // 제품 Update
+            else
+            {
+                cmd.CommandText = @"UPDATE TB_Products 
+                                    SET Price = @price, LeadTime = @LeadTime 
+                                    WHERE ProdCode = @Code";
+                cmd.Parameters.AddWithValue("@LeadTime", leadTime);
+            }
+            cmd.Parameters.AddWithValue("@Code", code);
+            cmd.Parameters.AddWithValue("@price", price);
+
+
+            try
+            {
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
             }
         }
     }

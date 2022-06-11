@@ -35,6 +35,20 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
+        /// 부품 코드에 대한 거래처명과 재고 정보를 조회 후 폼에 전달한다.
+        /// </summary>
+        /// <param name="PartCode"></param>
+        /// <returns></returns>
+        public PartVO GetPartClientAndQtyInfo(string PartCode)
+        {
+            ModelDAC dac = new ModelDAC();
+            PartVO part = dac.GetPartClientAndQtyInfo(PartCode);
+            dac.Dispose();
+            return part;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록 Service
         /// 이미지가 포함되었는지 확인하고, 포함되었다면 웹 서버에 이미지 데이터를 저장한다.
         /// </summary>
@@ -45,7 +59,8 @@ namespace BikeProd
         /// <returns></returns>
         public bool SaveModel(ProductVO product, PartVO part, string startCode, string path)
         {
-            IsExistImageAndSave(path);            
+            string fileName = product == null ? part.PartName : product.ProdName;
+            IsExistImageAndSave(path, fileName);            
 
             ModelDAC dac = new ModelDAC();
             bool result = dac.SaveModel(product, part, startCode);
@@ -59,9 +74,10 @@ namespace BikeProd
         /// 이미지가 포함되었다면 이미지 byte[] 배열을 웹서버에 전송한다.
         /// </summary>
         /// <param name="path">이미지 로컬 경로</param>
+        /// <param name="fileName">저장할 파일명</param>
         /// <returns>이미지 포함 유무</returns>
         /// <exception cref="Exception">웹서버가 꺼져있는지 확인할 것</exception>
-        void IsExistImageAndSave(string path)
+        void IsExistImageAndSave(string path, string fileName)
         {
             // 이미지 포함 유무 체크
             if (!string.IsNullOrWhiteSpace(path))
@@ -74,9 +90,7 @@ namespace BikeProd
                     imageByte = br.ReadBytes((int)fs.Length);
                 }
 
-                string url = "http://127.0.0.1:5000/saveImg";
-                string[] temp = path.Split('\\');
-                string fileName = temp[temp.Length - 1];
+                string url = "http://127.0.0.1:5000/saveImg";                
 
                 try
                 {
@@ -87,6 +101,14 @@ namespace BikeProd
                     throw new Exception(err.Message);
                 }
             }            
+        }
+
+        public bool UpdateProdPart(string code, int price, int leadTime, PartVO part)
+        {
+            ModelDAC dac = new ModelDAC();
+            bool result = dac.UpdateProdPart(code, price, leadTime, part);
+            dac.Dispose();
+            return result;
         }
     }
 }

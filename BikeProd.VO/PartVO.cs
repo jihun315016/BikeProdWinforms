@@ -19,5 +19,9 @@ namespace BikeProd.VO
         public int TotInvn { get; set; }
         public int Unit { get; set; }
         public string State { get; set; }
+        public int LeadTime { get; set; }
+
+        // 추가 칼럼
+        public string ClientName { get; set; }
     }
 }

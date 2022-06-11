@@ -14,6 +14,7 @@ namespace BikeProd.VO
         public string Category { get; set; }
         public int Price { get; set; }
         public int Inventory { get; set; }
-        public int Discontinuance { get; set; }
+        public int Dealing { get; set; }
+        public int Image { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -94,6 +95,7 @@ namespace BikeProd
             txtEmail.isRequired = true;
             txtPhone.isRequired = true;
             txtEmail.isRequired = true;
+            txtPhone.isNumeric = true;
             DeptComboBinding();
             DomainListBinding();
         }
@@ -196,6 +198,25 @@ namespace BikeProd
 
         private void cboTeam_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+         
+
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            Regex emailregex = new Regex(@"[0-9a-zA-Z]$"); 
+            Boolean ismatch = emailregex.IsMatch(txtEmail.Text); 
+            if (!ismatch) { MessageBox.Show("영문자와 숫자만만 입력해 주세요."); }
             
         }
     }

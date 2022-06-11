@@ -45,15 +45,15 @@ namespace BikeProd
             ccTextBox1.PlaceHolder = "직원선택";
             ccTextBox1.SetPlaceHolder();
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원번호", "EmpNo");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서코드", "DeptNo");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀코드", "TeamNo");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "비밀번호", "Pwd");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원번호", "EmpNo",colWidth : 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName",colWidth : 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서코드", "DeptNo", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀코드", "TeamNo", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "비밀번호", "Pwd", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate", colWidth: 120);
             GetAllList();
             ComboBinding();
         }
@@ -137,9 +137,10 @@ namespace BikeProd
                 return;
             }
 
-            //int EmpNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["EmpNo"].Value);
-            //popleave frm = new popleave(EmpNo);
-            //frm.Show();
+            int EmpNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["EmpNo"].Value);
+            string Name = (dgvList.SelectedRows[0].Cells["EmpName"].Value).ToString();
+            popleave frm = new popleave(EmpNo, Name);
+            frm.Show();
 
         }
 

@@ -55,6 +55,7 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnSaveProd_Click(object sender, EventArgs e)
         {
+            // 유효성 검사
             bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtProdName, txtLeadTime, txtProdPrice }));
             if (!isRequired) return;
 
@@ -135,7 +136,7 @@ namespace BikeProd
 
             try
             {
-                bool result = modelSrv.SaveModel(null, part, cboPartCategory.SelectedValue.ToString(), ptbProd.Tag.ToString());
+                bool result = modelSrv.SaveModel(null, part, cboPartCategory.SelectedValue.ToString(), ptbPart.Tag.ToString());
                 if (result)
                 {
                     MessageBox.Show("부품이 등록되었습니다.");

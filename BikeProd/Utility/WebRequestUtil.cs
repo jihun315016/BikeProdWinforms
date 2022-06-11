@@ -33,6 +33,19 @@ namespace BikeProd
             ReqPost(postData, webRequest);
         }
 
+        public static byte[] GetImage(string url, string fileName)
+        {
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
+            webRequest.Method = "POST";
+            webRequest.Timeout = 30 * 1000;
+            webRequest.ContentType = "application/json; charset=utf-8";
+
+            string postData = "{\"fileName\":" + $"\"{fileName}\"" + " }";
+            string response = ReqPost(postData, webRequest);
+            byte[] result = Array.ConvertAll(response.Split('-'), byte.Parse);
+            return result;
+        }
+
         /// <summary>
         /// Author : 강지훈
         /// 웹 서버에 에러 로그 등록
@@ -58,7 +71,6 @@ namespace BikeProd
             }
 
             string postData = "{\"msg\":" + $"\"{msg}\"" + ", \"stack\" :" + $"\"{sb.ToString()}\"" + " }";
-
             ReqPost(postData, webRequest);
         }
 
@@ -69,13 +81,21 @@ namespace BikeProd
         /// </summary>
         /// <param name="postData">넘겨줄 JSON 데이터</param>
         /// <param name="webRequest">요청 정보</param>
-        static void ReqPost(string postData, HttpWebRequest webRequest)
+        static string ReqPost(string postData, HttpWebRequest webRequest)
         {
             // 보낼 데이터를 byteArray로 바꿔준다.
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
 
             // 요청 Data를 쓰는 데 사용할 Stream 개체를 가져온다.
-            Stream dataStream = webRequest.GetRequestStream();
+            Stream dataStream;
+            try
+            {
+                dataStream = webRequest.GetRequestStream();
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message); // 호출단에 예외처리 필요
+            }
 
             // Data를 전송한다.
             dataStream.Write(byteArray, 0, byteArray.Length);
@@ -96,6 +116,8 @@ namespace BikeProd
                     responseText = streamReader.ReadToEnd();
                 }
             }
+
+            return responseText;
         }        
     }
 }

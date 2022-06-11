@@ -35,9 +35,10 @@ namespace BikeProd.DAC.DAC
         /// <returns></returns>
         public List<ClientVO> GetClientNameByType(string clientType)
         {
-            string sql = "SP_GetClientNameByType";
+            string sql = @"SELECT BusinessNo, ClientName
+	                        FROM TB_Client
+	                        WHERE TYPE = @TYPE";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@TYPE", clientType);
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<ClientVO>(reader);

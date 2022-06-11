@@ -37,7 +37,7 @@ namespace BikeProd
             this.btnSave = new System.Windows.Forms.Button();
             this.ccTextBox1 = new BikeProd.ccTextBox();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnWorkOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,7 +48,6 @@ namespace BikeProd
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             // 
             // splitContainer1.Panel1
             // 
@@ -61,10 +60,10 @@ namespace BikeProd
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnWorkOut);
             this.splitContainer1.Panel2.Controls.Add(this.btnSave);
-            this.splitContainer1.SplitterDistance = 91;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(1304, 673);
+            this.splitContainer1.SplitterDistance = 76;
             // 
             // panel1
             // 
@@ -72,24 +71,26 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
-            this.panel1.Location = new System.Drawing.Point(28, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Size = new System.Drawing.Size(1090, 366);
+            this.panel1.Location = new System.Drawing.Point(36, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            this.panel1.Size = new System.Drawing.Size(1159, 372);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboDept
             // 
             this.cboDept.FormattingEnabled = true;
-            this.cboDept.Location = new System.Drawing.Point(12, 34);
+            this.cboDept.Location = new System.Drawing.Point(15, 45);
+            this.cboDept.Margin = new System.Windows.Forms.Padding(4);
             this.cboDept.Name = "cboDept";
-            this.cboDept.Size = new System.Drawing.Size(121, 23);
+            this.cboDept.Size = new System.Drawing.Size(154, 28);
             this.cboDept.TabIndex = 0;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(282, 33);
+            this.btnSearch.Location = new System.Drawing.Point(363, 44);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(96, 31);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -97,9 +98,10 @@ namespace BikeProd
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(363, 33);
+            this.btnReturn.Location = new System.Drawing.Point(467, 44);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(4);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(120, 23);
+            this.btnReturn.Size = new System.Drawing.Size(154, 31);
             this.btnReturn.TabIndex = 4;
             this.btnReturn.Text = "초기화/새로고침";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -109,9 +111,10 @@ namespace BikeProd
             // 
             this.rdOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdOut.AutoSize = true;
-            this.rdOut.Location = new System.Drawing.Point(1036, 38);
+            this.rdOut.Location = new System.Drawing.Point(748, 51);
+            this.rdOut.Margin = new System.Windows.Forms.Padding(4);
             this.rdOut.Name = "rdOut";
-            this.rdOut.Size = new System.Drawing.Size(49, 19);
+            this.rdOut.Size = new System.Drawing.Size(60, 24);
             this.rdOut.TabIndex = 5;
             this.rdOut.Text = "퇴사";
             this.rdOut.UseVisualStyleBackColor = true;
@@ -121,9 +124,10 @@ namespace BikeProd
             // 
             this.rdWorking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdWorking.AutoSize = true;
-            this.rdWorking.Location = new System.Drawing.Point(970, 38);
+            this.rdWorking.Location = new System.Drawing.Point(663, 51);
+            this.rdWorking.Margin = new System.Windows.Forms.Padding(4);
             this.rdWorking.Name = "rdWorking";
-            this.rdWorking.Size = new System.Drawing.Size(49, 19);
+            this.rdWorking.Size = new System.Drawing.Size(60, 24);
             this.rdWorking.TabIndex = 5;
             this.rdWorking.Text = "재직";
             this.rdWorking.UseVisualStyleBackColor = true;
@@ -132,9 +136,10 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1036, 403);
+            this.btnSave.Location = new System.Drawing.Point(1119, 448);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 40);
+            this.btnSave.Size = new System.Drawing.Size(112, 53);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "등록";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -144,44 +149,44 @@ namespace BikeProd
             // 
             this.ccTextBox1.isNumeric = false;
             this.ccTextBox1.isRequired = false;
-            this.ccTextBox1.Location = new System.Drawing.Point(139, 34);
+            this.ccTextBox1.Location = new System.Drawing.Point(179, 45);
+            this.ccTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.ccTextBox1.Name = "ccTextBox1";
             this.ccTextBox1.PlaceHolder = "";
-            this.ccTextBox1.Size = new System.Drawing.Size(137, 23);
+            this.ccTextBox1.Size = new System.Drawing.Size(175, 27);
             this.ccTextBox1.TabIndex = 1;
             // 
             // dgvList
             // 
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvList.Location = new System.Drawing.Point(0, 0);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1090, 366);
+            this.dgvList.Size = new System.Drawing.Size(1159, 372);
             this.dgvList.TabIndex = 1;
             this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
             // 
-            // button1
+            // btnWorkOut
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(946, 403);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 40);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "퇴사";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnWorkOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWorkOut.Location = new System.Drawing.Point(1003, 448);
+            this.btnWorkOut.Name = "btnWorkOut";
+            this.btnWorkOut.Size = new System.Drawing.Size(108, 53);
+            this.btnWorkOut.TabIndex = 3;
+            this.btnWorkOut.Text = "퇴사";
+            this.btnWorkOut.UseVisualStyleBackColor = true;
+            this.btnWorkOut.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 601);
-            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.ClientSize = new System.Drawing.Size(1304, 673);
+            this.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.Name = "frmEmployee";
             this.Text = "사원조회";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -210,6 +215,6 @@ namespace BikeProd
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnWorkOut;
     }
 }

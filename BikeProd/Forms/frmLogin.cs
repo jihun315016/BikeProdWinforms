@@ -47,7 +47,7 @@ namespace BikeProd
             }
             else
             {
-                MessageBox.Show("사원의 정보를 확인해 주세요.");
+                MessageBox.Show("사원 정보를 확인해 주세요.");
             }
         }
 
@@ -55,8 +55,8 @@ namespace BikeProd
 
         private void lblFPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //popFindPwd pop = new popFindPwd();
-            //pop.ShowDialog();
+            popFindPwd pop = new popFindPwd();
+            pop.ShowDialog();
         }
     }
 }

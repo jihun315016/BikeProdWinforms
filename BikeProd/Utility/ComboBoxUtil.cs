@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BikeProd.VO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,31 @@ namespace BikeProd
             if (sb.Length > 0)
                 sb.Append($"{Environment.NewLine}필수 입력입니다.");
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// 류경석
+        /// 카테고리에 맞는 콤보박스 바인딩
+        /// </summary>
+        /// <param name="cbo"></param>
+        /// <param name="src"></param>
+        /// <param name="category"></param>
+        /// <param name="blankItem"></param>
+        /// <param name="blankText"></param>
+        public static void CategoryComboBinding(ComboBox cbo, List<CommonCodeVO> src, string category, bool blankItem = true, string blankText = "")
+        {
+            var list = src.Where<CommonCodeVO>((e) => e.Category.Equals(category)).ToList();
+
+            if (blankItem)
+            {
+                list.Insert(0, new CommonCodeVO
+                { Code = "", Name = blankText, Category = category }
+                );
+            }
+
+            cbo.DisplayMember = "Name";
+            cbo.ValueMember = "Code";
+            cbo.DataSource = list;
         }
     }
 }

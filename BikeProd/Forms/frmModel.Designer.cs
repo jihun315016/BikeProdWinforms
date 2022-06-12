@@ -57,7 +57,7 @@
             this.txtClient = new BikeProd.ccTextBox();
             this.btnUpLoad = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.pnlDetail = new System.Windows.Forms.Panel();
             this.txtLeadTime = new BikeProd.ccTextBox();
             this.lblLeadTime = new System.Windows.Forms.Label();
@@ -389,21 +389,22 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(275, 371);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "삭제";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(275, 371);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(58, 23);
+            this.btnDelete.TabIndex = 26;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // pnlDetail
             // 
             this.pnlDetail.Controls.Add(this.txtLeadTime);
             this.pnlDetail.Controls.Add(this.lblLeadTime);
             this.pnlDetail.Controls.Add(this.label1);
-            this.pnlDetail.Controls.Add(this.button3);
+            this.pnlDetail.Controls.Add(this.btnDelete);
             this.pnlDetail.Controls.Add(this.btnSave);
             this.pnlDetail.Controls.Add(this.btnUpdate);
             this.pnlDetail.Controls.Add(this.pictureBox1);
@@ -509,7 +510,7 @@
         private ccTextBox txtTotInventory;
         private System.Windows.Forms.Label lblSafeInventory;
         private ccTextBox txtSafeInventory;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnUpLoad;
         private System.Windows.Forms.Panel pnlDetail;

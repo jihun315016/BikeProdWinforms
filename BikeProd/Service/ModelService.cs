@@ -103,10 +103,35 @@ namespace BikeProd
             }            
         }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 및 부품 정보 수정 후 폼에 결과 전달
+        /// </summary>
+        /// <param name="code">수정할 모델 코드</param>
+        /// <param name="price">수정 가격</param>
+        /// <param name="leadTime">제품의 경우 수정할 Lead Time</param>
+        /// <param name="part">부품의 경우 부품 수정 정보, 재고 정보가 들어있고 제품의 경우 null</param>
+        /// <returns></returns>
         public bool UpdateProdPart(string code, int price, int leadTime, PartVO part)
         {
             ModelDAC dac = new ModelDAC();
             bool result = dac.UpdateProdPart(code, price, leadTime, part);
+            dac.Dispose();
+            return result;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 및 부품 폐기 처리 및 재등록 후 폼에 결과 전달
+        /// </summary>
+        /// <param name="code">작업 모델 코드</param>
+        /// <param name="isProd">제품인지 부품인지 여부</param>
+        /// <param name="changedValue">수정할 Dealing 값</param>
+        /// <returns></returns>
+        public bool UpdateModelDealing(string code, bool isProd, int changedValue)
+        {
+            ModelDAC dac = new ModelDAC();
+            bool result = dac.UpdateModelDealing(code, isProd, changedValue);
             dac.Dispose();
             return result;
         }

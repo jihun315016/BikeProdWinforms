@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -124,11 +125,23 @@
     <Compile Include="Forms\frmModel.Designer.cs">
       <DependentUpon>frmModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Popup\popSavePur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popSavePur.designer.cs">
+      <DependentUpon>popSavePur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popup\popEmpReg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Popup\popEmpReg.designer.cs">
       <DependentUpon>popEmpReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popFindPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popFindPwd.Designer.cs">
+      <DependentUpon>popFindPwd.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popleave.cs">
       <SubType>Form</SubType>
@@ -153,12 +166,6 @@
     </Compile>
     <Compile Include="Popup\popSaveModel.Designer.cs">
       <DependentUpon>popSaveModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Popup\popSavePurchase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Popup\popSavePurchase.Designer.cs">
-      <DependentUpon>popSavePurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,8 +218,14 @@
     <EmbeddedResource Include="Forms\frmModel.resx">
       <DependentUpon>frmModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popSavePur.resx">
+      <DependentUpon>popSavePur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Popup\popEmpReg.resx">
       <DependentUpon>popEmpReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popFindPwd.resx">
+      <DependentUpon>popFindPwd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popleave.resx">
       <DependentUpon>popleave.cs</DependentUpon>
@@ -225,9 +238,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSaveModel.resx">
       <DependentUpon>popSaveModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Popup\popSavePurchase.resx">
-      <DependentUpon>popSavePurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

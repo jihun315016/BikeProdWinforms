@@ -137,7 +137,6 @@ namespace BikeProd
             this.cboTeam.Name = "cboTeam";
             this.cboTeam.Size = new System.Drawing.Size(286, 28);
             this.cboTeam.TabIndex = 2;
-            this.cboTeam.SelectedIndexChanged += new System.EventHandler(this.cboTeam_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -187,8 +186,6 @@ namespace BikeProd
             this.txtEmail.Size = new System.Drawing.Size(90, 27);
             this.txtEmail.TabIndex = 4;
             this.txtEmail.Tag = "이메일";
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label1

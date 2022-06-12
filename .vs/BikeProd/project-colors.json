@@ -10,12 +10,7 @@
       "ProjectGuid": "ffa761dc-f4dd-489b-951e-163939eb5f19",
       "DisplayName": "BikeProd.DAC",
       "ColorIndex": 1
-    },
-    "d33370be-82bf-4716-b514-cc3ed49e0a7c": {
-      "ProjectGuid": "d33370be-82bf-4716-b514-cc3ed49e0a7c",
-      "DisplayName": "BikeProd.VO",
-      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 2
 }

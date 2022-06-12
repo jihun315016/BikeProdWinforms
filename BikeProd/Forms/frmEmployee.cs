@@ -131,6 +131,8 @@ namespace BikeProd
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            
+
             if (dgvList.SelectedRows.Count < 1)
             {
                 MessageBox.Show("퇴사할 사원을 선택하여 주십시오.");

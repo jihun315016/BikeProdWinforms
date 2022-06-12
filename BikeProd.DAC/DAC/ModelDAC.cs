@@ -215,5 +215,41 @@ namespace BikeProd.DAC
                 throw new Exception(err.Message);
             }
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 및 부품 폐기 처리 및 재등록 처리
+        /// </summary>
+        /// <param name="code">작업 모델 코드</param>
+        /// <param name="isProd">제품인지 부품인지 여부</param>
+        /// <param name="changedValue">수정할 Dealing 값</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool UpdateModelDealing(string code, bool isProd, int changedValue)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+
+            if (isProd) // 제품
+            {
+                cmd.CommandText = @"UPDATE TB_Products SET DEALING = @DEALING WHERE ProdCode = @CODE";
+            }
+            else // 부품
+            {
+                cmd.CommandText = @"UPDATE TB_Parts SET DEALING = @DEALING WHERE PartCode = @CODE";
+            }
+
+            cmd.Parameters.AddWithValue("@CODE", code);
+            cmd.Parameters.AddWithValue("@DEALING", changedValue);
+
+            try
+            {
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
     }
 }

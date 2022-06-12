@@ -36,7 +36,7 @@ namespace BikeProd
         /// </summary>
         void InitControls()
         {
-            cboDealing.Items.AddRange(new string[] { "거래 여부", "거래 물품", "미거래 물품" });
+            cboDealing.Items.AddRange(new string[] { "거래 물품", "미거래 물품" });
             cboDealing.SelectedIndex = 0;
 
             cboKind.Items.AddRange(new string[] { "분류", "완제품", "반제품", "부품" });
@@ -47,15 +47,7 @@ namespace BikeProd
 
             txtSearch.SetPlaceHolder();
 
-            txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
-                = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
-                = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
-            btnUpLoad.Visible = false;
-
-            lblSafeInventory.Visible = lblTotInventory.Visible
-                = lblUit.Visible = lblClient.Visible = txtLeadTime.Visible = false;
-            txtSafeInventory.Visible = txtTotInventory.Visible
-                = txtUnit.Visible = txtClient.Visible = lblLeadTime.Visible = false;
+            InitDetail();
 
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 205);
@@ -66,7 +58,29 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래 여부", "Dealing", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 유무", "Image", isVisible: false);
-            dgvList.DataSource = prodPartList;
+            dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 상세보기 관련 초기화
+        /// </summary>
+        void InitDetail()
+        {
+            txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
+                = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
+                = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
+
+            txtCode.Text = txtName.Text = txtCategory.Text = txtPrice.Text = txtUnit.Text
+                = txtClient.Text = txtLeadTime.Text = txtInventory.Text = txtSafeInventory.Text
+                = txtTotInventory.Text = String.Empty;
+
+            btnUpLoad.Visible = false;
+
+            lblSafeInventory.Visible = lblTotInventory.Visible
+                = lblUit.Visible = lblClient.Visible = txtLeadTime.Visible = false;
+            txtSafeInventory.Visible = txtTotInventory.Visible
+                = txtUnit.Visible = txtClient.Visible = lblLeadTime.Visible = false;
         }
 
         private void frmModel_Shown(object sender, EventArgs e)
@@ -109,9 +123,8 @@ namespace BikeProd
         {
             List<ProdPartVO> list = prodPartList.ConvertAll<ProdPartVO>(p => p);
 
-            // 거래 여부(단종 여부) 체크
-            if (cboDealing.SelectedIndex > 0)
-                list = list.FindAll(p => p.Dealing == cboDealing.SelectedIndex - 1);
+            // 거래 여부(단종 여부) 체크            
+            list = list.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);
 
             // 분류 체크
             if (cboKind.SelectedIndex > 0)
@@ -130,7 +143,9 @@ namespace BikeProd
 
         private void btnInit_Click(object sender, EventArgs e)
         {
-            dgvList.DataSource = prodPartList;
+            prodPartList = modelSrv.GetModelList();
+            cboDealing.SelectedIndex = 0;
+            dgvList.DataSource = dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == 1);
             cboDealing.SelectedIndex = cboKind.SelectedIndex = cboCategory.SelectedIndex = 0;
             txtSearch.Text = String.Empty;
             txtSearch.SetPlaceHolder();
@@ -153,12 +168,27 @@ namespace BikeProd
             if (e.RowIndex < 0)
                 return;
 
+            txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
+                = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
+                = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
+            btnUpdate.Text = "수정";
+
             txtCode.Text = dgvList["Code", e.RowIndex].Value.ToString();
             txtName.Text = dgvList["Name", e.RowIndex].Value.ToString();
             txtPrice.Text = dgvList["Kind", e.RowIndex].Value.ToString();
             txtCategory.Text = $"[{dgvList["Kind", e.RowIndex].Value}] {dgvList["Category", e.RowIndex].Value}";
             txtPrice.Text = dgvList["Price", e.RowIndex].Value.ToString();
             txtInventory.Text = dgvList["Inventory", e.RowIndex].Value.ToString();
+
+            if (Convert.ToInt32(dgvList["Dealing", e.RowIndex].Value) == 1)
+            {
+                btnDelete.Text = "삭제";
+            }
+            else
+            {
+                btnDelete.Text = "재등록";
+            }
+            
 
             if (dgvList["Kind", e.RowIndex].Value.ToString() == "부품")
             {
@@ -216,16 +246,19 @@ namespace BikeProd
         {
             if (btnUpdate.Text == "수정")
             {
+                // 이미 폐기된 모델은 수정 불가능
+                if (btnDelete.Text == "재등록")
+                {
+                    MessageBox.Show("폐기된 모델은 수정할 수 없습니다.");
+                    return;
+                }
+
                 btnUpdate.Text = "저장";
                 txtPrice.ReadOnly = txtSafeInventory.ReadOnly
                     = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = false;
             }
             else // 저장
-            {
-                btnUpdate.Text = "수정";
-                txtPrice.ReadOnly = txtSafeInventory.ReadOnly
-                    = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
-
+            {               
                 int leadTime = txtLeadTime.Text == String.Empty ? -1 : Convert.ToInt32(txtLeadTime.Text);
                 // 유효성 검사
                 string msg;
@@ -259,11 +292,66 @@ namespace BikeProd
                 {
                     bool result = modelSrv.UpdateProdPart(txtCode.Text, Convert.ToInt32(txtPrice.Text), leadTime, part);
                     if (result)
+                    {
                         MessageBox.Show("수정되었습니다.");
+                        InitDetail();
+                        btnInit_Click(this, null);
+                        btnUpdate.Text = "수정";
+                        txtPrice.ReadOnly = txtSafeInventory.ReadOnly
+                            = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
+                    }
                 }
                 catch (Exception err)
                 {
                     MessageBox.Show("수정에 실패했습니다.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 제품 및 부품 폐기 및 재등록
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("삭제할 모델을 선택하세요.");
+                return;
+            }           
+
+            if(MessageBox.Show($"[{txtName.Text}] {btnDelete.Text}하시겠습니까?", $"{btnDelete.Text} 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                bool isProd;
+                int changedValue;
+
+                if (btnDelete.Text == "삭제") // 폐기
+                    changedValue = 0;                
+                else // 재등록                
+                    changedValue = 1;
+                
+              
+                if (txtLeadTime.Visible) // 제품                               
+                    isProd = true;                
+                else // 부품 
+                    isProd = false;
+                                    
+                try
+                {
+                    bool result = modelSrv.UpdateModelDealing(txtCode.Text, isProd, changedValue);
+                    if (result)
+                    {
+                        MessageBox.Show($"{btnDelete.Text}되었습니다.");
+                        InitDetail();
+                        btnInit_Click(this, null);
+                        btnDelete.Text = "삭제";
+                    }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show($"{btnDelete.Text}에 실패했습니다.");
                 }
             }
         }

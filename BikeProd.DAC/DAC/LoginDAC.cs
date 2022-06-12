@@ -43,10 +43,11 @@ namespace BikeProd.DAC
         }
 
         /// <summary>
+        /// /// Authur: 이진형
         /// 로그인시 사원 정보 체크
         /// </summary>
-        /// <param name="empNo"></param>
-        /// <param name="pwd"></param>
+        /// <param name="empNo">직원 번호</param>
+        /// <param name="pwd">이름</param>
         /// <returns></returns>
         public int GetLoginInfo(int empNo, string pwd)
         {
@@ -64,27 +65,24 @@ namespace BikeProd.DAC
 
 
         /// <summary>
-        /// 사번과 이름으로 해당 사원 조회
+        /// /// Authur: 이진형
+        /// 사번, 이름, 이메일로 현재 근무중인 사원 조회
         /// </summary>
-        /// <param name="EmpNo"></param>
-        /// <param name="EmpName"></param>
+        /// <param name="EmpNo">직번 번호</param>
+        /// <param name="EmpName">이름</param>
+        /// /// <param name="Email">이메일</param>
         /// <returns></returns>
-        public EmployeeVO GetEmployeeInfo(int EmpNo, string EmpName) // string Email
+        public EmployeeVO GetEmployeeInfo(int EmpNo, string EmpName, string Email)
         {
-            //string sql = @"select EmpNo, EmpName, Email, Pwd, ToDate
-            //                from TB_Employees
-            //                where EmpNo = @EmpNo and EmpName = @EmpName and Email = @Email";
-
             string sql = @"select EmpNo, EmpName, Email, Pwd, ToDate
                             from TB_Employees
-                            where EmpNo = @EmpNo and EmpName = @EmpName";
-
+                            where EmpNo = @EmpNo and EmpName = @EmpName and Email = @Email and ToDate is null";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@EmpNo", EmpNo);
                 cmd.Parameters.AddWithValue("@EmpName", EmpName);
-                //cmd.Parameters.AddWithValue("@Email", Email);
+                cmd.Parameters.AddWithValue("@Email", Email);
 
                 List<EmployeeVO> list = DBConverter.DataReaderToList<EmployeeVO>(cmd.ExecuteReader());
 
@@ -97,10 +95,11 @@ namespace BikeProd.DAC
 
 
         /// <summary>
+        /// /// Authur: 이진형
         /// 신규 비밀번호 업데이트
         /// </summary>
-        /// <param name="empNo"></param>
-        /// <param name="newPwd"></param>
+        /// <param name="empNo">직원 번호</param>
+        /// <param name="newPwd">신규 비밀번호</param>
         /// <returns></returns>
         public bool ChangePassword(int empNo, string newPwd)
         {

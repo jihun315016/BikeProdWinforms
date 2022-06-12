@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Diagnostics;
 
 namespace BikeProd
 {
@@ -43,15 +44,16 @@ namespace BikeProd
 
 
         /// <summary>
-        /// 사번과 이름으로 해당 사원 조회
+        /// 사번, 이름, 이메일로 해당 사원 조회
         /// </summary>
         /// <param name="EmpNo"></param>
         /// <param name="EmpName"></param>
+        /// /// <param name="Email"></param>
         /// <returns></returns>
-        public EmployeeVO GetEmployeeInfo(int EmpNo, string EmpName) //string Email
+        public EmployeeVO GetEmployeeInfo(int EmpNo, string EmpName, string Email)
         {
             LoginDAC dac = new LoginDAC();
-            EmployeeVO result = dac.GetEmployeeInfo(EmpNo, EmpName); // Email
+            EmployeeVO result = dac.GetEmployeeInfo(EmpNo, EmpName, Email);
             dac.Dispose();
 
             return result;
@@ -88,40 +90,40 @@ namespace BikeProd
         /// <returns></returns>
         public bool SendEmail(string name, string recipient, string newPwd)
         {
-            //string sender = ConfigurationManager.AppSettings["ezwlsgud00@gmail.com"]; // 보내는 메일
-            //string password = ConfigurationManager.AppSettings["ezwlsgud00~!38#"]; // 메일 비밀번호
+            string sender = ConfigurationManager.AppSettings["mailId"]; // 보내는 메일
+            string password = ConfigurationManager.AppSettings["pwd"]; // 메일 비밀번호
 
-            //MailMessage mail = new MailMessage();
+            MailMessage mail = new MailMessage();
 
-            //mail.From = new MailAddress(sender, "비밀번호 생성 메일", Encoding.UTF8);
+            mail.From = new MailAddress(sender, "비밀번호 생성 메일", Encoding.UTF8);
 
-            //mail.To.Add(recipient);
+            mail.To.Add(recipient);
 
-            //mail.Subject = "임시 비밀번호 안내";
-            //mail.Body = GetPassworkMessage(name, newPwd);
-            //mail.IsBodyHtml = true;
+            mail.Subject = "임시 비밀번호 안내";
+            mail.Body = GetPassworkMessage(name, newPwd);
+            mail.IsBodyHtml = true;
 
-            //mail.SubjectEncoding = Encoding.UTF8;
-            //mail.BodyEncoding = Encoding.UTF8;
+            mail.SubjectEncoding = Encoding.UTF8;
+            mail.BodyEncoding = Encoding.UTF8;
 
-            //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587);
-            //SmtpServer.Credentials = new NetworkCredential(sender, password);
-            //SmtpServer.EnableSsl = true;
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587);
+            SmtpServer.Credentials = new NetworkCredential(sender, password);
+            SmtpServer.EnableSsl = true;
 
             try
             {
-                //SmtpServer.Send(mail);
+                SmtpServer.Send(mail);
                 return true;
             }
             catch (Exception err)
             {
-                //Debug.WriteLine(sender);
-                //Debug.WriteLine(password);
-                //Debug.WriteLine(recipient);
-                //Debug.WriteLine(err.Message);
+                Debug.WriteLine(sender);
+                Debug.WriteLine(password);
+                Debug.WriteLine(recipient);
+                Debug.WriteLine(err.Message);
                 return false;
             }
-            return false;
+            //return true;
         }
 
 

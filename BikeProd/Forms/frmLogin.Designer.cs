@@ -60,7 +60,7 @@ namespace BikeProd
             this.btnLogin.Location = new System.Drawing.Point(108, 106);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(99, 30);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "로그인";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

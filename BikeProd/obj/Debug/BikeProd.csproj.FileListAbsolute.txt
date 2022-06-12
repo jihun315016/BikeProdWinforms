@@ -20,12 +20,13 @@ C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmLogin.resour
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popAddBalJu.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popEmpReg.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popFindPwd.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popleave.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSearchClient.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popAuthReg.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSavePurchase.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache

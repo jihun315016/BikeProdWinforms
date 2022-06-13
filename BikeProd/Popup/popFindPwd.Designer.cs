@@ -40,11 +40,17 @@ namespace BikeProd
             this.cboDomain = new System.Windows.Forms.ComboBox();
             this.txtEmail = new BikeProd.ccTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblMessage1 = new System.Windows.Forms.Label();
+            this.lblMessage2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblMessage2);
+            this.panel1.Controls.Add(this.lblMessage1);
+            this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Controls.Add(this.txtDomain);
             this.panel1.Controls.Add(this.cboDomain);
             this.panel1.Controls.Add(this.txtEmail);
@@ -56,7 +62,7 @@ namespace BikeProd
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSendEmail);
-            this.panel1.Size = new System.Drawing.Size(447, 192);
+            this.panel1.Size = new System.Drawing.Size(447, 214);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -88,7 +94,7 @@ namespace BikeProd
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(355, 155);
+            this.btnCancel.Location = new System.Drawing.Point(355, 182);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -98,7 +104,7 @@ namespace BikeProd
             // 
             // btnSendEmail
             // 
-            this.btnSendEmail.Location = new System.Drawing.Point(264, 155);
+            this.btnSendEmail.Location = new System.Drawing.Point(264, 182);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(75, 23);
             this.btnSendEmail.TabIndex = 4;
@@ -138,6 +144,7 @@ namespace BikeProd
             this.txtDomain.Size = new System.Drawing.Size(121, 23);
             this.txtDomain.TabIndex = 6;
             this.txtDomain.Tag = "도메인";
+            this.txtDomain.Leave += new System.EventHandler(this.txtDomain_Leave);
             // 
             // cboDomain
             // 
@@ -158,6 +165,7 @@ namespace BikeProd
             this.txtEmail.Size = new System.Drawing.Size(100, 23);
             this.txtEmail.TabIndex = 2;
             this.txtEmail.Tag = "이메일";
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label4
             // 
@@ -168,11 +176,35 @@ namespace BikeProd
             this.label4.TabIndex = 43;
             this.label4.Text = "@";
             // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(57, 133);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(0, 15);
+            this.lblEmail.TabIndex = 44;
+            // 
+            // lblMessage1
+            // 
+            this.lblMessage1.AutoSize = true;
+            this.lblMessage1.Location = new System.Drawing.Point(57, 133);
+            this.lblMessage1.Name = "lblMessage1";
+            this.lblMessage1.Size = new System.Drawing.Size(0, 15);
+            this.lblMessage1.TabIndex = 45;
+            // 
+            // lblMessage2
+            // 
+            this.lblMessage2.AutoSize = true;
+            this.lblMessage2.Location = new System.Drawing.Point(57, 159);
+            this.lblMessage2.Name = "lblMessage2";
+            this.lblMessage2.Size = new System.Drawing.Size(0, 15);
+            this.lblMessage2.TabIndex = 46;
+            // 
             // popFindPwd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 219);
+            this.ClientSize = new System.Drawing.Size(505, 240);
             this.Name = "popFindPwd";
             this.Text = "popFindPwd";
             this.Load += new System.EventHandler(this.popFindPwd_Load);
@@ -196,5 +228,8 @@ namespace BikeProd
         private System.Windows.Forms.ComboBox cboDomain;
         private ccTextBox txtEmail;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblMessage1;
+        private System.Windows.Forms.Label lblMessage2;
     }
 }

@@ -22,11 +22,12 @@ namespace BikeProd
             return list;
         }
 
-        /// <summary>             
+        /// <summary>
+        /// Author : 이진형
         /// 로그인 체크 0 보다 크면 로그인 성공
         /// </summary>
-        /// <param name="empNO"></param>
-        /// <param name="pwd"></param>
+        /// <param name="id">사번</param>
+        /// <param name="pwd">비밀번호</param>
         /// <returns></returns>
         public bool GetLoginInfo(string id, string pwd)
         {
@@ -40,15 +41,15 @@ namespace BikeProd
             dac.Dispose();
 
             return result;
-        }
-
+        }       
 
         /// <summary>
+        /// Author : 이진형
         /// 사번, 이름, 이메일로 해당 사원 조회
         /// </summary>
-        /// <param name="EmpNo"></param>
-        /// <param name="EmpName"></param>
-        /// /// <param name="Email"></param>
+        /// <param name="EmpNo">사번</param>
+        /// <param name="EmpName">사원 이름</param>
+        /// /// <param name="Email">이메일</param>
         /// <returns></returns>
         public EmployeeVO GetEmployeeInfo(int EmpNo, string EmpName, string Email)
         {
@@ -59,8 +60,8 @@ namespace BikeProd
             return result;
         }
 
-
         /// <summary>
+        /// Author : 이진형
         /// 신규 비밀번호 생성
         /// </summary>
         /// <returns></returns>
@@ -80,11 +81,27 @@ namespace BikeProd
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Author : 이진형 
+        /// 비밀번호 변경
+        /// </summary>
+        /// <param name="empNo">변경 사번</param>
+        /// <param name="newPwd">신규 비밀번호</param>
+        /// <returns></returns>
+        public bool ChangePassword(int empNo, string newPwd)
+        {
+            LoginDAC dac = new LoginDAC();
+            bool result = dac.ChangePassword(empNo, newPwd);
+            dac.Dispose();
+
+            return result;
+        }
 
         /// <summary>
+        /// Author : 이진형
         /// 메일 전송
         /// </summary>
-        /// <param name="name">수신 대상</param>
+        /// <param name="name">수신 사원</param>
         /// <param name="recipient">수신자 메일</param>
         /// <param name="newPwd">신규 비밀번호</param>
         /// <returns></returns>
@@ -95,11 +112,11 @@ namespace BikeProd
 
             MailMessage mail = new MailMessage();
 
-            mail.From = new MailAddress(sender, "비밀번호 생성 메일", Encoding.UTF8);
+            mail.From = new MailAddress(sender, "신규 비밀번호 안내 메일", Encoding.UTF8);
 
             mail.To.Add(recipient);
 
-            mail.Subject = "임시 비밀번호 안내";
+            mail.Subject = "신규 비밀번호 안내";
             mail.Body = GetPassworkMessage(name, newPwd);
             mail.IsBodyHtml = true;
 
@@ -124,40 +141,24 @@ namespace BikeProd
                 return false;
             }
             //return true;
-        }
-
+        }      
 
         /// <summary>
+        /// Author : 이진형
         /// 메일 전송 내용
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="password"></param>
+        /// <param name="name">사원 이름</param>
+        /// <param name="password">신규 비밀번호</param>
         /// <returns></returns>
         string GetPassworkMessage(string name, string password)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"<strong>{name}</strong>님 안녕하세요.<br>");
-            sb.Append("임시 비밀번호 발급 안내입니다.<br>");
-            sb.Append("로그인 후, '내 정보'에서 비밀번호를 변경하여 주시기 바랍니다.");
-            sb.Append($"<h1>임시 비밀번호 : {password}</h1>");
+            sb.Append($"<strong>{name}</strong>님.<br>");
+            sb.Append("신규 비밀번호 발급 안내입니다.<br>");
+            sb.Append("로그인 후, 비밀번호를 변경하여 주십시오.");
+            sb.Append($"<h1>신규 비밀번호 : {password}</h1>");
 
             return sb.ToString();
-        }
-
-
-        /// <summary>
-        /// 비밀번호 변경
-        /// </summary>
-        /// <param name="empNo">변경 대상</param>
-        /// <param name="newPwd">신규 비밀번호</param>
-        /// <returns></returns>
-        public bool ChangePassword(int empNo, string newPwd)
-        {
-            LoginDAC dac = new LoginDAC();
-            bool result = dac.ChangePassword(empNo, newPwd);
-            dac.Dispose();
-
-            return result;
-        }
+        }        
     }
 }

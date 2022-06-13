@@ -19,10 +19,10 @@ namespace BikeProd
             return result;
         }
 
-        public bool AddBalJu(PurchaseVO pur)
+        public bool SavePurchase(PurchaseVO pur, List<PurchaseDetailsVO> purchaseDetailsList)
         {
             PurchaseDAC dac = new PurchaseDAC();
-            bool result = dac.AddBalJu(pur);
+            bool result = dac.SavePurchase(pur, purchaseDetailsList);
             dac.Dispose();
 
             return result;
@@ -101,6 +101,15 @@ namespace BikeProd
         {
             PurchaseDAC dac = new PurchaseDAC();
             List<PurchaseDetailsVO> result = dac.getPurDetailInfo(purchaseNo);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public List<PurchaseListVO> GetPurchaseList(int PurchaseNo)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            List<PurchaseListVO> result = dac.GetPurchaseList(PurchaseNo);
             dac.Dispose();
 
             return result;

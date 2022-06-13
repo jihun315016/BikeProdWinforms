@@ -53,25 +53,54 @@ namespace BikeProd.DAC
         /// <param name="pur"></param>
         /// <returns></returns>
 
-        public bool AddBalJu(PurchaseVO pur)
+        public bool SavePurchase(PurchaseVO pur, List<PurchaseDetailsVO> purchaseDetailsList)
         {
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.Connection = conn;
-                cmd.CommandText = "SP_InsertPurchase";
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    cmd.CommandText = @"insert into  TB_Purchase
+			                        (PurchaseNo, PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State, SubManger)
+			                        values ((select LastNum from TB_CodeCnt where CodeType = '발주서'), @PurchaseName, @BusinessNo, @Manager, @PurchaseDate, @ArriveDate, @State, @SubManger)";
+                    cmd.Connection = conn;
+                    cmd.Transaction = trans;
 
-                cmd.Parameters.AddWithValue("@PurchaseName", pur.PurchaseName);
-                cmd.Parameters.AddWithValue("@BusinessNo", pur.BusinessNo);
-                cmd.Parameters.AddWithValue("@Manager", pur.Manager);
-                cmd.Parameters.AddWithValue("@PurchaseDate", pur.PurchaseDate);
-                cmd.Parameters.AddWithValue("@ArriveDate", pur.ArriveDate);
-                cmd.Parameters.AddWithValue("@State", pur.State);
-                cmd.Parameters.AddWithValue("@SubManger", pur.SubManger);
+                    cmd.Parameters.AddWithValue("@PurchaseName", pur.PurchaseName);
+                    cmd.Parameters.AddWithValue("@BusinessNo", pur.BusinessNo);
+                    cmd.Parameters.AddWithValue("@Manager", pur.Manager);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", pur.PurchaseDate);
+                    cmd.Parameters.AddWithValue("@ArriveDate", pur.ArriveDate);
+                    cmd.Parameters.AddWithValue("@State", pur.State);
+                    cmd.Parameters.AddWithValue("@SubManger", pur.SubManger);
 
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"insert into TB_PurchaseDetails
+			                             (PurchaseNo, PartCode, Qty)
+			                            values ((select LastNum from TB_CodeCnt where CodeType = '발주서'),@PartCode, @Qty)";
 
-                int iRowAffect = cmd.ExecuteNonQuery();
-                return (iRowAffect > 0);
+                    cmd.Parameters.Add("@PartCode", System.Data.SqlDbType.NVarChar, 10);
+                    cmd.Parameters.Add("@Qty", System.Data.SqlDbType.Int);
+                    foreach (PurchaseDetailsVO item in purchaseDetailsList)
+                    {
+                        cmd.Parameters["@PartCode"].Value = item.PartCode;
+                        cmd.Parameters["@Qty"].Value = item.Qty;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "update TB_CodeCnt set LastNum += 1 where CodeType = '발주서'";
+                    cmd.ExecuteNonQuery();
+
+                    trans.Commit();
+                    return true;
+                    
+                }catch(Exception err)
+                {
+                    trans.Rollback();
+                    return false;
+                }
             }
         }
 
@@ -236,6 +265,24 @@ namespace BikeProd.DAC
             {
                 cmd.Parameters.AddWithValue("@PurchaseNo", purchaseNo);
                 list = DBConverter.DataReaderToList<PurchaseDetailsVO>(cmd.ExecuteReader());
+            }
+            return list;
+        }
+
+        public List<PurchaseListVO> GetPurchaseList(int purchaseNo)
+        {
+            List<PurchaseListVO> list = new List<PurchaseListVO>();
+
+            string sql = @"select d.PurchaseNo, d.PartCode, Qty, ProdName Name, PartName Name
+                            from TB_Purchase p
+                            join TB_PurchaseDetails d on p.PurchaseNo = d.PurchaseNo
+                            left join TB_Products prod on d.PartCode = prod.ProdCode
+                            left join TB_Parts part on d.PartCode = part.PartCode
+                            where d.PurchaseNo = @PurchaseNo";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@PurchaseNo", purchaseNo);
+                list = DBConverter.DataReaderToList<PurchaseListVO>(cmd.ExecuteReader());
             }
             return list;
         }

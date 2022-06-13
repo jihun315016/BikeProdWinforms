@@ -123,8 +123,9 @@ namespace BikeProd
         {
             List<ProdPartVO> list = prodPartList.ConvertAll<ProdPartVO>(p => p);
 
-            // 거래 여부(단종 여부) 체크            
-            list = list.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);
+            // 거래 여부(단종 여부) 체크
+            if (cboDealing.SelectedIndex > 0)
+                list = list.FindAll(p => p.Dealing == cboDealing.SelectedIndex - 1);
 
             // 분류 체크
             if (cboKind.SelectedIndex > 0)
@@ -168,6 +169,12 @@ namespace BikeProd
             if (e.RowIndex < 0)
                 return;
 
+            // 저장 버튼을 눌렀을 때 Tag 값이 빈 문자열이 아니라면 이미지 수정
+            ptbModel.Tag = string.Empty;
+
+            // 거래처 정보도 기본적으로 빈 문자열
+            txtClient.Tag = string.Empty;
+
             txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
                 = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
                 = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
@@ -188,7 +195,6 @@ namespace BikeProd
             {
                 btnDelete.Text = "재등록";
             }
-            
 
             if (dgvList["Kind", e.RowIndex].Value.ToString() == "부품")
             {
@@ -203,6 +209,7 @@ namespace BikeProd
                     txtTotInventory.Text = part.TotInvn.ToString();
                     txtUnit.Text = part.Unit.ToString();
                     txtClient.Text = part.ClientName;
+                    txtClient.Tag = part.BusinessNo;
                 }
                 catch (Exception err)
                 {
@@ -219,11 +226,11 @@ namespace BikeProd
                         byte[] imgByte = WebRequestUtil.GetImage(url, txtName.Text);
                         TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
                         Image img = (Bitmap)tc.ConvertFrom(imgByte);
-                        pictureBox1.Image = img;
+                        ptbModel.Image = img;
                     }
                     else
                     {
-                        pictureBox1.Image = null;
+                        ptbModel.Image = null;
                     }
                 }
                 catch(Exception err) { MessageBox.Show(err.Message); }
@@ -244,6 +251,10 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            // 아무것도 선택되지 않은 상태
+            if (string.IsNullOrWhiteSpace(txtCode.Text))
+                return;
+
             if (btnUpdate.Text == "수정")
             {
                 // 이미 폐기된 모델은 수정 불가능
@@ -253,12 +264,20 @@ namespace BikeProd
                     return;
                 }
 
+                btnUpLoad.Visible = true;
                 btnUpdate.Text = "저장";
                 txtPrice.ReadOnly = txtSafeInventory.ReadOnly
                     = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = false;
             }
             else // 저장
-            {               
+            {
+                // 거래처 정보도 기본적으로 빈 문자열
+                // txtClient.Tag = string.Empty;
+
+                btnUpdate.Text = "수정";
+                txtPrice.ReadOnly = txtSafeInventory.ReadOnly
+                    = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
+
                 int leadTime = txtLeadTime.Text == String.Empty ? -1 : Convert.ToInt32(txtLeadTime.Text);
                 // 유효성 검사
                 string msg;
@@ -285,15 +304,17 @@ namespace BikeProd
                     SfInvn = txtSafeInventory.Text == String.Empty ? -1 : Convert.ToInt32(txtSafeInventory.Text),
                     TotInvn = txtTotInventory.Text == String.Empty ? -1 : Convert.ToInt32(txtTotInventory.Text),
                     Unit = txtUnit.Text == String.Empty ? -1 : Convert.ToInt32(txtUnit.Text),
+                    BusinessNo = txtClient.Tag.ToString(),
                     ClientName = txtClient.Text
                 };
 
                 try
                 {
-                    bool result = modelSrv.UpdateProdPart(txtCode.Text, Convert.ToInt32(txtPrice.Text), leadTime, part);
+                    bool result = modelSrv.UpdateProdPart(txtCode.Text, Convert.ToInt32(txtPrice.Text), leadTime, ptbModel.Tag.ToString(), txtName.Text, part);
                     if (result)
                     {
                         MessageBox.Show("수정되었습니다.");
+                        btnUpLoad.Visible = false;
                         InitDetail();
                         btnInit_Click(this, null);
                         btnUpdate.Text = "수정";
@@ -308,36 +329,43 @@ namespace BikeProd
             }
         }
 
-        /// <summary>
-        /// Author : 강지훈
-        /// 제품 및 부품 폐기 및 재등록
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        private void btnUpLoad_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image File|*.jpg;*.jpeg;*.png;*.bmp";
+
+            DialogResult result = dlg.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ptbModel.Image = Image.FromFile(dlg.FileName);
+                ptbModel.Tag = dlg.FileName;
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("삭제할 모델을 선택하세요.");
                 return;
-            }           
+            }
 
-            if(MessageBox.Show($"[{txtName.Text}] {btnDelete.Text}하시겠습니까?", $"{btnDelete.Text} 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show($"[{txtName.Text}] {btnDelete.Text}하시겠습니까?", $"{btnDelete.Text} 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 bool isProd;
                 int changedValue;
 
                 if (btnDelete.Text == "삭제") // 폐기
-                    changedValue = 0;                
+                    changedValue = 0;
                 else // 재등록                
                     changedValue = 1;
-                
-              
+
+
                 if (txtLeadTime.Visible) // 제품                               
-                    isProd = true;                
+                    isProd = true;
                 else // 부품 
                     isProd = false;
-                                    
+
                 try
                 {
                     bool result = modelSrv.UpdateModelDealing(txtCode.Text, isProd, changedValue);

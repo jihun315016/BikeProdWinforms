@@ -107,6 +107,24 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPerformance.Designer.cs">
+      <DependentUpon>frmPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProduction.Designer.cs">
+      <DependentUpon>frmProduction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,11 +143,17 @@
     <Compile Include="Forms\frmModel.Designer.cs">
       <DependentUpon>frmModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popup\popSavePur.cs">
+    <Compile Include="Popup\popProduction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popup\popSavePur.designer.cs">
-      <DependentUpon>popSavePur.cs</DependentUpon>
+    <Compile Include="Popup\popProduction.Designer.cs">
+      <DependentUpon>popProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popSavePurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popSavePurchase.designer.cs">
+      <DependentUpon>popSavePurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popEmpReg.cs">
       <SubType>Form</SubType>
@@ -209,6 +233,15 @@
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPerformance.resx">
+      <DependentUpon>frmPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProduction.resx">
+      <DependentUpon>frmProduction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,8 +251,11 @@
     <EmbeddedResource Include="Forms\frmModel.resx">
       <DependentUpon>frmModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popup\popSavePur.resx">
-      <DependentUpon>popSavePur.cs</DependentUpon>
+    <EmbeddedResource Include="Popup\popProduction.resx">
+      <DependentUpon>popProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popSavePurchase.resx">
+      <DependentUpon>popSavePurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popEmpReg.resx">
       <DependentUpon>popEmpReg.cs</DependentUpon>

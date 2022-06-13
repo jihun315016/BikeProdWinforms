@@ -17,10 +17,14 @@ C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.ucSelector.reso
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmDepartment.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmEmployee.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmLogin.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmOrder.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmPerformance.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmProduction.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popAddBalJu.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Popup.popProduction.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSavePur.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popEmpReg.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popFindPwd.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popleave.resources

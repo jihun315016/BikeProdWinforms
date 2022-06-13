@@ -69,11 +69,15 @@
             // 
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Size = new System.Drawing.Size(1164, 601);
-            this.splitContainer1.SplitterDistance = 67;
+            this.splitContainer1.SplitterDistance = 66;
             // 
             // splitContainer2
             // 
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.None;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = false;
             this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             // 
             // splitContainer2.Panel1
@@ -92,11 +96,13 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer2.Size = new System.Drawing.Size(1164, 533);
-            this.splitContainer2.SplitterDistance = 793;
+            this.splitContainer2.Size = new System.Drawing.Size(1164, 534);
+            this.splitContainer2.SplitterDistance = 785;
+            this.splitContainer2.SplitterWidth = 5;
             // 
             // dgvDept
             // 
+            this.dgvDept.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDept.Location = new System.Drawing.Point(9, 32);
             this.dgvDept.Margin = new System.Windows.Forms.Padding(2);
@@ -109,8 +115,10 @@
             // 
             // dgvTeam
             // 
+            this.dgvTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTeam.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeam.Location = new System.Drawing.Point(412, 32);
+            this.dgvTeam.Location = new System.Drawing.Point(413, 32);
             this.dgvTeam.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTeam.Name = "dgvTeam";
             this.dgvTeam.RowHeadersWidth = 51;
@@ -120,13 +128,14 @@
             // 
             // dgvDetail
             // 
+            this.dgvDetail.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Location = new System.Drawing.Point(9, 274);
             this.dgvDetail.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.RowHeadersWidth = 51;
             this.dgvDetail.RowTemplate.Height = 27;
-            this.dgvDetail.Size = new System.Drawing.Size(754, 248);
+            this.dgvDetail.Size = new System.Drawing.Size(755, 248);
             this.dgvDetail.TabIndex = 4;
             // 
             // label1
@@ -144,7 +153,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(408, 11);
+            this.label2.Location = new System.Drawing.Point(414, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 20);
@@ -163,6 +172,7 @@
             // 
             // cboTeamselect
             // 
+            this.cboTeamselect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTeamselect.FormattingEnabled = true;
             this.cboTeamselect.Location = new System.Drawing.Point(88, 247);
             this.cboTeamselect.Margin = new System.Windows.Forms.Padding(2);
@@ -200,7 +210,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(28, 15);
+            this.groupBox1.Location = new System.Drawing.Point(18, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(335, 245);
             this.groupBox1.TabIndex = 4;
@@ -273,7 +283,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtTeamName);
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(28, 274);
+            this.groupBox2.Location = new System.Drawing.Point(18, 274);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(335, 245);
             this.groupBox2.TabIndex = 5;
@@ -282,6 +292,7 @@
             // 
             // cboDept
             // 
+            this.cboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDept.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cboDept.FormattingEnabled = true;
             this.cboDept.Location = new System.Drawing.Point(131, 62);
@@ -340,12 +351,12 @@
             // 
             // frmDepartment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1164, 601);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "frmDepartment";
             this.Text = "frmDeptMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDeptMain_Load);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

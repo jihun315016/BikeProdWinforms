@@ -81,7 +81,7 @@ namespace BikeProd.DAC
 	                        FROM TB_Parts
 	                        WHERE PartCode = @PartCode
                         )
-                        SELECT Image, ClientName, SfInvn, TotInvn, Unit
+                        SELECT Image, ClientName, SfInvn, TotInvn, Unit, p.BusinessNo
                         FROM partCTE p
                         JOIN TB_Client c ON p.BusinessNo = c.BusinessNo";
 
@@ -98,7 +98,8 @@ namespace BikeProd.DAC
                         ClientName = reader["ClientName"].ToString(),
                         SfInvn = Convert.ToInt32(reader["SfInvn"]),
                         TotInvn = Convert.ToInt32(reader["TotInvn"]),
-                        Unit = Convert.ToInt32(reader["Unit"])
+                        Unit = Convert.ToInt32(reader["Unit"]),
+                        BusinessNo = reader["BusinessNo"].ToString()
                     };
                 }
                 catch (Exception err)
@@ -179,7 +180,7 @@ namespace BikeProd.DAC
         /// <param name="part">부품일 경우 수정할 재고 정보</param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool UpdateProdPart(string code, int price, int leadTime, PartVO part)
+        public bool UpdateProdPart(string code, int price, int leadTime, PartVO part, int isImage)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
@@ -188,7 +189,7 @@ namespace BikeProd.DAC
             if (leadTime < 0)
             {
                 cmd.CommandText = @"UPDATE TB_Parts 
-                                    SET Price = @price, SfInvn = @SfInvn, Unit = @Unit, BusinessNo = @BusinessNo
+                                    SET Price = @price, SfInvn = @SfInvn, Unit = @Unit, BusinessNo = @BusinessNo, Image = @Image
                                     WHERE PartCode = @Code";
                 cmd.Parameters.AddWithValue("@SfInvn", part.SfInvn);
                 cmd.Parameters.AddWithValue("@Unit", part.Unit);
@@ -198,12 +199,13 @@ namespace BikeProd.DAC
             else
             {
                 cmd.CommandText = @"UPDATE TB_Products 
-                                    SET Price = @price, LeadTime = @LeadTime 
+                                    SET Price = @price, LeadTime = @LeadTime, Image = @Image
                                     WHERE ProdCode = @Code";
                 cmd.Parameters.AddWithValue("@LeadTime", leadTime);
             }
             cmd.Parameters.AddWithValue("@Code", code);
             cmd.Parameters.AddWithValue("@price", price);
+            cmd.Parameters.AddWithValue("@Image", isImage);
 
 
             try

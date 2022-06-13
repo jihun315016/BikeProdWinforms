@@ -16,6 +16,7 @@ namespace BikeProd
         PurchaseService purchaseSrv = null;
         List<PurchaseVO> purchaseList = null;
         List<PurchaseDetailsVO> purDetailsList = null;
+        List<PurchaseListVO> purchaseLists = null;
 
         public frmPurchase()
         {
@@ -46,7 +47,8 @@ namespace BikeProd
 
             DataGridViewUtil.SetInitGridView(dgvList2);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "발주번호", "PurchaseNo", colWidth: 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "PartCode", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "PartCode", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "Name", colWidth: 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 80);
 
         }
@@ -62,10 +64,17 @@ namespace BikeProd
         
         public void LoadData2()
         {
-            int purNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["PurchaseNo"].Value);
+            /*int purNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["PurchaseNo"].Value);
             purchaseSrv = new PurchaseService();
-            purDetailsList = purchaseSrv.getPurDetailInfo(purNo);
-            dgvList2.DataSource = purDetailsList;
+            purchaseLists = purchaseSrv.GetPurchaseList(purNo);
+
+            
+            foreach(var list in purchaseLists)
+            {
+                //list.PurchaseNo.ToString;
+            }
+
+            dgvList2.DataSource = purchaseLists;*/
         }
 
 
@@ -76,19 +85,35 @@ namespace BikeProd
             List<ClientVO> client = purchaseSrv.GetClientName(BusinessNo);
             List<CommonCodeVO> state = purchaseSrv.GetStateDetail(StateCode);
             
+            DateTime dt = (DateTime)(dgvList.SelectedRows[0].Cells["ArriveDate"].Value);
             
+
+
+            if (dt.ToString("yyyy-MM-dd").Equals("9998-12-31"))
+            {
+                dtpAliveDate.Enabled = false;
+                dtpAliveDate.Text = dt.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                dtpAliveDate.Enabled = true;
+                dtpAliveDate.Text = dt.ToString("yyyy-MM-dd");
+            }
+                
+
             txtPurNo.Text = (dgvList.SelectedRows[0].Cells["PurchaseNo"].Value).ToString();
             txtBusinessNo.Text = BusinessNo;
             txtPurName.Text = (dgvList.SelectedRows[0].Cells["PurchaseName"].Value).ToString();
             txtState.Text = state.Find((s) => s.Code == StateCode).Name;
             dtpPurDate.Text = (dgvList.SelectedRows[0].Cells["PurchaseDate"].Value).ToString();
-            dtpAliveDate.Text = (dgvList.SelectedRows[0].Cells["ArriveDate"].Value).ToString();
+            
             txtManager.Text = (dgvList.SelectedRows[0].Cells["Manager"].Value).ToString(); 
             txtSubManager.Text = (dgvList.SelectedRows[0].Cells["SubManger"].Value).ToString();
             txtClient.Text = client.Find((c)=>c.BusinessNo == BusinessNo).ClientName;
             txtAddress.Text = client.Find((a) => a.BusinessNo == BusinessNo).Address;
 
-            LoadData2();
+            
+                LoadData2();
 
 
         }
@@ -199,7 +224,42 @@ namespace BikeProd
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
         {
             popSearchClient pop = new popSearchClient(false);
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                txtSearch.Text = pop.selectedClient.ClientName;
+                txtSearch.Tag = pop.selectedClient.BusinessNo;
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvList.Rows[e.RowIndex].Cells["State"].Value == null)
+                return;
+
+            // 데이터가 Red인 경우 배경색을 빨강으로 변경
+            if (dgvList.Rows[e.RowIndex].Cells["State"].Value.ToString() == "Cancel")
+            {
+                e.CellStyle.BackColor = Color.Red;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            // 데이터가 Blue인 경우 배경색을 파랑으로 변경
+            else if (dgvList.Rows[e.RowIndex].Cells["State"].Value.ToString() == "OK")
+            {
+                e.CellStyle.BackColor = Color.Blue;
+                e.CellStyle.ForeColor = Color.White;
+            }
+            // 그 외의 경우 기본 디자인으로 보여준다
+            else
+            {
+                e.CellStyle.BackColor = Color.White;
+                e.CellStyle.ForeColor = Color.Black;
+            }
+           
         }
     }
 }

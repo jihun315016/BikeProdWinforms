@@ -36,7 +36,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnInit = new System.Windows.Forms.Button();
             this.cboDealing = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbModel = new System.Windows.Forms.PictureBox();
             this.txtCode = new BikeProd.ccTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbModel)).BeginInit();
             this.pnlDetail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
             this.splitContainer1.Panel1.Controls.Add(this.cboCategory);
+            this.splitContainer1.SplitterDistance = 93;
             // 
             // splitContainer2
             // 
@@ -96,6 +97,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.pnlDetail);
+            this.splitContainer2.Size = new System.Drawing.Size(1144, 507);
             // 
             // btnSave
             // 
@@ -117,8 +119,9 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(28, 15);
             this.dgvList.Name = "dgvList";
+            this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(745, 488);
+            this.dgvList.Size = new System.Drawing.Size(744, 438);
             this.dgvList.TabIndex = 2;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             // 
@@ -186,13 +189,13 @@
             this.cboDealing.Size = new System.Drawing.Size(121, 23);
             this.cboDealing.TabIndex = 6;
             // 
-            // pictureBox1
+            // ptbModel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(184, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.ptbModel.Location = new System.Drawing.Point(184, 14);
+            this.ptbModel.Name = "ptbModel";
+            this.ptbModel.Size = new System.Drawing.Size(150, 150);
+            this.ptbModel.TabIndex = 5;
+            this.ptbModel.TabStop = false;
             // 
             // txtCode
             // 
@@ -378,6 +381,7 @@
             this.btnUpLoad.TabIndex = 24;
             this.btnUpLoad.Text = "업로드";
             this.btnUpLoad.UseVisualStyleBackColor = true;
+            this.btnUpLoad.Click += new System.EventHandler(this.btnUpLoad_Click);
             // 
             // btnUpdate
             // 
@@ -407,7 +411,7 @@
             this.pnlDetail.Controls.Add(this.btnDelete);
             this.pnlDetail.Controls.Add(this.btnSave);
             this.pnlDetail.Controls.Add(this.btnUpdate);
-            this.pnlDetail.Controls.Add(this.pictureBox1);
+            this.pnlDetail.Controls.Add(this.ptbModel);
             this.pnlDetail.Controls.Add(this.btnUpLoad);
             this.pnlDetail.Controls.Add(this.txtCode);
             this.pnlDetail.Controls.Add(this.txtName);
@@ -474,7 +478,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbModel)).EndInit();
             this.pnlDetail.ResumeLayout(false);
             this.pnlDetail.PerformLayout();
             this.ResumeLayout(false);
@@ -497,7 +501,7 @@
         private ccTextBox txtName;
         private System.Windows.Forms.Label label1;
         private ccTextBox txtCode;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbModel;
         private System.Windows.Forms.Label label5;
         private ccTextBox txtInventory;
         private System.Windows.Forms.Label label4;

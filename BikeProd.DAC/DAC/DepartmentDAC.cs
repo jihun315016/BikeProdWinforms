@@ -38,6 +38,20 @@ namespace BikeProd.DAC
                 return DBConverter.DataReaderToList<DepartmentVO>(cmd.ExecuteReader());
             }
         }
+        /// <summary>
+        /// 정희록
+        /// TB_Menu의 데이터 중 권한메뉴(lvl.2)만 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<MenuVO> GetMenuList()
+        {
+            string sql = @"select MenuID, MenuName, PntID, FrmName from TB_Menu where PntID is not null";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                return DBConverter.DataReaderToList<MenuVO>(cmd.ExecuteReader());
+            }
+        }
 
         /// <summary>
         /// 정희록
@@ -56,13 +70,28 @@ namespace BikeProd.DAC
             }
         }
 
+
+        /// <summary>
+        /// 정희록
+        /// 전체 메뉴 데이터 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<MenuVO> GetAllMenuList()
+        {
+            string sql = @"select MenuID, MenuName, PntID, FrmName from TB_Menu";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                return DBConverter.DataReaderToList<MenuVO>(cmd.ExecuteReader());
+            }
+        }
         /// <summary>
         /// 정희록
         /// 부서별 팀관련 데이터 가져오기
         /// </summary>
         /// <param name="DeptNo">부서번호</param>
         /// <returns></returns>
-        public List<TeamVO> GetAllTeamInfo(int DeptNo)
+        public List<TeamVO> GetTeamInfo(int DeptNo)
         {
             string sql = @"select DeptNo, TeamName, TeamNo from TB_Team where DeptNo = @DeptNo";
 
@@ -118,9 +147,11 @@ namespace BikeProd.DAC
             }
         }
 
+
+
         /// <summary>
         /// 정희록
-        /// 부서별 권한메뉴 가져오기
+        /// 부서별 권한정보중 이름만 가져오기
         /// </summary>
         /// <param name="DeptNo">부서번호</param>
         /// <returns></returns>
@@ -141,6 +172,80 @@ namespace BikeProd.DAC
                 else
                     return null;
             }
+        }
+        /// <summary>
+        /// 정희록
+        /// 부서별 권한메뉴 가져오기
+        /// </summary>
+        /// <param name="DeptNo">부서번호</param>
+        /// <returns></returns>
+        public List<DeptMenuVO> GetAuthMenu(int DeptNo)
+        {
+            string sql = @"select D.DeptNo, D.MenuID, M.MenuName
+                            from TB_DepartmentAuth D inner
+                            join TB_Menu M on D.MenuID = M.MenuID
+                            where DeptNo = @DeptNo";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@DeptNo", DeptNo);
+
+                return DBConverter.DataReaderToList<DeptMenuVO>(cmd.ExecuteReader());
+            }
+        }
+
+
+        /// <summary>
+        /// 정희록
+        /// 부서별 메뉴 권한 등록
+        /// </summary>
+        /// <param name="authList">권한메뉴리스트</param>
+        /// <param name="DeptNo">부서 번호</param>
+        public bool SaveMenuAuth(List<int> authList, int DeptNo)
+        {
+            //using (SqlCommand cmd = new SqlCommand("SP_UpdateMenuAuth", conn))
+            //{
+            //    //@P_DeptNo int,
+            //    //@P_auth_list nvarchar(max)
+            //    cmd.CommandType = CommandType.StoredProcedure;
+
+            //    cmd.Parameters.AddWithValue("@P_DeptNo", DeptNo);
+            //    cmd.Parameters.AddWithValue("@P_auth_list", string.Join(",", authList));                
+            //}
+
+            SqlTransaction trans = conn.BeginTransaction();
+            try
+            {
+                string sql = @"delete from TB_DepartmentAuth where DeptNo = @DeptNo";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DeptNo", DeptNo);
+                    cmd.Transaction = trans;
+                    cmd.ExecuteNonQuery();
+
+                    sql = @"insert into TB_DepartmentAuth(DeptNo, MenuID)
+                         values (@DeptNo, @MenuID)";
+
+                    cmd.CommandText = sql;
+                    cmd.Parameters.Add("@MenuID", SqlDbType.Int);
+
+                    foreach (int MenuID in authList)
+                    {
+                        cmd.Parameters["@MenuID"].Value = MenuID;
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                trans.Commit();
+                return true;
+
+            }
+            catch
+            {
+                trans.Rollback();
+                return false;
+            }
+
         }
     }
 }

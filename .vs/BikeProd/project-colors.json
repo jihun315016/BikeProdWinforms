@@ -1,16 +1,26 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "dbe4973a-9a67-4900-8cff-34b141ff1023": {
-      "ProjectGuid": "dbe4973a-9a67-4900-8cff-34b141ff1023",
-      "DisplayName": "BikeProd",
-      "ColorIndex": 0
-    },
     "ffa761dc-f4dd-489b-951e-163939eb5f19": {
       "ProjectGuid": "ffa761dc-f4dd-489b-951e-163939eb5f19",
       "DisplayName": "BikeProd.DAC",
+      "ColorIndex": 0
+    },
+    "dbe4973a-9a67-4900-8cff-34b141ff1023": {
+      "ProjectGuid": "dbe4973a-9a67-4900-8cff-34b141ff1023",
+      "DisplayName": "BikeProd",
       "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "기타 파일",
+      "ColorIndex": -1
+    },
+    "d33370be-82bf-4716-b514-cc3ed49e0a7c": {
+      "ProjectGuid": "d33370be-82bf-4716-b514-cc3ed49e0a7c",
+      "DisplayName": "BikeProd.VO",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

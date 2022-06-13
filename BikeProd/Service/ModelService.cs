@@ -60,7 +60,7 @@ namespace BikeProd
         public bool SaveModel(ProductVO product, PartVO part, string startCode, string path)
         {
             string fileName = product == null ? part.PartName : product.ProdName;
-            IsExistImageAndSave(path, fileName);            
+            IsExistImageAndSave(path, fileName);
 
             ModelDAC dac = new ModelDAC();
             bool result = dac.SaveModel(product, part, startCode);
@@ -105,17 +105,22 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
-        /// 제품 및 부품 정보 수정 후 폼에 결과 전달
+        /// 제품 및 부품 수정
         /// </summary>
-        /// <param name="code">수정할 모델 코드</param>
-        /// <param name="price">수정 가격</param>
-        /// <param name="leadTime">제품의 경우 수정할 Lead Time</param>
-        /// <param name="part">부품의 경우 부품 수정 정보, 재고 정보가 들어있고 제품의 경우 null</param>
+        /// <param name="code"></param>
+        /// <param name="price"></param>
+        /// <param name="leadTime"></param>
+        /// <param name="path"></param>
+        /// <param name="fileName"></param>
+        /// <param name="part"></param>
         /// <returns></returns>
-        public bool UpdateProdPart(string code, int price, int leadTime, PartVO part)
+        public bool UpdateProdPart(string code, int price, int leadTime, string path, string fileName, PartVO part)
         {
+            IsExistImageAndSave(path, fileName);
+            int isImage = path == string.Empty? 0 : 1; // 이미지 수정 유무
+
             ModelDAC dac = new ModelDAC();
-            bool result = dac.UpdateProdPart(code, price, leadTime, part);
+            bool result = dac.UpdateProdPart(code, price, leadTime, part, isImage);
             dac.Dispose();
             return result;
         }

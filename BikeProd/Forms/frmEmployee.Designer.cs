@@ -35,9 +35,9 @@ namespace BikeProd
             this.rdOut = new System.Windows.Forms.RadioButton();
             this.rdWorking = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ccTextBox1 = new BikeProd.ccTextBox();
+            this.txtEmpName = new BikeProd.ccTextBox();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.btnWorkOut = new System.Windows.Forms.Button();
+            this.btnResign = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,7 +51,7 @@ namespace BikeProd
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ccTextBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.txtEmpName);
             this.splitContainer1.Panel1.Controls.Add(this.btnReturn);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel1.Controls.Add(this.cboDept);
@@ -60,7 +60,7 @@ namespace BikeProd
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnWorkOut);
+            this.splitContainer1.Panel2.Controls.Add(this.btnResign);
             this.splitContainer1.Panel2.Controls.Add(this.btnSave);
             this.splitContainer1.Size = new System.Drawing.Size(1304, 673);
             this.splitContainer1.SplitterDistance = 76;
@@ -73,7 +73,7 @@ namespace BikeProd
             this.panel1.Controls.Add(this.dgvList);
             this.panel1.Location = new System.Drawing.Point(36, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(1159, 372);
+            this.panel1.Size = new System.Drawing.Size(1228, 419);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboDept
@@ -136,7 +136,7 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1119, 448);
+            this.btnSave.Location = new System.Drawing.Point(1152, 468);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 53);
@@ -145,16 +145,17 @@ namespace BikeProd
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ccTextBox1
+            // txtEmpName
             // 
-            this.ccTextBox1.isNumeric = false;
-            this.ccTextBox1.isRequired = false;
-            this.ccTextBox1.Location = new System.Drawing.Point(179, 45);
-            this.ccTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.ccTextBox1.Name = "ccTextBox1";
-            this.ccTextBox1.PlaceHolder = "";
-            this.ccTextBox1.Size = new System.Drawing.Size(175, 27);
-            this.ccTextBox1.TabIndex = 1;
+            this.txtEmpName.isNumeric = false;
+            this.txtEmpName.isRequired = false;
+            this.txtEmpName.Location = new System.Drawing.Point(179, 45);
+            this.txtEmpName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmpName.Name = "txtEmpName";
+            this.txtEmpName.PlaceHolder = "";
+            this.txtEmpName.Size = new System.Drawing.Size(175, 27);
+            this.txtEmpName.TabIndex = 1;
+            this.txtEmpName.Tag = "사원이름";
             // 
             // dgvList
             // 
@@ -166,20 +167,19 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1159, 372);
+            this.dgvList.Size = new System.Drawing.Size(1228, 419);
             this.dgvList.TabIndex = 1;
-            this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
             // 
-            // btnWorkOut
+            // btnResign
             // 
-            this.btnWorkOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWorkOut.Location = new System.Drawing.Point(1003, 448);
-            this.btnWorkOut.Name = "btnWorkOut";
-            this.btnWorkOut.Size = new System.Drawing.Size(108, 53);
-            this.btnWorkOut.TabIndex = 3;
-            this.btnWorkOut.Text = "퇴사";
-            this.btnWorkOut.UseVisualStyleBackColor = true;
-            this.btnWorkOut.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnResign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResign.Location = new System.Drawing.Point(1036, 468);
+            this.btnResign.Name = "btnResign";
+            this.btnResign.Size = new System.Drawing.Size(108, 53);
+            this.btnResign.TabIndex = 3;
+            this.btnResign.Text = "퇴사";
+            this.btnResign.UseVisualStyleBackColor = true;
+            this.btnResign.Click += new System.EventHandler(this.btnResign_Click);
             // 
             // frmEmployee
             // 
@@ -209,12 +209,12 @@ namespace BikeProd
 
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cboDept;
-        private ccTextBox ccTextBox1;
+        private ccTextBox txtEmpName;
         private System.Windows.Forms.RadioButton rdWorking;
         private System.Windows.Forms.RadioButton rdOut;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.Button btnWorkOut;
+        private System.Windows.Forms.Button btnResign;
     }
 }

@@ -15,9 +15,9 @@ namespace BikeProd
     public partial class frmEmployee : bFrmList
     {
         EmployeeService employeeSrv = new EmployeeService();
-
-        List<EmployeeVO> empList = null; // null 필요 없음
-
+        DepartmentService departmentSrv = new DepartmentService();
+        List<EmployeeVO> empList;
+        List<DepartmentVO> deptList;
         public frmEmployee()
         {
             InitializeComponent();
@@ -29,9 +29,9 @@ namespace BikeProd
             rdOut.Checked = false;
             rdWorking.Checked = false;
             cboDept.SelectedIndex = 0;
-            ccTextBox1.Text = "";
-            ccTextBox1.SetPlaceHolder();
-            ccTextBox1.PlaceHolder = "직원선택";
+            txtEmpName.Text = "";
+            txtEmpName.SetPlaceHolder();
+            txtEmpName.PlaceHolder = "사원선택";
             GetAllList();
         }
 
@@ -42,8 +42,8 @@ namespace BikeProd
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
-            ccTextBox1.PlaceHolder = "직원선택";
-            ccTextBox1.SetPlaceHolder();
+            txtEmpName.PlaceHolder = "직원선택";
+            txtEmpName.SetPlaceHolder();
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원번호", "EmpNo",colWidth : 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName",colWidth : 120);
@@ -94,45 +94,58 @@ namespace BikeProd
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            int detpCode = 0;
-
-            if(cboDept.SelectedIndex < 1 || string.IsNullOrWhiteSpace(ccTextBox1.Text)) 
+            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] {txtEmpName});
+            if (msg.Length > 0)
             {
-                MessageBox.Show("검색 조건을 입력하여 주세요");
-                return;
+                MessageBox.Show(msg);
             }
 
-            if (cboDept.Text.Equals("생산부서"))
-                detpCode = 1002;
-            else if (cboDept.Text.Equals("영업부서"))
-                detpCode = 1003;
-            else if (cboDept.Text.Equals("인사부서"))
-                detpCode = 1004;
+                deptList = departmentSrv.GetAllDeptInfo();
 
-            empList = employeeSrv.GetSearchList(detpCode, ccTextBox1.Text);        
-            dgvList.DataSource = empList;
+            int detpCode = deptList.Find((d) => d.DeptName == cboDept.Text).DeptNo;
 
-            if(empList.Count < 1)
+            if (empList == null)
+            {
+                empList = employeeSrv.GetEmployeesAllList();
+            }
+
+            var SearchList = (from emp in empList
+                             where emp.EmpName == txtEmpName.Text && emp.DeptNo == detpCode
+                             select new EmployeeVO
+                             {
+                                 EmpName = emp.EmpName,
+                                 DeptNo = emp.DeptNo,
+                                 Email = emp.Email,
+                                 EmpNo = emp.EmpNo,
+                                 TeamNo = emp.TeamNo,
+                                 Phone = emp.Phone,
+                                 Pwd = emp.Pwd,
+                                 FromDate = emp.FromDate,
+                                 ToDate = emp.ToDate
+                             }).ToList();
+
+            dgvList.DataSource = SearchList;
+
+            if(SearchList == null)
             {
                 MessageBox.Show("검색결과가 없습니다");
                 cboDept.SelectedIndex = 0;
-                ccTextBox1.Text = "";
-                ccTextBox1.SetPlaceHolder();
-                ccTextBox1.PlaceHolder = "직원선택";
+                txtEmpName.Text = "";
+                txtEmpName.SetPlaceHolder();
+                txtEmpName.PlaceHolder = "직원선택";
                 GetAllList();
                 return;
             }
         }
 
-        private void dgvList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
+            popSaveEmployee frm = new popSaveEmployee();
+            frm.ShowDialog();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnResign_Click(object sender, EventArgs e)
         {
-            
-
             if (dgvList.SelectedRows.Count < 1)
             {
                 MessageBox.Show("퇴사할 사원을 선택하여 주십시오.");
@@ -141,15 +154,8 @@ namespace BikeProd
 
             int EmpNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["EmpNo"].Value);
             string Name = (dgvList.SelectedRows[0].Cells["EmpName"].Value).ToString();
-            popleave frm = new popleave(EmpNo, Name);
-            frm.Show();
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            popEmpReg frm = new popEmpReg();
-            frm.ShowDialog();
+            //popResign frm = new popResign(EmpNo, Name);
+            //frm.Show();
         }
     }
 }

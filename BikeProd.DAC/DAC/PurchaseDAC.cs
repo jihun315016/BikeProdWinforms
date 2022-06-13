@@ -29,7 +29,7 @@ namespace BikeProd.DAC
         }
 
         /// <summary>
-        /// 류경석
+        /// Author :Author :류경석
         /// 발주서 리스트 가져오기
         /// </summary>
         /// <returns></returns>
@@ -47,13 +47,13 @@ namespace BikeProd.DAC
             return list;
         }
         /// <summary>
-        /// 류경석
+        /// Author : Author :류경석
         /// 발주서 등록
         /// </summary>
         /// <param name="pur"></param>
         /// <returns></returns>
 
-        public bool SavePurchase(PurchaseVO pur, List<PurchaseDetailsVO> purchaseDetailsList)
+        public bool SavePurchase(PurchaseVO pur, List<PurchaseListVO> purchaseDetailsList)
         {
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -82,7 +82,7 @@ namespace BikeProd.DAC
 
                     cmd.Parameters.Add("@PartCode", System.Data.SqlDbType.NVarChar, 10);
                     cmd.Parameters.Add("@Qty", System.Data.SqlDbType.Int);
-                    foreach (PurchaseDetailsVO item in purchaseDetailsList)
+                    foreach (PurchaseListVO item in purchaseDetailsList)
                     {
                         cmd.Parameters["@PartCode"].Value = item.PartCode;
                         cmd.Parameters["@Qty"].Value = item.Qty;
@@ -105,7 +105,7 @@ namespace BikeProd.DAC
         }
 
         /// <summary>
-        /// 류경석
+        /// Author :류경석
         /// 발주서에 해당하는 거래처정보 가져오기
         /// </summary>
         /// <returns></returns>
@@ -124,7 +124,11 @@ namespace BikeProd.DAC
             }
             return list;
         }
-
+        /// <summary>
+        /// Author :류경석
+        /// 발주상태 콤보리스트 가져오기
+        /// </summary>
+        /// <returns></returns>
         public List<CommonCodeVO> GetStateCommon()
         {
             List<CommonCodeVO> list = new List<CommonCodeVO>();
@@ -132,15 +136,18 @@ namespace BikeProd.DAC
             string sql = @"select Code, Category, Name 
                             from TB_CommonCode
                             where Category = '발주상태'";
-        
-
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 list = DBConverter.DataReaderToList<CommonCodeVO>(cmd.ExecuteReader());
             }
             return list;
         }
-
+        /// <summary>
+        /// Author :류경석
+        /// 
+        /// </summary>
+        /// <param name="Code"></param>
+        /// <returns></returns>
         public List<CommonCodeVO> GetStateDetail(string Code)
         {
             List<CommonCodeVO> list = new List<CommonCodeVO>();
@@ -159,6 +166,12 @@ namespace BikeProd.DAC
             return list;
         }
 
+        /// <summary>
+        /// Author :류경석
+        /// 발주 상태 업데이트
+        /// </summary>
+        /// <param name="pur"></param>
+        /// <returns></returns>
         public bool UpdateState(PurchaseVO pur)
         {
             using (SqlCommand cmd = new SqlCommand())
@@ -175,20 +188,16 @@ namespace BikeProd.DAC
                 return (iRowAffect > 0);
             }
         }
-        public List<CommonCodeVO> getModelList(string Cate){
-            List<CommonCodeVO> list = new List<CommonCodeVO>();
-
-            string sql = @" select Name
-                            from TB_CommonCode
-                            where Category = @Cate";
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
-            {
-                cmd.Parameters.AddWithValue("@Cate", Cate);
-                list = DBConverter.DataReaderToList<CommonCodeVO>(cmd.ExecuteReader());
-            }
-            return list;
-        }
-
+        
+        /// <summary>
+        /// Author :류경석
+        /// 
+        /// </summary>
+        /// <param name="ClientName"></param>
+        /// <param name="State"></param>
+        /// <param name="purDT"></param>
+        /// <param name="AliveDate"></param>
+        /// <returns></returns>
         public List<PurchaseVO> getSearchList(string ClientName, string State, DateTime purDT, DateTime AliveDate)
         {
             List<PurchaseVO> list = new List<PurchaseVO>();
@@ -199,7 +208,7 @@ namespace BikeProd.DAC
                 sb.Append(@"  select PurchaseNo, PurchaseName, p.BusinessNo,c.ClientName, Manager, PurchaseDate, ArriveDate, State, SubManger
                               from TB_Purchase p
                               join TB_Client c on p.BusinessNo = c.BusinessNo
-                              where PurchaseDate >= @purDT and ArriveDate < = @AliveDate");
+                              where PurchaseDate >= @purDT and ArriveDate <= @AliveDate");
                 if (!string.IsNullOrWhiteSpace(ClientName))
                 {
                     sb.Append(" and c.ClientName = @ClientName");
@@ -220,9 +229,6 @@ namespace BikeProd.DAC
             }
         }
 
-
-
-
         public List<CommonCodeVO> getCategory()
         {
             List<CommonCodeVO> list = new List<CommonCodeVO>();
@@ -237,7 +243,6 @@ namespace BikeProd.DAC
             return list;
         }
 
-
         public List<PartVO> GetPartsInfo()
         {
             List<PartVO> list = new List<PartVO>();
@@ -251,29 +256,13 @@ namespace BikeProd.DAC
             }
             return list;
         }
-        public List<PurchaseDetailsVO> getPurDetailInfo(int purchaseNo)
-        {
-            List<PurchaseDetailsVO> list = new List<PurchaseDetailsVO>();
-
-            string sql = @"select d.PurchaseNo, PartCode, Qty
-                          from TB_Purchase p
-                          join TB_PurchaseDetails d on p.PurchaseNo = d.PurchaseNo
-                          where d.PurchaseNo = @purchaseNo";
-
-
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
-            {
-                cmd.Parameters.AddWithValue("@PurchaseNo", purchaseNo);
-                list = DBConverter.DataReaderToList<PurchaseDetailsVO>(cmd.ExecuteReader());
-            }
-            return list;
-        }
 
         public List<PurchaseListVO> GetPurchaseList(int purchaseNo)
         {
             List<PurchaseListVO> list = new List<PurchaseListVO>();
 
-            string sql = @"select d.PurchaseNo, d.PartCode, Qty, ProdName Name, PartName Name
+            string sql = @"select d.PurchaseNo, d.PartCode,Concat(prod.Category, part.Category)Category, 
+                            Concat(ProdName, PartName) Name, Qty
                             from TB_Purchase p
                             join TB_PurchaseDetails d on p.PurchaseNo = d.PurchaseNo
                             left join TB_Products prod on d.PartCode = prod.ProdCode

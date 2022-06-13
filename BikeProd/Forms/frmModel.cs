@@ -214,33 +214,35 @@ namespace BikeProd
                 catch (Exception err)
                 {
                     MessageBox.Show("조회에 실패했습니다.");
-                }
-
-                try
-                {
-                    // 이미지가 있다면 불러오기
-                    int isImg = Convert.ToInt32(dgvList["Image", e.RowIndex].Value.ToString());
-                    if (isImg > 0)
-                    {
-                        string url = "http://127.0.0.1:5000/getImg";
-                        byte[] imgByte = WebRequestUtil.GetImage(url, txtName.Text);
-                        TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
-                        Image img = (Bitmap)tc.ConvertFrom(imgByte);
-                        ptbModel.Image = img;
-                    }
-                    else
-                    {
-                        ptbModel.Image = null;
-                    }
-                }
-                catch(Exception err) { MessageBox.Show(err.Message); }
+                }                
             }
-            else
+            else // 제품 더블 클릭
             {
                 lblSafeInventory.Visible = lblTotInventory.Visible = lblUit.Visible = lblClient.Visible = false;
                 txtSafeInventory.Visible = txtTotInventory.Visible = txtUnit.Visible = txtClient.Visible = false;
                 lblLeadTime.Visible = txtLeadTime.Visible = true;
+
+                txtLeadTime.Text = modelSrv.GetProdLeadTime(txtCode.Text).ToString();
             }
+
+            try
+            {
+                // 이미지가 있다면 불러오기
+                int isImg = Convert.ToInt32(dgvList["Image", e.RowIndex].Value.ToString());
+                if (isImg > 0)
+                {
+                    string url = "http://jihun3100.pythonanywhere.com/getImg";
+                    byte[] imgByte = WebRequestUtil.GetImage(url, txtName.Text);
+                    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+                    Image img = (Bitmap)tc.ConvertFrom(imgByte);
+                    ptbModel.Image = img;
+                }
+                else
+                {
+                    ptbModel.Image = null;
+                }
+            }
+            catch (Exception err) { MessageBox.Show(err.Message); }
         }
 
         /// <summary>

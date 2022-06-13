@@ -15,13 +15,12 @@ namespace BikeProd
     public partial class popSavePur : bPopCommon
     {
 
-        List<ProdPartVO> prodPartList = null;
-        List<CommonCodeVO> commonList = null;
-        List<PurchaseDetailsVO> purchaseDetailsList = null;
-        List<PurchaseListVO> purchaseList = null;
-        PurchaseService purchaseSrv = null;
-        ModelService modelSrv = null;
-        ClientService clientSrv = null;
+        List<ProdPartVO> prodPartList;
+        List<CommonCodeVO> commonList;
+        List<PurchaseListVO> purchaseList;
+        PurchaseService purchaseSrv;
+        ModelService modelSrv;
+        ClientService clientSrv;
         public popSavePur()
         {
             InitializeComponent();
@@ -43,9 +42,11 @@ namespace BikeProd
         public void DataGirdView()
         {
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주서", "PurchaseNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제품명", "PartCode");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "PartCode", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty", colWidth: 80);
         }
 
         private void cboCate_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,7 +122,12 @@ namespace BikeProd
             }
 
         }
-
+        /// <summary>
+        /// Auther : 류경석
+        /// 발주 품목 추가
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (cboName.SelectedIndex < 1 || numQty.Value < 1)
@@ -130,32 +136,41 @@ namespace BikeProd
                 return;
             }
 
-            if (purchaseDetailsList == null)
+            if (purchaseList == null)
             {
-                purchaseDetailsList = new List<PurchaseDetailsVO>();
+                purchaseList = new List<PurchaseListVO>();
             }
 
-            int idx = purchaseDetailsList.FindIndex((p) => p.PartCode == prodPartList.Find((c) => c.Name == cboName.Text).Code);
+            int idx = purchaseList.FindIndex((p) => p.PartCode == prodPartList.Find((c) => c.Name == cboName.Text).Code);
             if (idx >= 0)
             {
-                purchaseDetailsList[idx].Qty += (int)numQty.Value;
+                purchaseList[idx].Qty += (int)numQty.Value;
             }
             else
             {
-                PurchaseDetailsVO newItem = new PurchaseDetailsVO
+                PurchaseListVO newItem = new PurchaseListVO
                 {
-
+                    Category = cboModel.Text,
+                    Name = cboName.Text,
                     PartCode = prodPartList.Find((p) => p.Name == cboName.Text).Code,
                     Qty = (int)numQty.Value
                 };
-                purchaseDetailsList.Add(newItem);
+                purchaseList.Add(newItem);
             }
+
+
             dgvList.DataSource = null;
             DataGirdView();
-            dgvList.DataSource = purchaseDetailsList;
+            dgvList.DataSource = purchaseList;
             dgvList.ClearSelection();
         }
         
+        /// <summary>
+        /// Auther : 류경석
+        /// 발주서 등록
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             
@@ -177,12 +192,14 @@ namespace BikeProd
                 State = "In"
             };
 
-            bool result = purchaseSrv.SavePurchase(purlist, purchaseDetailsList);
+            bool result = purchaseSrv.SavePurchase(purlist, purchaseList);
             if (result)
             {
-                purchaseDetailsList.Clear();
+                purchaseList.Clear();
                 dgvList.DataSource = null;
-                MessageBox.Show("등록이 완료되었습니다");
+                MessageBox.Show("등록이 완료되었습니다","확인",MessageBoxButtons.OK);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {

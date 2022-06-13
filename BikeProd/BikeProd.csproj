@@ -155,23 +155,17 @@
     <Compile Include="Popup\popSavePurchase.designer.cs">
       <DependentUpon>popSavePurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Popup\popEmpReg.cs">
+    <Compile Include="Popup\popSaveEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Popup\popEmpReg.designer.cs">
-      <DependentUpon>popEmpReg.cs</DependentUpon>
+    <Compile Include="Popup\popSaveEmployee.designer.cs">
+      <DependentUpon>popSaveEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popFindPwd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Popup\popFindPwd.Designer.cs">
       <DependentUpon>popFindPwd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Popup\popleave.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Popup\popleave.designer.cs">
-      <DependentUpon>popleave.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSearchClient.cs">
       <SubType>Form</SubType>
@@ -257,14 +251,11 @@
     <EmbeddedResource Include="Popup\popSavePurchase.resx">
       <DependentUpon>popSavePurchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Popup\popEmpReg.resx">
-      <DependentUpon>popEmpReg.cs</DependentUpon>
+    <EmbeddedResource Include="Popup\popSaveEmployee.resx">
+      <DependentUpon>popSaveEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popFindPwd.resx">
       <DependentUpon>popFindPwd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Popup\popleave.resx">
-      <DependentUpon>popleave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSearchClient.resx">
       <DependentUpon>popSearchClient.cs</DependentUpon>

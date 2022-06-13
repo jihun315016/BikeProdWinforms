@@ -117,6 +117,7 @@ namespace BikeProd
                 }
             }
 
+            Console.WriteLine(responseText);
             return responseText;
         }        
     }

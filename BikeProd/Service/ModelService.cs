@@ -49,6 +49,20 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
+        /// 제품 코드에 대한 LeadTime 조회 후 폼에 리턴
+        /// </summary>
+        /// <param name="ProdCode"></param>
+        /// <returns></returns>
+        public int GetProdLeadTime(string ProdCode)
+        {
+            ModelDAC dac = new ModelDAC();
+            int leadTime = dac.GetProdLeadTime(ProdCode);
+            dac.Dispose();
+            return leadTime;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록 Service
         /// 이미지가 포함되었는지 확인하고, 포함되었다면 웹 서버에 이미지 데이터를 저장한다.
         /// </summary>
@@ -90,7 +104,7 @@ namespace BikeProd
                     imageByte = br.ReadBytes((int)fs.Length);
                 }
 
-                string url = "http://127.0.0.1:5000/saveImg";                
+                string url = "http://jihun3100.pythonanywhere.com/saveImg";
 
                 try
                 {

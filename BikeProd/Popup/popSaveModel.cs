@@ -96,7 +96,7 @@ namespace BikeProd
             }
             catch (Exception err)
             {
-                string url = "http://127.0.0.1:5000/logging";
+                string url = "http://jihun3100.pythonanywhere.com/logging";
                 
                 WebRequestUtil.WriteErrLog(url, err.Message, err.StackTrace);
             }           
@@ -111,7 +111,7 @@ namespace BikeProd
         private void btnSavePart_Click(object sender, EventArgs e)
         {            
             bool isRequired = IsRequiredTextBox(() => TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtPartName, txtPartPrice, txtClient, txtSafeInv, txtUnit }));
-            if (!isRequired) return;
+            if (!isRequired) return; 
 
             string comboBoxMsg = ComboBoxUtil.IsRequiredCheck(new ComboBox[] { cboPartCategory });
             if (comboBoxMsg.Length > 0)

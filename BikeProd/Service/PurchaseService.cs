@@ -19,7 +19,7 @@ namespace BikeProd
             return result;
         }
 
-        public bool SavePurchase(PurchaseVO pur, List<PurchaseDetailsVO> purchaseDetailsList)
+        public bool SavePurchase(PurchaseVO pur, List<PurchaseListVO> purchaseDetailsList)
         {
             PurchaseDAC dac = new PurchaseDAC();
             bool result = dac.SavePurchase(pur, purchaseDetailsList);
@@ -62,23 +62,7 @@ namespace BikeProd
 
             return result;
         }
-        public List<PartVO> GetPartsInfo()
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            List<PartVO> result = dac.GetPartsInfo();
-            dac.Dispose();
 
-            return result;
-        }
-
-        public List<CommonCodeVO> getModelList(string Cate)
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            List<CommonCodeVO> result = dac.getModelList(Cate);
-            dac.Dispose();
-
-            return result;
-        }
         public List<CommonCodeVO> getCategory()
         {
             PurchaseDAC dac = new PurchaseDAC();
@@ -96,14 +80,6 @@ namespace BikeProd
 
             return result;
 
-        }
-        public List<PurchaseDetailsVO> getPurDetailInfo(int purchaseNo)
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            List<PurchaseDetailsVO> result = dac.getPurDetailInfo(purchaseNo);
-            dac.Dispose();
-
-            return result;
         }
 
         public List<PurchaseListVO> GetPurchaseList(int PurchaseNo)

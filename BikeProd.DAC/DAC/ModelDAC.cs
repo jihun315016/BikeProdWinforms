@@ -112,6 +112,32 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 특정 제품에 대한 LeadTime 조회
+        /// </summary>
+        /// <param name="ProdCode"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public int GetProdLeadTime(string ProdCode)
+        {
+            string sql = @"SELECT LeadTime FROM TB_Products WHERE ProdCode=@ProdCode";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@ProdCode", ProdCode);
+
+            try
+            {
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록
         /// 등록된 모델의 코드에 따라 CodeCnt도 1씩 증가한다.
         /// </summary>

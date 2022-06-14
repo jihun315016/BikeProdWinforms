@@ -89,6 +89,12 @@
     <Compile Include="Control\ucSelector.Designer.cs">
       <DependentUpon>ucSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,11 +149,41 @@
     <Compile Include="Forms\frmModel.Designer.cs">
       <DependentUpon>frmModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBOM.Designer.cs">
+      <DependentUpon>frmBOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="popSaveBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popSaveBOM.Designer.cs">
+      <DependentUpon>popSaveBOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="popSelectSaveBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popSelectSaveBOM.Designer.cs">
+      <DependentUpon>popSelectSaveBOM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popup\popProduction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Popup\popProduction.Designer.cs">
       <DependentUpon>popProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popResign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popResign.Designer.cs">
+      <DependentUpon>popResign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popSaveClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popSaveClient.Designer.cs">
+      <DependentUpon>popSaveClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSavePurchase.cs">
       <SubType>Form</SubType>
@@ -166,6 +202,12 @@
     </Compile>
     <Compile Include="Popup\popFindPwd.Designer.cs">
       <DependentUpon>popFindPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popSaveZipCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popSaveZipCode.Designer.cs">
+      <DependentUpon>popSaveZipCode.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSearchClient.cs">
       <SubType>Form</SubType>
@@ -218,6 +260,9 @@
     <EmbeddedResource Include="Control\ucSelector.resx">
       <DependentUpon>ucSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,8 +290,23 @@
     <EmbeddedResource Include="Forms\frmModel.resx">
       <DependentUpon>frmModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBOM.resx">
+      <DependentUpon>frmBOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popSaveBOM.resx">
+      <DependentUpon>popSaveBOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popSelectSaveBOM.resx">
+      <DependentUpon>popSelectSaveBOM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Popup\popProduction.resx">
       <DependentUpon>popProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popResign.resx">
+      <DependentUpon>popResign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popSaveClient.resx">
+      <DependentUpon>popSaveClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSavePurchase.resx">
       <DependentUpon>popSavePurchase.cs</DependentUpon>
@@ -256,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popFindPwd.resx">
       <DependentUpon>popFindPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popSaveZipCode.resx">
+      <DependentUpon>popSaveZipCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSearchClient.resx">
       <DependentUpon>popSearchClient.cs</DependentUpon>

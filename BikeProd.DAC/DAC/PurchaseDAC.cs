@@ -37,7 +37,7 @@ namespace BikeProd.DAC
         {
             List<PurchaseVO> list = new List<PurchaseVO>();
 
-            string sql = @"select PurchaseNo, PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State, SubManger
+            string sql = @"select PurchaseNo, PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State
                             from TB_Purchase";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -61,8 +61,9 @@ namespace BikeProd.DAC
                 try
                 {
                     cmd.CommandText = @"insert into  TB_Purchase
-			                        (PurchaseNo, PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State, SubManger)
-			                        values ((select LastNum from TB_CodeCnt where CodeType = '발주서'), @PurchaseName, @BusinessNo, @Manager, @PurchaseDate, @ArriveDate, @State, @SubManger)";
+			                        (PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State)
+			                        values (@PurchaseName, @BusinessNo, @Manager, @PurchaseDate, @ArriveDate, @State);
+                                    select @@IDENTITY from TB_Purchase";
                     cmd.Connection = conn;
                     cmd.Transaction = trans;
 
@@ -72,14 +73,15 @@ namespace BikeProd.DAC
                     cmd.Parameters.AddWithValue("@PurchaseDate", pur.PurchaseDate);
                     cmd.Parameters.AddWithValue("@ArriveDate", pur.ArriveDate);
                     cmd.Parameters.AddWithValue("@State", pur.State);
-                    cmd.Parameters.AddWithValue("@SubManger", pur.SubManger);
 
-                    cmd.ExecuteNonQuery();
+                    int newPurchaseNO = Convert.ToInt32(cmd.ExecuteScalar());
+
                     cmd.Parameters.Clear();
                     cmd.CommandText = @"insert into TB_PurchaseDetails
 			                             (PurchaseNo, PartCode, Qty)
-			                            values ((select LastNum from TB_CodeCnt where CodeType = '발주서'),@PartCode, @Qty)";
+			                            values (@PurchaseNO,@PartCode, @Qty)";
 
+                    cmd.Parameters.AddWithValue("@PurchaseNO", newPurchaseNO);
                     cmd.Parameters.Add("@PartCode", System.Data.SqlDbType.NVarChar, 10);
                     cmd.Parameters.Add("@Qty", System.Data.SqlDbType.Int);
                     foreach (PurchaseListVO item in purchaseDetailsList)
@@ -88,15 +90,10 @@ namespace BikeProd.DAC
                         cmd.Parameters["@Qty"].Value = item.Qty;
                         cmd.ExecuteNonQuery();
                     }
-
-                    cmd.Parameters.Clear();
-                    cmd.CommandText = "update TB_CodeCnt set LastNum += 1 where CodeType = '발주서'";
-                    cmd.ExecuteNonQuery();
-
                     trans.Commit();
-                    return true;
-                    
-                }catch(Exception err)
+                    return true;                    
+                }
+                catch(Exception err)
                 {
                     trans.Rollback();
                     return false;
@@ -205,7 +202,7 @@ namespace BikeProd.DAC
             {
                 StringBuilder sb = new StringBuilder();
 
-                sb.Append(@"  select PurchaseNo, PurchaseName, p.BusinessNo,c.ClientName, Manager, PurchaseDate, ArriveDate, State, SubManger
+                sb.Append(@"  select PurchaseNo, PurchaseName, p.BusinessNo,c.ClientName, Manager, PurchaseDate, ArriveDate, State
                               from TB_Purchase p
                               join TB_Client c on p.BusinessNo = c.BusinessNo
                               where PurchaseDate >= @purDT and ArriveDate <= @AliveDate");
@@ -275,8 +272,5 @@ namespace BikeProd.DAC
             }
             return list;
         }
-
-
-
     }
 }

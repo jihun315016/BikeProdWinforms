@@ -15,6 +15,6 @@ namespace BikeProd.VO
         public DateTime PurchaseDate { get; set; }
         public DateTime ArriveDate { get; set; }
         public string State { get; set; }
-        public string SubManger { get; set; }
+        public string ClientManger { get; set; }
     }
 }

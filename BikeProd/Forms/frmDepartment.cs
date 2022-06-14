@@ -13,6 +13,7 @@ namespace BikeProd
         List<TeamVO> teamList = null;
         List<EmployeeVO> empList = null;
         DepartmentService departmentSrv = new DepartmentService();
+
         EmployeeService employeeSrv = new EmployeeService();
 
         public frmDepartment()
@@ -23,6 +24,8 @@ namespace BikeProd
 
         private void frmDeptMain_Load(object sender, EventArgs e)
         {
+
+            txtTeamName.SetPlaceHolder();
             DataGridViewUtil.SetInitGridView(dgvDept);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDept, "부서 코드", "DeptNo", colWidth: 139);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDept, "부서명", "DeptName", colWidth: 200);
@@ -45,12 +48,13 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "퇴사날짜", "ToDate", isVisible: false);
 
             LoadData();
-            LoadDeptCBO();
+            LoadcboDept();
         }
 
-        private void LoadDeptCBO()
+        private void LoadcboDept()
         {
             deptList = departmentSrv.GetAllDeptInfo();
+            deptList.Insert(0, new DepartmentVO { DeptName = "부서 선택" });
 
             cboDept.ValueMember = "DeptNo";
             cboDept.DisplayMember = "DeptName";
@@ -80,12 +84,27 @@ namespace BikeProd
             dgvTeam.Columns[0].Frozen = true;
             dgvTeam.Columns[1].Frozen = true;
 
-
-
             dgvDetail.DataSource = empList;
 
             txtDeptName.Text = dgvDept[1, e.RowIndex].Value.ToString();
             lblDept.Text = "[" + dgvDept[1, e.RowIndex].Value.ToString() + "]";
+
+
+
+
+
+            List<DeptMenuVO> authlist = departmentSrv.GetAllDeptMenuInfo();
+            var selList = authlist.FindAll((m) => m.DeptNo == DeptNo);
+            foreach (DeptMenuVO item in selList)
+            {
+                //lstSelect.Items.Add(item.MenuName);
+                txtDeptAuth.AppendText(item.MenuName + Environment.NewLine);
+            }
+            txtDeptAuth.Select(0, 0);
+            //txtDeptAuth.Select(txtDeptAuth.Text.Length, 0);
+
+
+
 
             //DataRow dr = dt.NewRow();
             //dr["TeamName"] = "---팀 선택---";
@@ -93,7 +112,7 @@ namespace BikeProd
             //dt.AcceptChanges();
 
             teamlist.Insert(0, new TeamVO
-            { TeamName = "---팀 선택---" });
+            { TeamName = "팀 선택" });
 
             cboTeamselect.ValueMember = "TeamNo";
             cboTeamselect.DisplayMember = "TeamName";
@@ -101,7 +120,7 @@ namespace BikeProd
 
             txtEmpSearch.Text = "사원 검색";
 
-            txtDeptAuth.Text = deptVO.MenuName.ToString();
+            //txtDeptAuth.Text = deptVO.MenuName.ToString();
         }
 
         private void txtEmpSearch_Click(object sender, EventArgs e)
@@ -153,22 +172,93 @@ namespace BikeProd
 
         private void btnDeptInsert_Click(object sender, EventArgs e)
         {
-            popAuthReg pop = new popAuthReg();
+            popAuthReg pop = new popAuthReg(txtDeptName.Text);
             pop.ShowDialog();
+
+
         }
 
         private void btnTeamInsert_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTeamName.Text))
+            int deptNo = deptList.Find((m) => m.DeptName.Equals(cboDept.Text)).DeptNo;
+            string teamName = txtTeamName.Text;
+            teamList = departmentSrv.GetTeamInfo(deptNo);
+            //string inserted = teamList.FindAll((n) => n.TeamName == txtTeamName.Text);
+
+            foreach(var a in teamList)
+            {
+                if (a.TeamName.Contains(teamName))
+                {
+                    MessageBox.Show("중복임");
+                    return;
+                }
+            }
+
+            if (cboDept.SelectedIndex == 0)
+            {
+                MessageBox.Show("부서를 선택해 주십시오.");
+                return;
+            }
+            else if (string.IsNullOrEmpty(txtTeamName.Text))
             {
                 MessageBox.Show("팀명은 필수 입력입니다.");
                 return;
             }
+            else if (txtTeamName.Text.Contains("예)"))
+            {
+                MessageBox.Show("팀명을 확인해 주십시오.");
+                return;
+            }
+            
+            bool result = departmentSrv.SaveTeam(deptNo, teamName);
+            if (result)
+            {
+                //MessageBox.Show("등록완료!");
+                
+                DialogResult result1 = MessageBox.Show("등록완료!","", MessageBoxButtons.OK);
+                if (result1 == DialogResult.OK)
+                {
+                    teamList = departmentSrv.GetTeamInfo(deptNo);
+
+                    dgvTeam.DataSource = teamList;
+                    dgvTeam.Columns[0].Frozen = true;
+                    dgvTeam.Columns[1].Frozen = true;
+                }                    
+            }
+            else
+            {
+                MessageBox.Show("등록중 오류가 발생하였습니다.");
+                return;
+            }
+        }        
+
+        private void txtTeamName_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (cboDept.SelectedIndex == 0)
+            {
+                MessageBox.Show("부서를 먼저 선택하십시오.");
+                return;
+            }
+            //if (txtTeamName.Text == "예)생산 1팀")
+            //{
+            //    txtTeamName.Clear();
+            //}
+        }
+
+        private void txtDeptAuth_TextChanged(object sender, EventArgs e)
+        {
+
 
         }
 
 
 
-
+        private void txtDeptName_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDeptName.Text))
+            {
+                txtDeptAuth.Clear();
+            }
+        }
     }
 }

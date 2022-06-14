@@ -123,7 +123,7 @@ namespace BikeProd
             mail.SubjectEncoding = Encoding.UTF8;
             mail.BodyEncoding = Encoding.UTF8;
 
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient SmtpServer = new SmtpClient("smtp.naver.com", 587);
             SmtpServer.Credentials = new NetworkCredential(sender, password);
             SmtpServer.EnableSsl = true;
 
@@ -153,9 +153,11 @@ namespace BikeProd
         string GetPassworkMessage(string name, string password)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"<strong>{name}</strong>님.<br>");
+            sb.Append($"<strong>{name}님.</strong><br>");
+            sb.Append("");
             sb.Append("신규 비밀번호 발급 안내입니다.<br>");
             sb.Append("로그인 후, 비밀번호를 변경하여 주십시오.");
+            sb.Append("");
             sb.Append($"<h1>신규 비밀번호 : {password}</h1>");
 
             return sb.ToString();

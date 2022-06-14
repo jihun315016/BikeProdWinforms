@@ -256,7 +256,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.isNumeric = false;
+            this.txtPrice.isNumeric = true;
             this.txtPrice.isRequired = true;
             this.txtPrice.Location = new System.Drawing.Point(49, 209);
             this.txtPrice.Name = "txtPrice";
@@ -285,7 +285,7 @@
             // 
             // txtInventory
             // 
-            this.txtInventory.isNumeric = false;
+            this.txtInventory.isNumeric = true;
             this.txtInventory.isRequired = false;
             this.txtInventory.Location = new System.Drawing.Point(218, 209);
             this.txtInventory.Name = "txtInventory";
@@ -324,7 +324,7 @@
             // 
             // txtTotInventory
             // 
-            this.txtTotInventory.isNumeric = false;
+            this.txtTotInventory.isNumeric = true;
             this.txtTotInventory.isRequired = true;
             this.txtTotInventory.Location = new System.Drawing.Point(184, 269);
             this.txtTotInventory.Name = "txtTotInventory";
@@ -344,7 +344,7 @@
             // 
             // txtUnit
             // 
-            this.txtUnit.isNumeric = false;
+            this.txtUnit.isNumeric = true;
             this.txtUnit.isRequired = true;
             this.txtUnit.Location = new System.Drawing.Point(15, 326);
             this.txtUnit.Name = "txtUnit";
@@ -437,7 +437,7 @@
             // 
             // txtLeadTime
             // 
-            this.txtLeadTime.isNumeric = false;
+            this.txtLeadTime.isNumeric = true;
             this.txtLeadTime.isRequired = true;
             this.txtLeadTime.Location = new System.Drawing.Point(15, 269);
             this.txtLeadTime.Name = "txtLeadTime";

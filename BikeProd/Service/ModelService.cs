@@ -49,7 +49,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
-        /// 제품 코드에 대한 LeadTime 조회 후 폼에 리턴
+        /// 제품 코드에 대한 LeadTime 조회 후 폼에 전달한다.
         /// </summary>
         /// <param name="ProdCode"></param>
         /// <returns></returns>
@@ -59,6 +59,19 @@ namespace BikeProd
             int leadTime = dac.GetProdLeadTime(ProdCode);
             dac.Dispose();
             return leadTime;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 등록되지 않은 제품 조회 후 폼에 전달한다.
+        /// </summary>
+        /// <returns></returns>
+        public List<ProdPartVO> GetNotBomProd()
+        {
+            ModelDAC dac = new ModelDAC();
+            List<ProdPartVO> list = dac.GetNotBomProd();
+            dac.Dispose();
+            return list;
         }
 
         /// <summary>

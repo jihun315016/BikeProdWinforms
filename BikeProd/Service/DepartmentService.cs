@@ -12,7 +12,7 @@ namespace BikeProd
     class DepartmentService
     {
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// TB_Department의 전체데이터가져오기
         /// </summary>
         /// <returns></returns>
@@ -26,7 +26,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 부서별 팀관련 데이터 가져오기
         /// </summary>
         /// <param name="DeptNo">부서번호</param>
@@ -41,7 +41,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 부서별 팀정보 데이터테이블로 가져오기 
         /// </summary>
         /// <param name="DeptNo"></param>
@@ -56,7 +56,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 부서별 권한정보중 이름만 가져오기
         /// </summary>
         /// <param name="DeptNo">부서번호</param>
@@ -71,7 +71,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 권한설정관련 부서 및 메뉴 join데이터 가져오기
         /// </summary>
         /// <returns></returns>
@@ -85,7 +85,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 부서별 권한메뉴 가져오기
         /// </summary>
         /// <param name="DeptNo">부서번호</param>
@@ -100,7 +100,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 전체 메뉴 데이터 가져오기
         /// </summary>
         /// <returns></returns>
@@ -114,7 +114,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// TB_Menu의 데이터 중 권한메뉴(lvl.2)만 가져오기
         /// </summary>
         /// <returns></returns>
@@ -128,7 +128,7 @@ namespace BikeProd
         }
 
         /// <summary>
-        /// 정희록
+        /// Author: 정희록
         /// 부서별 메뉴 권한 등록
         /// </summary>
         /// <param name="authList">권한메뉴리스트</param>
@@ -137,6 +137,21 @@ namespace BikeProd
         {
             DepartmentDAC dac = new DepartmentDAC();
             bool result = dac.SaveMenuAuth(authList, DeptNo);
+            dac.Dispose();
+
+            return result;
+        }
+        /// <summary>
+        /// Author: 정희록
+        /// 새로운 팀이름 등록
+        /// </summary>
+        /// <param name="deptNo"></param>
+        /// <param name="teamName"></param>
+        /// <returns></returns>
+        public bool SaveTeam(int deptNo, string teamName)
+        {
+            DepartmentDAC dac = new DepartmentDAC();
+            bool result = dac.SaveTeam(deptNo, teamName);
             dac.Dispose();
 
             return result;

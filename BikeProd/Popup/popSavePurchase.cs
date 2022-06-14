@@ -1,4 +1,4 @@
-﻿using BikeProd.Service;
+﻿using BikeProd;
 using BikeProd.VO;
 using System;
 using System.Collections.Generic;
@@ -93,6 +93,8 @@ namespace BikeProd
             popSearchClient pop = new popSearchClient(false);
             if (pop.ShowDialog() == DialogResult.OK)
             {
+                txtSubManager.Text = pop.selectedClient.Manager;
+                txtSubManager.Tag = pop.selectedClient.BusinessNo;
                 txtBusiness.Text = pop.selectedClient.ClientName;
                 txtBusiness.Tag = pop.selectedClient.BusinessNo;
             }
@@ -186,7 +188,6 @@ namespace BikeProd
                 PurchaseName = txtPurName.Text,
                 BusinessNo = txtBusinessID.Text,
                 Manager = txtManager.Text,
-                SubManger = txtSubManager.Text,
                 PurchaseDate = dtpPurDate.Value,
                 ArriveDate = dtpAliveDate.Value,
                 State = "In"
@@ -224,5 +225,9 @@ namespace BikeProd
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

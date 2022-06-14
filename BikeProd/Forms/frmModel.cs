@@ -50,10 +50,10 @@ namespace BikeProd
             InitDetail();
 
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 205);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 205);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 200);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 200);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind", colWidth: 180);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 180);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 180);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래 여부", "Dealing", isVisible: false);
@@ -137,7 +137,7 @@ namespace BikeProd
 
             // 검색 체크
             if (!string.IsNullOrWhiteSpace(txtSearch.Text) && txtSearch.Text != txtSearch.PlaceHolder)
-                list = list.FindAll(p => p.Name.Contains(txtSearch.Text));
+                list = list.FindAll(p => p.Name.ToLower().Contains(txtSearch.Text.ToLower()));
 
             dgvList.DataSource = list;
         }
@@ -155,7 +155,12 @@ namespace BikeProd
         private void btnSave_Click(object sender, EventArgs e)
         {
             popSaveModel pop = new popSaveModel();
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                prodPartList = modelSrv.GetModelList();
+                categoryList = modelSrv.GetCategory();
+                dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);
+            }
         }
 
         /// <summary>
@@ -352,11 +357,11 @@ namespace BikeProd
                 return;
             }
 
+                int changedValue;
+
             if (MessageBox.Show($"[{txtName.Text}] {btnDelete.Text}하시겠습니까?", $"{btnDelete.Text} 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 bool isProd;
-                int changedValue;
-
                 if (btnDelete.Text == "삭제") // 폐기
                     changedValue = 0;
                 else // 재등록                

@@ -44,13 +44,13 @@
             this.txtDeptName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtTeamName = new BikeProd.ccTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboDept = new System.Windows.Forms.ComboBox();
             this.btnTeamDelete = new System.Windows.Forms.Button();
             this.btnTeamInsert = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTeamName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -67,7 +67,6 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Size = new System.Drawing.Size(1164, 601);
             this.splitContainer1.SplitterDistance = 66;
             // 
@@ -78,7 +77,6 @@
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.None;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer2.IsSplitterFixed = false;
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             // 
             // splitContainer2.Panel1
             // 
@@ -96,9 +94,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer2.Size = new System.Drawing.Size(1164, 534);
+            this.splitContainer2.Size = new System.Drawing.Size(1164, 531);
             this.splitContainer2.SplitterDistance = 785;
-            this.splitContainer2.SplitterWidth = 5;
             // 
             // dgvDept
             // 
@@ -220,7 +217,7 @@
             // btnDeptDelete
             // 
             this.btnDeptDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDeptDelete.Location = new System.Drawing.Point(218, 159);
+            this.btnDeptDelete.Location = new System.Drawing.Point(218, 168);
             this.btnDeptDelete.Name = "btnDeptDelete";
             this.btnDeptDelete.Size = new System.Drawing.Size(72, 28);
             this.btnDeptDelete.TabIndex = 6;
@@ -230,7 +227,7 @@
             // btnDeptInsert
             // 
             this.btnDeptInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDeptInsert.Location = new System.Drawing.Point(140, 159);
+            this.btnDeptInsert.Location = new System.Drawing.Point(140, 168);
             this.btnDeptInsert.Name = "btnDeptInsert";
             this.btnDeptInsert.Size = new System.Drawing.Size(72, 28);
             this.btnDeptInsert.TabIndex = 4;
@@ -242,9 +239,12 @@
             // 
             this.txtDeptAuth.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtDeptAuth.Location = new System.Drawing.Point(131, 103);
+            this.txtDeptAuth.Multiline = true;
             this.txtDeptAuth.Name = "txtDeptAuth";
-            this.txtDeptAuth.Size = new System.Drawing.Size(159, 25);
+            this.txtDeptAuth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDeptAuth.Size = new System.Drawing.Size(159, 59);
             this.txtDeptAuth.TabIndex = 3;
+            this.txtDeptAuth.TextChanged += new System.EventHandler(this.txtDeptAuth_TextChanged);
             // 
             // txtDeptName
             // 
@@ -253,6 +253,7 @@
             this.txtDeptName.Name = "txtDeptName";
             this.txtDeptName.Size = new System.Drawing.Size(159, 25);
             this.txtDeptName.TabIndex = 2;
+            this.txtDeptName.TextChanged += new System.EventHandler(this.txtDeptName_TextChanged);
             // 
             // label5
             // 
@@ -274,14 +275,25 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "부서명";
             // 
+            // txtTeamName
+            // 
+            this.txtTeamName.isNumeric = false;
+            this.txtTeamName.isRequired = false;
+            this.txtTeamName.Location = new System.Drawing.Point(131, 97);
+            this.txtTeamName.Name = "txtTeamName";
+            this.txtTeamName.PlaceHolder = "예) 생산 1팀";
+            this.txtTeamName.Size = new System.Drawing.Size(159, 27);
+            this.txtTeamName.TabIndex = 7;
+            this.txtTeamName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTeamName_MouseClick);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtTeamName);
             this.groupBox2.Controls.Add(this.cboDept);
             this.groupBox2.Controls.Add(this.btnTeamDelete);
             this.groupBox2.Controls.Add(this.btnTeamInsert);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtTeamName);
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(18, 274);
             this.groupBox2.Name = "groupBox2";
@@ -341,14 +353,6 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "팀명";
             // 
-            // txtTeamName
-            // 
-            this.txtTeamName.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtTeamName.Location = new System.Drawing.Point(131, 100);
-            this.txtTeamName.Name = "txtTeamName";
-            this.txtTeamName.Size = new System.Drawing.Size(159, 25);
-            this.txtTeamName.TabIndex = 10;
-            // 
             // frmDepartment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -396,7 +400,6 @@
         private System.Windows.Forms.Button btnTeamInsert;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTeamName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDeptDelete;
         private System.Windows.Forms.Button btnDeptInsert;
@@ -404,5 +407,6 @@
         private System.Windows.Forms.TextBox txtDeptName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private ccTextBox txtTeamName;
     }
 }

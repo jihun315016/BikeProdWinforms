@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BikeProd.DAC.DAC
+namespace BikeProd.DAC
 {
     public class ClientDAC : IDisposable
     {
@@ -35,7 +35,7 @@ namespace BikeProd.DAC.DAC
         /// <returns></returns>
         public List<ClientVO> GetClientNameByType(string clientType)
         {
-            string sql = @"SELECT BusinessNo, ClientName
+            string sql = @"SELECT BusinessNo, ClientName, Manager
 	                        FROM TB_Client
 	                        WHERE TYPE = @TYPE";
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -43,5 +43,21 @@ namespace BikeProd.DAC.DAC
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<ClientVO>(reader);
         }
+
+
+        public List<ClientVO> GetClientList()
+        {
+            List<ClientVO> list = new List<ClientVO>();
+
+            string sql = @"select BusinessNo, ClientName, Type, CompanyPhone, Email, Address, Manager, ManagerPhone from TB_Client";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                list = DBConverter.DataReaderToList<ClientVO>(cmd.ExecuteReader());
+            }
+            return list;
+        }
+
+        
     }
 }

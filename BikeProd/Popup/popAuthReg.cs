@@ -17,12 +17,17 @@ namespace BikeProd
         DepartmentService departmentSrv = new DepartmentService();
         List<DeptMenuVO> authlist = null;
         List<MenuVO> mlist = null;
-        List<DepartmentVO> list = null;
+        List<DepartmentVO> deptList = null;
         int DeptNo;
-
+        public string deptName { get; set; }
         public popAuthReg()
         {
             InitializeComponent();
+        }
+        public popAuthReg(string deptName)
+        {
+            InitializeComponent();
+            this.deptName = deptName;
         }
 
         private void frmAuthRegPopUp_Load(object sender, EventArgs e)
@@ -46,9 +51,9 @@ namespace BikeProd
         private void DeptBinding()
         {
 
-            list = departmentSrv.GetAllDeptInfo();
+            deptList = departmentSrv.GetAllDeptInfo();
 
-            foreach (DepartmentVO dept in list)
+            foreach (DepartmentVO dept in deptList)
             {
                 lstDept.Items.Add($"{dept.DeptNo} | {dept.DeptName}");
             }
@@ -125,12 +130,31 @@ namespace BikeProd
         private void btnReg_Click(object sender, EventArgs e)
         {
             //현재 선택된 권한ID목록을 DB에 저장
+            
             List<int> selAuthList = new List<int>();
             foreach (var item in lstSelect.Items)
             {
                 int menu_id = mlist.Find((m) => m.MenuName.Equals(item)).MenuID;
                 selAuthList.Add(menu_id);
             }
+            deptList = departmentSrv.GetAllDeptInfo();
+
+            //var list = (from dept in deptList
+            //           where dept.DeptName == deptName
+            //           select new DepartmentVO
+            //           {
+            //               DeptName = dept.DeptName,
+            //               DeptNo = dept.DeptNo
+            //           }).ToList();
+
+            //if(list == null)
+            //{
+            //    MessageBox.Show("중복된 부서 입니다");
+            //}
+            ///*deptList((d) => d.DeptName == deptName).DeptNo != null)*/
+                
+            
+
             departmentSrv.SaveMenuAuth(selAuthList, DeptNo);
             MessageBox.Show("저장완료");
             DeptAuthBinding();

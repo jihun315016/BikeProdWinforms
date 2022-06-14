@@ -1,4 +1,4 @@
-﻿using BikeProd.DAC.DAC;
+﻿using BikeProd.DAC;
 using BikeProd.VO;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BikeProd.Service
+namespace BikeProd
 {
     public class ClientService
     {
@@ -24,5 +24,14 @@ namespace BikeProd.Service
             dac.Dispose();
             return list;
         }
+
+        public List<ClientVO> GetClientList()
+        {
+            ClientDAC dac = new ClientDAC();
+            List<ClientVO> result = dac.GetClientList();
+            dac.Dispose();
+            return result;
+        }
     }
+
 }

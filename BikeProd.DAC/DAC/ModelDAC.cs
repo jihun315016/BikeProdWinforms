@@ -138,6 +138,24 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// BOM 등록 되지 않은 제품 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<ProdPartVO> GetNotBomProd()
+        {
+            string sql = @"SELECT ProdCode Code, ProdName Name, Category,
+	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind
+                            FROM TB_Products
+                            WHERE ProdCode not in (SELECT ParentCode FROM TB_BOM)
+                            AND Dealing = 1";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return DBConverter.DataReaderToList<ProdPartVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록
         /// 등록된 모델의 코드에 따라 CodeCnt도 1씩 증가한다.
         /// </summary>

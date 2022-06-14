@@ -73,8 +73,6 @@ namespace BikeProd
             {
                 cboDept.Items.Add(lst.DeptName);
             }
-            
-            
         }
 
         private void rdWorking_CheckedChanged(object sender, EventArgs e)
@@ -141,7 +139,10 @@ namespace BikeProd
         private void btnSave_Click(object sender, EventArgs e)
         {
             popSaveEmployee frm = new popSaveEmployee();
-            frm.ShowDialog();
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                GetAllList();
+            }
         }
 
         private void btnResign_Click(object sender, EventArgs e)
@@ -152,10 +153,21 @@ namespace BikeProd
                 return;
             }
 
+
+            if (Convert.ToDateTime(dgvList.SelectedRows[0].Cells["ToDate"].Value).Year != 1)
+            {
+                MessageBox.Show("이미 퇴사한 사원입니다");
+                return;
+            }
+            
+
             int EmpNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["EmpNo"].Value);
             string Name = (dgvList.SelectedRows[0].Cells["EmpName"].Value).ToString();
-            //popResign frm = new popResign(EmpNo, Name);
-            //frm.Show();
+            popResign frm = new popResign(EmpNo, Name);
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                GetAllList();
+            }
         }
     }
 }

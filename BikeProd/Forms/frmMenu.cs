@@ -132,6 +132,7 @@ namespace BikeProd
             {
                 if (form.GetType() == type)
                 {
+                    form.WindowState = FormWindowState.Maximized;
                     form.Activate();
                     return;
                 }
@@ -139,6 +140,7 @@ namespace BikeProd
 
             Form frm = (Form)Activator.CreateInstance(type);
             frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             CreateUcFormControl(frm);
             frm.Show();
         }

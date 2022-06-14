@@ -27,33 +27,30 @@ namespace BikeProd
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnResign_Click(object sender, EventArgs e)
         {
             try
             {
-                string ToDate = dateTimePicker1.Text;
-                if(MessageBox.Show($"{EmpName}님을 {ToDate}에 퇴사처리 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                string ToDate = dtpResign.Text;
+                if (MessageBox.Show($"{EmpName}님을 {ToDate}에 퇴사처리 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     bool result = srv.UpdateOut(EmpNo, ToDate);
                     if (result)
                     {
                         MessageBox.Show("등록되었습니다");
+                        this.DialogResult = DialogResult.OK;
                     }
                     else
                     {
                         MessageBox.Show("오류가 발생하였습니다");
                     }
                 }
-            }catch(Exception err)
+            }
+            catch (Exception err)
             {
                 MessageBox.Show(err.Message);
             }
-            
         }
 
-        private void popleave_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -14,9 +14,11 @@ namespace BikeProd
     public partial class frmPurchase : baseCommon
     {
         PurchaseService purchaseSrv;
+        ClientService clientSrv;
         List<PurchaseVO> purchaseList;
         List<PurchaseListVO> purchaseLists;
         List<CommonCodeVO> StateList;
+        List<ClientVO> clientList;
 
         public frmPurchase()
         {
@@ -87,10 +89,14 @@ namespace BikeProd
         /// <param name="e"></param>
         private void dgvList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            clientSrv = new ClientService();
             string BusinessNo = (dgvList.SelectedRows[0].Cells["BusinessNo"].Value).ToString();
             string StateCode = (dgvList.SelectedRows[0].Cells["State"].Value).ToString();
-            List<ClientVO> client = purchaseSrv.GetClientName(BusinessNo);
+
+            clientList = clientSrv.GetClientList();
             List<CommonCodeVO> state = purchaseSrv.GetStateDetail(StateCode);
+            
+
             
             txtPurNo.Text = (dgvList.SelectedRows[0].Cells["PurchaseNo"].Value).ToString();
             txtBusinessNo.Text = BusinessNo;
@@ -98,10 +104,10 @@ namespace BikeProd
             txtState.Text = state.Find((s) => s.Code == StateCode).Name;
             txtPurDate.Text = ((DateTime)dgvList.SelectedRows[0].Cells["PurchaseDate"].Value).ToString("yyyy-MM-dd");
             txtAliveDate.Text = ((DateTime)dgvList.SelectedRows[0].Cells["ArriveDate"].Value).ToString("yyyy-MM-dd");
-            txtManager.Text = (dgvList.SelectedRows[0].Cells["Manager"].Value).ToString(); 
-            txtSubManager.Text = (dgvList.SelectedRows[0].Cells["SubManger"].Value).ToString();
-            txtClient.Text = client.Find((c)=>c.BusinessNo == BusinessNo).ClientName;
-            txtAddress.Text = client.Find((a) => a.BusinessNo == BusinessNo).Address;
+            txtManager.Text = (dgvList.SelectedRows[0].Cells["Manager"].Value).ToString();
+            txtSubManager.Text = clientList.Find((c) => c.BusinessNo == BusinessNo).Manager;
+            txtClient.Text = clientList.Find((c)=>c.BusinessNo == BusinessNo).ClientName;
+            txtAddress.Text = clientList.Find((a) => a.BusinessNo == BusinessNo).Address;
 
             LoadData2();
         }

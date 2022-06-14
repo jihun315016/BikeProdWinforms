@@ -46,7 +46,7 @@ namespace BikeProd.DAC
         /// /// Authur: 이진형
         /// 로그인시 사원 정보 체크
         /// </summary>
-        /// <param name="empNo">직원 번호</param>
+        /// <param name="empNo">사번</param>
         /// <param name="pwd">이름</param>
         /// <returns></returns>
         public int GetLoginInfo(int empNo, string pwd)
@@ -68,7 +68,7 @@ namespace BikeProd.DAC
         /// /// Authur: 이진형
         /// 사번, 이름, 이메일로 현재 근무중인 사원 조회
         /// </summary>
-        /// <param name="EmpNo">직번 번호</param>
+        /// <param name="EmpNo">사번</param>
         /// <param name="EmpName">이름</param>
         /// /// <param name="Email">이메일</param>
         /// <returns></returns>
@@ -98,7 +98,7 @@ namespace BikeProd.DAC
         /// /// Authur: 이진형
         /// 신규 비밀번호 업데이트
         /// </summary>
-        /// <param name="empNo">직원 번호</param>
+        /// <param name="empNo">사번</param>
         /// <param name="newPwd">신규 비밀번호</param>
         /// <returns></returns>
         public bool ChangePassword(int empNo, string newPwd)
@@ -109,8 +109,8 @@ namespace BikeProd.DAC
 
             SqlCommand cmd = new SqlCommand(sql, conn);
 
-            cmd.Parameters.AddWithValue("@EMP_NO", empNo);
-            cmd.Parameters.AddWithValue("@PASSWORD", newPwd);
+            cmd.Parameters.AddWithValue("@EmpNo", empNo);
+            cmd.Parameters.AddWithValue("@Pwd", newPwd);
 
             int iRow;
 

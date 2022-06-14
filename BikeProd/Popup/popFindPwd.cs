@@ -65,6 +65,7 @@ namespace BikeProd
                 {
                     if (logingSrv.SendEmail(empVo.EmpName, empVo.Email, newPwd) && logingSrv.ChangePassword(empNo, newPwd))
                     {
+                        this.Close();
                         MessageBox.Show("메일이 발송 되었습니다.");
                         return;
                     }

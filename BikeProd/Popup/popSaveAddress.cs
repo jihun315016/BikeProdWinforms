@@ -73,8 +73,8 @@ namespace BikeProd
 
         private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // txtZipCode -> txtAddrCode 수정
-            txtZipCode.Text = dgvList["zipNo", e.RowIndex].Value.ToString();
+            
+            txtAddrCode.Text = dgvList["zipNo", e.RowIndex].Value.ToString();
 
             txtAddr1.Text = dgvList["roadAddrPart1", e.RowIndex].Value.ToString();            
 
@@ -90,7 +90,7 @@ namespace BikeProd
 
         private void btanSave_Click(object sender, EventArgs e)
         {
-            ZipCode = txtZipCode.Text;
+            ZipCode = txtAddrCode.Text;
             Address1 = txtAddr1.Text;
             Address2 = txtAddr2.Text;
 

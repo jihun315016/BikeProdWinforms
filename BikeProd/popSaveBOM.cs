@@ -16,6 +16,7 @@ namespace BikeProd
         ModelService modelSrv;
         List<ProdPartVO> modelList;
         List<CommonCodeVO> categoryList;
+        List<BomDetailVO> bomList;
 
         string code;
 
@@ -35,6 +36,7 @@ namespace BikeProd
         private void popSaveBOM_Load(object sender, EventArgs e)
         {
             categoryList = modelSrv.GetCategory();
+            bomList = new List<BomDetailVO>();
             InitControl();
         }
 
@@ -51,6 +53,9 @@ namespace BikeProd
                 );            
             cboCategory.SelectedIndex = 0;
 
+            txtSearch.SetPlaceHolder();
+            txtRequirement.SetPlaceHolder();
+
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 210);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind", colWidth: 80);
@@ -61,6 +66,15 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래", "Dealing", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지", "Image", isVisible: false);
             dgvList.DataSource = modelList;
+
+            DataGridViewUtil.SetInitGridView(dgvBom);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "모델명", "Name", colWidth: 190);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "분류", "Kind", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "품목", "Category");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "수량", "Requirement", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "코드", "Code", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "가격", "Price", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "재고", "Inventory", isVisible: false);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -115,6 +129,75 @@ namespace BikeProd
                 });
                 ComboBoxUtil.SetComboBoxByList<CommonCodeVO>(cboCategory, list, "Name", "Code");
             }
+        }
+
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            txtCode.Text = dgvList["Code", e.RowIndex].Value.ToString();
+            txtName.Text = dgvList["Name", e.RowIndex].Value.ToString();
+            txtKind.Text = dgvList["Kind", e.RowIndex].Value.ToString();
+            txtCatagory.Text = dgvList["Category", e.RowIndex].Value.ToString();
+
+            txtRequirement.Text = string.Empty;
+            txtRequirement.SetPlaceHolder();
+        }
+
+        private void dgvBom_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            txtCode.Text = dgvBom["Code", e.RowIndex].Value.ToString();
+            txtName.Text = dgvBom["Name", e.RowIndex].Value.ToString();
+            txtKind.Text = dgvBom["Kind", e.RowIndex].Value.ToString();
+            txtCatagory.Text = dgvBom["Category", e.RowIndex].Value.ToString();
+
+            txtRequirement.Text = string.Empty;
+            txtRequirement.SetPlaceHolder();
+        }
+
+        private void btnAddBom_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtRequirement.Text) || txtRequirement.Text == txtRequirement.PlaceHolder)
+            {
+                MessageBox.Show("수량을 입력해주세요.");
+                return;
+            }
+
+            // 하위 항목을 새로 등록하는 경우
+            if (bomList.FindIndex(b => b.Code == txtCode.Text) == -1)
+            {
+                bomList.Add
+                    (
+                        new BomDetailVO()
+                        {
+                            Code = txtCode.Text,
+                            Name = txtName.Text,
+                            Kind = txtKind.Text,
+                            Category = txtCatagory.Text,
+                            Requirement = Convert.ToInt32(txtRequirement.Text)
+                        }
+                    );
+            }
+            // 이미 등록한 항목을 다시 등록하는 경우
+            else
+            {
+                BomDetailVO item = bomList.Find(b => b.Code == txtCode.Text);
+                item.Requirement = item.Requirement + Convert.ToInt32(txtRequirement.Text);
+            }
+
+            // dgvBom.DataSource = bomList; 이거 왜 안돼?            
+            dgvBom.DataSource = bomList.FindAll(b => true).ToList();
+        }
+
+        private void btnBomCancel_Click(object sender, EventArgs e)
+        {
+            BomDetailVO item = bomList.Find(b => b.Code == txtCode.Text);
+            bomList.Remove(item);
+            dgvBom.DataSource = bomList.FindAll(b => true).ToList();
         }
     }
 }

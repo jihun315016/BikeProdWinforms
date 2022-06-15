@@ -165,13 +165,13 @@ namespace BikeProd.DAC
         public List<ProdPartVO> GetPartAndSemiProd(bool isGetSemiProd)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(@"SELECT PartName Name, '부품' Kind, Category FROM TB_Parts ");
+            sb.Append(@"SELECT PartCode Code, PartName Name, '부품' Kind, Category FROM TB_Parts ");
 
             // 반제품 정보까지 필요하다면
             if (isGetSemiProd)
             {
                 sb.Append(@"UNION
-                            SELECT ProdName Name, '반제품' Kind, Category
+                            SELECT ProdCode Code, ProdName Name, '반제품' Kind, Category
                             FROM TB_Products
                             WHERE IsFinished = 0 ");
             }

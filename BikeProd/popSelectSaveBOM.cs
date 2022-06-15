@@ -97,6 +97,14 @@ namespace BikeProd
             selectedCode = row.Cells["Code"].Value.ToString();
             selectedKind = row.Cells["Kind"].Value.ToString();
             this.Close();
+        }  
+
+        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            btnNext_Click(this, null);
         }
     }
 }

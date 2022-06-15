@@ -37,7 +37,7 @@ namespace BikeProd
             this.label3 = new System.Windows.Forms.Label();
             this.txtAddr2 = new BikeProd.ccTextBox();
             this.txtAddr1 = new BikeProd.ccTextBox();
-            this.txtZipCode = new BikeProd.ccTextBox();
+            this.txtAddrCode = new BikeProd.ccTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +46,7 @@ namespace BikeProd
             // 
             this.panel1.Controls.Add(this.txtAddr2);
             this.panel1.Controls.Add(this.txtAddr1);
-            this.panel1.Controls.Add(this.txtZipCode);
+            this.panel1.Controls.Add(this.txtAddrCode);
             this.panel1.Controls.Add(this.btanSave);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dgvList);
@@ -54,12 +54,12 @@ namespace BikeProd
             this.panel1.Controls.Add(this.txtAddrSearch);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 18);
-            this.panel1.Size = new System.Drawing.Size(489, 480);
+            this.panel1.Size = new System.Drawing.Size(482, 480);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 18);
+            this.label1.Location = new System.Drawing.Point(30, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 15);
             this.label1.TabIndex = 0;
@@ -69,15 +69,15 @@ namespace BikeProd
             // 
             this.txtAddrSearch.isNumeric = false;
             this.txtAddrSearch.isRequired = false;
-            this.txtAddrSearch.Location = new System.Drawing.Point(153, 14);
+            this.txtAddrSearch.Location = new System.Drawing.Point(140, 14);
             this.txtAddrSearch.Name = "txtAddrSearch";
             this.txtAddrSearch.PlaceHolder = null;
-            this.txtAddrSearch.Size = new System.Drawing.Size(222, 23);
+            this.txtAddrSearch.Size = new System.Drawing.Size(217, 23);
             this.txtAddrSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(383, 8);
+            this.btnSearch.Location = new System.Drawing.Point(368, 8);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(93, 33);
             this.btnSearch.TabIndex = 2;
@@ -87,17 +87,18 @@ namespace BikeProd
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(12, 55);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(464, 289);
+            this.dgvList.Size = new System.Drawing.Size(447, 289);
             this.dgvList.TabIndex = 3;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             // 
             // btanSave
             // 
-            this.btanSave.Location = new System.Drawing.Point(383, 433);
+            this.btanSave.Location = new System.Drawing.Point(366, 433);
             this.btanSave.Name = "btanSave";
             this.btanSave.Size = new System.Drawing.Size(93, 33);
             this.btanSave.TabIndex = 57;
@@ -134,21 +135,21 @@ namespace BikeProd
             this.txtAddr1.Size = new System.Drawing.Size(211, 23);
             this.txtAddr1.TabIndex = 59;
             // 
-            // txtZipCode
+            // txtAddrCode
             // 
-            this.txtZipCode.isNumeric = false;
-            this.txtZipCode.isRequired = false;
-            this.txtZipCode.Location = new System.Drawing.Point(342, 360);
-            this.txtZipCode.Name = "txtZipCode";
-            this.txtZipCode.PlaceHolder = null;
-            this.txtZipCode.Size = new System.Drawing.Size(88, 23);
-            this.txtZipCode.TabIndex = 58;
+            this.txtAddrCode.isNumeric = false;
+            this.txtAddrCode.isRequired = false;
+            this.txtAddrCode.Location = new System.Drawing.Point(342, 360);
+            this.txtAddrCode.Name = "txtAddrCode";
+            this.txtAddrCode.PlaceHolder = null;
+            this.txtAddrCode.Size = new System.Drawing.Size(88, 23);
+            this.txtAddrCode.TabIndex = 58;
             // 
             // popSaveAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 510);
+            this.ClientSize = new System.Drawing.Size(501, 510);
             this.Name = "popSaveAddress";
             this.Text = "popSaveAddress";
             this.Load += new System.EventHandler(this.popSaveAddress_Load);
@@ -170,6 +171,6 @@ namespace BikeProd
         private System.Windows.Forms.Label label3;
         private ccTextBox txtAddr2;
         private ccTextBox txtAddr1;
-        private ccTextBox txtZipCode;
+        private ccTextBox txtAddrCode;
     }
 }

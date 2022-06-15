@@ -1,6 +1,6 @@
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd.VO\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd.VO\bin\Debug\BikeProd.VO.pdb
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd.VO\bin\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd.VO\bin\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd.VO\obj\Debug\BikeProd.VO.pdb

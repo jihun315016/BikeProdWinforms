@@ -27,7 +27,6 @@ namespace BikeProd
             popSelectSaveBOM pop1 = new popSelectSaveBOM();
             if (pop1.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(pop1.selectedCode);
                 popSaveBOM pop2 = new popSaveBOM(pop1.selectedCode, pop1.selectedKind);
                 pop2.ShowDialog();
             }

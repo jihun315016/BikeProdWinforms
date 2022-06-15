@@ -69,7 +69,7 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
-            this.panel1.Size = new System.Drawing.Size(1058, 484);
+            this.panel1.Size = new System.Drawing.Size(1042, 438);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboAddr
@@ -123,7 +123,7 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(909, 476);
+            this.btnSave.Location = new System.Drawing.Point(878, 476);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(84, 40);
@@ -135,7 +135,7 @@ namespace BikeProd
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(1014, 476);
+            this.btnDelete.Location = new System.Drawing.Point(983, 476);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(87, 40);
             this.btnDelete.TabIndex = 6;
@@ -152,7 +152,7 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1058, 484);
+            this.dgvList.Size = new System.Drawing.Size(1042, 438);
             this.dgvList.TabIndex = 2;
             // 
             // frmClient

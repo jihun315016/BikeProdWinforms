@@ -1,5 +1,4 @@
-﻿
-namespace BikeProd
+﻿namespace BikeProd
 {
     partial class popResign
     {
@@ -38,33 +37,39 @@ namespace BikeProd
             // 
             this.panel1.Controls.Add(this.btnResign);
             this.panel1.Controls.Add(this.dtpResign);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            this.panel1.Size = new System.Drawing.Size(464, 301);
             // 
             // dtpResign
             // 
+            this.dtpResign.Checked = false;
             this.dtpResign.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpResign.Location = new System.Drawing.Point(88, 82);
+            this.dtpResign.Location = new System.Drawing.Point(133, 63);
+            this.dtpResign.Margin = new System.Windows.Forms.Padding(4);
             this.dtpResign.Name = "dtpResign";
-            this.dtpResign.Size = new System.Drawing.Size(200, 23);
+            this.dtpResign.Size = new System.Drawing.Size(184, 27);
             this.dtpResign.TabIndex = 0;
+            this.dtpResign.Value = new System.DateTime(2022, 6, 15, 0, 0, 0, 0);
             // 
             // btnResign
             // 
-            this.btnResign.Location = new System.Drawing.Point(152, 147);
+            this.btnResign.Location = new System.Drawing.Point(171, 214);
+            this.btnResign.Margin = new System.Windows.Forms.Padding(4);
             this.btnResign.Name = "btnResign";
-            this.btnResign.Size = new System.Drawing.Size(75, 23);
+            this.btnResign.Size = new System.Drawing.Size(111, 49);
             this.btnResign.TabIndex = 1;
             this.btnResign.Text = "퇴사";
             this.btnResign.UseVisualStyleBackColor = true;
-            this.btnResign.Click += new System.EventHandler(this.btnResign_Click);
+            this.btnResign.Click += new System.EventHandler(this.btnResign_Click_1);
             // 
             // popResign
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 336);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ClientSize = new System.Drawing.Size(536, 368);
+            this.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Name = "popResign";
-            this.Text = "popReign";
+            this.Text = "퇴사";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

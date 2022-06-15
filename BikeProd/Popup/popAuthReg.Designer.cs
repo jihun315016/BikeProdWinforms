@@ -111,7 +111,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 14;
-            this.label2.Text = "< 전체 권한 >";
+            this.label2.Text = "< 전체 메뉴 >";
             // 
             // label3
             // 
@@ -121,7 +121,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 20);
             this.label3.TabIndex = 15;
-            this.label3.Text = "< 부여 권한 >";
+            this.label3.Text = "< 부여 메뉴 >";
             // 
             // btnReg
             // 

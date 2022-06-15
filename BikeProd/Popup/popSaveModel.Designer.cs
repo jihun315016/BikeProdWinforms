@@ -296,7 +296,7 @@
             this.txtClient.Size = new System.Drawing.Size(171, 23);
             this.txtClient.TabIndex = 21;
             this.txtClient.Tag = "거래처";
-            this.txtClient.Click += new System.EventHandler(this.ccTxtClient_Click);
+            this.txtClient.Click += new System.EventHandler(this.txtClient_Click);
             // 
             // label5
             // 

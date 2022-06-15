@@ -15,6 +15,10 @@ namespace BikeProd.VO
         public DateTime PurchaseDate { get; set; }
         public DateTime ArriveDate { get; set; }
         public string State { get; set; }
-        public string ClientManger { get; set; }
+
+        //새로 추가된 VO
+
+        public String ClientName { get; set; }
+        public String StateName { get; set; }
     }
 }

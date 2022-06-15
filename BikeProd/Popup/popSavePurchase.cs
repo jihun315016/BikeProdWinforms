@@ -25,8 +25,7 @@ namespace BikeProd
         {
             InitializeComponent();
         }
-
-        private void popAddBalJu_Load(object sender, EventArgs e)
+        private void popSavePur_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
             purchaseSrv = new PurchaseService();
@@ -39,14 +38,15 @@ namespace BikeProd
             ComboBoxUtil.SetComboBoxByList(cboCate, commonList, "Category", "Category");
             cboCate.SelectedIndex = 0;
         }
+
         public void DataGirdView()
         {
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "PartCode", colWidth: 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty", colWidth: 60);
         }
 
         private void cboCate_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +79,10 @@ namespace BikeProd
         {
             if (chkNull.Checked)
             {
+                /*dtpAliveDate.Format = DateTimePickerFormat.Custom;
+                dtpAliveDate.CustomFormat = " ";
+                
+                MessageBox.Show(dtpAliveDate.Text);*/
                 dtpAliveDate.Value = new DateTime(9998, 12, 31);
                 dtpAliveDate.Enabled = false;
             }
@@ -175,14 +179,25 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            if(purchaseList == null)
+            {
+                MessageBox.Show("발주할 부품이 없습니다");
+                return;
+            }
             txtPurName.isRequired = txtBusiness.isRequired = txtBusinessID.isRequired = txtManager.isRequired = txtSubManager.isRequired = true;
             string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtPurName, txtBusiness, txtBusinessID, txtManager, txtSubManager });
+
+
             if (msg.Length > 0)
             {
                 MessageBox.Show(msg);
                 return;
             }
+
+
+            
+            
+
             PurchaseVO purlist = new PurchaseVO()
             {
                 PurchaseName = txtPurName.Text,
@@ -204,7 +219,8 @@ namespace BikeProd
             }
             else
             {
-                MessageBox.Show("등록 중 오류가 발생하였습니다.");         
+                MessageBox.Show("등록 중 오류가 발생하였습니다.");
+                return;
             }
 
 
@@ -225,7 +241,10 @@ namespace BikeProd
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+   
+        
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }

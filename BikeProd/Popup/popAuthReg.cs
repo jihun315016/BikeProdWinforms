@@ -130,7 +130,11 @@ namespace BikeProd
         private void btnReg_Click(object sender, EventArgs e)
         {
             //현재 선택된 권한ID목록을 DB에 저장
-            
+            if (lstSelect.Items.Count < 1)
+            {
+                MessageBox.Show("등록사항을 확인하여 주십시오.");
+                return;
+            }
             List<int> selAuthList = new List<int>();
             foreach (var item in lstSelect.Items)
             {
@@ -153,8 +157,6 @@ namespace BikeProd
             //}
             ///*deptList((d) => d.DeptName == deptName).DeptNo != null)*/
                 
-            
-
             departmentSrv.SaveMenuAuth(selAuthList, DeptNo);
             MessageBox.Show("저장완료");
             DeptAuthBinding();

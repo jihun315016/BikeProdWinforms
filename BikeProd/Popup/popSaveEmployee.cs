@@ -56,6 +56,7 @@ namespace BikeProd
             if(txtPhone.Text.Length < txtPhone.MaxLength)
             {
                 MessageBox.Show("전화번호를 제대로 입력해주세요");
+                return;
             }
             
             if (cboDept.SelectedIndex == 0)
@@ -84,9 +85,17 @@ namespace BikeProd
             bool result = employeeSrv.InsertEmployee(emp);
 
             if (result)
+            {
                 MessageBox.Show("등록되었습니다.");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
             else
+            {
                 MessageBox.Show("등록 중 오류가 발생했습니다.");
+                return;
+            }
+                
         }
 
         private void popEmployee_Load(object sender, EventArgs e)
@@ -218,6 +227,7 @@ namespace BikeProd
             { 
                 MessageBox.Show("영문자와 숫자만만 입력해 주세요.");
                 txtEmail.Text = "";
+                return;
             }
             
         }

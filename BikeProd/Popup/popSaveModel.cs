@@ -36,16 +36,6 @@ namespace BikeProd
             InitProd();
             InitPart();
         }
-        
-        private void ccTxtClient_Click(object sender, EventArgs e)
-        {
-            popSearchClient pop = new popSearchClient(false);
-            if (pop.ShowDialog() == DialogResult.OK)
-            {
-                txtClient.Text = pop.selectedClient.ClientName;
-                txtClient.Tag = pop.selectedClient.BusinessNo;                
-            }
-        }
 
         /// <summary>
         /// Author : 강지훈
@@ -178,6 +168,16 @@ namespace BikeProd
             {
                 ptbPart.Image = Image.FromFile(dlg.FileName);
                 ptbPart.Tag = dlg.FileName;
+            }
+        }
+
+        private void txtClient_Click(object sender, EventArgs e)
+        {
+            popSearchClient pop = new popSearchClient(false);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                txtClient.Text = pop.selectedClient.ClientName;
+                txtClient.Tag = pop.selectedClient.BusinessNo;
             }
         }
 

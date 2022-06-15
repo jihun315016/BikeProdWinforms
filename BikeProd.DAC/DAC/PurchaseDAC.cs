@@ -37,8 +37,13 @@ namespace BikeProd.DAC
         {
             List<PurchaseVO> list = new List<PurchaseVO>();
 
-            string sql = @"select PurchaseNo, PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State
-                            from TB_Purchase";
+            string sql = @"select PurchaseNo, PurchaseName, ClientName, p.BusinessNo, p.Manager, PurchaseDate, ArriveDate, State,
+                            case when State = 'OK' then '입고완료'
+	                            when State = 'In' then '입고예정'
+	                            when State = 'Cancel' then '취소'
+                            end as StateName
+                            from TB_Purchase p right join TB_Client c on c.BusinessNo = p.BusinessNo
+                            where c.BusinessNo = p.BusinessNo";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
@@ -46,13 +51,14 @@ namespace BikeProd.DAC
             }
             return list;
         }
+
+        
         /// <summary>
         /// Author : Author :류경석
         /// 발주서 등록
         /// </summary>
         /// <param name="pur"></param>
         /// <returns></returns>
-
         public bool SavePurchase(PurchaseVO pur, List<PurchaseListVO> purchaseDetailsList)
         {
             using (SqlCommand cmd = new SqlCommand())
@@ -188,7 +194,7 @@ namespace BikeProd.DAC
         
         /// <summary>
         /// Author :류경석
-        /// 
+        /// 검색된 리스트 가져오기
         /// </summary>
         /// <param name="ClientName"></param>
         /// <param name="State"></param>
@@ -202,10 +208,10 @@ namespace BikeProd.DAC
             {
                 StringBuilder sb = new StringBuilder();
 
-                sb.Append(@"  select PurchaseNo, PurchaseName, p.BusinessNo,c.ClientName, Manager, PurchaseDate, ArriveDate, State
-                              from TB_Purchase p
-                              join TB_Client c on p.BusinessNo = c.BusinessNo
-                              where PurchaseDate >= @purDT and ArriveDate <= @AliveDate");
+                sb.Append(@"select PurchaseNo, PurchaseName, p.BusinessNo,c.ClientName, c.Manager, PurchaseDate, ArriveDate, State
+                            from TB_Purchase p
+                            join TB_Client c on p.BusinessNo = c.BusinessNo
+                            where PurchaseDate >= @purDT and PurchaseDate <= @AliveDate");
                 if (!string.IsNullOrWhiteSpace(ClientName))
                 {
                     sb.Append(" and c.ClientName = @ClientName");

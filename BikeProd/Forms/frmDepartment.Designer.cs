@@ -38,19 +38,23 @@
             this.txtEmpSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDeptDelete = new System.Windows.Forms.Button();
-            this.btnDeptInsert = new System.Windows.Forms.Button();
+            this.btnMenuInsert = new System.Windows.Forms.Button();
             this.txtDeptAuth = new System.Windows.Forms.TextBox();
             this.txtDeptName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTeamName = new BikeProd.ccTextBox();
+            this.txtNewTeam = new BikeProd.ccTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboDept = new System.Windows.Forms.ComboBox();
             this.btnTeamDelete = new System.Windows.Forms.Button();
             this.btnTeamInsert = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtNewDept = new BikeProd.ccTextBox();
+            this.btnDeptDelete = new System.Windows.Forms.Button();
+            this.btnDeptInsert = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -63,20 +67,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Size = new System.Drawing.Size(1164, 601);
-            this.splitContainer1.SplitterDistance = 66;
+            this.splitContainer1.IsSplitterFixed = false;
+            this.splitContainer1.Size = new System.Drawing.Size(1228, 633);
+            this.splitContainer1.SplitterDistance = 52;
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.None;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer2.IsSplitterFixed = false;
             // 
             // splitContainer2.Panel1
             // 
@@ -93,12 +95,14 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer2.Size = new System.Drawing.Size(1164, 531);
-            this.splitContainer2.SplitterDistance = 785;
+            this.splitContainer2.Size = new System.Drawing.Size(1228, 580);
+            this.splitContainer2.SplitterDistance = 849;
             // 
             // dgvDept
             // 
+            this.dgvDept.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgvDept.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDept.Location = new System.Drawing.Point(9, 32);
@@ -112,7 +116,7 @@
             // 
             // dgvTeam
             // 
-            this.dgvTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTeam.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgvTeam.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeam.Location = new System.Drawing.Point(413, 32);
@@ -125,6 +129,7 @@
             // 
             // dgvDetail
             // 
+            this.dgvDetail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgvDetail.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Location = new System.Drawing.Point(9, 274);
@@ -137,6 +142,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(9, 11);
@@ -148,6 +154,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(414, 10);
@@ -159,6 +166,7 @@
             // 
             // lblDept
             // 
+            this.lblDept.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDept.AutoSize = true;
             this.lblDept.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblDept.Location = new System.Drawing.Point(10, 248);
@@ -169,6 +177,7 @@
             // 
             // cboTeamselect
             // 
+            this.cboTeamselect.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboTeamselect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTeamselect.FormattingEnabled = true;
             this.cboTeamselect.Location = new System.Drawing.Point(88, 247);
@@ -179,6 +188,7 @@
             // 
             // txtEmpSearch
             // 
+            this.txtEmpSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtEmpSearch.Location = new System.Drawing.Point(187, 247);
             this.txtEmpSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmpSearch.Name = "txtEmpSearch";
@@ -188,6 +198,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnSearch.Location = new System.Drawing.Point(293, 246);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -200,8 +211,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnDeptDelete);
-            this.groupBox1.Controls.Add(this.btnDeptInsert);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnMenuInsert);
             this.groupBox1.Controls.Add(this.txtDeptAuth);
             this.groupBox1.Controls.Add(this.txtDeptName);
             this.groupBox1.Controls.Add(this.label5);
@@ -209,57 +220,47 @@
             this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(18, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 245);
+            this.groupBox1.Size = new System.Drawing.Size(335, 165);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "부서";
+            this.groupBox1.Text = "부서별 접근 메뉴";
             // 
-            // btnDeptDelete
+            // btnMenuInsert
             // 
-            this.btnDeptDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDeptDelete.Location = new System.Drawing.Point(218, 168);
-            this.btnDeptDelete.Name = "btnDeptDelete";
-            this.btnDeptDelete.Size = new System.Drawing.Size(72, 28);
-            this.btnDeptDelete.TabIndex = 6;
-            this.btnDeptDelete.Text = "삭제";
-            this.btnDeptDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnDeptInsert
-            // 
-            this.btnDeptInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnDeptInsert.Location = new System.Drawing.Point(140, 168);
-            this.btnDeptInsert.Name = "btnDeptInsert";
-            this.btnDeptInsert.Size = new System.Drawing.Size(72, 28);
-            this.btnDeptInsert.TabIndex = 4;
-            this.btnDeptInsert.Text = "등록";
-            this.btnDeptInsert.UseVisualStyleBackColor = true;
-            this.btnDeptInsert.Click += new System.EventHandler(this.btnDeptInsert_Click);
+            this.btnMenuInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnMenuInsert.Location = new System.Drawing.Point(140, 123);
+            this.btnMenuInsert.Name = "btnMenuInsert";
+            this.btnMenuInsert.Size = new System.Drawing.Size(150, 28);
+            this.btnMenuInsert.TabIndex = 4;
+            this.btnMenuInsert.Text = "등록 및 수정";
+            this.btnMenuInsert.UseVisualStyleBackColor = true;
+            this.btnMenuInsert.Click += new System.EventHandler(this.btnMenuInsert_Click);
             // 
             // txtDeptAuth
             // 
             this.txtDeptAuth.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtDeptAuth.Location = new System.Drawing.Point(131, 103);
+            this.txtDeptAuth.Location = new System.Drawing.Point(131, 58);
             this.txtDeptAuth.Multiline = true;
             this.txtDeptAuth.Name = "txtDeptAuth";
             this.txtDeptAuth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDeptAuth.Size = new System.Drawing.Size(159, 59);
             this.txtDeptAuth.TabIndex = 3;
-            this.txtDeptAuth.TextChanged += new System.EventHandler(this.txtDeptAuth_TextChanged);
             // 
             // txtDeptName
             // 
             this.txtDeptName.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtDeptName.Location = new System.Drawing.Point(131, 65);
+            this.txtDeptName.Location = new System.Drawing.Point(131, 27);
             this.txtDeptName.Name = "txtDeptName";
             this.txtDeptName.Size = new System.Drawing.Size(159, 25);
             this.txtDeptName.TabIndex = 2;
+            this.txtDeptName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDeptName_MouseClick);
             this.txtDeptName.TextChanged += new System.EventHandler(this.txtDeptName_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(59, 106);
+            this.label5.Location = new System.Drawing.Point(59, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 17);
             this.label5.TabIndex = 1;
@@ -269,45 +270,46 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(59, 68);
+            this.label4.Location = new System.Drawing.Point(59, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "부서명";
             // 
-            // txtTeamName
+            // txtNewTeam
             // 
-            this.txtTeamName.isNumeric = false;
-            this.txtTeamName.isRequired = false;
-            this.txtTeamName.Location = new System.Drawing.Point(131, 97);
-            this.txtTeamName.Name = "txtTeamName";
-            this.txtTeamName.PlaceHolder = "예) 생산 1팀";
-            this.txtTeamName.Size = new System.Drawing.Size(159, 27);
-            this.txtTeamName.TabIndex = 7;
-            this.txtTeamName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTeamName_MouseClick);
+            this.txtNewTeam.isNumeric = false;
+            this.txtNewTeam.isRequired = false;
+            this.txtNewTeam.Location = new System.Drawing.Point(131, 57);
+            this.txtNewTeam.Name = "txtNewTeam";
+            this.txtNewTeam.PlaceHolder = "예) 생산 1팀";
+            this.txtNewTeam.Size = new System.Drawing.Size(159, 27);
+            this.txtNewTeam.TabIndex = 7;
+            this.txtNewTeam.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNewTeam_MouseClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtTeamName);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.txtNewTeam);
             this.groupBox2.Controls.Add(this.cboDept);
             this.groupBox2.Controls.Add(this.btnTeamDelete);
             this.groupBox2.Controls.Add(this.btnTeamInsert);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(18, 274);
+            this.groupBox2.Location = new System.Drawing.Point(18, 357);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 245);
+            this.groupBox2.Size = new System.Drawing.Size(335, 165);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "팀";
+            this.groupBox2.Text = "팀 등록";
             // 
             // cboDept
             // 
             this.cboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDept.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cboDept.FormattingEnabled = true;
-            this.cboDept.Location = new System.Drawing.Point(131, 62);
+            this.cboDept.Location = new System.Drawing.Point(131, 26);
             this.cboDept.Name = "cboDept";
             this.cboDept.Size = new System.Drawing.Size(159, 25);
             this.cboDept.TabIndex = 14;
@@ -315,17 +317,18 @@
             // btnTeamDelete
             // 
             this.btnTeamDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnTeamDelete.Location = new System.Drawing.Point(218, 156);
+            this.btnTeamDelete.Location = new System.Drawing.Point(218, 90);
             this.btnTeamDelete.Name = "btnTeamDelete";
             this.btnTeamDelete.Size = new System.Drawing.Size(72, 28);
             this.btnTeamDelete.TabIndex = 13;
             this.btnTeamDelete.Text = "삭제";
             this.btnTeamDelete.UseVisualStyleBackColor = true;
+            this.btnTeamDelete.Click += new System.EventHandler(this.btnTeamDelete_Click);
             // 
             // btnTeamInsert
             // 
             this.btnTeamInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnTeamInsert.Location = new System.Drawing.Point(140, 156);
+            this.btnTeamInsert.Location = new System.Drawing.Point(140, 90);
             this.btnTeamInsert.Name = "btnTeamInsert";
             this.btnTeamInsert.Size = new System.Drawing.Size(72, 28);
             this.btnTeamInsert.TabIndex = 11;
@@ -337,7 +340,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(59, 65);
+            this.label7.Location = new System.Drawing.Point(59, 29);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 17);
             this.label7.TabIndex = 7;
@@ -347,16 +350,73 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(59, 103);
+            this.label6.Location = new System.Drawing.Point(59, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 17);
             this.label6.TabIndex = 8;
             this.label6.Text = "팀명";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.txtNewDept);
+            this.groupBox3.Controls.Add(this.btnDeptDelete);
+            this.groupBox3.Controls.Add(this.btnDeptInsert);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox3.Location = new System.Drawing.Point(18, 186);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(335, 165);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "부서 등록";
+            // 
+            // txtNewDept
+            // 
+            this.txtNewDept.isNumeric = false;
+            this.txtNewDept.isRequired = false;
+            this.txtNewDept.Location = new System.Drawing.Point(131, 57);
+            this.txtNewDept.Name = "txtNewDept";
+            this.txtNewDept.PlaceHolder = "예) 생산부서";
+            this.txtNewDept.Size = new System.Drawing.Size(159, 27);
+            this.txtNewDept.TabIndex = 7;
+            // 
+            // btnDeptDelete
+            // 
+            this.btnDeptDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDeptDelete.Location = new System.Drawing.Point(218, 90);
+            this.btnDeptDelete.Name = "btnDeptDelete";
+            this.btnDeptDelete.Size = new System.Drawing.Size(72, 28);
+            this.btnDeptDelete.TabIndex = 13;
+            this.btnDeptDelete.Text = "삭제";
+            this.btnDeptDelete.UseVisualStyleBackColor = true;
+            this.btnDeptDelete.Click += new System.EventHandler(this.btnDeptDelete_Click);
+            // 
+            // btnDeptInsert
+            // 
+            this.btnDeptInsert.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDeptInsert.Location = new System.Drawing.Point(140, 90);
+            this.btnDeptInsert.Name = "btnDeptInsert";
+            this.btnDeptInsert.Size = new System.Drawing.Size(72, 28);
+            this.btnDeptInsert.TabIndex = 11;
+            this.btnDeptInsert.Text = "등록";
+            this.btnDeptInsert.UseVisualStyleBackColor = true;
+            this.btnDeptInsert.Click += new System.EventHandler(this.btnDeptInsert_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(59, 63);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "부서명";
+            // 
             // frmDepartment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1164, 601);
+            this.ClientSize = new System.Drawing.Size(1228, 633);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "frmDepartment";
             this.Text = "frmDeptMain";
@@ -378,6 +438,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,12 +463,16 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnDeptDelete;
-        private System.Windows.Forms.Button btnDeptInsert;
+        private System.Windows.Forms.Button btnMenuInsert;
         private System.Windows.Forms.TextBox txtDeptAuth;
         private System.Windows.Forms.TextBox txtDeptName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private ccTextBox txtTeamName;
+        private ccTextBox txtNewTeam;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private ccTextBox txtNewDept;
+        private System.Windows.Forms.Button btnDeptDelete;
+        private System.Windows.Forms.Button btnDeptInsert;
+        private System.Windows.Forms.Label label8;
     }
 }

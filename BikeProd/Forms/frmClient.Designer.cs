@@ -65,7 +65,11 @@ namespace BikeProd
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
+            this.panel1.Size = new System.Drawing.Size(1058, 484);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboAddr
@@ -85,7 +89,6 @@ namespace BikeProd
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(121, 23);
             this.cboType.TabIndex = 17;
-            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // btnReturn
             // 
@@ -149,7 +152,7 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1090, 446);
+            this.dgvList.Size = new System.Drawing.Size(1058, 484);
             this.dgvList.TabIndex = 2;
             // 
             // frmClient

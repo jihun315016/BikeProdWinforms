@@ -14,6 +14,8 @@ namespace BikeProd
     public partial class popSelectSaveBOM : bPopCommon
     {
         public string selectedCode;
+        public string selectedKind;
+
         ModelService modelSrv;
         List<ProdPartVO> notBomProdList;
 
@@ -93,6 +95,7 @@ namespace BikeProd
             this.DialogResult = DialogResult.OK;
             DataGridViewRow row = dgvList.SelectedRows[0];
             selectedCode = row.Cells["Code"].Value.ToString();
+            selectedKind = row.Cells["Kind"].Value.ToString();
             this.Close();
         }
     }

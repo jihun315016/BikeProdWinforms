@@ -157,6 +157,65 @@ namespace BikeProd
             return result;
         }
 
+        /// <summary>
+        /// Author: 정희록
+        /// 새로운 부서 등록하기
+        /// </summary>
+        /// <param name="deptName"></param>
+        /// <returns></returns>
+        public bool SaveDept(string deptName)
+        {
+            DepartmentDAC dac = new DepartmentDAC();
+            bool result = dac.SaveDept(deptName);
+            dac.Dispose();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 부서삭제하기
+        /// </summary>
+        /// <param name="deptName"></param>
+        /// <returns></returns>
+        public bool DeleteDept(string deptName)
+        {
+            DepartmentDAC dac = new DepartmentDAC();
+            bool result = dac.DeleteDept(deptName);
+            dac.Dispose();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 팀삭제
+        /// </summary>
+        /// <param name="teamName"></param>
+        /// <returns></returns>
+        public bool DeleteTeam(string teamName)
+        {
+            DepartmentDAC dac = new DepartmentDAC();
+            bool result = dac.DeleteTeam(teamName);
+            dac.Dispose();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 전체 팀정보 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<TeamVO> GetAllTeamList()
+        {
+            DepartmentDAC dac = new DepartmentDAC();
+            List<TeamVO> result = dac.GetAllTeamList();
+            dac.Dispose();
+
+            return result;
+        }
+
 
     }
 }

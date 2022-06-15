@@ -47,7 +47,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             // 
             // splitContainer1.Panel1
             // 
@@ -72,6 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
+            this.panel1.Size = new System.Drawing.Size(1099, 443);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // dgvList
@@ -79,17 +80,17 @@
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvList.Location = new System.Drawing.Point(0, 0);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 27;
-            this.dgvList.Size = new System.Drawing.Size(1090, 446);
+            this.dgvList.Size = new System.Drawing.Size(1099, 443);
             this.dgvList.TabIndex = 1;
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(579, 38);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(58, 26);
             this.btnSearch.TabIndex = 11;
@@ -99,7 +100,7 @@
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(516, 38);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(58, 26);
             this.btnReset.TabIndex = 12;
@@ -110,7 +111,7 @@
             // 
             this.cboTeam.FormattingEnabled = true;
             this.cboTeam.Location = new System.Drawing.Point(404, 40);
-            this.cboTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTeam.Margin = new System.Windows.Forms.Padding(2);
             this.cboTeam.Name = "cboTeam";
             this.cboTeam.Size = new System.Drawing.Size(95, 23);
             this.cboTeam.TabIndex = 9;
@@ -119,7 +120,7 @@
             // 
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(298, 40);
-            this.cboState.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboState.Margin = new System.Windows.Forms.Padding(2);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(95, 23);
             this.cboState.TabIndex = 10;
@@ -138,7 +139,7 @@
             // 
             this.dgvTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dgvTo.Location = new System.Drawing.Point(156, 41);
-            this.dgvTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTo.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTo.Name = "dgvTo";
             this.dgvTo.Size = new System.Drawing.Size(107, 23);
             this.dgvTo.TabIndex = 6;
@@ -147,7 +148,7 @@
             // 
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFrom.Location = new System.Drawing.Point(27, 41);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(107, 23);
             this.dtpFrom.TabIndex = 7;
@@ -155,8 +156,8 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(1039, 476);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Location = new System.Drawing.Point(1039, 477);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 34);
             this.btnDelete.TabIndex = 3;

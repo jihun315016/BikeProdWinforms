@@ -26,8 +26,7 @@ namespace BikeProd
         {
             InitializeComponent();
         }
-
-        private void btnResign_Click(object sender, EventArgs e)
+        private void btnResign_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -51,6 +50,5 @@ namespace BikeProd
                 MessageBox.Show(err.Message);
             }
         }
-
     }
 }

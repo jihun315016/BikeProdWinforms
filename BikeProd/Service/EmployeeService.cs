@@ -81,10 +81,16 @@ namespace BikeProd
             return result;
         }
 
-        public List<EmployeeVO> GetEmpInfo(int DeptNo)
+        /// <summary>
+        /// 정희록
+        /// 부서별 팀정보 및 사원정보 가져오기
+        /// </summary>
+        /// <param name="DeptNo">부서번호</param>
+        /// <returns></returns>
+        public List<TeamEmpVO> GetEmpTeamInfo(int DeptNo)
         {
             EmployeeDAC dac = new EmployeeDAC();
-            List<EmployeeVO> result = dac.GetEmpInfo(DeptNo);
+            List<TeamEmpVO> result = dac.GetEmpTeamInfo(DeptNo);
             dac.Dispose();
 
             return result;

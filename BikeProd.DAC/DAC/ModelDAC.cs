@@ -156,6 +156,34 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// BOM 등록을 위해 부품과 반제품 정보를 가져온다.
+        /// 만약 등록할 모델이 반제품이면 부품 정보만 가져오고,
+        /// 완제품이라면 반제품과 부품 정보 모두 가져온다.
+        /// </summary>
+        /// <param name="isGetSemiProd">반제품 정보가 필요한지 여부</param>
+        /// <returns></returns>
+        public List<ProdPartVO> GetPartAndSemiProd(bool isGetSemiProd)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"SELECT PartName Name, '부품' Kind, Category FROM TB_Parts ");
+
+            // 반제품 정보까지 필요하다면
+            if (isGetSemiProd)
+            {
+                sb.Append(@"UNION
+                            SELECT ProdName Name, '반제품' Kind, Category
+                            FROM TB_Products
+                            WHERE IsFinished = 0 ");
+            }
+
+            string sql = sb.ToString();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return DBConverter.DataReaderToList<ProdPartVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록
         /// 등록된 모델의 코드에 따라 CodeCnt도 1씩 증가한다.
         /// </summary>

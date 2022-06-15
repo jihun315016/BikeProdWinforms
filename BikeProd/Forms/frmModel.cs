@@ -24,6 +24,7 @@ namespace BikeProd
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             modelSrv = new ModelService();
             prodPartList = modelSrv.GetModelList();
             categoryList = modelSrv.GetCategory();
@@ -41,9 +42,6 @@ namespace BikeProd
 
             cboKind.Items.AddRange(new string[] { "분류", "완제품", "반제품", "부품" });
             cboKind.SelectedIndex = 0;
-
-            cboCategory.Items.Add("품목");
-            cboCategory.SelectedIndex = 0;
 
             txtSearch.SetPlaceHolder();
 
@@ -98,8 +96,12 @@ namespace BikeProd
         {
             if (cboKind.SelectedIndex == 0)
             {
-                cboCategory.DataSource = null;
-                cboCategory.Items.Add("품목");
+                ComboBoxUtil.SetComboBoxByList<CommonCodeVO>
+                (
+                    cboCategory,
+                    new List<CommonCodeVO>() { new CommonCodeVO() { Name = "품목", Code = String.Empty } },
+                    "Name", "Code"
+                );
                 cboCategory.SelectedIndex = 0;
             }
             else
@@ -388,6 +390,16 @@ namespace BikeProd
                 {
                     MessageBox.Show($"{btnDelete.Text}에 실패했습니다.");
                 }
+            }
+        }
+
+        private void txtClient_Click(object sender, EventArgs e)
+        {
+            popSearchClient pop = new popSearchClient(false);
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                txtClient.Text = pop.selectedClient.ClientName;
+                txtClient.Tag = pop.selectedClient.BusinessNo;
             }
         }
     }

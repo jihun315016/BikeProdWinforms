@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using BikeProd; // Service 랑 DAC 네임스페이스 확인
 using BikeProd.VO;
 
 namespace BikeProd
@@ -40,16 +38,15 @@ namespace BikeProd
 
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처명", "ClientName", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "구분", "Type", colWidth: 100);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "구분", "Type", colWidth: 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "담당자", "Manager", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "담당자 연락처", "ManagerPhone", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email", colWidth: 200);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소", "Address", colWidth: 200);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소", "Address", colWidth: 300);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사업자번호", "BusinessNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "대표번호", "CompanyPhone", isVisible: false);
 
             dgvList.DataSource = clientList;
-
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -62,26 +59,27 @@ namespace BikeProd
             dgvList.DataSource = clientList;
         }
 
+        // 검색 조건
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<ClientVO> list = clientList.ConvertAll<ClientVO>((p) => p);
 
+            // 구분
             if (cboType.SelectedIndex > 0)
                 list = list.FindAll((p) => p.Type.Equals(cboType.Text));
 
-            if (!string.IsNullOrWhiteSpace(txtSearch.Text) && txtSearch.Text != txtSearch.PlaceHolder)
-                list = list.FindAll((p) => p.ClientName.Contains(txtSearch.Text));
-
+            // 주소
             if (cboAddr.SelectedIndex > 0)
                 list = list.FindAll((p) => p.Address.Contains(cboAddr.Text));
 
+            // 거래처명
+            if (!string.IsNullOrWhiteSpace(txtSearch.Text) && txtSearch.Text != txtSearch.PlaceHolder)
+                list = list.FindAll((p) => p.ClientName.ToLower().Contains(txtSearch.Text.ToLower())).ToList(); 
+                //list = list.FindAll((p) => p.ClientName.Contains(txtSearch.Text)).ToList();
+
+
             dgvList.DataSource = list;
-        }
-
-        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        }        
 
         // 돌았네 - 수정 예정
         private void AddressListBinding()

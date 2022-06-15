@@ -47,6 +47,7 @@
     <Compile Include="DeptMenuVO.cs" />
     <Compile Include="EmployeeVO.cs" />
     <Compile Include="MenuVO.cs" />
+    <Compile Include="OrderVO.cs" />
     <Compile Include="PartVO.cs" />
     <Compile Include="ProdPartVO.cs" />
     <Compile Include="ProductVO.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="PurchaseDetailsVO.cs" />
     <Compile Include="PurchaseListVO.cs" />
     <Compile Include="PurchaseVO.cs" />
+    <Compile Include="TeamEmpVO.cs" />
     <Compile Include="TeamVO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

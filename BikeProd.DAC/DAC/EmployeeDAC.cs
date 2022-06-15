@@ -37,7 +37,7 @@ namespace BikeProd.DAC
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = conn;
-                cmd.CommandText = "SP_Employee";
+                cmd.CommandText = "SP_SaveEmployee";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
                 cmd.Parameters.AddWithValue("@DeptNo", emp.DeptNo);
@@ -207,19 +207,21 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// 정희록
-        /// 부서별 사원정보 가져오기
+        /// 부서별 팀정보 및 사원정보 가져오기
         /// </summary>
         /// <param name="DeptNo">부서번호</param>
         /// <returns></returns>
-        public List<EmployeeVO> GetEmpInfo(int DeptNo)
+        public List<TeamEmpVO> GetEmpTeamInfo(int DeptNo)
         {
-            string sql = @"select EmpNo, EmpName, DeptNo, TeamNo, Phone, FromDate from TB_Employees where DeptNo = @DeptNo";
+            string sql = @"select EmpNo, EmpName, E.DeptNo, E.TeamNo, TeamName ,Phone, FromDate 
+                             from TB_Employees E inner join TB_Team T on E.DeptNo = T.DeptNo
+                            where E.DeptNo = @DeptNo";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@DeptNo", DeptNo);
 
-                return DBConverter.DataReaderToList<EmployeeVO>(cmd.ExecuteReader());
+                return DBConverter.DataReaderToList<TeamEmpVO>(cmd.ExecuteReader());
             }
         }
 

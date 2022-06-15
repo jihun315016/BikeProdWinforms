@@ -39,6 +39,7 @@ namespace BikeProd.DAC
             }
         }
 
+
         /// <summary>
         /// Author: 정희록
         /// TB_Menu의 데이터 중 권한메뉴(lvl.2)만 가져오기
@@ -148,8 +149,6 @@ namespace BikeProd.DAC
             }
         }
 
-
-
         /// <summary>
         /// Author: 정희록
         /// 부서별 권한정보중 이름만 가져오기
@@ -251,7 +250,7 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author: 정희록
-        /// 새로운 팀이름 등록
+        /// 새로운 팀 등록
         /// </summary>
         /// <param name="deptNo"></param>
         /// <param name="teamName"></param>
@@ -272,6 +271,88 @@ namespace BikeProd.DAC
                 else
                     return false;
             }            
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 새로운 부서 등록하기
+        /// </summary>
+        /// <param name="deptName"></param>
+        /// <returns></returns>
+        public bool SaveDept(string deptName)
+        {
+            using (SqlCommand cmd = new SqlCommand("SP_SaveDept", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@PI_DeptName", deptName);
+
+                int iRowAffect = cmd.ExecuteNonQuery();
+
+                if (iRowAffect > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 부서삭제하기
+        /// </summary>
+        /// <param name="deptName"></param>
+        /// <returns></returns>
+        public bool DeleteDept(string deptName)
+        {
+            string sql = @"delete from TB_department where deptname = @deptname";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@deptname", deptName);
+
+                int iRowAffect = cmd.ExecuteNonQuery();
+
+                if (iRowAffect > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 팀삭제
+        /// </summary>
+        /// <param name="teamName"></param>
+        /// <returns></returns>
+        public bool DeleteTeam(string teamName)
+        {
+            string sql = @"delete from TB_Team where teamname = @teamname";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@teamname", teamName);
+
+                int iRowAffect = cmd.ExecuteNonQuery();
+
+                if (iRowAffect > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        /// <summary>
+        /// Author: 정희록
+        /// 전체 팀정보 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<TeamVO> GetAllTeamList()
+        {
+            string sql = @"select TeamNo, TeamName, DeptNo from TB_Team";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                return DBConverter.DataReaderToList<TeamVO>(cmd.ExecuteReader());
+            }
         }
     }
 }

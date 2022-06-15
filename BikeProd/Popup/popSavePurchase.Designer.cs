@@ -42,7 +42,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.txtPurName = new BikeProd.ccTextBox();
             this.txtBusiness = new BikeProd.ccTextBox();
             this.txtManager = new BikeProd.ccTextBox();
@@ -59,6 +59,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.dtpAliveDate);
             this.panel1.Controls.Add(this.dtpPurDate);
             this.panel1.Controls.Add(this.chkNull);
@@ -75,7 +76,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Size = new System.Drawing.Size(607, 178);
             // 
             // label5
@@ -161,9 +162,9 @@
             // 
             this.cboCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCate.FormattingEnabled = true;
-            this.cboCate.Location = new System.Drawing.Point(47, 202);
+            this.cboCate.Location = new System.Drawing.Point(136, 202);
             this.cboCate.Name = "cboCate";
-            this.cboCate.Size = new System.Drawing.Size(121, 23);
+            this.cboCate.Size = new System.Drawing.Size(62, 23);
             this.cboCate.TabIndex = 8;
             this.cboCate.SelectedIndexChanged += new System.EventHandler(this.cboCate_SelectedIndexChanged);
             // 
@@ -171,9 +172,9 @@
             // 
             this.cboModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboModel.FormattingEnabled = true;
-            this.cboModel.Location = new System.Drawing.Point(173, 202);
+            this.cboModel.Location = new System.Drawing.Point(204, 202);
             this.cboModel.Name = "cboModel";
-            this.cboModel.Size = new System.Drawing.Size(121, 23);
+            this.cboModel.Size = new System.Drawing.Size(91, 23);
             this.cboModel.TabIndex = 9;
             this.cboModel.SelectedIndexChanged += new System.EventHandler(this.cboModel_SelectedIndexChanged);
             // 
@@ -181,9 +182,9 @@
             // 
             this.cboName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboName.FormattingEnabled = true;
-            this.cboName.Location = new System.Drawing.Point(300, 202);
+            this.cboName.Location = new System.Drawing.Point(301, 201);
             this.cboName.Name = "cboName";
-            this.cboName.Size = new System.Drawing.Size(121, 23);
+            this.cboName.Size = new System.Drawing.Size(186, 23);
             this.cboName.TabIndex = 10;
             // 
             // btnAdd
@@ -206,7 +207,7 @@
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(383, 229);
+            this.dgvList.Size = new System.Drawing.Size(420, 229);
             this.dgvList.TabIndex = 29;
             // 
             // btnSave
@@ -219,22 +220,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // button3
+            // btnCancel
             // 
-            this.button3.Location = new System.Drawing.Point(562, 490);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "취소";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCancel.Location = new System.Drawing.Point(562, 490);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 14;
+            this.btnCancel.Text = "취소";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtPurName
             // 
             this.txtPurName.isNumeric = false;
             this.txtPurName.isRequired = false;
             this.txtPurName.Location = new System.Drawing.Point(156, 24);
-            this.txtPurName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPurName.Margin = new System.Windows.Forms.Padding(2);
             this.txtPurName.Name = "txtPurName";
             this.txtPurName.PlaceHolder = null;
             this.txtPurName.Size = new System.Drawing.Size(370, 23);
@@ -246,7 +247,7 @@
             this.txtBusiness.isNumeric = false;
             this.txtBusiness.isRequired = false;
             this.txtBusiness.Location = new System.Drawing.Point(156, 58);
-            this.txtBusiness.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBusiness.Margin = new System.Windows.Forms.Padding(2);
             this.txtBusiness.Name = "txtBusiness";
             this.txtBusiness.PlaceHolder = null;
             this.txtBusiness.Size = new System.Drawing.Size(121, 23);
@@ -260,7 +261,7 @@
             this.txtManager.isNumeric = false;
             this.txtManager.isRequired = false;
             this.txtManager.Location = new System.Drawing.Point(405, 91);
-            this.txtManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtManager.Margin = new System.Windows.Forms.Padding(2);
             this.txtManager.Name = "txtManager";
             this.txtManager.PlaceHolder = null;
             this.txtManager.Size = new System.Drawing.Size(121, 23);
@@ -272,7 +273,7 @@
             this.txtBusinessID.isNumeric = false;
             this.txtBusinessID.isRequired = false;
             this.txtBusinessID.Location = new System.Drawing.Point(405, 58);
-            this.txtBusinessID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBusinessID.Margin = new System.Windows.Forms.Padding(2);
             this.txtBusinessID.Name = "txtBusinessID";
             this.txtBusinessID.PlaceHolder = null;
             this.txtBusinessID.Size = new System.Drawing.Size(121, 23);
@@ -284,7 +285,7 @@
             this.txtSubManager.isNumeric = false;
             this.txtSubManager.isRequired = false;
             this.txtSubManager.Location = new System.Drawing.Point(156, 91);
-            this.txtSubManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSubManager.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubManager.Name = "txtSubManager";
             this.txtSubManager.PlaceHolder = null;
             this.txtSubManager.Size = new System.Drawing.Size(121, 23);
@@ -295,7 +296,7 @@
             // 
             this.chkNull.AutoSize = true;
             this.chkNull.Location = new System.Drawing.Point(532, 128);
-            this.chkNull.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkNull.Margin = new System.Windows.Forms.Padding(2);
             this.chkNull.Name = "chkNull";
             this.chkNull.Size = new System.Drawing.Size(50, 19);
             this.chkNull.TabIndex = 7;
@@ -305,17 +306,17 @@
             // 
             // numQty
             // 
-            this.numQty.Location = new System.Drawing.Point(425, 202);
-            this.numQty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numQty.Location = new System.Drawing.Point(492, 202);
+            this.numQty.Margin = new System.Windows.Forms.Padding(2);
             this.numQty.Name = "numQty";
-            this.numQty.Size = new System.Drawing.Size(103, 23);
+            this.numQty.Size = new System.Drawing.Size(40, 23);
             this.numQty.TabIndex = 11;
             // 
             // dtpPurDate
             // 
             this.dtpPurDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPurDate.Location = new System.Drawing.Point(156, 128);
-            this.dtpPurDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpPurDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpPurDate.Name = "dtpPurDate";
             this.dtpPurDate.Size = new System.Drawing.Size(121, 23);
             this.dtpPurDate.TabIndex = 5;
@@ -324,7 +325,7 @@
             // 
             this.dtpAliveDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAliveDate.Location = new System.Drawing.Point(405, 126);
-            this.dtpAliveDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpAliveDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpAliveDate.Name = "dtpAliveDate";
             this.dtpAliveDate.Size = new System.Drawing.Size(121, 23);
             this.dtpAliveDate.TabIndex = 6;
@@ -335,7 +336,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 525);
             this.Controls.Add(this.numQty);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.btnAdd);
@@ -344,8 +345,8 @@
             this.Controls.Add(this.cboCate);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "popSavePur";
-            this.Text = "popAddBalJu";
-            this.Load += new System.EventHandler(this.popAddBalJu_Load);
+            this.Text = "발주등록";
+            this.Load += new System.EventHandler(this.popSavePur_Load);
             this.Controls.SetChildIndex(this.DescriptLabel2, 0);
             this.Controls.SetChildIndex(this.DescriptLabel1, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
@@ -355,7 +356,7 @@
             this.Controls.SetChildIndex(this.btnAdd, 0);
             this.Controls.SetChildIndex(this.dgvList, 0);
             this.Controls.SetChildIndex(this.btnSave, 0);
-            this.Controls.SetChildIndex(this.button3, 0);
+            this.Controls.SetChildIndex(this.btnCancel, 0);
             this.Controls.SetChildIndex(this.numQty, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -381,7 +382,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox chkNull;
         private ccTextBox txtSubManager;
         private ccTextBox txtBusinessID;

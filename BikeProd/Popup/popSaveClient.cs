@@ -19,7 +19,7 @@ namespace BikeProd
 
         private void btnZipCodeSearch_Click(object sender, EventArgs e)
         {
-            popSaveZipCode pop = new popSaveZipCode();
+            popSaveAddress pop = new popSaveAddress();
             pop.ShowDialog();
         }
     }

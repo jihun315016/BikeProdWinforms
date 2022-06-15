@@ -50,6 +50,7 @@
             this.Name = "frmBOM";
             this.Text = "fromBOM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmBOM_Load);
             this.Controls.SetChildIndex(this.DescriptLabel1, 0);
             this.Controls.SetChildIndex(this.DescriptLabel2, 0);
             this.Controls.SetChildIndex(this.btnSave, 0);

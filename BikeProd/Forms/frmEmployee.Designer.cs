@@ -31,7 +31,7 @@ namespace BikeProd
         {
             this.cboDept = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.rdOut = new System.Windows.Forms.RadioButton();
             this.rdWorking = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
@@ -48,12 +48,12 @@ namespace BikeProd
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.txtEmpName);
-            this.splitContainer1.Panel1.Controls.Add(this.btnReturn);
+            this.splitContainer1.Panel1.Controls.Add(this.btnReset);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel1.Controls.Add(this.cboDept);
             this.splitContainer1.Panel1.Controls.Add(this.rdWorking);
@@ -74,8 +74,8 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
             this.panel1.Location = new System.Drawing.Point(28, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Size = new System.Drawing.Size(1079, 361);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Size = new System.Drawing.Size(819, 189);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboDept
@@ -85,6 +85,7 @@ namespace BikeProd
             this.cboDept.Name = "cboDept";
             this.cboDept.Size = new System.Drawing.Size(121, 23);
             this.cboDept.TabIndex = 0;
+            this.cboDept.SelectedIndexChanged += new System.EventHandler(this.cboDept_SelectedIndexChanged_1);
             // 
             // btnSearch
             // 
@@ -96,15 +97,15 @@ namespace BikeProd
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnReturn
+            // btnReset
             // 
-            this.btnReturn.Location = new System.Drawing.Point(363, 33);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(120, 23);
-            this.btnReturn.TabIndex = 4;
-            this.btnReturn.Text = "초기화/새로고침";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.button1_Click);
+            this.btnReset.Location = new System.Drawing.Point(363, 33);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(120, 23);
+            this.btnReset.TabIndex = 4;
+            this.btnReset.Text = "초기화/새로고침";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // rdOut
             // 
@@ -133,7 +134,7 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(896, 383);
+            this.btnSave.Location = new System.Drawing.Point(896, 385);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 40);
             this.btnSave.TabIndex = 2;
@@ -161,14 +162,14 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1079, 361);
+            this.dgvList.Size = new System.Drawing.Size(819, 189);
             this.dgvList.TabIndex = 1;
             // 
             // btnResign
             // 
             this.btnResign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResign.Location = new System.Drawing.Point(805, 383);
-            this.btnResign.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResign.Location = new System.Drawing.Point(805, 385);
+            this.btnResign.Margin = new System.Windows.Forms.Padding(2);
             this.btnResign.Name = "btnResign";
             this.btnResign.Size = new System.Drawing.Size(84, 40);
             this.btnResign.TabIndex = 3;
@@ -207,7 +208,7 @@ namespace BikeProd
         private ccTextBox txtEmpName;
         private System.Windows.Forms.RadioButton rdWorking;
         private System.Windows.Forms.RadioButton rdOut;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvList;
         private System.Windows.Forms.Button btnResign;

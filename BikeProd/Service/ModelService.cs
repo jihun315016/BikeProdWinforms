@@ -76,6 +76,20 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
+        /// BOM 등록을 위해 부품과 반제품 정보 또는 부품 정보만 조회하여 폼에 전달한다.
+        /// </summary>
+        /// <param name="isGetSemiProd">반제품 정보도 조회할지 여부</param>
+        /// <returns></returns>
+        public List<ProdPartVO> GetPartAndSemiProd(bool isGetSemiProd)
+        {
+            ModelDAC dac = new ModelDAC();
+            List<ProdPartVO> list = dac.GetPartAndSemiProd(isGetSemiProd);
+            dac.Dispose();
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 제품 또는 부품 등록 Service
         /// 이미지가 포함되었는지 확인하고, 포함되었다면 웹 서버에 이미지 데이터를 저장한다.
         /// </summary>

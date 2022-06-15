@@ -24,22 +24,6 @@ namespace BikeProd
         }
        
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            rdOut.Checked = false;
-            rdWorking.Checked = false;
-            cboDept.SelectedIndex = 0;
-            txtEmpName.Text = "";
-            txtEmpName.SetPlaceHolder();
-            txtEmpName.PlaceHolder = "사원선택";
-            GetAllList();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void frmEmployee_Load(object sender, EventArgs e)
         {
             txtEmpName.PlaceHolder = "직원선택";
@@ -98,7 +82,7 @@ namespace BikeProd
                 MessageBox.Show(msg);
             }
 
-                deptList = departmentSrv.GetAllDeptInfo();
+             deptList = departmentSrv.GetAllDeptInfo();
 
             int detpCode = deptList.Find((d) => d.DeptName == cboDept.Text).DeptNo;
 
@@ -168,6 +152,22 @@ namespace BikeProd
             {
                 GetAllList();
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            rdOut.Checked = false;
+            rdWorking.Checked = false;
+            cboDept.SelectedIndex = 0;
+            txtEmpName.Text = "";
+            txtEmpName.SetPlaceHolder();
+            txtEmpName.PlaceHolder = "사원선택";
+            GetAllList();
+        }
+
+        private void cboDept_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

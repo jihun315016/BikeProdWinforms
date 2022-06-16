@@ -60,36 +60,38 @@ namespace BikeProd.DAC
         /// <param name="EmpNo"></param>
         /// <param name="ToDate"></param>
         /// <returns></returns>
-        public bool UpdateOut(int EmpNo, string ToDate)
+        public bool UpdateOut(int EmpNo, string ToDate,string Return)
         {
             //ToDate = '2022-06-05';
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = conn;
-                cmd.CommandText = "SP_UpdateOutEmployees";
+                cmd.CommandText = @"SP_UpdateOutEmployees";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
+                
                 cmd.Parameters.AddWithValue("@EmpNo", EmpNo);
                 cmd.Parameters.AddWithValue("@ToDate", ToDate);
-
+                cmd.Parameters.AddWithValue("@Return", Return);
                 int iRowAffect = cmd.ExecuteNonQuery();
                 return (iRowAffect > 0);
             }
         }
 
+        
+
         /// <summary>
         /// 류경석
-        /// 사원정보 가져오기
+        /// 사원전체정보 가져오기
         /// </summary>
         /// <returns></returns>
         public List<EmployeeVO> GetEmployeesAllList()
         {
             List<EmployeeVO> list = new List<EmployeeVO>();
 
-            string sql = @"select EmpNo, EmpName, DeptNo, TeamNo, Phone, Email, Pwd, FromDate, ToDate 
-                           from TB_Employees";
-
-
+            string sql = @"select EmpNo, EmpName, emp.DeptNo as DeptNo,DeptName, emp.TeamNo as TeamNo,TeamName, Phone, Email, Pwd, FromDate, ToDate 
+                            from TB_Employees emp join TB_Department dept on emp.DeptNo = dept.DeptNo
+                            join TB_Team t on emp.TeamNo = t.TeamNo";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 list = DBConverter.DataReaderToList<EmployeeVO>(cmd.ExecuteReader());
@@ -206,6 +208,24 @@ namespace BikeProd.DAC
         }
 
         /// <summary>
+        /// Author: 정희록
+        /// 전체 팀정보 및 사원정보 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<TeamEmpVO> GetAllEmpTeamInfo()
+        {
+            string sql = @"select EmpNo, EmpName, E.DeptNo, E.TeamNo, TeamName ,Phone, FromDate 
+                            from TB_Employees E inner join TB_Team T on E.DeptNo = T.DeptNo
+                            where E.DeptNo = T.DeptNo
+                            and E.TeamNo = T.TeamNo";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {                
+                return DBConverter.DataReaderToList<TeamEmpVO>(cmd.ExecuteReader());
+            }
+        }
+
+        /// <summary>
         /// 정희록
         /// 부서별 팀정보 및 사원정보 가져오기
         /// </summary>
@@ -215,7 +235,9 @@ namespace BikeProd.DAC
         {
             string sql = @"select EmpNo, EmpName, E.DeptNo, E.TeamNo, TeamName ,Phone, FromDate 
                              from TB_Employees E inner join TB_Team T on E.DeptNo = T.DeptNo
-                            where E.DeptNo = @DeptNo";
+                            where E.DeptNo = T.DeptNo
+                            and E.TeamNo = T.TeamNo
+                            and E.DeptNo = @DeptNo";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
@@ -227,7 +249,7 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// 정희록
-        /// 팀별 사원정보 가져오기
+        /// 검색조건(팀번호, 사원이름) 사원정보 가져오기
         /// </summary>
         /// <param name="TeamNo">팀번호</param>
         /// <param name="EmpName">사원이름</param>
@@ -235,6 +257,18 @@ namespace BikeProd.DAC
         public EmployeeVO searchEmpInfo(int TeamNo, string EmpName)
         {
             string sql = @"SP_GetEmpInfo";
+
+            //WITH teamnoCTE AS
+            //(
+            //    SELECT EmpNo, EmpName, DeptNo, TeamNo, Phone, FromDate
+
+            //    FROM TB_Employees
+
+            //    WHERE TeamNo = @TeamNo
+            //)
+            //SELECT EmpNo, EmpName, DeptNo, TeamNo, Phone, FromDate
+            //FROM TB_Employees
+            //WHERE EmpName = @EmpName
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {

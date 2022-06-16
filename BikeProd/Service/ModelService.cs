@@ -63,13 +63,13 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
-        /// BOM 등록되지 않은 제품 조회 후 폼에 전달한다.
+        /// BOM 등록되었거나 등록되지 않은 제품 조회 후 폼에 전달한다.
         /// </summary>
         /// <returns></returns>
-        public List<ProdPartVO> GetNotBomProd()
+        public List<ProdPartVO> GetBomProd(bool isBom)
         {
             ModelDAC dac = new ModelDAC();
-            List<ProdPartVO> list = dac.GetNotBomProd();
+            List<ProdPartVO> list = dac.GetBomProd(isBom);
             dac.Dispose();
             return list;
         }
@@ -86,6 +86,22 @@ namespace BikeProd
             List<ProdPartVO> list = dac.GetPartAndSemiProd(isGetSemiProd);
             dac.Dispose();
             return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 등록 후 결과 반환
+        /// </summary>
+        /// <param name="parentCode">BOM 등록될 상위 항목</param>
+        /// <param name="list">하위 항목 리스트</param>
+        /// <returns></returns>
+        public bool SaveBom(string parentCode, List<BomDetailVO> list)
+        {
+            ModelDAC dac = new ModelDAC();
+            bool result = dac.SaveBom(parentCode, list);
+            dac.Dispose();
+            return result;
+
         }
 
         /// <summary>

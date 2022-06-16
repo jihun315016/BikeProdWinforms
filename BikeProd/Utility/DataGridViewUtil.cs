@@ -18,6 +18,7 @@ namespace BikeProd
         public static void SetInitGridView(DataGridView dgv)
         {
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.AutoGenerateColumns = false;
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
             dgv.RowHeadersWidth = 10;
@@ -45,7 +46,7 @@ namespace BikeProd
                 bool isReadlonly = true,
                 DataGridViewContentAlignment alignHeader = DataGridViewContentAlignment.MiddleCenter,
                 DataGridViewContentAlignment alignContent = DataGridViewContentAlignment.MiddleLeft
-
+                
             )
         {
             DataGridViewTextBoxColumn col = new DataGridViewTextBoxColumn();

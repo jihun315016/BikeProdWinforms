@@ -37,6 +37,7 @@ namespace BikeProd
             });
             ComboBoxUtil.SetComboBoxByList(cboCate, commonList, "Category", "Category");
             cboCate.SelectedIndex = 0;
+            DataGirdView();
         }
 
         public void DataGirdView()
@@ -166,7 +167,7 @@ namespace BikeProd
 
 
             dgvList.DataSource = null;
-            DataGirdView();
+            //DataGirdView();
             dgvList.DataSource = purchaseList;
             dgvList.ClearSelection();
         }
@@ -187,17 +188,11 @@ namespace BikeProd
             txtPurName.isRequired = txtBusiness.isRequired = txtBusinessID.isRequired = txtManager.isRequired = txtSubManager.isRequired = true;
             string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtPurName, txtBusiness, txtBusinessID, txtManager, txtSubManager });
 
-
             if (msg.Length > 0)
             {
                 MessageBox.Show(msg);
                 return;
             }
-
-
-            
-            
-
             PurchaseVO purlist = new PurchaseVO()
             {
                 PurchaseName = txtPurName.Text,
@@ -247,6 +242,11 @@ namespace BikeProd
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numQty_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

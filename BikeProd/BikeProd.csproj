@@ -155,16 +155,16 @@
     <Compile Include="Forms\frmBOM.Designer.cs">
       <DependentUpon>frmBOM.cs</DependentUpon>
     </Compile>
-    <Compile Include="popSaveBOM.cs">
+    <Compile Include="Popup\popSaveBOM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popSaveBOM.Designer.cs">
+    <Compile Include="Popup\popSaveBOM.Designer.cs">
       <DependentUpon>popSaveBOM.cs</DependentUpon>
     </Compile>
-    <Compile Include="popSelectSaveBOM.cs">
+    <Compile Include="Popup\popSelectSaveBOM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popSelectSaveBOM.Designer.cs">
+    <Compile Include="Popup\popSelectSaveBOM.Designer.cs">
       <DependentUpon>popSelectSaveBOM.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popProduction.cs">
@@ -190,6 +190,12 @@
     </Compile>
     <Compile Include="Popup\popSaveClient.Designer.cs">
       <DependentUpon>popSaveClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\popSaveOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popSaveOrder.Designer.cs">
+      <DependentUpon>popSaveOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSavePurchase.cs">
       <SubType>Form</SubType>
@@ -294,10 +300,10 @@
     <EmbeddedResource Include="Forms\frmBOM.resx">
       <DependentUpon>frmBOM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popSaveBOM.resx">
+    <EmbeddedResource Include="Popup\popSaveBOM.resx">
       <DependentUpon>popSaveBOM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popSelectSaveBOM.resx">
+    <EmbeddedResource Include="Popup\popSelectSaveBOM.resx">
       <DependentUpon>popSelectSaveBOM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popProduction.resx">
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSaveClient.resx">
       <DependentUpon>popSaveClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popSaveOrder.resx">
+      <DependentUpon>popSaveOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSavePurchase.resx">
       <DependentUpon>popSavePurchase.cs</DependentUpon>

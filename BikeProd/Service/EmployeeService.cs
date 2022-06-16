@@ -20,11 +20,11 @@ namespace BikeProd
             return result;
         }
 
-        public bool UpdateOut(int EmpNo, string ToDate)
+        public bool UpdateOut(int EmpNo, string ToDate, string Return)
         {
 
             EmployeeDAC dac = new EmployeeDAC();
-            bool result = dac.UpdateOut(EmpNo, ToDate);
+            bool result = dac.UpdateOut(EmpNo, ToDate, Return);
             dac.Dispose();
 
             return result;
@@ -100,6 +100,19 @@ namespace BikeProd
         {
             EmployeeDAC dac = new EmployeeDAC();
             EmployeeVO result = dac.searchEmpInfo(TeamNo, EmpName);
+            dac.Dispose();
+
+            return result;
+        }
+        /// <summary>
+        /// Author: 정희록
+        /// 전체 팀정보 및 사원정보 가져오기
+        /// </summary>
+        /// <returns></returns>
+        public List<TeamEmpVO> GetAllEmpTeamInfo()
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            List<TeamEmpVO> result = dac.GetAllEmpTeamInfo();
             dac.Dispose();
 
             return result;

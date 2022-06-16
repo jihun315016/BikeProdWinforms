@@ -13,8 +13,8 @@ namespace BikeProd
 {
     public partial class frmClient : bFrmList
     {
-        ClientService clientSrv = null;
-        List<ClientVO> clientList = null;
+        ClientService clientSrv;
+        List<ClientVO> clientList;
 
         public frmClient()
         {
@@ -94,13 +94,39 @@ namespace BikeProd
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvList.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("삭제할 거래처를 선택해주세요.");
+                return;
+            }
+            
+            string clientName = (dgvList.SelectedRows[0].Cells["ClientName"].Value).ToString();
 
+            if (MessageBox.Show($"[{clientName}] : 거래처를 삭제 하시겠습니까?", "삭제확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {                
+                bool result = clientSrv.DeleteClient(clientName);
+                if (result)
+                {
+                    MessageBox.Show($"[{clientName}] 삭제 완료.");
+                    clientList = clientSrv.GetClientList();
+                    dgvList.DataSource = clientList;
+                }
+                else
+                {
+                    MessageBox.Show("삭제 중 오류가 발생했습니다.");
+                    return;
+                }
+            }            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             popSaveClient pop = new popSaveClient();
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                clientList = clientSrv.GetClientList();
+                dgvList.DataSource = clientList;
+            }
         }
     }
 }

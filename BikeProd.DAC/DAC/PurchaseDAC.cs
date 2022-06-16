@@ -66,6 +66,7 @@ namespace BikeProd.DAC
                 SqlTransaction trans = conn.BeginTransaction();
                 try
                 {
+                    //발주등록 -> 발주서 등록
                     cmd.CommandText = @"insert into  TB_Purchase
 			                        (PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State)
 			                        values (@PurchaseName, @BusinessNo, @Manager, @PurchaseDate, @ArriveDate, @State);
@@ -80,6 +81,7 @@ namespace BikeProd.DAC
                     cmd.Parameters.AddWithValue("@ArriveDate", pur.ArriveDate);
                     cmd.Parameters.AddWithValue("@State", pur.State);
 
+                    //발주등록 -> 발주할 부품 수량 증가
                     int newPurchaseNO = Convert.ToInt32(cmd.ExecuteScalar());
 
                     cmd.Parameters.Clear();
@@ -96,6 +98,18 @@ namespace BikeProd.DAC
                         cmd.Parameters["@Qty"].Value = item.Qty;
                         cmd.ExecuteNonQuery();
                     }
+                    //등록버튼 클릭 -> 논리재고 발주수량 만큼 증가
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = @"update TB_Parts
+                                        set TotInvn += pur.Qty
+                                        from TB_Parts as prt,
+                                        (select PurchaseNo, PartCode, Qty from TB_PurchaseDetails) as pur
+                                        where prt.PartCode = pur.PartCode
+                                        and PurchaseNo = @PurchaseNO";
+
+                    cmd.Parameters.AddWithValue("@PurchaseNO", newPurchaseNO);
+                    cmd.ExecuteNonQuery();
+
                     trans.Commit();
                     return true;                    
                 }
@@ -214,12 +228,12 @@ namespace BikeProd.DAC
                             where PurchaseDate >= @purDT and PurchaseDate <= @AliveDate");
                 if (!string.IsNullOrWhiteSpace(ClientName))
                 {
-                    sb.Append(" and c.ClientName = @ClientName");
+                    sb.Append(" or c.ClientName = @ClientName");
                     cmd.Parameters.AddWithValue("@ClientName", ClientName);
                 }
                 if (!string.IsNullOrWhiteSpace(State))
                 {
-                    sb.Append(" and State = @State");
+                    sb.Append(" or State = @State");
                     cmd.Parameters.AddWithValue("@State", State);
                 }
                 cmd.Parameters.AddWithValue("@purDT", purDT);
@@ -278,5 +292,69 @@ namespace BikeProd.DAC
             }
             return list;
         }
+
+        /*public List<PartVO> GetUnit(string PartName)
+        {
+            List<PartVO> list = new List<PartVO>();
+
+            string sql = @"select Unit from TB_Parts where PartName = @PartName";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@PartName", PartName);
+                list = DBConverter.DataReaderToList<PartVO>(cmd.ExecuteReader());
+            }
+            return list;
+        }*/
+
+        public bool UpdateStateOK(int purchaseNo)
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = "SP_UpdateInventory";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PurchaseNo", purchaseNo);
+
+                int iRowAffect = cmd.ExecuteNonQuery();
+
+                return (iRowAffect > 0);
+            }
+        }
+        /// <summary>
+        /// Author 류경석
+        /// 발주 취소버튼 클릭 -> 논리재고 Minus
+        /// </summary>
+        /// <param name="purchaseNo"></param>
+        /// <returns></returns>
+        public bool UpdateStateCancel(int purchaseNo)
+        {
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    cmd.Transaction = trans;
+                    cmd.CommandText = @"update TB_Parts
+                                        set TotInvn -= pur.Qty
+                                        from TB_Parts as prt,
+                                        (select PurchaseNo, PartCode, Qty from TB_PurchaseDetails) as pur
+                                        where prt.PartCode = pur.PartCode
+                                        and PurchaseNo = @purchaseNo";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@purchaseNo", purchaseNo);
+                    int iRowAffect = cmd.ExecuteNonQuery();
+                    trans.Commit();
+                    return (iRowAffect > 0);
+                }
+                catch (Exception err)
+                {
+                    trans.Rollback();
+                    return false;
+                }
+            }
+        }
+
+
     }
 }

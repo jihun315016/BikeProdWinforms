@@ -15,7 +15,7 @@ namespace BikeProd
 {
     public partial class popSaveAddress : bPopCommon
     {
-        public string ZipCode { get; set; }
+        public string AddrCode { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
 
@@ -29,8 +29,13 @@ namespace BikeProd
             DataGridViewUtil.SetInitGridView(dgvList);
 
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "우편번호", "zipNo", colWidth: 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도로명주소", "roadAddr", colWidth: 150);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "지번주소", "jibunAddr", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도로명주소", "roadAddr", colWidth: 390);
+
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "지번주소", "jibunAddr", colWidth: 150, isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소1", "roadAddrPart1", colWidth: 150, isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소2", "roadAddrPart2", colWidth: 150, isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "건물명", "bdNm", colWidth: 150, isVisible: false);
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -73,9 +78,10 @@ namespace BikeProd
 
         private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            txtAddrCode.Text = dgvList["zipNo", e.RowIndex].Value.ToString();
+            if (e.RowIndex < 0)
+                return;
 
+            txtAddrCode.Text = dgvList["zipNo", e.RowIndex].Value.ToString();
             txtAddr1.Text = dgvList["roadAddrPart1", e.RowIndex].Value.ToString();            
 
             string addr2 = dgvList["roadAddrPart2", e.RowIndex].Value.ToString();
@@ -84,13 +90,12 @@ namespace BikeProd
             if (addr2.Contains(bdNm))
                 txtAddr2.Text = addr2;
             else
-                txtAddr2.Text = addr2 + bdNm;
-            
+                txtAddr2.Text = addr2 + bdNm;            
         }
 
         private void btanSave_Click(object sender, EventArgs e)
         {
-            ZipCode = txtAddrCode.Text;
+            AddrCode = txtAddrCode.Text;
             Address1 = txtAddr1.Text;
             Address2 = txtAddr2.Text;
 

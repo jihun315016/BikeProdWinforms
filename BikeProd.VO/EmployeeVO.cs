@@ -17,5 +17,9 @@ namespace BikeProd.VO
         public string Pwd { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
+
+        //추가
+        public string TeamName { get; set; }
+        public string DeptName { get; set; }
     }
 }

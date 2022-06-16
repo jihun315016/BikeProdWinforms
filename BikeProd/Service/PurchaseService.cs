@@ -90,5 +90,32 @@ namespace BikeProd
 
             return result;
         }
+
+        public bool UpdateStateOK(int purchaseNo)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            bool result = dac.UpdateStateOK(purchaseNo);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool UpdateStateCancel(int purchaseNo)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            bool result = dac.UpdateStateCancel(purchaseNo);
+            dac.Dispose();
+
+            return result;
+        }
+
+       /* public List<PartVO> GetUnit(string PartName)
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            List<PartVO> result = dac.GetPurchaseList(PartName);
+            dac.Dispose();
+
+            return result;
+        }*/
     }
 }

@@ -16,34 +16,44 @@ namespace BikeProd
     {
         EmployeeService employeeSrv = new EmployeeService();
         DepartmentService departmentSrv = new DepartmentService();
-        List<EmployeeVO> empList;
+        List<EmployeeVO> empList = null;
         List<DepartmentVO> deptList;
+        List<TeamEmpVO> teamList;
+        
+
         public frmEmployee()
         {
             InitializeComponent();
+
         }
-       
+
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
-            txtEmpName.PlaceHolder = "직원선택";
+            
+            txtEmpName.PlaceHolder = "사원선택";
             txtEmpName.SetPlaceHolder();
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원번호", "EmpNo",colWidth : 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName",colWidth : 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서코드", "DeptNo", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀코드", "TeamNo", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서", "DeptName", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀", "TeamName", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "비밀번호", "Pwd", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서번호", "DeptNo", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀번호", "TeamNo", isVisible: false);
+
             GetAllList();
             ComboBinding();
         }
         public void GetAllList()
         {
+            employeeSrv = new EmployeeService();
             empList = employeeSrv.GetEmployeesAllList();
+            dgvList.DataSource = null;
             dgvList.DataSource = empList;
         }
 
@@ -61,12 +71,16 @@ namespace BikeProd
 
         private void rdWorking_CheckedChanged(object sender, EventArgs e)
         {
-            dgvList.DataSource = employeeSrv.GetWorkingList();
+            List<EmployeeVO> workList = empList.FindAll((emp) => emp.ToDate.Year == 1).ToList();
+
+            dgvList.DataSource = workList;
         }
 
         private void rdOut_CheckedChanged(object sender, EventArgs e)
         {
-            dgvList.DataSource = employeeSrv.GetOutList();
+            List<EmployeeVO> workList = empList.FindAll((emp) => emp.ToDate.Year != 1).ToList();
+
+            dgvList.DataSource = workList;
         }
 
         private void cboDept_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,48 +90,42 @@ namespace BikeProd
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (empList == null)
+            {
+                empList = employeeSrv.GetEmployeesAllList();
+            }
+            if(cboDept.SelectedIndex == 0 && string.IsNullOrWhiteSpace(txtEmpName.Text))
+            {
+                MessageBox.Show("검색조건을 선택하여 주세요");
+                return;
+            }
+            
+
             string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] {txtEmpName});
             if (msg.Length > 0)
             {
                 MessageBox.Show(msg);
             }
-
-             deptList = departmentSrv.GetAllDeptInfo();
-
-            int detpCode = deptList.Find((d) => d.DeptName == cboDept.Text).DeptNo;
-
-            if (empList == null)
+            if (string.IsNullOrWhiteSpace(txtEmpName.Text))
             {
-                empList = employeeSrv.GetEmployeesAllList();
+                MessageBox.Show("사원이름을 입력해주세요");
             }
 
-            var SearchList = (from emp in empList
-                             where emp.EmpName == txtEmpName.Text && emp.DeptNo == detpCode
-                             select new EmployeeVO
-                             {
-                                 EmpName = emp.EmpName,
-                                 DeptNo = emp.DeptNo,
-                                 Email = emp.Email,
-                                 EmpNo = emp.EmpNo,
-                                 TeamNo = emp.TeamNo,
-                                 Phone = emp.Phone,
-                                 Pwd = emp.Pwd,
-                                 FromDate = emp.FromDate,
-                                 ToDate = emp.ToDate
-                             }).ToList();
-
-            dgvList.DataSource = SearchList;
-
-            if(SearchList == null)
+            var SearchList = empList.FindAll((emp) => emp.EmpName == txtEmpName.Text);
+            
+            
+            if (SearchList.Count < 1)
             {
                 MessageBox.Show("검색결과가 없습니다");
                 cboDept.SelectedIndex = 0;
                 txtEmpName.Text = "";
-                txtEmpName.SetPlaceHolder();
-                txtEmpName.PlaceHolder = "직원선택";
+                
+                txtEmpName.PlaceHolder = "사원선택";
                 GetAllList();
                 return;
             }
+            txtEmpName.Text = string.Empty;
+            dgvList.DataSource = SearchList;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -131,27 +139,22 @@ namespace BikeProd
 
         private void btnResign_Click(object sender, EventArgs e)
         {
+
             if (dgvList.SelectedRows.Count < 1)
             {
-                MessageBox.Show("퇴사할 사원을 선택하여 주십시오.");
+                MessageBox.Show("사원을 선택하여 주십시오.");
                 return;
             }
-
-
-            if (Convert.ToDateTime(dgvList.SelectedRows[0].Cells["ToDate"].Value).Year != 1)
-            {
-                MessageBox.Show("이미 퇴사한 사원입니다");
-                return;
-            }
-            
-
             int EmpNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["EmpNo"].Value);
             string Name = (dgvList.SelectedRows[0].Cells["EmpName"].Value).ToString();
-            popResign frm = new popResign(EmpNo, Name);
-            if(frm.ShowDialog() == DialogResult.OK)
-            {
-                GetAllList();
-            }
+
+            popResign frm = new popResign(EmpNo, Name, btnResign.Text);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    GetAllList();
+                }
+            
+            
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -167,7 +170,31 @@ namespace BikeProd
 
         private void cboDept_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            GetAllList();
+            if(cboDept.SelectedIndex != 0)
+            {
+                empList = empList.FindAll((emp) => emp.DeptName == cboDept.Text); 
+            }
+            
+            dgvList.DataSource = empList;
 
+        }
+
+        private void dgvList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Convert.ToDateTime(dgvList.SelectedRows[0].Cells["ToDate"].Value).Year != 1)
+            {
+                btnResign.Text = "재입사";
+            }
+            else
+            {
+                btnResign.Text = "퇴사";
+            }
         }
     }
 }

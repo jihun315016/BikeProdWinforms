@@ -98,14 +98,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(136, 90);
             this.dgvList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 27;
-            this.dgvList.Size = new System.Drawing.Size(435, 458);
+            this.dgvList.Size = new System.Drawing.Size(437, 458);
             this.dgvList.TabIndex = 23;
             this.dgvList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvList_CellFormatting_1);
             this.dgvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseDoubleClick);
@@ -199,6 +198,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(97, 23);
             this.dtpFrom.TabIndex = 20;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // label3
             // 
@@ -350,13 +350,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvList2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList2.Location = new System.Drawing.Point(100, 251);
             this.dgvList2.Name = "dgvList2";
             this.dgvList2.RowHeadersWidth = 51;
             this.dgvList2.RowTemplate.Height = 23;
-            this.dgvList2.Size = new System.Drawing.Size(471, 281);
+            this.dgvList2.Size = new System.Drawing.Size(475, 281);
             this.dgvList2.TabIndex = 36;
             // 
             // label9

@@ -165,6 +165,10 @@ namespace BikeProd
             {
                 ucFormController selected = ((Form)obj).Tag as ucFormController;
                 RemoveUcFormControl(selected.FormControlText);
+                foreach (Form form in Application.OpenForms)
+                {
+                    form.WindowState = FormWindowState.Maximized;
+                }
             };
 
             formControl.ButtonClick += (object obj, EventArgs eArgs) =>

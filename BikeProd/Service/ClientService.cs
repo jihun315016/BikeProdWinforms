@@ -32,6 +32,24 @@ namespace BikeProd
             dac.Dispose();
             return result;
         }
+
+        public bool SaveClient(ClientVO client)
+        {
+            ClientDAC dac = new ClientDAC();
+            bool result = dac.SaveClient(client);
+            dac.Dispose();
+
+            return result;
+        }
+
+        public bool DeleteClient(string clientName)
+        {
+            ClientDAC dac = new ClientDAC();
+            bool result = dac.DeleteClient(clientName);
+            dac.Dispose();
+
+            return result;
+        }
     }
 
 }

@@ -49,7 +49,8 @@ namespace BikeProd.DAC
         {
             List<ClientVO> list = new List<ClientVO>();
 
-            string sql = @"select BusinessNo, ClientName, Type, CompanyPhone, Email, Address, Manager, ManagerPhone from TB_Client";
+            string sql = @"select BusinessNo, ClientName, Type, CompanyPhone, Email, Address, Manager, ManagerPhone 
+                           from TB_Client";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
@@ -58,6 +59,39 @@ namespace BikeProd.DAC
             return list;
         }
 
-        
+
+        public bool SaveClient(ClientVO client)
+        {            
+            string sql = @"insert into TB_Client (BusinessNo,ClientName, Type, CompanyPhone, Email, Address, Manager, ManagerPhone)
+                                  values (@BusinessNo, @ClientName, @Type, @CompanyPhone, @Email, @Address, @Manager, @ManagerPhone)";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@BusinessNo", client.BusinessNo);
+                cmd.Parameters.AddWithValue("@ClientName", client.ClientName);
+                cmd.Parameters.AddWithValue("@Type", client.Type);
+                cmd.Parameters.AddWithValue("@CompanyPhone", client.CompanyPhone);
+                cmd.Parameters.AddWithValue("@Email", client.Email);
+                cmd.Parameters.AddWithValue("@Address", client.Address);
+                cmd.Parameters.AddWithValue("@Manager", client.Manager);
+                cmd.Parameters.AddWithValue("@ManagerPhone", client.ManagerPhone);
+
+                int iRowAffect = cmd.ExecuteNonQuery();
+                return (iRowAffect > 0);
+            }
+        }
+
+        public bool DeleteClient(string clientName)
+        {
+            string sql = "delete from TB_Client where ClientName = @ClientName";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@ClientName", clientName);
+
+                int iRowAffect = cmd.ExecuteNonQuery();
+                return (iRowAffect > 0);
+            }
+        }
     }
 }

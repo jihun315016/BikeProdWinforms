@@ -1,3 +1,10 @@
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.exe
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.SuggestedBindingRedirects.cache
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
@@ -24,6 +31,7 @@ C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.Popup.popProdu
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popResign.resources
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveAddress.resources
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveClient.resources
+C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveOrder.resources
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSavePur.resources
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveEmployee.resources
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popFindPwd.resources
@@ -33,13 +41,6 @@ C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.r
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\admin\Desktop\team2\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.exe
 C:\Users\admin\Desktop\team2\BikeProd\BikeProd\obj\Debug\BikeProd.pdb

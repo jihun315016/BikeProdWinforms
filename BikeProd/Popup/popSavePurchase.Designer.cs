@@ -189,9 +189,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(550, 202);
+            this.btnAdd.Location = new System.Drawing.Point(539, 201);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(60, 23);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "추가";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -311,6 +311,7 @@
             this.numQty.Name = "numQty";
             this.numQty.Size = new System.Drawing.Size(40, 23);
             this.numQty.TabIndex = 11;
+            this.numQty.ValueChanged += new System.EventHandler(this.numQty_ValueChanged);
             // 
             // dtpPurDate
             // 

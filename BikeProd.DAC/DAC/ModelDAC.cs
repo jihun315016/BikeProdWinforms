@@ -138,17 +138,24 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
-        /// BOM 등록 되지 않은 제품 조회
+        /// BOM 등록되었거나 등록 되지 않은 제품 조회
         /// </summary>
         /// <returns></returns>
-        public List<ProdPartVO> GetNotBomProd()
+        public List<ProdPartVO> GetBomProd(bool isBom)
         {
-            string sql = @"SELECT ProdCode Code, ProdName Name, Category,
-	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind
-                            FROM TB_Products
-                            WHERE ProdCode not in (SELECT ParentCode FROM TB_BOM)
-                            AND Dealing = 1";
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"SELECT ProdCode Code, ProdName Name, Category,
+	                        CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind
+                        FROM TB_Products ");
 
+            if (isBom)            
+                sb.Append(@"WHERE ProdCode in (SELECT ParentCode FROM TB_BOM)
+                            AND Dealing = 1");            
+            else            
+                sb.Append(@"WHERE ProdCode not in (SELECT ParentCode FROM TB_BOM)
+                            AND Dealing = 1");
+            
+            string sql = sb.ToString();
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<ProdPartVO>(reader);
@@ -180,6 +187,46 @@ namespace BikeProd.DAC
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<ProdPartVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 등록 메서드
+        /// </summary>
+        /// <param name="parentCode">등록될 상위 항목</param>
+        /// <param name="list">하위 항목 리스트</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SaveBom(string parentCode, List<BomDetailVO> list)
+        {
+            string sql = @"INSERT INTO TB_BOM
+                            (ParentCode, ChildCode, Requirement)
+                            VALUES
+                            (@ParentCode, @ChildCode, @Requirement)";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlTransaction tran = conn.BeginTransaction();
+            cmd.Transaction = tran;
+            cmd.Parameters.AddWithValue("@ParentCode", parentCode);
+            cmd.Parameters.Add("@ChildCode", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@Requirement", SqlDbType.Int);
+
+            try
+            {
+                foreach (var item in list)
+                {
+                    cmd.Parameters["@ChildCode"].Value = item.Code;
+                    cmd.Parameters["@Requirement"].Value = item.Requirement;
+                    cmd.ExecuteNonQuery();
+                }
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
+                throw new Exception(err.Message);
+            }
         }
 
         /// <summary>

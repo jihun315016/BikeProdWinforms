@@ -119,8 +119,14 @@ namespace BikeProd
         {
             cboDomain.Items.AddRange(new string[] { "선택", "직접입력", "naver.com", "gmail.com", "kakao.com", "daum.net" });
             cboDomain.SelectedIndex = 0;            
-        }              
-        
+        }
+
+        private bool IsMatch(string regex, string value)
+        {
+            Regex reg = new Regex(regex);
+            return reg.IsMatch(value);
+        }
+
         /// <summary>
         /// Author : 이진형
         /// 공백없는 영문 소문자 숫자 형식 유효성 검사
@@ -157,12 +163,7 @@ namespace BikeProd
             }
             else
                 lblMessage2.Text = "";
-        }    
-        
-        private bool IsMatch(string regex, string value)
-        {
-            Regex reg = new Regex(regex);  
-            return reg.IsMatch(value);
         }
+               
     }
 }

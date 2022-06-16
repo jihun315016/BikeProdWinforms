@@ -32,9 +32,9 @@ namespace BikeProd
 
 
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", colWidth: 100);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입고처", "ClientName", colWidth: 110);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주서", "PurchaseName", colWidth: 110);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", colWidth: 100, alignContent:DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입고처", "ClientName", colWidth: 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주서", "PurchaseName", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주일자", "PurchaseNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처번호", "BusinessNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처 담당자", "Manager", isVisible: false);
@@ -43,6 +43,13 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "상태", "StateName", colWidth: 70);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "상태", "State", isVisible:false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주담당자", "ClientManager", isVisible: false);
+
+            DataGridViewUtil.SetInitGridView(dgvList2);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "발주번호", "PurchaseNo", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "PartCode", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "Name", colWidth: 170);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 80);
 
             LoadData();
             StateList = purchaseSrv.GetStateCommon();
@@ -53,7 +60,7 @@ namespace BikeProd
             txtState.SetPlaceHolder();
             txtState.PlaceHolder = "상태";
 
-            dtpTo.Value = dtpFrom.Value.AddDays(7);
+            dtpFrom.Value = dtpTo.Value.AddDays(-7);
 
         }
         /// <summary>
@@ -73,12 +80,7 @@ namespace BikeProd
         public void LoadData2()
         {
             dgvList2.DataSource = null;
-            DataGridViewUtil.SetInitGridView(dgvList2);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "발주번호", "PurchaseNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "PartCode", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "Name", colWidth: 170);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 80);
+            
             int purNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["PurchaseNo"].Value);
             purchaseSrv = new PurchaseService();
             purchaseLists = purchaseSrv.GetPurchaseList(purNo);
@@ -99,6 +101,7 @@ namespace BikeProd
             popSavePur pop = new popSavePur();
             if (pop.ShowDialog() == DialogResult.OK)
             {
+                MessageBox.Show("등록이 완료되었습니다.");
                 LoadData();
             }
         }
@@ -130,6 +133,7 @@ namespace BikeProd
             {
                 PurchaseVO update = new PurchaseVO();
                 String State = (dgvList.SelectedRows[0].Cells["State"].Value).ToString();
+                int purchaseNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["PurchaseNo"].Value);
                 //string State = cboStateFilter.Text;
                 if (State != "OK" && State == "In")
                 {
@@ -139,6 +143,8 @@ namespace BikeProd
 
                     if (!result)
                     {
+                        //제품,부품 수량 업데이트
+                        purchaseSrv.UpdateStateOK(purchaseNo);
                         MessageBox.Show("입고완료 되었습니다");
                         LoadData();
                     }
@@ -172,25 +178,18 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (cboStateFilter.SelectedIndex == 0)
-            {
-                MessageBox.Show("발주서 상태를 선택해주세요");
-                return;
-            }
-            DateTime purDate = dtpFrom.Value;
-            DateTime AliveDate = dtpTo.Value;
-            string ClientName = txtSearch.Text;
-            StateList = purchaseSrv.GetStateCommon();
-            string State = StateList.Find((s) => s.Name == cboStateFilter.Text).Code;
+            purchaseList = purchaseSrv.GetPurchase();
+            var list = purchaseList.FindAll((p) => p.ClientName == txtSearch.Text).ToList();
 
-            if (purchaseList == null)
-            {
-                purchaseList = purchaseSrv.GetPurchase();
-            }
+            dgvList.DataSource = list;
+        }
+        private void cboStateFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            purchaseList = purchaseSrv.GetPurchase();
+            var list = purchaseList.FindAll((p) => p.StateName == cboStateFilter.Text &&
+            p.PurchaseDate >= dtpFrom.Value && p.ArriveDate <= dtpTo.Value).ToList();
 
-
-            purchaseList = purchaseSrv.getSearchList(ClientName, State, purDate, AliveDate);
-            dgvList.DataSource = purchaseList;
+            dgvList.DataSource = list;
         }
         /// <summary>
         /// Author :류경석
@@ -203,6 +202,7 @@ namespace BikeProd
             try
             {
                 string State = (dgvList.SelectedRows[0].Cells["State"].Value).ToString();
+                int purchaseNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["PurchaseNo"].Value);
                 if (State != "Cancel" && State == "In")
                 {
                     PurchaseVO update = new PurchaseVO();
@@ -212,6 +212,7 @@ namespace BikeProd
                     bool result = purchaseSrv.UpdateState(update);
                     if (!result)
                     {
+                        purchaseSrv.UpdateStateCancel(purchaseNo);
                         MessageBox.Show("취소되었습니다.");
                         LoadData();
                     }
@@ -282,6 +283,7 @@ namespace BikeProd
             dgvList2.DataSource = null;
             LoadData();
             cboStateFilter.SelectedIndex = 0;
+            
 
             txtPurNo.Text = txtBusinessNo.Text = txtPurName.Text = txtState.Text = txtPurDate.Text =
                 txtAliveDate.Text = txtManager.Text = txtSubManager.Text = txtClient.Text = txtAddress.Text = String.Empty;
@@ -310,10 +312,7 @@ namespace BikeProd
             }
         }
 
-        private void cboStateFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {
@@ -323,6 +322,11 @@ namespace BikeProd
                 txtSearch.Text = pop.selectedClient.ClientName;
                 txtSearch.Tag = pop.selectedClient.BusinessNo;
             }
+        }
+
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

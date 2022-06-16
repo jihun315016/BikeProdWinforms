@@ -354,5 +354,30 @@ namespace BikeProd.DAC
                 return DBConverter.DataReaderToList<TeamVO>(cmd.ExecuteReader());
             }
         }
+
+        //private void GetTeamEmpInfo()
+        //{
+        //    string sql = @"select TeamNo from TB_Team where TeamName = @TeamName";
+
+        //    using (SqlCommand cmd = new SqlCommand(sql, conn))
+        //    {
+        //        cmd.Parameters.AddWithValue("@DeptNo", DeptNo);
+        //        cmd.Transaction = trans;
+        //        cmd.ExecuteNonQuery();
+
+        //        sql = @"insert into TB_DepartmentAuth(DeptNo, MenuID)
+        //                 values (@DeptNo, @MenuID)";
+
+        //        cmd.CommandText = sql;
+        //        cmd.Parameters.Add("@MenuID", SqlDbType.Int);
+
+        //        foreach (int MenuID in authList)
+        //        {
+        //            cmd.Parameters["@MenuID"].Value = MenuID;
+        //            cmd.ExecuteNonQuery();
+
+        //        }
+        //    }
+        //}
     }
 }

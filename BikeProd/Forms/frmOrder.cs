@@ -59,5 +59,15 @@ namespace BikeProd
         {
             dgvList.DataSource = OrderList;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            popSaveOrder pop = new popSaveOrder();
+            if(pop.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("등록이 완료되었습니다.");
+                LoadData();
+            }
+        }
     }
 }

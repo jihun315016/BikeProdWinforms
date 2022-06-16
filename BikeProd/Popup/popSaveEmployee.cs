@@ -26,6 +26,24 @@ namespace BikeProd
             InitializeComponent();
         }
 
+        private void popEmployee_Load(object sender, EventArgs e)
+        {
+            txtEmail.isRequired = txtPhone.isRequired = txtEmail.isRequired = txtPhone.isNumeric = true;
+            DeptComboBinding();
+            DomainListBinding();
+        }
+
+
+
+        public bool IsValidEmail(string email)
+        {
+            bool valid = Regex.IsMatch(email, @"^([0-9a-zA-Z]+)(\.[0-9a-zA-Z]+){1,}$");
+            return valid;
+        }
+
+
+        
+
         /// <summary>
         /// Auther : 류경석
         /// 사원등록 버튼 클릭
@@ -47,6 +65,12 @@ namespace BikeProd
             }
             else if (cboDomain.SelectedIndex == 1)
             {
+                if (!IsValidEmail(txtDomain.Text))
+                {
+                    MessageBox.Show("이메일을 확인해주세요");
+                    return;
+                }
+
                 domain = txtDomain.Text;
             }
             else
@@ -70,7 +94,7 @@ namespace BikeProd
                 TeamList = employeeSrv.GetCodeByTeam(deptCode);
                 TeamCode = TeamList.Find((c) => c.TeamName == cboTeam.Text).TeamNo;
             }
-            
+                        
 
             EmployeeVO emp = new EmployeeVO
             {
@@ -97,13 +121,9 @@ namespace BikeProd
             }
                 
         }
+        
 
-        private void popEmployee_Load(object sender, EventArgs e)
-        {
-            txtEmail.isRequired = txtPhone.isRequired = txtEmail.isRequired = txtPhone.isNumeric = true;
-            DeptComboBinding();
-            DomainListBinding();
-        }
+        
         /// <summary>
         /// Auther :류경석
         /// 도메인 콤보박스 바인딩

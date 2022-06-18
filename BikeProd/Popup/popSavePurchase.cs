@@ -28,15 +28,27 @@ namespace BikeProd
         private void popSavePur_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
-            purchaseSrv = new PurchaseService();
-            commonList = purchaseSrv.getCategory();
             prodPartList = modelSrv.GetModelList();
-            commonList.Insert(0, new CommonCodeVO()
+            
+            var categoryes = (from model in prodPartList
+                    where model.Kind.Equals("부품")
+                    group model by model.Category);
+
+            List<CommonCodeVO> list = new List<CommonCodeVO>();            
+            foreach (var cate in categoryes)
             {
-                Category = "선택",
+                list.Add(new CommonCodeVO() { Code = cate.Key, Name = cate.Key, Category = "Category" });
+            }
+
+            list.Insert(0, new CommonCodeVO()
+            {
+                Category = "Category",
+                Code = String.Empty,
+                Name = "선택"
             });
-            ComboBoxUtil.SetComboBoxByList(cboCate, commonList, "Category", "Category");
-            cboCate.SelectedIndex = 0;
+
+            ComboBoxUtil.SetComboBoxByList<CommonCodeVO>(cboModel, list, "Name", "Code");
+            
             DataGirdView();
         }
 
@@ -50,32 +62,6 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty", colWidth: 60);
         }
 
-        private void cboCate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            modelSrv = new ModelService();
-            commonList = modelSrv.GetCategory();
-            if (cboCate.SelectedIndex == 0)
-            {
-                cboModel.DataSource = null;
-                cboModel.Items.Add("품목");
-                cboModel.SelectedIndex = 0;
-            }
-            else
-            {
-                List<CommonCodeVO> list;
-                if (cboCate.Text == "제품")
-                    list = commonList.FindAll(c => c.Category == "제품");
-                else
-                    list = commonList.FindAll(c => c.Category == "부품");
-
-                list.Insert(0, new CommonCodeVO()
-                {
-                    Name = "품목",
-                    Code = String.Empty
-                });
-                ComboBoxUtil.SetComboBoxByList<CommonCodeVO>(cboModel, list, "Name", "Code");
-            }
-        }
         private void chkNull_CheckedChanged(object sender, EventArgs e)
         {
             if (chkNull.Checked)
@@ -107,27 +93,19 @@ namespace BikeProd
 
         private void cboModel_SelectedIndexChanged(object sender, EventArgs e)
         {
+                /*cboName.DataSource = null;
+                cboName.Items.Add("부품명");
+                cboName.SelectedIndex = 0;*/
             
-            
-            if (cboCate.SelectedIndex == 0)
-            {
-                cboName.DataSource = null;
-                cboName.Items.Add("제품명");
-                cboName.SelectedIndex = 0;
-            }
-            else
-            {
                 List<ProdPartVO> list;
-                
+                list = modelSrv.GetModelList();
                 list = prodPartList.FindAll(c => c.Category == cboModel.Text);
                 list.Insert(0, new ProdPartVO()
                 {
-                    Name = "제품명",
+                    Name = "부품명",
                     Code = String.Empty
                 });
                 ComboBoxUtil.SetComboBoxByList<ProdPartVO>(cboName, list, "Name", "Code");
-            }
-
         }
         /// <summary>
         /// Auther : 류경석
@@ -165,9 +143,10 @@ namespace BikeProd
                 purchaseList.Add(newItem);
             }
 
+            cboModel.SelectedIndex = cboName.SelectedIndex = 0;
+            numQty.Value = 0;
 
             dgvList.DataSource = null;
-            //DataGirdView();
             dgvList.DataSource = purchaseList;
             dgvList.ClearSelection();
         }
@@ -217,9 +196,6 @@ namespace BikeProd
                 MessageBox.Show("등록 중 오류가 발생하였습니다.");
                 return;
             }
-
-
-
         }
         /// <summary>
         /// 류경석
@@ -235,18 +211,36 @@ namespace BikeProd
             txtBusinessID.Text = clientList.Find((c) => c.ClientName == txtBusiness.Text).BusinessNo.ToString();
 
         }
-
-   
-        
-
+        /// <summary>
+        /// Author : 류경석
+        /// 취소버튼 클릭 -> 팝업창 닫기
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void numQty_ValueChanged(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvList.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("삭제할 부품을 선택해 주세요");
+                return;
+            }
+            if (purchaseList == null)
+            {
+                purchaseList = new List<PurchaseListVO>();
+            }
 
+            string ptCode = dgvList.SelectedRows[0].Cells["PartCode"].Value.ToString();
+
+            PurchaseListVO itemList = purchaseList.Find((p) => p.PartCode == ptCode);
+            purchaseList.Remove(itemList);
+
+            dgvList.DataSource = null;
+            dgvList.DataSource = purchaseList;
+            dgvList.ClearSelection();
         }
     }
 }

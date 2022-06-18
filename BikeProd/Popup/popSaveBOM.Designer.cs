@@ -44,6 +44,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBomCancel = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBom)).BeginInit();
@@ -51,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.btnBomCancel);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnCancel);
@@ -72,13 +74,13 @@
             // 
             // dgvList
             // 
-            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(3, 44);
+            this.dgvList.Location = new System.Drawing.Point(3, 77);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(429, 365);
+            this.dgvList.Size = new System.Drawing.Size(429, 332);
             this.dgvList.TabIndex = 0;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             // 
@@ -86,7 +88,7 @@
             // 
             this.cboKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKind.FormattingEnabled = true;
-            this.cboKind.Location = new System.Drawing.Point(3, 15);
+            this.cboKind.Location = new System.Drawing.Point(3, 48);
             this.cboKind.Name = "cboKind";
             this.cboKind.Size = new System.Drawing.Size(94, 23);
             this.cboKind.TabIndex = 1;
@@ -96,7 +98,7 @@
             // 
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(103, 15);
+            this.cboCategory.Location = new System.Drawing.Point(103, 48);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(94, 23);
             this.cboCategory.TabIndex = 2;
@@ -105,7 +107,7 @@
             // 
             this.txtSearch.isNumeric = false;
             this.txtSearch.isRequired = false;
-            this.txtSearch.Location = new System.Drawing.Point(203, 15);
+            this.txtSearch.Location = new System.Drawing.Point(203, 48);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceHolder = "모델명 검색";
             this.txtSearch.Size = new System.Drawing.Size(87, 23);
@@ -113,7 +115,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(296, 15);
+            this.btnSearch.Location = new System.Drawing.Point(296, 48);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(65, 23);
             this.btnSearch.TabIndex = 4;
@@ -123,7 +125,7 @@
             // 
             // btnInit
             // 
-            this.btnInit.Location = new System.Drawing.Point(367, 15);
+            this.btnInit.Location = new System.Drawing.Point(367, 48);
             this.btnInit.Name = "btnInit";
             this.btnInit.Size = new System.Drawing.Size(65, 23);
             this.btnInit.TabIndex = 5;
@@ -133,13 +135,13 @@
             // 
             // dgvBom
             // 
-            this.dgvBom.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvBom.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvBom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBom.Location = new System.Drawing.Point(449, 102);
+            this.dgvBom.Location = new System.Drawing.Point(449, 78);
             this.dgvBom.Name = "dgvBom";
             this.dgvBom.RowTemplate.Height = 23;
-            this.dgvBom.Size = new System.Drawing.Size(490, 279);
+            this.dgvBom.Size = new System.Drawing.Size(490, 303);
             this.dgvBom.TabIndex = 6;
             this.dgvBom.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBom_CellDoubleClick);
             // 
@@ -147,7 +149,7 @@
             // 
             this.txtCode.isNumeric = false;
             this.txtCode.isRequired = false;
-            this.txtCode.Location = new System.Drawing.Point(449, 46);
+            this.txtCode.Location = new System.Drawing.Point(449, 20);
             this.txtCode.Name = "txtCode";
             this.txtCode.PlaceHolder = "모델명 검색";
             this.txtCode.ReadOnly = true;
@@ -158,7 +160,7 @@
             // 
             this.txtName.isNumeric = false;
             this.txtName.isRequired = false;
-            this.txtName.Location = new System.Drawing.Point(573, 46);
+            this.txtName.Location = new System.Drawing.Point(573, 20);
             this.txtName.Name = "txtName";
             this.txtName.PlaceHolder = "모델명 검색";
             this.txtName.ReadOnly = true;
@@ -169,7 +171,7 @@
             // 
             this.txtKind.isNumeric = false;
             this.txtKind.isRequired = false;
-            this.txtKind.Location = new System.Drawing.Point(449, 73);
+            this.txtKind.Location = new System.Drawing.Point(449, 47);
             this.txtKind.Name = "txtKind";
             this.txtKind.PlaceHolder = "모델명 검색";
             this.txtKind.ReadOnly = true;
@@ -180,7 +182,7 @@
             // 
             this.txtRequirement.isNumeric = true;
             this.txtRequirement.isRequired = true;
-            this.txtRequirement.Location = new System.Drawing.Point(711, 73);
+            this.txtRequirement.Location = new System.Drawing.Point(711, 47);
             this.txtRequirement.Name = "txtRequirement";
             this.txtRequirement.PlaceHolder = "수량";
             this.txtRequirement.Size = new System.Drawing.Size(83, 23);
@@ -188,7 +190,7 @@
             // 
             // btnAddBom
             // 
-            this.btnAddBom.Location = new System.Drawing.Point(800, 74);
+            this.btnAddBom.Location = new System.Drawing.Point(800, 48);
             this.btnAddBom.Name = "btnAddBom";
             this.btnAddBom.Size = new System.Drawing.Size(60, 22);
             this.btnAddBom.TabIndex = 11;
@@ -200,7 +202,7 @@
             // 
             this.txtCatagory.isNumeric = false;
             this.txtCatagory.isRequired = false;
-            this.txtCatagory.Location = new System.Drawing.Point(580, 73);
+            this.txtCatagory.Location = new System.Drawing.Point(580, 47);
             this.txtCatagory.Name = "txtCatagory";
             this.txtCatagory.PlaceHolder = "모델명 검색";
             this.txtCatagory.ReadOnly = true;
@@ -229,13 +231,23 @@
             // 
             // btnBomCancel
             // 
-            this.btnBomCancel.Location = new System.Drawing.Point(866, 74);
+            this.btnBomCancel.Location = new System.Drawing.Point(866, 48);
             this.btnBomCancel.Name = "btnBomCancel";
             this.btnBomCancel.Size = new System.Drawing.Size(73, 22);
             this.btnBomCancel.TabIndex = 15;
             this.btnBomCancel.Text = "등록 취소";
             this.btnBomCancel.UseVisualStyleBackColor = true;
             this.btnBomCancel.Click += new System.EventHandler(this.btnBomCancel_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.Location = new System.Drawing.Point(3, 3);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(429, 40);
+            this.lblTitle.TabIndex = 16;
+            this.lblTitle.Text = "lblTitle";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // popSaveBOM
             // 
@@ -275,5 +287,6 @@
         private System.Windows.Forms.Button btnBomCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

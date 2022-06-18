@@ -38,23 +38,23 @@
             this.txtEmpSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDeptAuth = new BikeProd.ccTextBox();
             this.btnMenuInsert = new System.Windows.Forms.Button();
             this.txtDeptName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNewTeam = new BikeProd.ccTextBox();
             this.cboDept = new System.Windows.Forms.ComboBox();
             this.btnTeamDelete = new System.Windows.Forms.Button();
             this.btnTeamInsert = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtNewDept = new BikeProd.ccTextBox();
             this.btnDeptDelete = new System.Windows.Forms.Button();
             this.btnDeptInsert = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDeptAuth = new BikeProd.ccTextBox();
-            this.txtNewDept = new BikeProd.ccTextBox();
-            this.txtNewTeam = new BikeProd.ccTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -187,7 +187,7 @@
             this.cboTeamselect.Size = new System.Drawing.Size(95, 28);
             this.cboTeamselect.TabIndex = 8;
             this.cboTeamselect.SelectedIndexChanged += new System.EventHandler(this.cboTeamselect_SelectedIndexChanged);
-            this.cboTeamselect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cboTeamselect_MouseClick);
+            //this.cboTeamselect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cboTeamselect_MouseClick);
             // 
             // txtEmpSearch
             // 
@@ -226,6 +226,19 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "부서별 접근 메뉴";
+            // 
+            // txtDeptAuth
+            // 
+            this.txtDeptAuth.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.txtDeptAuth.isNumeric = false;
+            this.txtDeptAuth.isRequired = false;
+            this.txtDeptAuth.Location = new System.Drawing.Point(131, 62);
+            this.txtDeptAuth.Multiline = true;
+            this.txtDeptAuth.Name = "txtDeptAuth";
+            this.txtDeptAuth.PlaceHolder = null;
+            this.txtDeptAuth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDeptAuth.Size = new System.Drawing.Size(159, 95);
+            this.txtDeptAuth.TabIndex = 5;
             // 
             // btnMenuInsert
             // 
@@ -283,6 +296,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "팀 등록";
             // 
+            // txtNewTeam
+            // 
+            this.txtNewTeam.isNumeric = false;
+            this.txtNewTeam.isRequired = false;
+            this.txtNewTeam.Location = new System.Drawing.Point(131, 57);
+            this.txtNewTeam.Name = "txtNewTeam";
+            this.txtNewTeam.PlaceHolder = "예) 생산 1팀";
+            this.txtNewTeam.Size = new System.Drawing.Size(159, 32);
+            this.txtNewTeam.TabIndex = 7;
+            this.txtNewTeam.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNewTeam_MouseClick);
+            // 
             // cboDept
             // 
             this.cboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -292,6 +316,7 @@
             this.cboDept.Name = "cboDept";
             this.cboDept.Size = new System.Drawing.Size(159, 29);
             this.cboDept.TabIndex = 14;
+            this.cboDept.SelectedIndexChanged += new System.EventHandler(this.cboDept_SelectedIndexChanged);
             // 
             // btnTeamDelete
             // 
@@ -349,6 +374,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "부서 등록";
             // 
+            // txtNewDept
+            // 
+            this.txtNewDept.isNumeric = false;
+            this.txtNewDept.isRequired = false;
+            this.txtNewDept.Location = new System.Drawing.Point(131, 57);
+            this.txtNewDept.Name = "txtNewDept";
+            this.txtNewDept.PlaceHolder = "예) 생산부서";
+            this.txtNewDept.Size = new System.Drawing.Size(159, 32);
+            this.txtNewDept.TabIndex = 7;
+            // 
             // btnDeptDelete
             // 
             this.btnDeptDelete.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -380,40 +415,6 @@
             this.label8.Size = new System.Drawing.Size(61, 23);
             this.label8.TabIndex = 8;
             this.label8.Text = "부서명";
-            // 
-            // txtDeptAuth
-            // 
-            this.txtDeptAuth.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtDeptAuth.isNumeric = false;
-            this.txtDeptAuth.isRequired = false;
-            this.txtDeptAuth.Location = new System.Drawing.Point(131, 62);
-            this.txtDeptAuth.Multiline = true;
-            this.txtDeptAuth.Name = "txtDeptAuth";
-            this.txtDeptAuth.PlaceHolder = null;
-            this.txtDeptAuth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDeptAuth.Size = new System.Drawing.Size(159, 95);
-            this.txtDeptAuth.TabIndex = 5;
-            // 
-            // txtNewDept
-            // 
-            this.txtNewDept.isNumeric = false;
-            this.txtNewDept.isRequired = false;
-            this.txtNewDept.Location = new System.Drawing.Point(131, 57);
-            this.txtNewDept.Name = "txtNewDept";
-            this.txtNewDept.PlaceHolder = "예) 생산부서";
-            this.txtNewDept.Size = new System.Drawing.Size(159, 32);
-            this.txtNewDept.TabIndex = 7;
-            // 
-            // txtNewTeam
-            // 
-            this.txtNewTeam.isNumeric = false;
-            this.txtNewTeam.isRequired = false;
-            this.txtNewTeam.Location = new System.Drawing.Point(131, 57);
-            this.txtNewTeam.Name = "txtNewTeam";
-            this.txtNewTeam.PlaceHolder = "예) 생산 1팀";
-            this.txtNewTeam.Size = new System.Drawing.Size(159, 32);
-            this.txtNewTeam.TabIndex = 7;
-            this.txtNewTeam.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNewTeam_MouseClick);
             // 
             // frmDepartment
             // 

@@ -24,10 +24,10 @@ namespace BikeProd
             txtEmpNo.isNumeric = true;            
             
             txtPwd.PlaceHolder = "비밀번호";            
-            txtPwd.SetPlaceHolder();           
-
+            txtPwd.SetPlaceHolder();
         }        
 
+        // 로그인 버튼
         private void btnLogin_Click(object sender, EventArgs e)
         {            
             string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtEmpNo, txtPwd });
@@ -49,10 +49,9 @@ namespace BikeProd
             {
                 MessageBox.Show("사원 정보를 확인해 주세요.");
             }
-        }
+        }      
 
-      
-
+        // 비밀번호 찾기
         private void lblFPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             popFindPwd pop = new popFindPwd();

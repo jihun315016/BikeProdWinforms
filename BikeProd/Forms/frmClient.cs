@@ -25,9 +25,7 @@ namespace BikeProd
         {
             cboType.Items.AddRange(new string[] { "구분", "입고", "출고" });
             cboType.SelectedIndex = 0;
-
-            //cboAddr.Items.Add("주소");
-            //cboAddr.SelectedIndex = 0;
+            
             AddressListBinding();
 
             txtSearch.PlaceHolder = "거래처명 검색";
@@ -77,21 +75,20 @@ namespace BikeProd
                 list = list.FindAll((p) => p.ClientName.ToLower().Contains(txtSearch.Text.ToLower())).ToList(); 
                 //list = list.FindAll((p) => p.ClientName.Contains(txtSearch.Text)).ToList();
 
-
             dgvList.DataSource = list;
         }        
 
-        // 돌았네 - 수정 예정
+        // - 수정 예정
         private void AddressListBinding()
         {
             cboAddr.Items.AddRange(new string[]
             {
                 "주소", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "제주", "경기도", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도"
             });
-
             cboAddr.SelectedIndex = 0;
         }
 
+        // 삭제 버튼
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvList.SelectedRows.Count < 1)
@@ -101,7 +98,6 @@ namespace BikeProd
             }
             
             string clientName = (dgvList.SelectedRows[0].Cells["ClientName"].Value).ToString();
-
             if (MessageBox.Show($"[{clientName}] : 거래처를 삭제 하시겠습니까?", "삭제확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {                
                 bool result = clientSrv.DeleteClient(clientName);
@@ -113,12 +109,13 @@ namespace BikeProd
                 }
                 else
                 {
-                    MessageBox.Show("삭제 중 오류가 발생했습니다.");
+                    MessageBox.Show("삭제 중 오류 발생.");
                     return;
                 }
             }            
         }
 
+        // 등록 버튼
         private void btnSave_Click(object sender, EventArgs e)
         {
             popSaveClient pop = new popSaveClient();
@@ -127,6 +124,6 @@ namespace BikeProd
                 clientList = clientSrv.GetClientList();
                 dgvList.DataSource = clientList;
             }
-        }
+        }       
     }
 }

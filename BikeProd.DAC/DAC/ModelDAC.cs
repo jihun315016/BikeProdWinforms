@@ -54,12 +54,12 @@ namespace BikeProd.DAC
         {
             string sql = @"SELECT ProdCode Code, ProdName Name, 
 	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind, 
-	                            Category, Price, Inventory, Dealing, Image
+	                            Category, Price, Inventory, -1 SfInvn, Dealing, Image
                             FROM TB_Products
                             UNION
                             SELECT 
 	                            PartCode Code, PartName Name, '부품' Kind, Category, 
-	                            Price, Inventory, Dealing, Image
+	                            Price, Inventory, SfInvn, Dealing, Image
                             FROM TB_Parts";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
@@ -163,6 +163,23 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 특정 제품에 대한 모품목과 자품목 조회
+        /// </summary>
+        /// <param name="code">BOM 조회할 기준이 되는 제품 코드</param>
+        /// <returns></returns>
+        public List<BomRelationVO> GetBomRelation(string code)
+        {
+            string sql = "SP_GetBomRelation";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return DBConverter.DataReaderToList<BomRelationVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// BOM 등록을 위해 부품과 반제품 정보를 가져온다.
         /// 만약 등록할 모델이 반제품이면 부품 정보만 가져오고,
         /// 완제품이라면 반제품과 부품 정보 모두 가져온다.
@@ -197,7 +214,7 @@ namespace BikeProd.DAC
         /// <param name="list">하위 항목 리스트</param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool SaveBom(string parentCode, List<BomDetailVO> list)
+        public bool SaveBom(string parentCode, List<BomRelationVO> list)
         {
             string sql = @"INSERT INTO TB_BOM
                             (ParentCode, ChildCode, Requirement)

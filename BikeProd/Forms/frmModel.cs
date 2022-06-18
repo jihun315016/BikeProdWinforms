@@ -56,7 +56,8 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래 여부", "Dealing", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 유무", "Image", isVisible: false);
-            dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "안전재고", "SfInvn", isVisible: false);
+            dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);            
         }
 
         /// <summary>
@@ -401,6 +402,18 @@ namespace BikeProd
                 txtClient.Text = pop.selectedClient.ClientName;
                 txtClient.Tag = pop.selectedClient.BusinessNo;
             }
+        }
+
+        private void dgvList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            string kind = dgvList.Rows[e.RowIndex].Cells["Kind"].Value.ToString();
+            int inventory = Convert.ToInt32(dgvList.Rows[e.RowIndex].Cells["Inventory"].Value);
+            int safeInventory = Convert.ToInt32(dgvList.Rows[e.RowIndex].Cells["SfInvn"].Value);
+                        
+            if (kind == "부품" && inventory < safeInventory)
+            {
+                e.CellStyle.ForeColor = Color.Red;
+            }           
         }
     }
 }

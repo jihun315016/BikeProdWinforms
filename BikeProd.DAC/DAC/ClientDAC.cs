@@ -44,7 +44,6 @@ namespace BikeProd.DAC
             return DBConverter.DataReaderToList<ClientVO>(reader);
         }
 
-
         public List<ClientVO> GetClientList()
         {
             List<ClientVO> list = new List<ClientVO>();
@@ -58,7 +57,6 @@ namespace BikeProd.DAC
             }
             return list;
         }
-
 
         public bool SaveClient(ClientVO client)
         {            

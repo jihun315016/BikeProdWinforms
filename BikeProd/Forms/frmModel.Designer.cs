@@ -124,6 +124,7 @@
             this.dgvList.Size = new System.Drawing.Size(744, 438);
             this.dgvList.TabIndex = 2;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
+            this.dgvList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvList_CellFormatting);
             // 
             // cboKind
             // 

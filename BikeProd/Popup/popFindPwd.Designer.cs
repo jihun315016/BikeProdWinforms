@@ -143,7 +143,7 @@ namespace BikeProd
             this.txtDomain.PlaceHolder = null;
             this.txtDomain.Size = new System.Drawing.Size(121, 23);
             this.txtDomain.TabIndex = 6;
-            this.txtDomain.Tag = "도메인";
+            this.txtDomain.Tag = "메일주소";
             this.txtDomain.Leave += new System.EventHandler(this.txtDomain_Leave);
             // 
             // cboDomain

@@ -16,24 +16,26 @@ namespace BikeProd
         ModelService modelSrv;
         List<ProdPartVO> modelList;
         List<CommonCodeVO> categoryList;
-        List<BomDetailVO> bomList;
+        List<BomRelationVO> bomList;
 
         string code;
         string kind;
+        string copyCode;
 
-        public popSaveBOM(string code, string kind)
+        public popSaveBOM(string code, string name, string kind, string copyCode = "")
         {
             InitializeComponent();
 
             this.code = code;
-            this.kind = kind;            
+            lblTitle.Text = name;
+            this.kind = kind;
+            this.copyCode = copyCode;
         }
 
         private void popSaveBOM_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
-            categoryList = modelSrv.GetCategory();
-            bomList = new List<BomDetailVO>();
+            bomList = new List<BomRelationVO>();
             InitControl();
         }
 
@@ -44,7 +46,7 @@ namespace BikeProd
                 cboKind.Items.AddRange(new string[] { "분류", "반제품", "부품" });
                 modelList = modelSrv.GetPartAndSemiProd(true);
             }
-            else // 부품
+            else // 반제품
             {
                 cboKind.Items.AddRange(new string[] { "분류", "부품" });
                 modelList = modelSrv.GetPartAndSemiProd(false);
@@ -75,6 +77,12 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "품목", "Category");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "수량", "Requirement", colWidth: 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvBom, "코드", "Code", isVisible: false);
+
+            if (!string.IsNullOrWhiteSpace(copyCode))
+            {
+                bomList = modelSrv.GetBomRelation(copyCode).FindAll(b => b.Relation == "정전개");
+                dgvBom.DataSource = bomList;
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -172,7 +180,7 @@ namespace BikeProd
             {
                 bomList.Add
                     (
-                        new BomDetailVO()
+                        new BomRelationVO()
                         {
                             Code = txtCode.Text,
                             Name = txtName.Text,
@@ -185,7 +193,7 @@ namespace BikeProd
             // 이미 등록한 항목을 다시 등록하는 경우
             else
             {
-                BomDetailVO item = bomList.Find(b => b.Code == txtCode.Text);
+                BomRelationVO item = bomList.Find(b => b.Code == txtCode.Text);
                 item.Requirement = item.Requirement + Convert.ToInt32(txtRequirement.Text);
             }
 
@@ -195,7 +203,7 @@ namespace BikeProd
 
         private void btnBomCancel_Click(object sender, EventArgs e)
         {
-            BomDetailVO item = bomList.Find(b => b.Code == txtCode.Text);
+            BomRelationVO item = bomList.Find(b => b.Code == txtCode.Text);
             bomList.Remove(item);
             dgvBom.DataSource = null;
             dgvBom.DataSource = bomList;

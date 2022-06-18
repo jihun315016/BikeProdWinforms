@@ -185,6 +185,7 @@ namespace BikeProd
             this.txtDomain.Size = new System.Drawing.Size(121, 23);
             this.txtDomain.TabIndex = 46;
             this.txtDomain.Tag = "도메인";
+            this.txtDomain.Leave += new System.EventHandler(this.txtDomain_Leave);
             // 
             // cboDomain
             // 
@@ -194,6 +195,7 @@ namespace BikeProd
             this.cboDomain.Name = "cboDomain";
             this.cboDomain.Size = new System.Drawing.Size(121, 23);
             this.cboDomain.TabIndex = 8;
+            this.cboDomain.SelectedIndexChanged += new System.EventHandler(this.cboDomain_SelectedIndexChanged);
             // 
             // txtEmail
             // 
@@ -205,6 +207,7 @@ namespace BikeProd
             this.txtEmail.Size = new System.Drawing.Size(100, 23);
             this.txtEmail.TabIndex = 7;
             this.txtEmail.Tag = "이메일";
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label5
             // 

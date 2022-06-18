@@ -62,6 +62,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnReset = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -85,7 +86,7 @@
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtSearch.isNumeric = false;
             this.txtSearch.isRequired = false;
-            this.txtSearch.Location = new System.Drawing.Point(164, 50);
+            this.txtSearch.Location = new System.Drawing.Point(164, 147);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceHolder = null;
             this.txtSearch.Size = new System.Drawing.Size(220, 23);
@@ -99,12 +100,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(136, 90);
+            this.dgvList.Location = new System.Drawing.Point(103, 176);
             this.dgvList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 27;
-            this.dgvList.Size = new System.Drawing.Size(437, 458);
+            this.dgvList.Size = new System.Drawing.Size(449, 371);
             this.dgvList.TabIndex = 23;
             this.dgvList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvList_CellFormatting_1);
             this.dgvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseDoubleClick);
@@ -114,7 +115,7 @@
             this.cboStateFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboStateFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStateFilter.FormattingEnabled = true;
-            this.cboStateFilter.Location = new System.Drawing.Point(389, 17);
+            this.cboStateFilter.Location = new System.Drawing.Point(389, 114);
             this.cboStateFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cboStateFilter.Name = "cboStateFilter";
             this.cboStateFilter.Size = new System.Drawing.Size(89, 23);
@@ -124,7 +125,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSearch.Location = new System.Drawing.Point(388, 50);
+            this.btnSearch.Location = new System.Drawing.Point(388, 147);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(58, 25);
@@ -137,7 +138,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(102, 53);
+            this.label2.Location = new System.Drawing.Point(102, 150);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 15);
@@ -147,7 +148,7 @@
             // btnWarehouse
             // 
             this.btnWarehouse.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnWarehouse.Location = new System.Drawing.Point(188, 569);
+            this.btnWarehouse.Location = new System.Drawing.Point(186, 569);
             this.btnWarehouse.Margin = new System.Windows.Forms.Padding(2);
             this.btnWarehouse.Name = "btnWarehouse";
             this.btnWarehouse.Size = new System.Drawing.Size(111, 46);
@@ -160,7 +161,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 22);
+            this.label1.Location = new System.Drawing.Point(102, 119);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 15);
@@ -170,7 +171,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(308, 569);
+            this.btnCancel.Location = new System.Drawing.Point(306, 569);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 46);
@@ -183,7 +184,7 @@
             // 
             this.dtpTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(287, 19);
+            this.dtpTo.Location = new System.Drawing.Point(287, 116);
             this.dtpTo.Margin = new System.Windows.Forms.Padding(2);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(97, 23);
@@ -193,7 +194,7 @@
             // 
             this.dtpFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(163, 19);
+            this.dtpFrom.Location = new System.Drawing.Point(164, 116);
             this.dtpFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(97, 23);
@@ -204,7 +205,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(266, 20);
+            this.label3.Location = new System.Drawing.Point(266, 117);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(15, 15);
@@ -216,7 +217,7 @@
             this.txtAliveDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtAliveDate.isNumeric = false;
             this.txtAliveDate.isRequired = false;
-            this.txtAliveDate.Location = new System.Drawing.Point(100, 153);
+            this.txtAliveDate.Location = new System.Drawing.Point(101, 153);
             this.txtAliveDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtAliveDate.Name = "txtAliveDate";
             this.txtAliveDate.PlaceHolder = null;
@@ -228,7 +229,7 @@
             this.txtPurDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPurDate.isNumeric = false;
             this.txtPurDate.isRequired = false;
-            this.txtPurDate.Location = new System.Drawing.Point(100, 122);
+            this.txtPurDate.Location = new System.Drawing.Point(101, 122);
             this.txtPurDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtPurDate.Name = "txtPurDate";
             this.txtPurDate.PlaceHolder = null;
@@ -240,7 +241,7 @@
             this.txtState.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtState.isNumeric = false;
             this.txtState.isRequired = false;
-            this.txtState.Location = new System.Drawing.Point(410, 90);
+            this.txtState.Location = new System.Drawing.Point(360, 72);
             this.txtState.Margin = new System.Windows.Forms.Padding(2);
             this.txtState.Name = "txtState";
             this.txtState.PlaceHolder = "상태";
@@ -250,7 +251,7 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdd.Location = new System.Drawing.Point(214, 562);
+            this.btnAdd.Location = new System.Drawing.Point(243, 562);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 61);
@@ -264,7 +265,7 @@
             this.txtClient.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtClient.isNumeric = false;
             this.txtClient.isRequired = false;
-            this.txtClient.Location = new System.Drawing.Point(333, 23);
+            this.txtClient.Location = new System.Drawing.Point(334, 23);
             this.txtClient.Margin = new System.Windows.Forms.Padding(2);
             this.txtClient.Name = "txtClient";
             this.txtClient.PlaceHolder = null;
@@ -276,7 +277,7 @@
             this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtAddress.isNumeric = false;
             this.txtAddress.isRequired = false;
-            this.txtAddress.Location = new System.Drawing.Point(101, 188);
+            this.txtAddress.Location = new System.Drawing.Point(102, 188);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
@@ -289,7 +290,7 @@
             this.txtManager.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtManager.isNumeric = false;
             this.txtManager.isRequired = false;
-            this.txtManager.Location = new System.Drawing.Point(347, 122);
+            this.txtManager.Location = new System.Drawing.Point(348, 122);
             this.txtManager.Margin = new System.Windows.Forms.Padding(2);
             this.txtManager.Name = "txtManager";
             this.txtManager.PlaceHolder = null;
@@ -301,7 +302,7 @@
             this.txtSubManager.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtSubManager.isNumeric = false;
             this.txtSubManager.isRequired = false;
-            this.txtSubManager.Location = new System.Drawing.Point(347, 152);
+            this.txtSubManager.Location = new System.Drawing.Point(348, 152);
             this.txtSubManager.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubManager.Name = "txtSubManager";
             this.txtSubManager.PlaceHolder = null;
@@ -313,11 +314,11 @@
             this.txtPurName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPurName.isNumeric = false;
             this.txtPurName.isRequired = false;
-            this.txtPurName.Location = new System.Drawing.Point(100, 89);
+            this.txtPurName.Location = new System.Drawing.Point(101, 89);
             this.txtPurName.Margin = new System.Windows.Forms.Padding(2);
             this.txtPurName.Name = "txtPurName";
             this.txtPurName.PlaceHolder = null;
-            this.txtPurName.Size = new System.Drawing.Size(264, 23);
+            this.txtPurName.Size = new System.Drawing.Size(195, 23);
             this.txtPurName.TabIndex = 38;
             // 
             // txtBusinessNo
@@ -325,11 +326,11 @@
             this.txtBusinessNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtBusinessNo.isNumeric = false;
             this.txtBusinessNo.isRequired = false;
-            this.txtBusinessNo.Location = new System.Drawing.Point(100, 59);
+            this.txtBusinessNo.Location = new System.Drawing.Point(101, 59);
             this.txtBusinessNo.Margin = new System.Windows.Forms.Padding(2);
             this.txtBusinessNo.Name = "txtBusinessNo";
             this.txtBusinessNo.PlaceHolder = null;
-            this.txtBusinessNo.Size = new System.Drawing.Size(264, 23);
+            this.txtBusinessNo.Size = new System.Drawing.Size(195, 23);
             this.txtBusinessNo.TabIndex = 44;
             // 
             // txtPurNo
@@ -337,7 +338,7 @@
             this.txtPurNo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPurNo.isNumeric = false;
             this.txtPurNo.isRequired = false;
-            this.txtPurNo.Location = new System.Drawing.Point(100, 26);
+            this.txtPurNo.Location = new System.Drawing.Point(101, 26);
             this.txtPurNo.Margin = new System.Windows.Forms.Padding(2);
             this.txtPurNo.Name = "txtPurNo";
             this.txtPurNo.PlaceHolder = null;
@@ -349,20 +350,21 @@
             this.dgvList2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvList2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvList2.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList2.Location = new System.Drawing.Point(100, 251);
+            this.dgvList2.Location = new System.Drawing.Point(156, 251);
             this.dgvList2.Name = "dgvList2";
             this.dgvList2.RowHeadersWidth = 51;
             this.dgvList2.RowTemplate.Height = 23;
-            this.dgvList2.Size = new System.Drawing.Size(475, 281);
+            this.dgvList2.Size = new System.Drawing.Size(261, 281);
             this.dgvList2.TabIndex = 36;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(56, 192);
+            this.label9.Location = new System.Drawing.Point(57, 192);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 15);
@@ -384,7 +386,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 156);
+            this.label8.Location = new System.Drawing.Point(17, 156);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 15);
@@ -406,7 +408,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 125);
+            this.label7.Location = new System.Drawing.Point(17, 125);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 15);
@@ -417,7 +419,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 92);
+            this.label6.Location = new System.Drawing.Point(17, 92);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 15);
@@ -428,7 +430,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 59);
+            this.label5.Location = new System.Drawing.Point(17, 59);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 15);
@@ -450,7 +452,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 26);
+            this.label4.Location = new System.Drawing.Point(17, 26);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 15);
@@ -466,6 +468,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label13);
             this.splitContainer1.Panel1.Controls.Add(this.btnReset);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
             this.splitContainer1.Panel1.Controls.Add(this.btnCancel);
@@ -503,14 +506,14 @@
             this.splitContainer1.Panel2.Controls.Add(this.txtPurNo);
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Size = new System.Drawing.Size(1301, 635);
-            this.splitContainer1.SplitterDistance = 615;
+            this.splitContainer1.SplitterDistance = 613;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 48;
             // 
             // btnReset
             // 
             this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnReset.Location = new System.Drawing.Point(451, 51);
+            this.btnReset.Location = new System.Drawing.Point(451, 148);
             this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(58, 23);
@@ -518,6 +521,18 @@
             this.btnReset.Text = "초기화";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label13.Font = new System.Drawing.Font("휴먼둥근헤드라인", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Location = new System.Drawing.Point(93, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(485, 59);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "발주";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmPurchase
             // 
@@ -581,5 +596,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -49,7 +49,7 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "PartCode", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "Name", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 80);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 60);
 
             LoadData();
             StateList = purchaseSrv.GetStateCommon();
@@ -179,17 +179,40 @@ namespace BikeProd
         private void btnSearch_Click(object sender, EventArgs e)
         {
             purchaseList = purchaseSrv.GetPurchase();
-            var list = purchaseList.FindAll((p) => p.ClientName == txtSearch.Text).ToList();
+            
+            if (cboStateFilter.SelectedIndex != 0)
+                purchaseList = purchaseList.FindAll((s) => s.StateName == cboStateFilter.Text &&
+            s.PurchaseDate >= dtpFrom.Value && s.PurchaseDate <= dtpTo.Value);
 
-            dgvList.DataSource = list;
+            if (!string.IsNullOrWhiteSpace(txtSearch.Text))
+                purchaseList = purchaseList.FindAll((n) => n.ClientName == txtSearch.Text &&
+            n.PurchaseDate >= dtpFrom.Value && n.PurchaseDate <= dtpTo.Value);
+
+                //purchaseList = purchaseList.FindAll((p) => p.ClientName == txtSearch.Text).ToList();
+
+            dgvList.DataSource = purchaseList;
+            cboStateFilter.SelectedIndex = 0;
+            txtSearch.Text = string.Empty;
         }
         private void cboStateFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            purchaseList = purchaseSrv.GetPurchase();
-            var list = purchaseList.FindAll((p) => p.StateName == cboStateFilter.Text &&
+            /*purchaseList = purchaseSrv.GetPurchase();
+            if(cboStateFilter.SelectedIndex == 0)
+            {
+                dgvList.DataSource = purchaseList;
+            }
+
+
+            if(cboStateFilter.SelectedIndex != 0)
+            {
+                purchaseList = purchaseList.FindAll((p) => p.StateName == cboStateFilter.Text &&
             p.PurchaseDate >= dtpFrom.Value && p.ArriveDate <= dtpTo.Value).ToList();
 
-            dgvList.DataSource = list;
+                txtSearch.Text = string.Empty;
+
+                dgvList.DataSource = purchaseList;
+            }
+            */
         }
         /// <summary>
         /// Author :류경석
@@ -312,7 +335,7 @@ namespace BikeProd
             }
         }
 
-        
+
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {

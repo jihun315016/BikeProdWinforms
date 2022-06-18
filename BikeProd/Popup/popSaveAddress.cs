@@ -29,7 +29,7 @@ namespace BikeProd
             DataGridViewUtil.SetInitGridView(dgvList);
 
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "우편번호", "zipNo", colWidth: 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도로명주소", "roadAddr", colWidth: 390);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도로명주소", "roadAddr", colWidth: 380);
 
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "지번주소", "jibunAddr", colWidth: 150, isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소1", "roadAddrPart1", colWidth: 150, isVisible: false);
@@ -38,6 +38,7 @@ namespace BikeProd
 
         }
 
+        // 검색 버튼
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string apiKey = ConfigurationManager.AppSettings["zipAPIKey"];            
@@ -76,6 +77,7 @@ namespace BikeProd
             }
         }
 
+        // 그리드뷰 더블클릭
         private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -93,6 +95,7 @@ namespace BikeProd
                 txtAddr2.Text = addr2 + bdNm;            
         }
 
+        // 주소 등록 버튼
         private void btanSave_Click(object sender, EventArgs e)
         {
             AddrCode = txtAddrCode.Text;

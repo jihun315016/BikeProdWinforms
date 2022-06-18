@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BomDetail.cs" />
+    <Compile Include="BomRelationVO.cs" />
     <Compile Include="ClientVO.cs" />
     <Compile Include="CommonCodeVO.cs" />
     <Compile Include="DepartmentVO.cs" />

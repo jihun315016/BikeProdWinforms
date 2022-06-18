@@ -112,13 +112,12 @@ namespace BikeProd.DAC
             cmd.Parameters.AddWithValue("@EmpNo", empNo);
             cmd.Parameters.AddWithValue("@Pwd", newPwd);
 
-            int iRow;
-
+            int iRowAffect;
             try
             {
-                iRow = cmd.ExecuteNonQuery();
+                iRowAffect = cmd.ExecuteNonQuery();
 
-                if (iRow > 0)
+                if (iRowAffect > 0)
                     return true;
                 else
                     return false;

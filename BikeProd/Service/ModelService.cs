@@ -76,6 +76,20 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
+        /// 특정 제품에 대한 정전개와 역전개 조회 후 폼에 전달한다.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public List<BomRelationVO> GetBomRelation(string code)
+        {
+            ModelDAC dac = new ModelDAC();
+            List<BomRelationVO> list = dac.GetBomRelation(code);
+            dac.Dispose();
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// BOM 등록을 위해 부품과 반제품 정보 또는 부품 정보만 조회하여 폼에 전달한다.
         /// </summary>
         /// <param name="isGetSemiProd">반제품 정보도 조회할지 여부</param>
@@ -95,7 +109,7 @@ namespace BikeProd
         /// <param name="parentCode">BOM 등록될 상위 항목</param>
         /// <param name="list">하위 항목 리스트</param>
         /// <returns></returns>
-        public bool SaveBom(string parentCode, List<BomDetailVO> list)
+        public bool SaveBom(string parentCode, List<BomRelationVO> list)
         {
             ModelDAC dac = new ModelDAC();
             bool result = dac.SaveBom(parentCode, list);

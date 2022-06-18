@@ -157,7 +157,7 @@ namespace BikeProd
             Boolean ismatch = IsMatch(@"^[a-z]+\.[a-z]{1,50}$", txtDomain.Text);
             if (!ismatch)
             {
-                lblMessage2.Text = "도메인 : 형식에 맞춰 영문자만 입력해 주세요.";
+                lblMessage2.Text = "메일주소 : 형식에 맞춰 영문자만 입력해 주세요.";
                 lblMessage2.ForeColor = Color.Red;
                 txtDomain.Clear();               
             }

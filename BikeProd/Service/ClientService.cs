@@ -38,7 +38,6 @@ namespace BikeProd
             ClientDAC dac = new ClientDAC();
             bool result = dac.SaveClient(client);
             dac.Dispose();
-
             return result;
         }
 
@@ -47,7 +46,6 @@ namespace BikeProd
             ClientDAC dac = new ClientDAC();
             bool result = dac.DeleteClient(clientName);
             dac.Dispose();
-
             return result;
         }
     }

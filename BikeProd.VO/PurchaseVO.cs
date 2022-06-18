@@ -20,5 +20,8 @@ namespace BikeProd.VO
 
         public String ClientName { get; set; }
         public String StateName { get; set; }
+        public string ClientManager { get; set; }
+        public int Price { get; set; }
+        public int Qty { get; set; }
     }
 }

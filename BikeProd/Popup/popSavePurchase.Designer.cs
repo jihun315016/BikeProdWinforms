@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboCate = new System.Windows.Forms.ComboBox();
             this.cboModel = new System.Windows.Forms.ComboBox();
             this.cboName = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -52,6 +51,8 @@
             this.numQty = new System.Windows.Forms.NumericUpDown();
             this.dtpPurDate = new System.Windows.Forms.DateTimePicker();
             this.dtpAliveDate = new System.Windows.Forms.DateTimePicker();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -76,13 +77,14 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(65, 36);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Size = new System.Drawing.Size(607, 178);
+            this.panel1.Size = new System.Drawing.Size(550, 150);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 58);
+            this.label5.Location = new System.Drawing.Point(23, 46);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 15);
@@ -92,7 +94,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(336, 26);
+            this.label10.Location = new System.Drawing.Point(292, 15);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 15);
@@ -101,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 26);
+            this.label4.Location = new System.Drawing.Point(23, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 15);
@@ -111,7 +113,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(324, 58);
+            this.label1.Location = new System.Drawing.Point(280, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 15);
@@ -121,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 94);
+            this.label2.Location = new System.Drawing.Point(23, 82);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 15);
@@ -131,7 +133,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(324, 94);
+            this.label3.Location = new System.Drawing.Point(280, 82);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 15);
@@ -141,7 +143,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 130);
+            this.label6.Location = new System.Drawing.Point(23, 118);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 15);
@@ -151,28 +153,18 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(324, 130);
+            this.label7.Location = new System.Drawing.Point(280, 118);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 15);
             this.label7.TabIndex = 17;
             this.label7.Text = "입고 예정일";
             // 
-            // cboCate
-            // 
-            this.cboCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCate.FormattingEnabled = true;
-            this.cboCate.Location = new System.Drawing.Point(136, 202);
-            this.cboCate.Name = "cboCate";
-            this.cboCate.Size = new System.Drawing.Size(62, 23);
-            this.cboCate.TabIndex = 8;
-            this.cboCate.SelectedIndexChanged += new System.EventHandler(this.cboCate_SelectedIndexChanged);
-            // 
             // cboModel
             // 
             this.cboModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboModel.FormattingEnabled = true;
-            this.cboModel.Location = new System.Drawing.Point(204, 202);
+            this.cboModel.Location = new System.Drawing.Point(130, 192);
             this.cboModel.Name = "cboModel";
             this.cboModel.Size = new System.Drawing.Size(91, 23);
             this.cboModel.TabIndex = 9;
@@ -182,14 +174,14 @@
             // 
             this.cboName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboName.FormattingEnabled = true;
-            this.cboName.Location = new System.Drawing.Point(301, 201);
+            this.cboName.Location = new System.Drawing.Point(227, 191);
             this.cboName.Name = "cboName";
             this.cboName.Size = new System.Drawing.Size(186, 23);
             this.cboName.TabIndex = 10;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(539, 201);
+            this.btnAdd.Location = new System.Drawing.Point(488, 189);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(60, 23);
             this.btnAdd.TabIndex = 12;
@@ -203,11 +195,11 @@
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(136, 230);
+            this.dgvList.Location = new System.Drawing.Point(65, 230);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(420, 229);
+            this.dgvList.Size = new System.Drawing.Size(549, 229);
             this.dgvList.TabIndex = 29;
             // 
             // btnSave
@@ -234,7 +226,7 @@
             // 
             this.txtPurName.isNumeric = false;
             this.txtPurName.isRequired = false;
-            this.txtPurName.Location = new System.Drawing.Point(156, 24);
+            this.txtPurName.Location = new System.Drawing.Point(112, 13);
             this.txtPurName.Margin = new System.Windows.Forms.Padding(2);
             this.txtPurName.Name = "txtPurName";
             this.txtPurName.PlaceHolder = null;
@@ -246,7 +238,7 @@
             // 
             this.txtBusiness.isNumeric = false;
             this.txtBusiness.isRequired = false;
-            this.txtBusiness.Location = new System.Drawing.Point(156, 58);
+            this.txtBusiness.Location = new System.Drawing.Point(112, 46);
             this.txtBusiness.Margin = new System.Windows.Forms.Padding(2);
             this.txtBusiness.Name = "txtBusiness";
             this.txtBusiness.PlaceHolder = null;
@@ -260,7 +252,7 @@
             // 
             this.txtManager.isNumeric = false;
             this.txtManager.isRequired = false;
-            this.txtManager.Location = new System.Drawing.Point(405, 91);
+            this.txtManager.Location = new System.Drawing.Point(361, 80);
             this.txtManager.Margin = new System.Windows.Forms.Padding(2);
             this.txtManager.Name = "txtManager";
             this.txtManager.PlaceHolder = null;
@@ -272,7 +264,7 @@
             // 
             this.txtBusinessID.isNumeric = false;
             this.txtBusinessID.isRequired = false;
-            this.txtBusinessID.Location = new System.Drawing.Point(405, 58);
+            this.txtBusinessID.Location = new System.Drawing.Point(361, 46);
             this.txtBusinessID.Margin = new System.Windows.Forms.Padding(2);
             this.txtBusinessID.Name = "txtBusinessID";
             this.txtBusinessID.PlaceHolder = null;
@@ -284,7 +276,7 @@
             // 
             this.txtSubManager.isNumeric = false;
             this.txtSubManager.isRequired = false;
-            this.txtSubManager.Location = new System.Drawing.Point(156, 91);
+            this.txtSubManager.Location = new System.Drawing.Point(112, 80);
             this.txtSubManager.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubManager.Name = "txtSubManager";
             this.txtSubManager.PlaceHolder = null;
@@ -295,7 +287,7 @@
             // chkNull
             // 
             this.chkNull.AutoSize = true;
-            this.chkNull.Location = new System.Drawing.Point(532, 128);
+            this.chkNull.Location = new System.Drawing.Point(488, 117);
             this.chkNull.Margin = new System.Windows.Forms.Padding(2);
             this.chkNull.Name = "chkNull";
             this.chkNull.Size = new System.Drawing.Size(50, 19);
@@ -306,17 +298,16 @@
             // 
             // numQty
             // 
-            this.numQty.Location = new System.Drawing.Point(492, 202);
+            this.numQty.Location = new System.Drawing.Point(418, 192);
             this.numQty.Margin = new System.Windows.Forms.Padding(2);
             this.numQty.Name = "numQty";
             this.numQty.Size = new System.Drawing.Size(40, 23);
             this.numQty.TabIndex = 11;
-            this.numQty.ValueChanged += new System.EventHandler(this.numQty_ValueChanged);
             // 
             // dtpPurDate
             // 
             this.dtpPurDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPurDate.Location = new System.Drawing.Point(156, 128);
+            this.dtpPurDate.Location = new System.Drawing.Point(112, 117);
             this.dtpPurDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpPurDate.Name = "dtpPurDate";
             this.dtpPurDate.Size = new System.Drawing.Size(121, 23);
@@ -325,11 +316,31 @@
             // dtpAliveDate
             // 
             this.dtpAliveDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAliveDate.Location = new System.Drawing.Point(405, 126);
+            this.dtpAliveDate.Location = new System.Drawing.Point(361, 115);
             this.dtpAliveDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpAliveDate.Name = "dtpAliveDate";
             this.dtpAliveDate.Size = new System.Drawing.Size(121, 23);
             this.dtpAliveDate.TabIndex = 6;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(554, 189);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(60, 23);
+            this.btnDelete.TabIndex = 12;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(78, 197);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 15);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "부품";
             // 
             // popSavePur
             // 
@@ -340,21 +351,23 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvList);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cboName);
             this.Controls.Add(this.cboModel);
-            this.Controls.Add(this.cboCate);
+            this.Controls.Add(this.label8);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "popSavePur";
             this.Text = "발주등록";
             this.Load += new System.EventHandler(this.popSavePur_Load);
             this.Controls.SetChildIndex(this.DescriptLabel2, 0);
             this.Controls.SetChildIndex(this.DescriptLabel1, 0);
+            this.Controls.SetChildIndex(this.label8, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.cboCate, 0);
             this.Controls.SetChildIndex(this.cboModel, 0);
             this.Controls.SetChildIndex(this.cboName, 0);
             this.Controls.SetChildIndex(this.btnAdd, 0);
+            this.Controls.SetChildIndex(this.btnDelete, 0);
             this.Controls.SetChildIndex(this.dgvList, 0);
             this.Controls.SetChildIndex(this.btnSave, 0);
             this.Controls.SetChildIndex(this.btnCancel, 0);
@@ -377,7 +390,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cboCate;
         private System.Windows.Forms.ComboBox cboModel;
         private System.Windows.Forms.ComboBox cboName;
         private System.Windows.Forms.Button btnAdd;
@@ -393,5 +405,7 @@
         private System.Windows.Forms.NumericUpDown numQty;
         private System.Windows.Forms.DateTimePicker dtpAliveDate;
         private System.Windows.Forms.DateTimePicker dtpPurDate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label label8;
     }
 }

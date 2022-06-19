@@ -38,12 +38,14 @@ namespace BikeProd
             this.txtAddr2 = new BikeProd.ccTextBox();
             this.txtAddr1 = new BikeProd.ccTextBox();
             this.txtAddrCode = new BikeProd.ccTextBox();
+            this.txtAddrDetail = new BikeProd.ccTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtAddrDetail);
             this.panel1.Controls.Add(this.txtAddr2);
             this.panel1.Controls.Add(this.txtAddr1);
             this.panel1.Controls.Add(this.txtAddrCode);
@@ -119,31 +121,41 @@ namespace BikeProd
             // 
             this.txtAddr2.isNumeric = false;
             this.txtAddr2.isRequired = false;
-            this.txtAddr2.Location = new System.Drawing.Point(125, 389);
+            this.txtAddr2.Location = new System.Drawing.Point(109, 394);
             this.txtAddr2.Name = "txtAddr2";
             this.txtAddr2.PlaceHolder = null;
-            this.txtAddr2.Size = new System.Drawing.Size(336, 23);
+            this.txtAddr2.Size = new System.Drawing.Size(242, 23);
             this.txtAddr2.TabIndex = 60;
             // 
             // txtAddr1
             // 
             this.txtAddr1.isNumeric = false;
             this.txtAddr1.isRequired = false;
-            this.txtAddr1.Location = new System.Drawing.Point(125, 360);
+            this.txtAddr1.Location = new System.Drawing.Point(109, 365);
             this.txtAddr1.Name = "txtAddr1";
             this.txtAddr1.PlaceHolder = null;
-            this.txtAddr1.Size = new System.Drawing.Size(242, 23);
+            this.txtAddr1.Size = new System.Drawing.Size(272, 23);
             this.txtAddr1.TabIndex = 59;
             // 
             // txtAddrCode
             // 
             this.txtAddrCode.isNumeric = false;
             this.txtAddrCode.isRequired = false;
-            this.txtAddrCode.Location = new System.Drawing.Point(371, 360);
+            this.txtAddrCode.Location = new System.Drawing.Point(387, 365);
             this.txtAddrCode.Name = "txtAddrCode";
             this.txtAddrCode.PlaceHolder = null;
-            this.txtAddrCode.Size = new System.Drawing.Size(88, 23);
+            this.txtAddrCode.Size = new System.Drawing.Size(72, 23);
             this.txtAddrCode.TabIndex = 58;
+            // 
+            // txtAddrDetail
+            // 
+            this.txtAddrDetail.isNumeric = false;
+            this.txtAddrDetail.isRequired = false;
+            this.txtAddrDetail.Location = new System.Drawing.Point(357, 394);
+            this.txtAddrDetail.Name = "txtAddrDetail";
+            this.txtAddrDetail.PlaceHolder = null;
+            this.txtAddrDetail.Size = new System.Drawing.Size(102, 23);
+            this.txtAddrDetail.TabIndex = 61;
             // 
             // popSaveAddress
             // 
@@ -172,5 +184,6 @@ namespace BikeProd
         private ccTextBox txtAddr2;
         private ccTextBox txtAddr1;
         private ccTextBox txtAddrCode;
+        private ccTextBox txtAddrDetail;
     }
 }

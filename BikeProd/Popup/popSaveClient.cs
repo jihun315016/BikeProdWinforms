@@ -15,6 +15,7 @@ namespace BikeProd
     public partial class popSaveClient : bPopCommon
     {
         ClientService clientSrv = new ClientService();
+        
         public popSaveClient()
         {
             InitializeComponent();
@@ -22,12 +23,15 @@ namespace BikeProd
         private void popSaveClient_Load(object sender, EventArgs e)
         {
             cboType.Items.AddRange(new string[] { "구분", "입고", "출고" });
-            cboType.SelectedIndex = 0;
+            cboType.SelectedIndex = 0;            
 
-            txtAddrCode.ReadOnly = txtAddr1.ReadOnly = txtAddr2.ReadOnly = true;
+            txtAddrCode.ReadOnly = txtAddr1.ReadOnly = txtAddr2.ReadOnly = txtAddrDetail.ReadOnly = true;
+
+            txtClientName.isRequired = txtBusinessNo.isRequired = txtAddr1.isRequired
+                = txtManager.isRequired = txtMPhone.isRequired = txtEmail.isRequired = true;
 
             DomainListBinding();
-        }
+        }       
 
         // 우편번호 검색 버튼
         private void btnZipCodeSearch_Click(object sender, EventArgs e)
@@ -38,13 +42,14 @@ namespace BikeProd
                 txtAddrCode.Text = pop.AddrCode;
                 txtAddr1.Text = pop.Address1;
                 txtAddr2.Text = pop.Address2;
+                txtAddrDetail.Text = pop.AddrDetail;
             }
         }
 
         // 등록 버튼
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtClientName, txtAddr1, txtManager, txtMPhone, txtCPhone, txtEmail });
+            string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtClientName, txtBusinessNo, txtAddr1, txtManager, txtMPhone, txtEmail });
             if (msg.Length > 0)
             {
                 MessageBox.Show(msg);
@@ -56,16 +61,23 @@ namespace BikeProd
                 MessageBox.Show("분류를 선택해주세요");
                 return;
             }
-            
+
+            if (string.IsNullOrWhiteSpace(txtDomain.Text))
+            {
+                MessageBox.Show("이메일 주소를 입력 또는 선택하여 주세요.");
+                return;
+            }
+
+            //phoneNumCheck();
+
             ClientVO client = new ClientVO
             {
                 ClientName = txtClientName.Text,
                 BusinessNo = txtBusinessNo.Text,
                 Type = cboType.Text,
-                Address = string.Concat(txtAddr1.Text, txtAddr2.Text),
+                Address = string.Concat(txtAddr1.Text, " ", txtAddr2.Text, " ", txtAddrDetail.Text),
                 Manager = txtManager.Text,
-                ManagerPhone = txtMPhone.Text,
-                CompanyPhone = txtMPhone.Text,
+                ManagerPhone = txtMPhone.Text,                
                 Email = string.Concat(txtEmail.Text, "@", txtDomain.Text)            
             };
             bool result = clientSrv.SaveClient(client);
@@ -169,5 +181,15 @@ namespace BikeProd
             else
                 lblMessage2.Text = "";
         }
+
+        //private void phoneNumCheck()
+        //{
+        //    Boolean ismatch = IsMatch(@"01{1}[016789]{1]-[0-9]{3,4}-[0-9]{4}", txtMPhone.Text);
+        //    if (!ismatch)
+        //    {
+        //        MessageBox.Show("전화번호를 확인해 주세요.");        
+        //    }                            
+                
+        //}
     }
 }

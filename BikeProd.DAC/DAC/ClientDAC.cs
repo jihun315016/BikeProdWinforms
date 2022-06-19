@@ -48,7 +48,7 @@ namespace BikeProd.DAC
         {
             List<ClientVO> list = new List<ClientVO>();
 
-            string sql = @"select BusinessNo, ClientName, Type, CompanyPhone, Email, Address, Manager, ManagerPhone 
+            string sql = @"select BusinessNo, ClientName, Type, Email, Address, Manager, ManagerPhone 
                            from TB_Client";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -60,15 +60,14 @@ namespace BikeProd.DAC
 
         public bool SaveClient(ClientVO client)
         {            
-            string sql = @"insert into TB_Client (BusinessNo,ClientName, Type, CompanyPhone, Email, Address, Manager, ManagerPhone)
-                                  values (@BusinessNo, @ClientName, @Type, @CompanyPhone, @Email, @Address, @Manager, @ManagerPhone)";
+            string sql = @"insert into TB_Client (BusinessNo, ClientName, Type, Email, Address, Manager, ManagerPhone)
+                                  values (@BusinessNo, @ClientName, @Type, @Email, @Address, @Manager, @ManagerPhone)";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@BusinessNo", client.BusinessNo);
                 cmd.Parameters.AddWithValue("@ClientName", client.ClientName);
-                cmd.Parameters.AddWithValue("@Type", client.Type);
-                cmd.Parameters.AddWithValue("@CompanyPhone", client.CompanyPhone);
+                cmd.Parameters.AddWithValue("@Type", client.Type);           
                 cmd.Parameters.AddWithValue("@Email", client.Email);
                 cmd.Parameters.AddWithValue("@Address", client.Address);
                 cmd.Parameters.AddWithValue("@Manager", client.Manager);

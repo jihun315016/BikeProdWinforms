@@ -16,7 +16,7 @@ namespace BikeProd
         ModelService modelSrv;
         List<ProdPartVO> modelList;
         List<CommonCodeVO> categoryList;
-        List<BomRelationVO> bomList;
+        List<BomInfoVO> bomList;
 
         string code;
         string kind;
@@ -35,7 +35,8 @@ namespace BikeProd
         private void popSaveBOM_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
-            bomList = new List<BomRelationVO>();
+            bomList = new List<BomInfoVO>();
+            categoryList = modelSrv.GetCategory();
             InitControl();
         }
 
@@ -180,7 +181,7 @@ namespace BikeProd
             {
                 bomList.Add
                     (
-                        new BomRelationVO()
+                        new BomInfoVO()
                         {
                             Code = txtCode.Text,
                             Name = txtName.Text,
@@ -193,7 +194,7 @@ namespace BikeProd
             // 이미 등록한 항목을 다시 등록하는 경우
             else
             {
-                BomRelationVO item = bomList.Find(b => b.Code == txtCode.Text);
+                BomInfoVO item = bomList.Find(b => b.Code == txtCode.Text);
                 item.Requirement = item.Requirement + Convert.ToInt32(txtRequirement.Text);
             }
 
@@ -203,7 +204,7 @@ namespace BikeProd
 
         private void btnBomCancel_Click(object sender, EventArgs e)
         {
-            BomRelationVO item = bomList.Find(b => b.Code == txtCode.Text);
+            BomInfoVO item = bomList.Find(b => b.Code == txtCode.Text);
             bomList.Remove(item);
             dgvBom.DataSource = null;
             dgvBom.DataSource = bomList;

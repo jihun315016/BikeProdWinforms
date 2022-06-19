@@ -29,6 +29,7 @@ namespace BikeProd
         private void popSelectSaveBOM_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
+            notBomProdList = modelSrv.GetBomProd(false);
             InitControl();
         }
 
@@ -48,7 +49,6 @@ namespace BikeProd
 
             txtSearch.SetPlaceHolder();
 
-            notBomProdList = modelSrv.GetBomProd(false);
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제품명", "Name", colWidth: 280);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind");

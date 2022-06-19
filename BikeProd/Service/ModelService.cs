@@ -63,6 +63,19 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 강지훈
+        /// 전체 BOM 관계를 조회하고 폼에 전달한다.
+        /// </summary>
+        /// <returns></returns>
+        public List<BomRelationVO> GetAllBomRelation()
+        {
+            ModelDAC dac = new ModelDAC();
+            List<BomRelationVO> list = dac.GetAllBomRelation();
+            dac.Dispose();
+            return list;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// BOM 등록되었거나 등록되지 않은 제품 조회 후 폼에 전달한다.
         /// </summary>
         /// <returns></returns>
@@ -80,10 +93,10 @@ namespace BikeProd
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public List<BomRelationVO> GetBomRelation(string code)
+        public List<BomInfoVO> GetBomRelation(string code)
         {
             ModelDAC dac = new ModelDAC();
-            List<BomRelationVO> list = dac.GetBomRelation(code);
+            List<BomInfoVO> list = dac.GetBomRelation(code);
             dac.Dispose();
             return list;
         }
@@ -109,13 +122,26 @@ namespace BikeProd
         /// <param name="parentCode">BOM 등록될 상위 항목</param>
         /// <param name="list">하위 항목 리스트</param>
         /// <returns></returns>
-        public bool SaveBom(string parentCode, List<BomRelationVO> list)
+        public bool SaveBom(string parentCode, List<BomInfoVO> list)
         {
             ModelDAC dac = new ModelDAC();
             bool result = dac.SaveBom(parentCode, list);
             dac.Dispose();
             return result;
+        }
 
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 삭제 후 결과 반환
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool DeleteBOM(string code)
+        {
+            ModelDAC dac = new ModelDAC();
+            bool result = dac.DeleteBOM(code);
+            dac.Dispose();
+            return result;
         }
 
         /// <summary>

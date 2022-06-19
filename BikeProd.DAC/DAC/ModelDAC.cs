@@ -138,6 +138,43 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 전체 BOM 관계 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<BomRelationVO> GetAllBomRelation()
+        {
+            string sql = @"WITH ProdPartCTE AS
+                            (
+	                            SELECT ProdCode Code, ProdName Name, 1 Kind FROM TB_Products
+	                            UNION
+	                            SELECT PartCode Code, PartName Name, 2 Kind FROM TB_Parts
+                            )
+                            , BomCTE AS
+                            (
+	                            SELECT ParentCode, ChildCode, 1 Level
+	                            FROM TB_BOM 
+	                            WHERE ParentCode = ChildCode
+
+	                            UNION ALL
+
+	                            SELECT b.ParentCode, b.ChildCode, c.Level + 1 Level
+	                            FROM TB_BOM b
+	                            JOIN BomCTE c ON b.ParentCode = c.ChildCode
+	                            WHERE b.ParentCode <> b.ChildCode
+                            )
+                            SELECT ParentCode, p1.Name ParentName, ChildCode, p2.Name ChildName, Level, p2.Kind 
+                            FROM BomCTE b
+                            JOIN ProdPartCTE p1 ON b.ParentCode = p1.Code
+                            JOIN ProdPartCTE p2 ON b.ChildCode = p2.Code
+                            ORDER BY Level, p2.Kind";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return DBConverter.DataReaderToList<BomRelationVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// BOM 등록되었거나 등록 되지 않은 제품 조회
         /// </summary>
         /// <returns></returns>
@@ -149,10 +186,14 @@ namespace BikeProd.DAC
                         FROM TB_Products ");
 
             if (isBom)            
-                sb.Append(@"WHERE ProdCode in (SELECT ParentCode FROM TB_BOM)
-                            AND Dealing = 1");            
+                sb.Append(@"WHERE ProdCode IN (SELECT ParentCode FROM TB_BOM)
+                            AND Dealing = 1
+                            UNION
+                            SELECT PartCode Code, PartName Name, Category, '부품' Kind 
+                            FROM TB_Parts
+                            WHERE PartCode IN (SELECT ChildCode FROM TB_BOM GROUP BY ChildCode)");
             else            
-                sb.Append(@"WHERE ProdCode not in (SELECT ParentCode FROM TB_BOM)
+                sb.Append(@"WHERE ProdCode NOT IN (SELECT ParentCode FROM TB_BOM)
                             AND Dealing = 1");
             
             string sql = sb.ToString();
@@ -167,7 +208,7 @@ namespace BikeProd.DAC
         /// </summary>
         /// <param name="code">BOM 조회할 기준이 되는 제품 코드</param>
         /// <returns></returns>
-        public List<BomRelationVO> GetBomRelation(string code)
+        public List<BomInfoVO> GetBomRelation(string code)
         {
             string sql = "SP_GetBomRelation";
 
@@ -175,7 +216,7 @@ namespace BikeProd.DAC
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Code", code);
             SqlDataReader reader = cmd.ExecuteReader();
-            return DBConverter.DataReaderToList<BomRelationVO>(reader);
+            return DBConverter.DataReaderToList<BomInfoVO>(reader);
         }
 
         /// <summary>
@@ -214,7 +255,7 @@ namespace BikeProd.DAC
         /// <param name="list">하위 항목 리스트</param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool SaveBom(string parentCode, List<BomRelationVO> list)
+        public bool SaveBom(string parentCode, List<BomInfoVO> list)
         {
             string sql = @"INSERT INTO TB_BOM
                             (ParentCode, ChildCode, Requirement)
@@ -224,6 +265,7 @@ namespace BikeProd.DAC
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlTransaction tran = conn.BeginTransaction();
             cmd.Transaction = tran;
+
             cmd.Parameters.AddWithValue("@ParentCode", parentCode);
             cmd.Parameters.Add("@ChildCode", SqlDbType.NVarChar);
             cmd.Parameters.Add("@Requirement", SqlDbType.Int);
@@ -236,13 +278,54 @@ namespace BikeProd.DAC
                     cmd.Parameters["@Requirement"].Value = item.Requirement;
                     cmd.ExecuteNonQuery();
                 }
-                tran.Commit();
+
+                // 상위 항목에 대해서 (상위 항목, 상위 항목, -1) 형태로 INSERT
+                cmd.Parameters["@ChildCode"].Value = cmd.Parameters["@ParentCode"].Value;
+                cmd.Parameters["@Requirement"].Value = -1;
+                cmd.ExecuteNonQuery();
+
+                // TODO : 자식 항목들을 반복하여 조회 후 최상위 항목이라면 삭제하기
+                cmd.CommandText = @"DELETE FROM TB_BOM 
+                                    WHERE ChildCode = @ChildCode AND ParentCode = ChildCode";
+
+                foreach (var item in list)
+                {
+                    cmd.Parameters["@ChildCode"].Value = item.Code;
+                    cmd.ExecuteNonQuery();
+                }
+
+                    tran.Commit();
                 return true;
             }
             catch (Exception err)
             {
                 tran.Rollback();
                 throw new Exception(err.Message);
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// BOM 삭제 메서드
+        /// </summary>
+        /// <param name="code">삭제할 상위 항목 코드</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DeleteBOM(string code)
+        {
+            string sql = @"DELETE FROM TB_BOM WHERE ParentCode = @ParentCode";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@ParentCode", code);
+
+            try
+            {
+                int iRowAffect = cmd.ExecuteNonQuery();
+                return iRowAffect > 0;
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+                return false;
             }
         }
 

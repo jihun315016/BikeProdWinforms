@@ -18,6 +18,7 @@ namespace BikeProd
         public string AddrCode { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
+        public string AddrDetail { get; set; }
 
         public popSaveAddress()
         {
@@ -35,6 +36,8 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소1", "roadAddrPart1", colWidth: 150, isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소2", "roadAddrPart2", colWidth: 150, isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "건물명", "bdNm", colWidth: 150, isVisible: false);
+
+            txtAddr1.ReadOnly = txtAddr2.ReadOnly = txtAddrCode.ReadOnly = txtAddrDetail.ReadOnly = true;
 
         }
 
@@ -83,6 +86,8 @@ namespace BikeProd
             if (e.RowIndex < 0)
                 return;
 
+            txtAddrDetail.ReadOnly = false;
+
             txtAddrCode.Text = dgvList["zipNo", e.RowIndex].Value.ToString();
             txtAddr1.Text = dgvList["roadAddrPart1", e.RowIndex].Value.ToString();            
 
@@ -101,6 +106,7 @@ namespace BikeProd
             AddrCode = txtAddrCode.Text;
             Address1 = txtAddr1.Text;
             Address2 = txtAddr2.Text;
+            AddrDetail = txtAddrDetail.Text;
 
             this.DialogResult = DialogResult.OK;
             this.Close();

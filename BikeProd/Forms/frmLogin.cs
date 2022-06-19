@@ -25,7 +25,30 @@ namespace BikeProd
             
             txtPwd.PlaceHolder = "비밀번호";            
             txtPwd.SetPlaceHolder();
-        }        
+
+            txtPwd.LostFocus += TxtPwd_LostFocus;
+            txtPwd.GotFocus += TxtPwd_GotFocus;
+        }
+
+        private void TxtPwd_GotFocus(object sender, EventArgs e)
+        {
+            ccTextBox txt = (ccTextBox)sender;
+            if (string.IsNullOrWhiteSpace(txt.Text))
+            {
+                if (txt == txtPwd)
+                    txtPwd.PasswordChar = '*';
+            }
+        }
+
+        private void TxtPwd_LostFocus(object sender, EventArgs e)
+        {
+            ccTextBox txt = (ccTextBox)sender;
+            if (string.IsNullOrWhiteSpace(txt.Text))
+            {                
+                if (txt == txtPwd)
+                    txtPwd.PasswordChar = default;
+            }
+        }
 
         // 로그인 버튼
         private void btnLogin_Click(object sender, EventArgs e)

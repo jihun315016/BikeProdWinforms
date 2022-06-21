@@ -32,7 +32,6 @@ namespace BikeProd.DAC
         public List<DepartmentVO> GetAllDeptInfo()
         {
             string sql = @"select DeptNo, DeptName from TB_Department";
-
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 return DBConverter.DataReaderToList<DepartmentVO>(cmd.ExecuteReader());
@@ -191,6 +190,18 @@ namespace BikeProd.DAC
 
                 return DBConverter.DataReaderToList<DeptMenuVO>(cmd.ExecuteReader());
             }
+        }
+
+        /// <summary>
+        /// Author: 강지훈
+        /// 생산팀 번호와 이름 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<TeamVO> GetProductionTeeamList()
+        {
+            string sql = @"SELECT TeamNo, TeamName FROM TB_Team WHERE DeptNo = 1002";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            return DBConverter.DataReaderToList<TeamVO>(cmd.ExecuteReader());
         }
 
 

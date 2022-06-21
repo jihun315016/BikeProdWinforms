@@ -35,7 +35,7 @@ namespace BikeProd.DAC
         /// <returns></returns>
         public List<ClientVO> GetClientNameByType(string clientType)
         {
-            string sql = @"SELECT BusinessNo, ClientName, Manager
+            string sql = @"SELECT BusinessNo, ClientName, Manager, Address
 	                        FROM TB_Client
 	                        WHERE TYPE = @TYPE";
             SqlCommand cmd = new SqlCommand(sql, conn);

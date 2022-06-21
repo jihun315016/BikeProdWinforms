@@ -1,3 +1,12 @@
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.dll
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.pdb
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.AssemblyReference.cache
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CoreCompileInputs.cache
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CopyComplete
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.dll
+E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.pdb
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.dll

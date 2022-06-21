@@ -37,7 +37,7 @@ namespace BikeProd.DAC
         {
             List<PurchaseVO> list = new List<PurchaseVO>();
 
-            string sql = @"select PurchaseNo, PurchaseName, ClientName, p.BusinessNo, p.Manager, PurchaseDate, ArriveDate, State,
+            string sql = @"select PurchaseNo, PurchaseName, ClientName, p.BusinessNo, p.PManager, PurchaseDate, ArriveDate, State,
                             case when State = 'OK' then '입고완료'
 	                            when State = 'In' then '입고예정'
 	                            when State = 'Cancel' then '취소'
@@ -52,7 +52,6 @@ namespace BikeProd.DAC
             return list;
         }
 
-        
         /// <summary>
         /// Author : Author :류경석
         /// 발주서 등록
@@ -68,15 +67,15 @@ namespace BikeProd.DAC
                 {
                     //발주등록 -> 발주서 등록
                     cmd.CommandText = @"insert into  TB_Purchase
-			                        (PurchaseName, BusinessNo, Manager, PurchaseDate, ArriveDate, State)
-			                        values (@PurchaseName, @BusinessNo, @Manager, @PurchaseDate, @ArriveDate, @State);
+                                    (PurchaseName, BusinessNo, PManager, PurchaseDate, ArriveDate, State)
+                                    values (@PurchaseName, @BusinessNo, @PManager, @PurchaseDate, @ArriveDate, @State);
                                     select @@IDENTITY from TB_Purchase";
                     cmd.Connection = conn;
                     cmd.Transaction = trans;
 
                     cmd.Parameters.AddWithValue("@PurchaseName", pur.PurchaseName);
                     cmd.Parameters.AddWithValue("@BusinessNo", pur.BusinessNo);
-                    cmd.Parameters.AddWithValue("@Manager", pur.Manager);
+                    cmd.Parameters.AddWithValue("@PManager", pur.PManager);
                     cmd.Parameters.AddWithValue("@PurchaseDate", pur.PurchaseDate);
                     cmd.Parameters.AddWithValue("@ArriveDate", pur.ArriveDate);
                     cmd.Parameters.AddWithValue("@State", pur.State);
@@ -87,7 +86,7 @@ namespace BikeProd.DAC
                     cmd.Parameters.Clear();
                     cmd.CommandText = @"insert into TB_PurchaseDetails
 			                             (PurchaseNo, PartCode, Qty)
-			                            values (@PurchaseNO,@PartCode, @Qty)";
+			                            values (@PurchaseNO, @PartCode, @Qty)";
 
                     cmd.Parameters.AddWithValue("@PurchaseNO", newPurchaseNO);
                     cmd.Parameters.Add("@PartCode", System.Data.SqlDbType.NVarChar, 10);
@@ -111,14 +110,14 @@ namespace BikeProd.DAC
                     cmd.ExecuteNonQuery();
 
                     trans.Commit();
-                    return true;                    
-                }
-                catch(Exception err)
-                {
-                    trans.Rollback();
-                    return false;
-                }
+                    return true;
             }
+                catch (Exception err)
+            {
+                trans.Rollback();
+                return false;
+            }
+        }
         }
 
         /// <summary>
@@ -174,7 +173,6 @@ namespace BikeProd.DAC
                               left join TB_Purchase p on c.Code = p.State
                               where c.Code = @Code";
 
-
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@Code", Code);
@@ -197,6 +195,7 @@ namespace BikeProd.DAC
                 cmd.CommandText = "SP_UpdatePurchaseState";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@ArriveDate", DateTime.Now.ToShortDateString());
                 cmd.Parameters.AddWithValue("@State", pur.State);
                 cmd.Parameters.AddWithValue("@PurchaseNo", pur.PurchaseNo);
 
@@ -215,7 +214,7 @@ namespace BikeProd.DAC
         /// <param name="purDT"></param>
         /// <param name="AliveDate"></param>
         /// <returns></returns>
-        public List<PurchaseVO> getSearchList(string ClientName, string State, DateTime purDT, DateTime AliveDate)
+        /*public List<PurchaseVO> getSearchList(string ClientName, string State, DateTime purDT, DateTime AliveDate)
         {
             List<PurchaseVO> list = new List<PurchaseVO>();
             using (SqlCommand cmd = new SqlCommand())
@@ -244,7 +243,25 @@ namespace BikeProd.DAC
 
                 return DBConverter.DataReaderToList<PurchaseVO>(cmd.ExecuteReader());
             }
+        }*/
+
+        public List<PurchaseVO> getSearchList(DateTime purDT, DateTime AliveDate)
+        {
+            List<PurchaseVO> list = new List<PurchaseVO>();
+            string sql = @"select PurchaseNo, PurchaseName, p.BusinessNo, c.ClientName, c.Manager,
+                            PurchaseDate, ArriveDate, State, cc.Name as StateName
+                            from TB_Purchase p join TB_CommonCode cc on p.State = cc.Code
+                            join TB_Client c on p.BusinessNo = c.BusinessNo
+                            where PurchaseDate Between @purDT and @AliveDate";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@purDT", purDT);
+                cmd.Parameters.AddWithValue("@AliveDate", AliveDate);
+                list = DBConverter.DataReaderToList<PurchaseVO>(cmd.ExecuteReader());
+            }
+            return list;
         }
+
 
         public List<CommonCodeVO> getCategory()
         {
@@ -278,8 +295,8 @@ namespace BikeProd.DAC
         {
             List<PurchaseListVO> list = new List<PurchaseListVO>();
 
-            string sql = @"select d.PurchaseNo, d.PartCode,Concat(prod.Category, part.Category)Category, 
-                            Concat(ProdName, PartName) Name, Qty
+            string sql = @"select d.PurchaseNo, d.PartCode, part.Category Category, 
+                            PartName Name, Qty
                             from TB_Purchase p
                             join TB_PurchaseDetails d on p.PurchaseNo = d.PurchaseNo
                             left join TB_Products prod on d.PartCode = prod.ProdCode

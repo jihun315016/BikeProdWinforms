@@ -53,14 +53,14 @@ namespace BikeProd.DAC
         public List<ProdPartVO> GetModelList()
         {
             string sql = @"SELECT ProdCode Code, ProdName Name, 
-	                            CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind, 
-	                            Category, Price, Inventory, -1 SfInvn, Dealing, Image
-                            FROM TB_Products
-                            UNION
-                            SELECT 
-	                            PartCode Code, PartName Name, '부품' Kind, Category, 
-	                            Price, Inventory, SfInvn, Dealing, Image
-                            FROM TB_Parts";
+	                        CASE WHEN IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind, 
+	                        Category, Price, Inventory, -1 SfInvn, Dealing, Image, TotInvn
+                        FROM TB_Products
+                        UNION
+                        SELECT 
+	                        PartCode Code, PartName Name, '부품' Kind, Category, 
+	                        Price, Inventory, SfInvn, Dealing, Image, TotInvn
+                        FROM TB_Parts";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -264,8 +264,8 @@ namespace BikeProd.DAC
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlTransaction tran = conn.BeginTransaction();
-            cmd.Transaction = tran;
 
+            cmd.Transaction = tran;
             cmd.Parameters.AddWithValue("@ParentCode", parentCode);
             cmd.Parameters.Add("@ChildCode", SqlDbType.NVarChar);
             cmd.Parameters.Add("@Requirement", SqlDbType.Int);
@@ -278,8 +278,7 @@ namespace BikeProd.DAC
                     cmd.Parameters["@Requirement"].Value = item.Requirement;
                     cmd.ExecuteNonQuery();
                 }
-
-                // 상위 항목에 대해서 (상위 항목, 상위 항목, -1) 형태로 INSERT
+                
                 cmd.Parameters["@ChildCode"].Value = cmd.Parameters["@ParentCode"].Value;
                 cmd.Parameters["@Requirement"].Value = -1;
                 cmd.ExecuteNonQuery();
@@ -293,7 +292,7 @@ namespace BikeProd.DAC
                     cmd.ExecuteNonQuery();
                 }
 
-                    tran.Commit();
+                tran.Commit();
                 return true;
             }
             catch (Exception err)

@@ -157,7 +157,7 @@ namespace BikeProd
             }
         }
 
-        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;

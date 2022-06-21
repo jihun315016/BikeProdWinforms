@@ -12,6 +12,11 @@ namespace BikeProd
 {
     public class ModelService
     {
+        /// <summary>
+        /// Author : 강지훈
+        /// 카테고리 조회 후 폼에 전달
+        /// </summary>
+        /// <returns></returns>
         public List<CommonCodeVO> GetCategory()
         {
             ModelDAC dac = new ModelDAC();

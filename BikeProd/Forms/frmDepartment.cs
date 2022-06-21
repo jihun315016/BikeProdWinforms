@@ -29,23 +29,23 @@ namespace BikeProd
             txtNewTeam.SetPlaceHolder();
             txtNewDept.SetPlaceHolder();
             DataGridViewUtil.SetInitGridView(dgvDept);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDept, "부서 코드", "DeptNo", colWidth: 139);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDept, "부서명", "DeptName", colWidth: 200);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDept, "부서 코드", "DeptNo", colWidth: 139, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDept, "부서명", "DeptName", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
             DataGridViewUtil.SetInitGridView(dgvTeam);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvTeam, "팀 코드", "TeamNo", colWidth: 139);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvTeam, "팀명", "TeamName", colWidth: 200);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvTeam, "팀 코드", "TeamNo", colWidth: 139, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvTeam, "팀명", "TeamName", colWidth: 200, alignContent: DataGridViewContentAlignment.MiddleCenter);
 
             DataGridViewUtil.SetInitGridView(dgvDetail);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "사번", "EmpNo", colWidth: 100);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "이름", "EmpName", colWidth: 150);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "팀", "TeamName", colWidth: 150);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "연락처", "Phone", colWidth: 180);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "입사날짜", "FromDate", colWidth: 161);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "사원번호", "EmpNo", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "이름", "EmpName", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "소속팀", "TeamName", colWidth: 90, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "연락처", "Phone", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "이메일", "Email", colWidth: 190, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "입사날짜", "FromDate", colWidth: 110, alignContent: DataGridViewContentAlignment.MiddleCenter);
             //다음 컬럼들은 그리드뷰에서 보이지 않게 처리
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "부서번호", "DeptNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "팀 코드", "TeamNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "이메일", "Email", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "비밀번호", "Pwd", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvDetail, "퇴사날짜", "ToDate", isVisible: false);
 
@@ -368,7 +368,24 @@ namespace BikeProd
             else
             {
                 popAuthReg pop = new popAuthReg(txtDeptName.Text);
-                pop.ShowDialog();
+                if (pop.ShowDialog() == DialogResult.OK)
+                {
+                    txtDeptAuth.Clear();
+
+                    List<DepartmentVO> detpVO = departmentSrv.GetAllDeptInfo();
+                    string deptName = txtDeptName.Text;
+                    int deptNo = detpVO.Find((m) => m.DeptName.Equals(deptName)).DeptNo;
+
+                    List<DeptMenuVO> authlist = departmentSrv.GetAllDeptMenuInfo();
+                    var selList = authlist.FindAll((m) => m.DeptNo == deptNo);
+                    foreach (DeptMenuVO item in selList)
+                    {
+                        //lstSelect.Items.Add(item.MenuName);
+                        txtDeptAuth.AppendText(item.MenuName + Environment.NewLine);
+                    }
+                    txtDeptAuth.SelectionStart = 0;
+                    txtDeptAuth.ScrollToCaret();
+                }
             }
         }
 
@@ -460,7 +477,17 @@ namespace BikeProd
 
         private void cboDept_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void dgvDept_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmDepartment_Shown(object sender, EventArgs e)
+        {
+            splitContainer2.SplitterDistance = (int)Math.Round(this.Width * 0.7);
         }
     }
 }

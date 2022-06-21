@@ -153,6 +153,7 @@
             this.Name = "popAuthReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "메뉴등록창";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.popAuthReg_FormClosing);
             this.Load += new System.EventHandler(this.frmAuthRegPopUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

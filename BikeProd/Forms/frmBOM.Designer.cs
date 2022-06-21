@@ -106,7 +106,7 @@
             this.dgvList.RowTemplate.Height = 23;
             this.dgvList.Size = new System.Drawing.Size(288, 484);
             this.dgvList.TabIndex = 0;
-            this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
+            this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
             // groupBox1
             // 
@@ -278,7 +278,7 @@
             this.bomTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.bomTree.BackColor = System.Drawing.SystemColors.Control;
-            this.bomTree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bomTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bomTree.Location = new System.Drawing.Point(12, 83);
             this.bomTree.Name = "bomTree";
             this.bomTree.Size = new System.Drawing.Size(220, 481);

@@ -72,14 +72,13 @@ namespace BikeProd
             return result;
         }
 
-        public List<PurchaseVO> getSearchList(string ClientName, string State, DateTime purDT, DateTime AliveDate)
+        public List<PurchaseVO> getSearchList(DateTime purDT, DateTime AliveDate)
         {
             PurchaseDAC dac = new PurchaseDAC();
-            List<PurchaseVO> result = dac.getSearchList(ClientName, State,purDT,AliveDate);
+            List<PurchaseVO> result = dac.getSearchList(purDT,AliveDate);
             dac.Dispose();
 
             return result;
-
         }
 
         public List<PurchaseListVO> GetPurchaseList(int PurchaseNo)

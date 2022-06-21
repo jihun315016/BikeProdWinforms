@@ -11,17 +11,18 @@ namespace BikeProd.VO
         public int PurchaseNo { get; set; }
         public string PurchaseName { get; set; }
         public string BusinessNo { get; set; }
-        public string Manager { get; set; }
+        public string PManager { get; set; }
         public DateTime PurchaseDate { get; set; }
         public DateTime ArriveDate { get; set; }
         public string State { get; set; }
 
         //새로 추가된 VO
-
-        public String ClientName { get; set; }
-        public String StateName { get; set; }
+        public string Name { get; set; }
+        public string ClientName { get; set; }
+        public string StateName { get; set; }
         public string ClientManager { get; set; }
         public int Price { get; set; }
         public int Qty { get; set; }
+
     }
 }

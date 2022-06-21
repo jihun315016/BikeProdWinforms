@@ -20,6 +20,7 @@ namespace BikeProd
         List<DepartmentVO> deptList = null;
         int DeptNo;
         public string deptName { get; set; }
+
         public popAuthReg()
         {
             InitializeComponent();
@@ -171,11 +172,17 @@ namespace BikeProd
                 DeptNo = deptList.Find((d) => d.DeptName.Equals(deptName)).DeptNo;
                 departmentSrv.SaveMenuAuth(selAuthList, DeptNo);
                 MessageBox.Show("저장완료");
-                DeptAuthBinding();
+
+                DeptAuthBinding();               
 
                 this.Close();
             }
             
+        }
+
+        private void popAuthReg_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

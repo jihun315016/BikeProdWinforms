@@ -52,10 +52,12 @@
     <Compile Include="OrderVO.cs" />
     <Compile Include="PartVO.cs" />
     <Compile Include="ProdPartVO.cs" />
+    <Compile Include="ProductionVO.cs" />
     <Compile Include="ProductVO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseDetailsVO.cs" />
+    <Compile Include="OrderDetailsVO.cs" />
     <Compile Include="PurchaseListVO.cs" />
+    <Compile Include="PurchaseStateVO.cs" />
     <Compile Include="PurchaseVO.cs" />
     <Compile Include="TeamEmpVO.cs" />
     <Compile Include="TeamVO.cs" />

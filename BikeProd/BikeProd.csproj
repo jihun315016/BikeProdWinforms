@@ -125,12 +125,6 @@
     <Compile Include="Forms\frmPerformance.Designer.cs">
       <DependentUpon>frmPerformance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmProduction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmProduction.Designer.cs">
-      <DependentUpon>frmProduction.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +160,18 @@
     </Compile>
     <Compile Include="Forms\frmSalesStatus.Designer.cs">
       <DependentUpon>frmSalesStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduction.Designer.cs">
+      <DependentUpon>frmProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="popSaveProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popSaveProduction.Designer.cs">
+      <DependentUpon>popSaveProduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSaveBOM.cs">
       <SubType>Form</SubType>
@@ -253,7 +259,9 @@
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\ModelService.cs" />
     <Compile Include="Service\OrderService.cs" />
+    <Compile Include="Service\ProductionService.cs" />
     <Compile Include="Service\PurchaseService.cs" />
+    <Compile Include="Service\TradeService.cs" />
     <Compile Include="Utility\ComboBoxUtil.cs" />
     <Compile Include="Utility\DataGridViewUtil.cs" />
     <Compile Include="Utility\TextBoxUtil.cs" />
@@ -297,9 +305,6 @@
     <EmbeddedResource Include="Forms\frmPerformance.resx">
       <DependentUpon>frmPerformance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmProduction.resx">
-      <DependentUpon>frmProduction.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +322,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSalesStatus.resx">
       <DependentUpon>frmSalesStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProduction.resx">
+      <DependentUpon>frmProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popSaveProduction.resx">
+      <DependentUpon>popSaveProduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSaveBOM.resx">
       <DependentUpon>popSaveBOM.cs</DependentUpon>

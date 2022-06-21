@@ -28,6 +28,7 @@ namespace BikeProd
         private void popSavePur_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
+            purchaseSrv = new PurchaseService();
             prodPartList = modelSrv.GetModelList();
             
             var categoryes = (from model in prodPartList
@@ -48,12 +49,7 @@ namespace BikeProd
             });
 
             ComboBoxUtil.SetComboBoxByList<CommonCodeVO>(cboModel, list, "Name", "Code");
-            
-            DataGirdView();
-        }
 
-        public void DataGirdView()
-        {
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "PartCode", colWidth: 80);
@@ -66,10 +62,6 @@ namespace BikeProd
         {
             if (chkNull.Checked)
             {
-                /*dtpAliveDate.Format = DateTimePickerFormat.Custom;
-                dtpAliveDate.CustomFormat = " ";
-                
-                MessageBox.Show(dtpAliveDate.Text);*/
                 dtpAliveDate.Value = new DateTime(9998, 12, 31);
                 dtpAliveDate.Enabled = false;
             }
@@ -115,9 +107,9 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (cboName.SelectedIndex < 1 || numQty.Value < 1)
+            if (cboModel.SelectedIndex < 1 || numQty.Value < 1)
             {
-                MessageBox.Show("추가할 제품을 선택해 주세요");
+                MessageBox.Show("추가할 부품을 선택해 주세요");
                 return;
             }
 
@@ -148,7 +140,7 @@ namespace BikeProd
 
             dgvList.DataSource = null;
             dgvList.DataSource = purchaseList;
-            dgvList.ClearSelection();
+            //dgvList.ClearSelection();
         }
         
         /// <summary>
@@ -176,7 +168,7 @@ namespace BikeProd
             {
                 PurchaseName = txtPurName.Text,
                 BusinessNo = txtBusinessID.Text,
-                Manager = txtManager.Text,
+                PManager = txtManager.Text,
                 PurchaseDate = dtpPurDate.Value,
                 ArriveDate = dtpAliveDate.Value,
                 State = "In"

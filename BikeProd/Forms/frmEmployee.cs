@@ -72,14 +72,14 @@ namespace BikeProd
         private void rdWorking_CheckedChanged(object sender, EventArgs e)
         {
             List<EmployeeVO> workList = empList.FindAll((emp) => emp.ToDate.Year == 1).ToList();
-
+            btnResign.Text = "퇴사";
             dgvList.DataSource = workList;
         }
 
         private void rdOut_CheckedChanged(object sender, EventArgs e)
         {
             List<EmployeeVO> workList = empList.FindAll((emp) => emp.ToDate.Year != 1).ToList();
-
+            btnResign.Text = "재입사";
             dgvList.DataSource = workList;
         }
 

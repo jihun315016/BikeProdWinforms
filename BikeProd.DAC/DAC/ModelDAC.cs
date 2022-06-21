@@ -284,7 +284,6 @@ namespace BikeProd.DAC
                 cmd.Parameters["@Requirement"].Value = -1;
                 cmd.ExecuteNonQuery();
 
-                // TODO : 자식 항목들을 반복하여 조회 후 최상위 항목이라면 삭제하기
                 cmd.CommandText = @"DELETE FROM TB_BOM 
                                     WHERE ChildCode = @ChildCode AND ParentCode = ChildCode";
 

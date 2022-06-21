@@ -190,11 +190,20 @@ namespace BikeProd
         /// <param name="e"></param>
         private void txtPhone_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtPhone.Text.Length == 3 || txtPhone.Text.Length == 8)
+            string phone;
+            if (txtPhone.Text.Length == 11)
+            {
+                txtPhone.Text = txtPhone.Text.Insert(3, "-");
+                txtPhone.Text = txtPhone.Text.Insert(8, "-");
+            }
+
+
+
+            /*if (txtPhone.Text.Length == 3 || txtPhone.Text.Length == 8)
             {
                 txtPhone.Text += "-";
                 txtPhone.Select(txtPhone.Text.Length, 0);
-            }
+            }*/
         }
 
         /// <summary>
@@ -250,6 +259,15 @@ namespace BikeProd
                 return;
             }
             
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            /*if (txtPhone.Text.Length == 11)
+            {
+                txtPhone.Text = txtPhone.Text.Insert(3, "-");
+                txtPhone.Text = txtPhone.Text.Insert(8, "-");
+            }*/
         }
     }
 }

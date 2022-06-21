@@ -48,15 +48,16 @@ namespace BikeProd
             InitDetail();
 
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 200);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 180);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 200);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind", colWidth: 180);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 170);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 180);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 170);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind", colWidth: 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 140);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "논리재고", "TotInvn", colWidth: 140);            
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래 여부", "Dealing", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 유무", "Image", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "안전재고", "SfInvn", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "안전 재고", "SfInvn", isVisible: false);
             dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);            
         }
 
@@ -407,10 +408,10 @@ namespace BikeProd
         private void dgvList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             string kind = dgvList.Rows[e.RowIndex].Cells["Kind"].Value.ToString();
-            int inventory = Convert.ToInt32(dgvList.Rows[e.RowIndex].Cells["Inventory"].Value);
+            int TotInvn = Convert.ToInt32(dgvList.Rows[e.RowIndex].Cells["TotInvn"].Value);
             int safeInventory = Convert.ToInt32(dgvList.Rows[e.RowIndex].Cells["SfInvn"].Value);
                         
-            if (kind == "부품" && inventory < safeInventory)
+            if (kind == "부품" && TotInvn < safeInventory)
             {
                 e.CellStyle.ForeColor = Color.Red;
             }           

@@ -17,5 +17,6 @@ namespace BikeProd.VO
         public int Dealing { get; set; }
         public int Image { get; set; }
         public int SfInvn { get; set; }
+        public int TotInvn { get; set; }
     }
 }

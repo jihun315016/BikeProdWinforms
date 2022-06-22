@@ -49,6 +49,7 @@
     <Compile Include="DeptMenuVO.cs" />
     <Compile Include="EmployeeVO.cs" />
     <Compile Include="MenuVO.cs" />
+    <Compile Include="SalesStateVO.cs" />
     <Compile Include="OrderVO.cs" />
     <Compile Include="PartVO.cs" />
     <Compile Include="ProdPartVO.cs" />

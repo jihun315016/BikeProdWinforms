@@ -67,6 +67,24 @@ namespace BikeProd.DAC
 
         /// <summary>
         /// Author : 강지훈
+        /// 생산 지시 등록된 리스트 조회
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductionVO> GetProductionList()
+        {
+            string sql = @"SELECT 
+	                            ID, pn.ProdCode, ProdName, ps.Inventory, Qty, LeadTime, 
+	                            ps.Price, OrderDate, ReqDate,State, Team, Loss, ComplateDate
+                            FROM TB_Production pn
+                            JOIN TB_Products ps ON pn.ProdCode = ps.ProdCode";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return DBConverter.DataReaderToList<ProductionVO>(reader);
+        }
+
+        /// <summary>
+        /// Author : 강지훈
         /// 생산 지시 등록(저장) 후 등록한 만큼 부품 재고 수정
         /// </summary>
         /// <param name="production">저장할 생산 정보</param>
@@ -117,6 +135,57 @@ namespace BikeProd.DAC
                 }
 
 
+                tran.Commit();
+                return true;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
+                throw new Exception(err.Message);
+            }
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 생산 상태 변경 (생산 완료 or 생산 취소)
+        /// </summary>
+        /// <param name="isComplete"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool UpdateProductionState(bool isComplete, int id, string prodCode)
+        {
+            SqlTransaction tran = conn.BeginTransaction();
+            SqlCommand cmd = new SqlCommand();
+            string state = isComplete ? "생산 완료" : "생산 취소";
+
+            try
+            {
+                cmd.Connection = conn; 
+                cmd.Transaction = tran;
+                cmd.Parameters.AddWithValue("@State", state);
+                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@ProdCode", prodCode);
+
+                cmd.CommandText = @"UPDATE TB_Production
+                                    SET State = @State
+                                    WHERE ID = @ID";
+
+                cmd.ExecuteNonQuery();
+
+                if (isComplete) // 생산 완료
+                {
+                    cmd.CommandText = @"UPDATE TB_Products 
+                                        SET Inventory = Inventory + (SELECT Qty FROM TB_Production WHERE ID = @ID) 
+                                        WHERE ProdCode = @ProdCode";
+                }
+                else // 생산 취소
+                {
+                    cmd.CommandText = @"UPDATE TB_Products 
+                                        SET TotInvn = TotInvn - (SELECT Qty FROM TB_Production WHERE ID = @ID) 
+                                        WHERE ProdCode = @ProdCode";
+                }
+
+                cmd.ExecuteNonQuery();
                 tran.Commit();
                 return true;
             }

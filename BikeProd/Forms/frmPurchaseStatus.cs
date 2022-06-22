@@ -70,7 +70,7 @@ namespace BikeProd
             string dateFrom = dtpFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dtpTo.Value.ToString("yyyy-MM-dd");
 
-            stateList = tradeSrv.GetSumInfo(dateFrom, dateTo);
+            stateList = tradeSrv.GetPurchaseSumInfo(dateFrom, dateTo);
             dgvPCList.DataSource = stateList;
 
             //매입액 컬럼(Sum) 전체 총합
@@ -185,7 +185,7 @@ namespace BikeProd
 
             string dateFrom = dtpFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dtpTo.Value.ToString("yyyy-MM-dd");
-            stateList = tradeSrv.GetSumInfo(dateFrom, dateTo);
+            stateList = tradeSrv.GetPurchaseSumInfo(dateFrom, dateTo);
             int dtfrom = Convert.ToInt32(dtpFrom.Value.ToString("yyyyMMdd"));
             int dtto = Convert.ToInt32(dtpTo.Value.ToString("yyyyMMdd"));
 

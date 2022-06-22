@@ -1,12 +1,21 @@
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.dll
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.pdb
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.AssemblyReference.cache
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CoreCompileInputs.cache
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CopyComplete
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.dll
-E:\SVN\TEAM2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.dll
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.AssemblyReference.cache
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CoreCompileInputs.cache
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CopyComplete
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.dll
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.pdb
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.dll
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.pdb
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.AssemblyReference.cache
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CoreCompileInputs.cache
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CopyComplete
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.dll
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.pdb
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd.DAC\bin\Debug\BikeProd.VO.dll

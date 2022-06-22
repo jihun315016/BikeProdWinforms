@@ -2,6 +2,7 @@
 using BikeProd.VO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,13 +109,29 @@ namespace BikeProd
             return result;
         }
 
-       /* public List<PartVO> GetUnit(string PartName)
+        /* public List<PartVO> GetUnit(string PartName)
+         {
+             PurchaseDAC dac = new PurchaseDAC();
+             List<PartVO> result = dac.GetPurchaseList(PartName);
+             dac.Dispose();
+
+             return result;
+         }*/
+
+        /// <summary>
+        /// Author 이진형
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetTopChart()
         {
             PurchaseDAC dac = new PurchaseDAC();
-            List<PartVO> result = dac.GetPurchaseList(PartName);
+            DataTable result = dac.GetTopChart();
             dac.Dispose();
 
             return result;
-        }*/
+        }
+
+
+
     }
 }

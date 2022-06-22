@@ -17,5 +17,10 @@ namespace BikeProd.VO
         public DateTime ComplateDate { get; set; }
         public string State { get; set; }
         public string Team { get; set; }
+
+        public string ProdName { get; set; }
+        public int LeadTime { get; set; }
+        public int Price { get; set; }
+        public int Inventory { get; set; }
     }
 }

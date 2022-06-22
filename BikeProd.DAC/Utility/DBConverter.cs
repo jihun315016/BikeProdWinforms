@@ -36,11 +36,12 @@ namespace BikeProd.DAC
                     }
                     list.Add(obj);
                 }
+
                 return list;
             }
             catch (Exception err)
             {
-                Console.WriteLine(err);
+                Console.WriteLine($"err : {err.Message}");
                 return null;
             }
         }

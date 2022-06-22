@@ -219,6 +219,35 @@ namespace BikeProd.DAC
             }
         }
 
+        public bool UpdateStateOK(int OrderNo)
+        {
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    cmd.Transaction = trans;
+                    cmd.CommandText = @"update TB_Products 
+                                        set TB_Products.TotInvn -= odr.Qty, TB_Products.Inventory -= odr.Qty
+                                        from TB_Products as prd,
+                                        (select OrderNo, ProdCode, Qty from TB_OrderDetails) as odr
+                                        where prd.ProdCode = odr.ProdCode
+                                        and OrderNo = @OrderNo";
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@OrderNo", OrderNo);
+                    int iRowAffect = cmd.ExecuteNonQuery();
+                    trans.Commit();
+                    return (iRowAffect > 0);
+                }
+                catch (Exception err)
+                {
+                    trans.Rollback();
+                    return false;
+                }
+            }
+        }
+
 
     }
 

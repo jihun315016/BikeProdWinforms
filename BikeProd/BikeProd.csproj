@@ -167,10 +167,10 @@
     <Compile Include="frmProduction.Designer.cs">
       <DependentUpon>frmProduction.cs</DependentUpon>
     </Compile>
-    <Compile Include="popSaveProduction.cs">
+    <Compile Include="Popup\popSaveProduction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="popSaveProduction.Designer.cs">
+    <Compile Include="Popup\popSaveProduction.Designer.cs">
       <DependentUpon>popSaveProduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSaveBOM.cs">
@@ -326,7 +326,7 @@
     <EmbeddedResource Include="frmProduction.resx">
       <DependentUpon>frmProduction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="popSaveProduction.resx">
+    <EmbeddedResource Include="Popup\popSaveProduction.resx">
       <DependentUpon>popSaveProduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSaveBOM.resx">

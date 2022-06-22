@@ -89,6 +89,15 @@ namespace BikeProd
             return result;
         }
 
+        public bool UpdateStateOK(int OrderNo)
+        {
+            OrderDAC dac = new OrderDAC();
+            bool result = dac.UpdateStateOK(OrderNo);
+            dac.Dispose();
+
+            return result;
+        }
+
 
     }
 }

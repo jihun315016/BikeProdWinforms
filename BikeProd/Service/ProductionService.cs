@@ -51,6 +51,14 @@ namespace BikeProd
             return list;
         }
 
+        public List<ProductionVO> GetProductionList()
+        {
+            ProductionDAC dac = new ProductionDAC();
+            List<ProductionVO> list = dac.GetProductionList();
+            dac.Dispose();          
+            return list;
+        }
+
         /// <summary>
         /// Author : 강지훈
         /// </summary>
@@ -60,6 +68,20 @@ namespace BikeProd
         {
             ProductionDAC dac = new ProductionDAC();
             bool result = dac.SaveProduction(production, partList);
+            dac.Dispose();
+            return result;
+        }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 생산 완료 또는 취소 처리
+        /// </summary>
+        /// <param name="isComplete"></param>
+        /// <returns></returns>
+        public bool UpdateProductionState(bool isComplete, int id, string prodCode)
+        {
+            ProductionDAC dac = new ProductionDAC();
+            bool result = dac.UpdateProductionState(isComplete, id, prodCode);
             dac.Dispose();
             return result;
         }

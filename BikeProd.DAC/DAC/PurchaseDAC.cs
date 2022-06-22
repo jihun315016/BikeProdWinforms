@@ -372,6 +372,30 @@ namespace BikeProd.DAC
             }
         }
 
+        /// <summary>
+        /// Author 이진형
+        /// 현재까지 가장 많이 발주한 상위5가지 부품 (동률 포함) 
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetTopChart()
+        {
+            string sql = @"select top 5 pd.PartCode, count(*) Qty
+                            from TB_PurchaseDetails pd 
+                            inner join TB_Parts p on pd.PartCode = p.PartCode                     
+                            inner join TB_Purchase pc on pd.PurchaseNo = pc.PurchaseNo
+                            where pd.PartCode = pd.PartCode and pc.ArriveDate <= CONVERT(VARCHAR, GETDATE(), 112)
+                            group by pd.PartCode
+                            order by count(*) desc";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            da.Fill(dt);
+
+            return dt;
+        }
+
+
+
 
     }
 }

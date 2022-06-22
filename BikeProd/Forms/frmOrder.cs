@@ -196,8 +196,8 @@ namespace BikeProd
 
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-            /*try
-            {*/
+            try
+            {
                 OrderVO update = new OrderVO();
                 String State = (dgvList.SelectedRows[0].Cells["State"].Value).ToString();
 
@@ -210,7 +210,7 @@ namespace BikeProd
 
                     if (result)
                     {
-                        //생산과 비교 예정
+                        OrderSrv.UpdateStateOK(update.OrderNo);
                         MessageBox.Show("출고완료 되었습니다");
                         LoadData();
                     }
@@ -230,11 +230,11 @@ namespace BikeProd
                     MessageBox.Show("이미 취소된 발주서입니다");
                     return;
                 }
-            /*}
+            }
             catch (Exception err)
             {
                 MessageBox.Show("오류발생");
-            }*/
+            }
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)

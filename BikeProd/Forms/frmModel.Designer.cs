@@ -407,6 +407,7 @@
             // 
             // pnlDetail
             // 
+            this.pnlDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDetail.Controls.Add(this.txtLeadTime);
             this.pnlDetail.Controls.Add(this.lblLeadTime);
             this.pnlDetail.Controls.Add(this.label1);

@@ -76,7 +76,7 @@ namespace BikeProd.DAC
         public List<ProductVO> GetProdList()
         {
             List<ProductVO> list = new List<ProductVO>();
-            string sql = @"select ProdCode, ProdName, IsFinished, Category, Price, Image, Inventory, State, LeadTime, Dealing 
+            string sql = @"select ProdCode, ProdName, IsFinished, Category, Price, Image, Inventory, LeadTime, Dealing 
                            from TB_Products";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {

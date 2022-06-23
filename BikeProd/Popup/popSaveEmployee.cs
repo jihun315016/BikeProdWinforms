@@ -42,7 +42,7 @@ namespace BikeProd
         }
 
 
-        
+
 
         /// <summary>
         /// Auther : 류경석
@@ -77,24 +77,30 @@ namespace BikeProd
             {
                 domain = cboDomain.Text;
             }
-            if(txtPhone.Text.Length < txtPhone.MaxLength)
+            if (txtPhone.Text.Length < txtPhone.MaxLength)
             {
                 MessageBox.Show("전화번호를 제대로 입력해주세요");
                 return;
             }
-            
+
             if (cboDept.SelectedIndex == 0)
             {
                 MessageBox.Show("부서를 선택해주세요");
                 return;
             }
+            if (cboTeam.SelectedIndex == 0)
+            {
+                MessageBox.Show("팀을 선택해주세요");
+                return;
+            }
 
-            if(cboTeam.SelectedIndex != 0)
+
+            if (cboTeam.SelectedIndex != 0)
             {
                 TeamList = employeeSrv.GetCodeByTeam(deptCode);
                 TeamCode = TeamList.Find((c) => c.TeamName == cboTeam.Text).TeamNo;
             }
-                        
+
 
             EmployeeVO emp = new EmployeeVO
             {
@@ -119,11 +125,11 @@ namespace BikeProd
                 MessageBox.Show("등록 중 오류가 발생했습니다.");
                 return;
             }
-                
-        }
-        
 
-        
+        }
+
+
+
         /// <summary>
         /// Auther :류경석
         /// 도메인 콤보박스 바인딩
@@ -134,8 +140,8 @@ namespace BikeProd
             cboDomain.SelectedIndex = 0;
 
 
-            string[] domain = {"직접입력", "naver.com", "gmail.com", "kakao.com", "daum.net" };
-            foreach(string dom in domain)
+            string[] domain = { "직접입력", "naver.com", "gmail.com", "kakao.com", "daum.net" };
+            foreach (string dom in domain)
             {
                 cboDomain.Items.Add(dom);
             }
@@ -147,7 +153,7 @@ namespace BikeProd
         /// </summary>
         public void DeptComboBinding()
         {
-           
+
             employeeSrv = new EmployeeService();
             deptList = employeeSrv.GetCodeByDept();
             deptList.Insert(0, new DepartmentVO()
@@ -182,29 +188,7 @@ namespace BikeProd
                 e.Handled = true;
             }
         }
-        /// <summary>
-        /// Auther : 류경석
-        /// 전화번호 "-" 자동입력
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtPhone_TextChanged_1(object sender, EventArgs e)
-        {
-            string phone;
-            if (txtPhone.Text.Length == 11)
-            {
-                txtPhone.Text = txtPhone.Text.Insert(3, "-");
-                txtPhone.Text = txtPhone.Text.Insert(8, "-");
-            }
 
-
-
-            /*if (txtPhone.Text.Length == 3 || txtPhone.Text.Length == 8)
-            {
-                txtPhone.Text += "-";
-                txtPhone.Select(txtPhone.Text.Length, 0);
-            }*/
-        }
 
         /// <summary>
         /// Auther : 류경석
@@ -222,7 +206,7 @@ namespace BikeProd
             {
                 txtDomain.Visible = false;
             }
-            
+
         }
         /// <summary>
         /// Auther : 류경석
@@ -232,7 +216,7 @@ namespace BikeProd
         /// <param name="e"></param>
         private void cboDept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboDept.SelectedIndex != 0)
+            if (cboDept.SelectedIndex != 0)
             {
                 DepartmentVO deptNo = deptList.Find((c) => c.DeptName == cboDept.Text);
                 deptCode = deptNo.DeptNo;
@@ -250,24 +234,30 @@ namespace BikeProd
         /// <param name="e"></param>
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            Regex emailregex = new Regex(@"[0-9a-zA-Z]$"); 
-            Boolean ismatch = emailregex.IsMatch(txtEmail.Text); 
-            if (!ismatch) 
-            { 
+            Regex emailregex = new Regex(@"[0-9a-zA-Z]$");
+            Boolean ismatch = emailregex.IsMatch(txtEmail.Text);
+            if (!ismatch)
+            {
                 MessageBox.Show("영문자와 숫자만만 입력해 주세요.");
                 txtEmail.Text = "";
                 return;
             }
-            
+
         }
 
-        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        /// <summary>
+        /// Auther : 류경석
+        /// 전화번호 "-" 자동입력
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtPhone_Leave(object sender, EventArgs e)
         {
-            /*if (txtPhone.Text.Length == 11)
+            if (txtPhone.Text.Length == 11)
             {
                 txtPhone.Text = txtPhone.Text.Insert(3, "-");
                 txtPhone.Text = txtPhone.Text.Insert(8, "-");
-            }*/
+            }
         }
     }
 }

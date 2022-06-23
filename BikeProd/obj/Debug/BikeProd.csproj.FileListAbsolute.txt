@@ -1,51 +1,3 @@
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bPopCommon.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ucSelector.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmClient.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmDepartment.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmEmployee.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmLogin.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmOrder.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmPerformance.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmBOM.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchaseStatus.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmSalesStatus.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmProduction.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveProduction.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveBOM.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSelectSaveBOM.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Popup.popProduction.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popResign.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveAddress.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveClient.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveOrder.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSavePur.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveEmployee.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popFindPwd.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSearchClient.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popAuthReg.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.exe
-C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\bin\Debug\BikeProd.exe
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
@@ -76,7 +28,6 @@ C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\Bik
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveProduction.resources
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveBOM.resources
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSelectSaveBOM.resources
-C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.Popup.popProduction.resources
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popResign.resources
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveAddress.resources
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveClient.resources
@@ -93,7 +44,6 @@ C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\Bik
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.exe
 C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
-C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.frmSalesStatus.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\bin\Debug\BikeProd.exe
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
@@ -115,18 +65,15 @@ C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmDepartment.r
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmEmployee.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmLogin.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmOrder.resources
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmPerformance.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmBOM.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchaseStatus.resources
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmSalesStatus.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmProduction.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveProduction.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveBOM.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSelectSaveBOM.resources
-C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.Popup.popProduction.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popResign.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveAddress.resources
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveClient.resources
@@ -143,3 +90,54 @@ C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreComp
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.exe
 C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.exe.config
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.exe
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.dll
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.VO.dll
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.DAC.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\bin\Debug\BikeProd.VO.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.AssemblyReference.cache
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.baseCommon.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmList.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bFrmListAndDetail.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.bPopCommon.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ccTextBox.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ucFormController.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.ucSelector.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmClient.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmDepartment.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmEmployee.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmLogin.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmOrder.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Forms.frmPerformance.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchase.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmMenu.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmModel.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmBOM.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmPurchaseStatus.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmSalesStatus.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveProduction.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveBOM.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSelectSaveBOM.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popResign.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveAddress.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveClient.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveOrder.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSavePur.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveEmployee.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popFindPwd.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSearchClient.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popAuthReg.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.popSaveModel.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.Properties.Resources.resources
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.GenerateResource.cache
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CoreCompileInputs.cache
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.csproj.CopyComplete
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.exe
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.pdb
+C:\Users\GDC9\Desktop\1차 팀플\BikeProd\BikeProd\obj\Debug\BikeProd.frmProduction.resources
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.frmOrderStatus.resources
+C:\Users\GDC9\Desktop\GDC9기 수업자료\Team2\BikeProd\BikeProd\obj\Debug\BikeProd.popWaitAsync.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.frmOrderStatus.resources
+C:\Users\admin\Desktop\1차\BikeProd\BikeProd\obj\Debug\BikeProd.popLoading.resources

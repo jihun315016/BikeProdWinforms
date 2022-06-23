@@ -11,49 +11,47 @@ using System.Windows.Forms;
 
 namespace BikeProd
 {
-    public partial class frmPurchaseStatus : bFrmList
+    public partial class frmOrderStatus : bFrmList
     {
-        List<PurchaseStateVO> stateList;
+        List<SalesStateVO> stateList;
         TradeService tradeSrv = new TradeService();
-
-
-        public frmPurchaseStatus()
+        public frmOrderStatus()
         {
             InitializeComponent();
         }
 
-        private void frmPurchaseStatus_Load(object sender, EventArgs e)
+        private void frmSalesStatus_Load(object sender, EventArgs e)
         {
-            //PurchaseNo, ClientName, PManager, Manager, ArriveDate, State, PartName, Qty, Price, Amount
-            DataGridViewUtil.SetInitGridView(dgvPCList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "발주 번호", "PurchaseNo", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "입고처", "ClientName", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "매입 일자", "ArriveDate", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "매입액", "Sum", colWidth: 135, alignContent: DataGridViewContentAlignment.MiddleRight);
+            //OrderNo, ClientName, Manager, PManager, DeliveryDate, ProdName, Price, Qty, Sum, State
+            DataGridViewUtil.SetInitGridView(dgvSoldList);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "주문 번호", "OrderNo", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "고객", "ClientName", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "매출 일자", "DeliveryDate", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "매출액", "Sum", colWidth: 135, alignContent: DataGridViewContentAlignment.MiddleRight);
             //다음 컬럼들은 그리드뷰에서 보이지 않게 처리
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "발주 담당자", "PManager", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "거래처 담당자", "Manager", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "state", "State", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "부품명", "PartName", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "수량", "Qty", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCList, "가격", "Price", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "주문 담당자", "PManager", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "고객 담당자", "Manager", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "state", "State", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "제품명", "ProdName", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "수량", "Qty", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldList, "가격", "Price", isVisible: false);
 
-            DataGridViewUtil.SetInitGridView(dgvPCDetail);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "거래처 담당자", "Manager", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "발주 담당자", "PManager", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "부품명", "PartName", colWidth: 350, alignContent: DataGridViewContentAlignment.MiddleLeft);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "수량", "Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleRight);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "매입액", "Amount", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetInitGridView(dgvSoldDetail);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "고객 담당자", "Manager", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "주문 담당자", "PManager", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "제품명", "ProdName", colWidth: 350, alignContent: DataGridViewContentAlignment.MiddleLeft);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "수량", "Qty", colWidth: 100, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "가격", "Price", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "매출액", "Amount", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             //다음 컬럼들은 그리드뷰에서 보이지 않게 처리
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "입고처", "ClientName", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "발주 번호", "PurchaseNo", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "state", "State", isVisible: false);
-            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvPCDetail, "매입 일자", "ArriveDate", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "고객", "ClientName", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "주문 번호", "OrderNo", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "state", "State", isVisible: false);
+            //DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvSoldDetail, "매출 일자", "DeliveryDate", isVisible: false);
 
-            dgvPCList.Columns["Sum"].DefaultCellStyle.Format = "###,##0";
-            dgvPCDetail.Columns["Price"].DefaultCellStyle.Format = "###,##0";
-            dgvPCDetail.Columns["Amount"].DefaultCellStyle.Format = "###,##0";
+            dgvSoldList.Columns["Sum"].DefaultCellStyle.Format = "###,##0";
+            dgvSoldDetail.Columns["Price"].DefaultCellStyle.Format = "###,##0";
+            dgvSoldDetail.Columns["Amount"].DefaultCellStyle.Format = "###,##0";
 
             dtpTo.Value = DateTime.Today;
             dtpFrom.Value = dtpTo.Value.AddDays(-7);
@@ -70,14 +68,14 @@ namespace BikeProd
             string dateFrom = dtpFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dtpTo.Value.ToString("yyyy-MM-dd");
 
-            stateList = tradeSrv.GetPurchaseSumInfo(dateFrom, dateTo);
-            dgvPCList.DataSource = stateList;
+            stateList = tradeSrv.GetSalesSumInfo(dateFrom, dateTo);
+            dgvSoldList.DataSource = stateList;
 
             //매입액 컬럼(Sum) 전체 총합
             int sum = 0;
-            for (int i = 0; i < dgvPCList.Rows.Count; ++i)
+            for (int i = 0; i < dgvSoldList.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(dgvPCList.Rows[i].Cells["Sum"].Value);
+                sum += Convert.ToInt32(dgvSoldList.Rows[i].Cells["Sum"].Value);
             }
             txtListTotal.Text = sum.ToString();
 
@@ -116,21 +114,21 @@ namespace BikeProd
         }
 
 
-        private void dgvPurchasedList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSoldList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            int purchaseNo = Convert.ToInt32(dgvPCList["PurchaseNo", e.RowIndex].Value);
-            stateList = tradeSrv.GetAllPurchasedInfo();
-            List<PurchaseStateVO> result = stateList.FindAll((r) => r.PurchaseNo.Equals(purchaseNo));
+            int orderNo = Convert.ToInt32(dgvSoldList["OrderNo", e.RowIndex].Value);
+            stateList = tradeSrv.GetAllSalesInfo();
+            List<SalesStateVO> result = stateList.FindAll((r) => r.OrderNo.Equals(orderNo));
 
-            dgvPCDetail.DataSource = result;
+            dgvSoldDetail.DataSource = result;
 
             //매입액 컬럼(Amount) 전체 총합
             int sum = 0;
-            for (int i = 0; i < dgvPCDetail.Rows.Count; ++i)
+            for (int i = 0; i < dgvSoldDetail.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(dgvPCDetail.Rows[i].Cells["Amount"].Value);
+                sum += Convert.ToInt32(dgvSoldDetail.Rows[i].Cells["Amount"].Value);
             }
             txtDetailTotal.Text = sum.ToString();
 
@@ -147,9 +145,9 @@ namespace BikeProd
             LoadData();
             LoadcboPeriod();
 
-            txtClientP.Clear();
+            txtClientS.Clear();
             txtDetailTotal.Clear();
-            dgvPCDetail.DataSource = null;
+            dgvSoldDetail.DataSource = null;
 
 
         }
@@ -181,11 +179,11 @@ namespace BikeProd
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvPCDetail.DataSource = null;
+            dgvSoldDetail.DataSource = null;
 
             string dateFrom = dtpFrom.Value.ToString("yyyy-MM-dd");
             string dateTo = dtpTo.Value.ToString("yyyy-MM-dd");
-            stateList = tradeSrv.GetPurchaseSumInfo(dateFrom, dateTo);
+            stateList = tradeSrv.GetSalesSumInfo(dateFrom, dateTo);
             int dtfrom = Convert.ToInt32(dtpFrom.Value.ToString("yyyyMMdd"));
             int dtto = Convert.ToInt32(dtpTo.Value.ToString("yyyyMMdd"));
 
@@ -196,34 +194,34 @@ namespace BikeProd
             }
             else
             {
-                var ssList = stateList.FindAll((m) => m.ClientName.ToLower().Contains(txtClientP.Text.ToLower())).ToList();
+                var ssList = stateList.FindAll((m) => m.ClientName.ToLower().Contains(txtClientS.Text.ToLower())).ToList();
                 if (ssList.Count <= 0)
                 {
                     txtListTotal.Clear();
                     txtDetailTotal.Clear();
                     //txtClientP.Clear();
-                    dgvPCList.DataSource = null;
-                    dgvPCDetail.DataSource = null;
+                    dgvSoldList.DataSource = null;
+                    dgvSoldDetail.DataSource = null;
                     MessageBox.Show("해당사항이 없습니다. 거래처명 또는 매입일자를 확인해 주세요.");
                     return;
-                }                
+                }
                 else
-                {                    
-                    dgvPCList.DataSource = null;
-                    dgvPCList.DataSource = ssList;
+                {
+                    dgvSoldList.DataSource = null;
+                    dgvSoldList.DataSource = ssList;
 
                     //매입액 컬럼(Sum) 전체 총합
                     int sum = 0;
-                    for (int i = 0; i < dgvPCList.Rows.Count; ++i)
+                    for (int i = 0; i < dgvSoldList.Rows.Count; ++i)
                     {
-                        sum += Convert.ToInt32(dgvPCList.Rows[i].Cells["Sum"].Value);
+                        sum += Convert.ToInt32(dgvSoldList.Rows[i].Cells["Sum"].Value);
                     }
                     txtListTotal.Text = sum.ToString();
 
                     txtListTotal.ReadOnly = true;
                     txtListTotal.TextAlign = HorizontalAlignment.Right;
                     textMoney(txtListTotal);
-                    
+
                     return;
                 }
 

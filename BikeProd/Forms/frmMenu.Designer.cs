@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUserInfo = new System.Windows.Forms.Label();
             this.btnChangePwd = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -39,7 +39,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblUserInfo);
             this.panel1.Controls.Add(this.btnChangePwd);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.menuStrip1);
@@ -50,15 +50,15 @@
             this.panel1.Size = new System.Drawing.Size(1150, 104);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // lblUserInfo
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(847, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "OOO님 안녕하세요.";
+            this.lblUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUserInfo.AutoSize = true;
+            this.lblUserInfo.Location = new System.Drawing.Point(847, 82);
+            this.lblUserInfo.Name = "lblUserInfo";
+            this.lblUserInfo.Size = new System.Drawing.Size(113, 15);
+            this.lblUserInfo.TabIndex = 2;
+            this.lblUserInfo.Text = "OOO님 안녕하세요.";
             // 
             // btnChangePwd
             // 
@@ -129,7 +129,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUserInfo;
         private System.Windows.Forms.Button btnChangePwd;
         private System.Windows.Forms.MenuStrip menuStrip1;
     }

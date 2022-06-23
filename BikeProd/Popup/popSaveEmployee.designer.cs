@@ -162,8 +162,6 @@ namespace BikeProd
             this.txtPhone.Size = new System.Drawing.Size(223, 23);
             this.txtPhone.TabIndex = 3;
             this.txtPhone.Tag = "전화번호";
-            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged_1);
-            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // txtEmail
             // 

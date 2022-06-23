@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BikeProd.VO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,39 +19,16 @@ namespace BikeProd
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
-        {
-            txtEmpNo.PlaceHolder = "사번";
-            txtEmpNo.SetPlaceHolder();
-            txtEmpNo.isNumeric = true;            
-            
-            txtPwd.PlaceHolder = "비밀번호";            
-            txtPwd.SetPlaceHolder();
+        {            
+            txtEmpNo.isNumeric = true;
+            txtPwd.PasswordChar = '*';
 
-            txtPwd.LostFocus += TxtPwd_LostFocus;
-            txtPwd.GotFocus += TxtPwd_GotFocus;
-        }
-
-        private void TxtPwd_GotFocus(object sender, EventArgs e)
-        {
-            ccTextBox txt = (ccTextBox)sender;
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                if (txt == txtPwd)
-                    txtPwd.PasswordChar = '*';
-            }
-        }
-
-        private void TxtPwd_LostFocus(object sender, EventArgs e)
-        {
-            ccTextBox txt = (ccTextBox)sender;
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {                
-                if (txt == txtPwd)
-                    txtPwd.PasswordChar = default;
-            }
-        }
-
-        // 로그인 버튼
+#if DEBUG
+            txtEmpNo.Text = "10001";
+            txtPwd.Text = "1234";
+#endif
+        }        
+        
         private void btnLogin_Click(object sender, EventArgs e)
         {            
             string msg = TextBoxUtil.IsRequiredCheck(new ccTextBox[] { txtEmpNo, txtPwd });
@@ -61,12 +39,12 @@ namespace BikeProd
             }
 
             LoginService LoginSrv = new LoginService();
-
-            if (LoginSrv.GetLoginInfo(txtEmpNo.Text.Trim(), txtPwd.Text.Trim()))
+            EmployeeVO empVO = LoginSrv.GetEmpInfo(Convert.ToInt32(txtEmpNo.Text.Trim()), txtPwd.Text.Trim());
+            if (empVO != null)
             {
-                //((frmMenu)this.Owner).empNo = int.Parse(txtEmpNo.Text);
-                //this.DialogResult = DialogResult.OK;
-                //this.Close();
+                frmMenu frm = new frmMenu(empVO);
+                frm.Show();
+                txtEmpNo.Text = txtPwd.Text = String.Empty;
             }
             else
             {

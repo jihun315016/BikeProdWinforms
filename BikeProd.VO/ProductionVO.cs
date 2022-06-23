@@ -14,7 +14,7 @@ namespace BikeProd.VO
         public int Loss { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime ReqDate { get; set; }
-        public DateTime ComplateDate { get; set; }
+        public DateTime CompleteDate { get; set; }
         public string State { get; set; }
         public string Team { get; set; }
 

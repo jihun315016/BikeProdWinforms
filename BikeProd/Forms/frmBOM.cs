@@ -69,6 +69,7 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "수량", "Requirement");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "합계", "Total");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "관계", "Relation", isVisible: false);
+            dgvChild.Columns["Price"].DefaultCellStyle.Format = "###,##0";
 
             // 역전개
             DataGridViewUtil.SetInitGridView(dgvParent);
@@ -79,7 +80,8 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "가격", "Price");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "관계", "Relation", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "재고", "Inventory");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "LeadTime", "LeadTime");            
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "LeadTime", "LeadTime");
+            dgvParent.Columns["Price"].DefaultCellStyle.Format = "###,##0";
         }
 
         /// <summary>

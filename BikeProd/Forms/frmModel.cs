@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,6 +59,7 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래 여부", "Dealing", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 유무", "Image", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "안전 재고", "SfInvn", isVisible: false);
+            dgvList.Columns["Price"].DefaultCellStyle.Format = "###,##0";
             dgvList.DataSource = prodPartList.FindAll(p => p.Dealing == (cboDealing.SelectedIndex + 1) % 2);            
         }
 
@@ -178,80 +180,96 @@ namespace BikeProd
             if (e.RowIndex < 0)
                 return;
 
+            popLoading pop = new popLoading(() => ShowModelDetail(e.RowIndex));
+            pop.ShowDialog();
+        }
+
+        void ShowModelDetail(int iRow)
+        {
             // 저장 버튼을 눌렀을 때 Tag 값이 빈 문자열이 아니라면 이미지 수정
-            ptbModel.Tag = string.Empty;
-
-            // 거래처 정보도 기본적으로 빈 문자열
-            txtClient.Tag = string.Empty;
-
-            txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
-                = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
-                = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
-            btnUpdate.Text = "수정";
-
-            txtCode.Text = dgvList["Code", e.RowIndex].Value.ToString();
-            txtName.Text = dgvList["Name", e.RowIndex].Value.ToString();
-            txtPrice.Text = dgvList["Kind", e.RowIndex].Value.ToString();
-            txtCategory.Text = $"[{dgvList["Kind", e.RowIndex].Value}] {dgvList["Category", e.RowIndex].Value}";
-            txtPrice.Text = dgvList["Price", e.RowIndex].Value.ToString();
-            txtInventory.Text = dgvList["Inventory", e.RowIndex].Value.ToString();
-
-            if (Convert.ToInt32(dgvList["Dealing", e.RowIndex].Value) == 1)
+            this.Invoke(new Action(() =>
             {
-                btnDelete.Text = "삭제";
-            }
-            else
-            {
-                btnDelete.Text = "재등록";
-            }
+                ptbModel.Tag = string.Empty;
+                txtClient.Tag = string.Empty;
 
-            if (dgvList["Kind", e.RowIndex].Value.ToString() == "부품")
-            {
-                lblSafeInventory.Visible = lblTotInventory.Visible = lblUit.Visible = lblClient.Visible = true;
-                txtSafeInventory.Visible = txtTotInventory.Visible = txtUnit.Visible = txtClient.Visible = true;
-                lblLeadTime.Visible = txtLeadTime.Visible = false;
+                txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
+                    = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
+                    = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
+                btnUpdate.Text = "수정";
 
-                try
+                // 거래처 정보도 기본적으로 빈 문자열
+                txtClient.Tag = string.Empty;
+
+                txtCode.ReadOnly = txtName.ReadOnly = txtCategory.ReadOnly = txtPrice.ReadOnly
+                    = txtInventory.ReadOnly = txtSafeInventory.ReadOnly = txtTotInventory.ReadOnly
+                    = txtUnit.ReadOnly = txtClient.ReadOnly = txtLeadTime.ReadOnly = true;
+                btnUpdate.Text = "수정";
+
+                txtCode.Text = dgvList["Code", iRow].Value.ToString();
+                txtName.Text = dgvList["Name", iRow].Value.ToString();
+                txtPrice.Text = dgvList["Kind", iRow].Value.ToString();
+                txtCategory.Text = $"[{dgvList["Kind", iRow].Value}] {dgvList["Category", iRow].Value}";
+                txtPrice.Text = dgvList["Price", iRow].Value.ToString();
+                txtInventory.Text = dgvList["Inventory", iRow].Value.ToString();
+
+                if (Convert.ToInt32(dgvList["Dealing", iRow].Value) == 1)
                 {
-                    PartVO part = modelSrv.GetPartClientAndQtyInfo(dgvList["Code", e.RowIndex].Value.ToString());
-                    txtSafeInventory.Text = part.SfInvn.ToString();
-                    txtTotInventory.Text = part.TotInvn.ToString();
-                    txtUnit.Text = part.Unit.ToString();
-                    txtClient.Text = part.ClientName;
-                    txtClient.Tag = part.BusinessNo;
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show("조회에 실패했습니다.");
-                }                
-            }
-            else // 제품 더블 클릭
-            {
-                lblSafeInventory.Visible = lblTotInventory.Visible = lblUit.Visible = lblClient.Visible = false;
-                txtSafeInventory.Visible = txtTotInventory.Visible = txtUnit.Visible = txtClient.Visible = false;
-                lblLeadTime.Visible = txtLeadTime.Visible = true;
-
-                txtLeadTime.Text = modelSrv.GetProdLeadTime(txtCode.Text).ToString();
-            }
-
-            try
-            {
-                // 이미지가 있다면 불러오기
-                int isImg = Convert.ToInt32(dgvList["Image", e.RowIndex].Value.ToString());
-                if (isImg > 0)
-                {
-                    string url = "http://jihun3100.pythonanywhere.com/getImg";
-                    byte[] imgByte = WebRequestUtil.GetImage(url, txtName.Text);
-                    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
-                    Image img = (Bitmap)tc.ConvertFrom(imgByte);
-                    ptbModel.Image = img;
+                    btnDelete.Text = "삭제";
                 }
                 else
                 {
-                    ptbModel.Image = null;
+                    btnDelete.Text = "재등록";
                 }
+
+                if (dgvList["Kind", iRow].Value.ToString() == "부품")
+                {
+                    lblSafeInventory.Visible = lblTotInventory.Visible = lblUit.Visible = lblClient.Visible = true;
+                    txtSafeInventory.Visible = txtTotInventory.Visible = txtUnit.Visible = txtClient.Visible = true;
+                    lblLeadTime.Visible = txtLeadTime.Visible = false;
+
+                    try
+                    {
+                        PartVO part = modelSrv.GetPartClientAndQtyInfo(dgvList["Code", iRow].Value.ToString());
+                        txtSafeInventory.Text = part.SfInvn.ToString();
+                        txtTotInventory.Text = part.TotInvn.ToString();
+                        txtUnit.Text = part.Unit.ToString();
+                        txtClient.Text = part.ClientName;
+                        txtClient.Tag = part.BusinessNo;
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show("조회에 실패했습니다.");
+                    }
+                }
+                else // 제품 더블 클릭
+                {
+                    lblSafeInventory.Visible = lblTotInventory.Visible = lblUit.Visible = lblClient.Visible = false;
+                    txtSafeInventory.Visible = txtTotInventory.Visible = txtUnit.Visible = txtClient.Visible = false;
+                    lblLeadTime.Visible = txtLeadTime.Visible = true;
+
+                    txtLeadTime.Text = modelSrv.GetProdLeadTime(txtCode.Text).ToString();
+                }
+
+                try
+                {
+                    // 이미지가 있다면 불러오기
+                    int isImg = Convert.ToInt32(dgvList["Image", iRow].Value.ToString());
+                    if (isImg > 0)
+                    {
+                        string url = "http://jihun3100.pythonanywhere.com/getImg";
+                        byte[] imgByte = WebRequestUtil.GetImage(url, txtName.Text);
+                        TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+                        Image img = (Bitmap)tc.ConvertFrom(imgByte);
+                        ptbModel.Image = img;
+                    }
+                    else
+                    {
+                        ptbModel.Image = null;
+                    }
+                }
+                catch (Exception err) { MessageBox.Show(err.Message); }
             }
-            catch (Exception err) { MessageBox.Show(err.Message); }
+            ));
         }
 
         /// <summary>

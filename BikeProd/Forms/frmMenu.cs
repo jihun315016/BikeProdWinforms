@@ -21,9 +21,15 @@ namespace BikeProd
         List<MenuVO> menuList;
         TreeView menuTree;
 
-        public frmMenu()
+        public frmMenu(EmployeeVO empInfo)
         {
             InitializeComponent();
+
+            lblUserInfo.Text = $"[{empInfo.DeptName}] {empInfo.EmpName}님 안녕하세요.";
+            lblUserInfo.Left = btnChangePwd.Left - lblUserInfo.Width - 20;
+            loginService = new LoginService();
+            menuList = loginService.GetMenuList(Convert.ToInt32(empInfo.EmpNo));
+            Console.WriteLine($"{empInfo.EmpNo}");
         }
 
         /// <summary>
@@ -36,8 +42,6 @@ namespace BikeProd
         {
             base.IsNotVisibleLabel();            
 
-            loginService = new LoginService();
-            menuList = loginService.GetMenuList(10001); // 직원에 대해 권한 있는 메뉴 리스트 Get
 
             // 최상위 메뉴 버튼 초기화
             var list = menuList.FindAll(m => string.IsNullOrWhiteSpace(m.FrmName));
@@ -132,7 +136,6 @@ namespace BikeProd
             {
                 if (form.GetType() == type)
                 {
-                    form.WindowState = FormWindowState.Maximized;
                     form.Activate();
                     return;
                 }
@@ -164,11 +167,7 @@ namespace BikeProd
             frm.FormClosed += (object obj, FormClosedEventArgs e) =>
             {
                 ucFormController selected = ((Form)obj).Tag as ucFormController;
-                RemoveUcFormControl(selected.FormControlText);
-                foreach (Form form in Application.OpenForms)
-                {
-                    form.WindowState = FormWindowState.Maximized;
-                }
+                RemoveUcFormControl(selected.FormControlText);                
             };
 
             formControl.ButtonClick += (object obj, EventArgs eArgs) =>

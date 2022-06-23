@@ -17,8 +17,7 @@ namespace BikeProd
         EmployeeService employeeSrv = new EmployeeService();
         DepartmentService departmentSrv = new DepartmentService();
         List<EmployeeVO> empList = null;
-        List<DepartmentVO> deptList;
-        List<TeamEmpVO> teamList;
+
         
 
         public frmEmployee()
@@ -34,15 +33,15 @@ namespace BikeProd
             txtEmpName.PlaceHolder = "사원선택";
             txtEmpName.SetPlaceHolder();
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원번호", "EmpNo",colWidth : 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName",colWidth : 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서", "DeptName", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀", "TeamName", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "비밀번호", "Pwd", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원번호", "EmpNo",colWidth : 150, alignContent : DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName",colWidth : 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서", "DeptName", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀", "TeamName", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "비밀번호", "Pwd", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate", colWidth: 150, alignContent : DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서번호", "DeptNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀번호", "TeamNo", isVisible: false);
 
@@ -194,6 +193,14 @@ namespace BikeProd
             else
             {
                 btnResign.Text = "퇴사";
+            }
+        }
+
+        private void frmEmployee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != 13)
+            {
+                e.Handled = true;
             }
         }
     }

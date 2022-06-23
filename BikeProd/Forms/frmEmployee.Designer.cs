@@ -48,7 +48,7 @@ namespace BikeProd
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             // 
             // splitContainer1.Panel1
             // 
@@ -63,9 +63,9 @@ namespace BikeProd
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnResign);
             this.splitContainer1.Panel2.Controls.Add(this.btnSave);
-            this.splitContainer1.Size = new System.Drawing.Size(1304, 673);
-            this.splitContainer1.SplitterDistance = 75;
-            this.splitContainer1.SplitterWidth = 4;
+            this.splitContainer1.Size = new System.Drawing.Size(1014, 505);
+            this.splitContainer1.SplitterDistance = 56;
+            this.splitContainer1.SplitterWidth = 3;
             // 
             // panel1
             // 
@@ -73,28 +73,26 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
-            this.panel1.Location = new System.Drawing.Point(36, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.panel1.Size = new System.Drawing.Size(1057, 414);
+            this.panel1.Location = new System.Drawing.Point(28, 15);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Size = new System.Drawing.Size(816, 272);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboDept
             // 
             this.cboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDept.FormattingEnabled = true;
-            this.cboDept.Location = new System.Drawing.Point(15, 45);
-            this.cboDept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboDept.Location = new System.Drawing.Point(12, 34);
             this.cboDept.Name = "cboDept";
-            this.cboDept.Size = new System.Drawing.Size(154, 28);
+            this.cboDept.Size = new System.Drawing.Size(121, 23);
             this.cboDept.TabIndex = 0;
             this.cboDept.SelectedIndexChanged += new System.EventHandler(this.cboDept_SelectedIndexChanged_1);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(363, 44);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(282, 33);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(96, 31);
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -102,10 +100,9 @@ namespace BikeProd
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(467, 44);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Location = new System.Drawing.Point(363, 33);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(154, 31);
+            this.btnReset.Size = new System.Drawing.Size(120, 23);
             this.btnReset.TabIndex = 4;
             this.btnReset.Text = "초기화/새로고침";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -115,10 +112,9 @@ namespace BikeProd
             // 
             this.rdOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdOut.AutoSize = true;
-            this.rdOut.Location = new System.Drawing.Point(1118, 44);
-            this.rdOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdOut.Location = new System.Drawing.Point(867, 33);
             this.rdOut.Name = "rdOut";
-            this.rdOut.Size = new System.Drawing.Size(60, 24);
+            this.rdOut.Size = new System.Drawing.Size(49, 19);
             this.rdOut.TabIndex = 5;
             this.rdOut.Text = "퇴사";
             this.rdOut.UseVisualStyleBackColor = true;
@@ -128,10 +124,9 @@ namespace BikeProd
             // 
             this.rdWorking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdWorking.AutoSize = true;
-            this.rdWorking.Location = new System.Drawing.Point(1033, 44);
-            this.rdWorking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdWorking.Location = new System.Drawing.Point(801, 33);
             this.rdWorking.Name = "rdWorking";
-            this.rdWorking.Size = new System.Drawing.Size(60, 24);
+            this.rdWorking.Size = new System.Drawing.Size(49, 19);
             this.rdWorking.TabIndex = 5;
             this.rdWorking.Text = "재직";
             this.rdWorking.UseVisualStyleBackColor = true;
@@ -140,10 +135,9 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1153, 525);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(896, 395);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 53);
+            this.btnSave.Size = new System.Drawing.Size(87, 40);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "등록";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -153,11 +147,10 @@ namespace BikeProd
             // 
             this.txtEmpName.isNumeric = false;
             this.txtEmpName.isRequired = false;
-            this.txtEmpName.Location = new System.Drawing.Point(179, 45);
-            this.txtEmpName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmpName.Location = new System.Drawing.Point(139, 34);
             this.txtEmpName.Name = "txtEmpName";
             this.txtEmpName.PlaceHolder = "";
-            this.txtEmpName.Size = new System.Drawing.Size(175, 27);
+            this.txtEmpName.Size = new System.Drawing.Size(137, 23);
             this.txtEmpName.TabIndex = 1;
             this.txtEmpName.Tag = "사원이름";
             // 
@@ -167,11 +160,10 @@ namespace BikeProd
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvList.Location = new System.Drawing.Point(0, 0);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1057, 414);
+            this.dgvList.Size = new System.Drawing.Size(816, 272);
             this.dgvList.TabIndex = 1;
             this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
@@ -179,9 +171,10 @@ namespace BikeProd
             // btnResign
             // 
             this.btnResign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResign.Location = new System.Drawing.Point(1036, 525);
+            this.btnResign.Location = new System.Drawing.Point(805, 395);
+            this.btnResign.Margin = new System.Windows.Forms.Padding(2);
             this.btnResign.Name = "btnResign";
-            this.btnResign.Size = new System.Drawing.Size(108, 53);
+            this.btnResign.Size = new System.Drawing.Size(84, 40);
             this.btnResign.TabIndex = 3;
             this.btnResign.Text = "퇴사";
             this.btnResign.UseVisualStyleBackColor = true;
@@ -189,13 +182,14 @@ namespace BikeProd
             // 
             // frmEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 673);
-            this.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+            this.ClientSize = new System.Drawing.Size(1014, 505);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "frmEmployee";
             this.Text = "사원조회";
             this.Load += new System.EventHandler(this.frmEmployee_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmEmployee_KeyPress);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -87,13 +87,14 @@ namespace BikeProd
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtClientName);
             this.panel1.Location = new System.Drawing.Point(13, 18);
-            this.panel1.Size = new System.Drawing.Size(486, 447);
+            this.panel1.Size = new System.Drawing.Size(486, 432);
             // 
             // txtClientName
             // 
             this.txtClientName.isNumeric = false;
             this.txtClientName.isRequired = false;
             this.txtClientName.Location = new System.Drawing.Point(103, 32);
+            this.txtClientName.MaxLength = 30;
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.PlaceHolder = null;
             this.txtClientName.Size = new System.Drawing.Size(161, 23);
@@ -139,7 +140,7 @@ namespace BikeProd
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 305);
+            this.label6.Location = new System.Drawing.Point(12, 291);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 15);
             this.label6.TabIndex = 6;
@@ -148,7 +149,7 @@ namespace BikeProd
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 343);
+            this.label7.Location = new System.Drawing.Point(12, 329);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 15);
             this.label7.TabIndex = 7;
@@ -168,17 +169,20 @@ namespace BikeProd
             this.txtBusinessNo.isNumeric = false;
             this.txtBusinessNo.isRequired = false;
             this.txtBusinessNo.Location = new System.Drawing.Point(103, 66);
+            this.txtBusinessNo.MaxLength = 9;
             this.txtBusinessNo.Name = "txtBusinessNo";
             this.txtBusinessNo.PlaceHolder = null;
             this.txtBusinessNo.Size = new System.Drawing.Size(161, 23);
             this.txtBusinessNo.TabIndex = 1;
             this.txtBusinessNo.Tag = "사업자번호";
+            this.txtBusinessNo.Leave += new System.EventHandler(this.txtBusinessNo_Leave);
             // 
             // txtDomain
             // 
             this.txtDomain.isNumeric = false;
             this.txtDomain.isRequired = false;
-            this.txtDomain.Location = new System.Drawing.Point(225, 339);
+            this.txtDomain.Location = new System.Drawing.Point(225, 325);
+            this.txtDomain.MaxLength = 20;
             this.txtDomain.Name = "txtDomain";
             this.txtDomain.PlaceHolder = null;
             this.txtDomain.Size = new System.Drawing.Size(121, 23);
@@ -190,7 +194,7 @@ namespace BikeProd
             // 
             this.cboDomain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDomain.FormattingEnabled = true;
-            this.cboDomain.Location = new System.Drawing.Point(352, 339);
+            this.cboDomain.Location = new System.Drawing.Point(352, 325);
             this.cboDomain.Name = "cboDomain";
             this.cboDomain.Size = new System.Drawing.Size(121, 23);
             this.cboDomain.TabIndex = 8;
@@ -200,7 +204,8 @@ namespace BikeProd
             // 
             this.txtEmail.isNumeric = false;
             this.txtEmail.isRequired = false;
-            this.txtEmail.Location = new System.Drawing.Point(103, 339);
+            this.txtEmail.Location = new System.Drawing.Point(103, 325);
+            this.txtEmail.MaxLength = 30;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceHolder = null;
             this.txtEmail.Size = new System.Drawing.Size(100, 23);
@@ -211,7 +216,7 @@ namespace BikeProd
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(205, 343);
+            this.label5.Location = new System.Drawing.Point(205, 329);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 15);
             this.label5.TabIndex = 47;
@@ -219,7 +224,7 @@ namespace BikeProd
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(304, 414);
+            this.btnSave.Location = new System.Drawing.Point(304, 400);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 48;
@@ -229,7 +234,7 @@ namespace BikeProd
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(398, 414);
+            this.btnCancel.Location = new System.Drawing.Point(398, 400);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 49;
@@ -239,7 +244,7 @@ namespace BikeProd
             // 
             // btnZipCodeSearch
             // 
-            this.btnZipCodeSearch.Location = new System.Drawing.Point(244, 149);
+            this.btnZipCodeSearch.Location = new System.Drawing.Point(209, 148);
             this.btnZipCodeSearch.Name = "btnZipCodeSearch";
             this.btnZipCodeSearch.Size = new System.Drawing.Size(123, 23);
             this.btnZipCodeSearch.TabIndex = 3;
@@ -254,7 +259,7 @@ namespace BikeProd
             this.txtAddr2.Location = new System.Drawing.Point(103, 207);
             this.txtAddr2.Name = "txtAddr2";
             this.txtAddr2.PlaceHolder = null;
-            this.txtAddr2.Size = new System.Drawing.Size(216, 23);
+            this.txtAddr2.Size = new System.Drawing.Size(243, 23);
             this.txtAddr2.TabIndex = 54;
             // 
             // txtAddr1
@@ -264,7 +269,7 @@ namespace BikeProd
             this.txtAddr1.Location = new System.Drawing.Point(103, 178);
             this.txtAddr1.Name = "txtAddr1";
             this.txtAddr1.PlaceHolder = null;
-            this.txtAddr1.Size = new System.Drawing.Size(305, 23);
+            this.txtAddr1.Size = new System.Drawing.Size(370, 23);
             this.txtAddr1.TabIndex = 52;
             this.txtAddr1.Tag = "주소";
             // 
@@ -275,13 +280,13 @@ namespace BikeProd
             this.txtAddrCode.Location = new System.Drawing.Point(103, 149);
             this.txtAddrCode.Name = "txtAddrCode";
             this.txtAddrCode.PlaceHolder = null;
-            this.txtAddrCode.Size = new System.Drawing.Size(135, 23);
+            this.txtAddrCode.Size = new System.Drawing.Size(100, 23);
             this.txtAddrCode.TabIndex = 50;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 267);
+            this.label8.Location = new System.Drawing.Point(12, 253);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 15);
             this.label8.TabIndex = 55;
@@ -291,28 +296,31 @@ namespace BikeProd
             // 
             this.txtMPhone.isNumeric = false;
             this.txtMPhone.isRequired = false;
-            this.txtMPhone.Location = new System.Drawing.Point(103, 301);
+            this.txtMPhone.Location = new System.Drawing.Point(103, 287);
+            this.txtMPhone.MaxLength = 11;
             this.txtMPhone.Name = "txtMPhone";
             this.txtMPhone.PlaceHolder = null;
             this.txtMPhone.Size = new System.Drawing.Size(161, 23);
             this.txtMPhone.TabIndex = 5;
             this.txtMPhone.Tag = "담당자 연락처";
+            this.txtMPhone.Leave += new System.EventHandler(this.txtMPhone_Leave);
             // 
             // txtManager
             // 
             this.txtManager.isNumeric = false;
             this.txtManager.isRequired = false;
-            this.txtManager.Location = new System.Drawing.Point(102, 264);
+            this.txtManager.Location = new System.Drawing.Point(102, 250);
+            this.txtManager.MaxLength = 20;
             this.txtManager.Name = "txtManager";
             this.txtManager.PlaceHolder = null;
-            this.txtManager.Size = new System.Drawing.Size(80, 23);
+            this.txtManager.Size = new System.Drawing.Size(101, 23);
             this.txtManager.TabIndex = 4;
             this.txtManager.Tag = "담당자";
             // 
             // lblMessage2
             // 
             this.lblMessage2.AutoSize = true;
-            this.lblMessage2.Location = new System.Drawing.Point(108, 394);
+            this.lblMessage2.Location = new System.Drawing.Point(108, 380);
             this.lblMessage2.Name = "lblMessage2";
             this.lblMessage2.Size = new System.Drawing.Size(0, 15);
             this.lblMessage2.TabIndex = 59;
@@ -320,7 +328,7 @@ namespace BikeProd
             // lblMessage1
             // 
             this.lblMessage1.AutoSize = true;
-            this.lblMessage1.Location = new System.Drawing.Point(108, 368);
+            this.lblMessage1.Location = new System.Drawing.Point(108, 354);
             this.lblMessage1.Name = "lblMessage1";
             this.lblMessage1.Size = new System.Drawing.Size(0, 15);
             this.lblMessage1.TabIndex = 58;
@@ -328,7 +336,7 @@ namespace BikeProd
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(108, 368);
+            this.lblEmail.Location = new System.Drawing.Point(108, 354);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(0, 15);
             this.lblEmail.TabIndex = 57;
@@ -337,17 +345,18 @@ namespace BikeProd
             // 
             this.txtAddrDetail.isNumeric = false;
             this.txtAddrDetail.isRequired = false;
-            this.txtAddrDetail.Location = new System.Drawing.Point(325, 207);
+            this.txtAddrDetail.Location = new System.Drawing.Point(352, 207);
+            this.txtAddrDetail.MaxLength = 30;
             this.txtAddrDetail.Name = "txtAddrDetail";
             this.txtAddrDetail.PlaceHolder = null;
-            this.txtAddrDetail.Size = new System.Drawing.Size(83, 23);
+            this.txtAddrDetail.Size = new System.Drawing.Size(121, 23);
             this.txtAddrDetail.TabIndex = 60;
             // 
             // popSaveClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 474);
+            this.ClientSize = new System.Drawing.Size(513, 457);
             this.Name = "popSaveClient";
             this.Text = "popSaveClient";
             this.Load += new System.EventHandler(this.popSaveClient_Load);

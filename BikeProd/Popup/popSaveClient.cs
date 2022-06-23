@@ -27,6 +27,8 @@ namespace BikeProd
 
             txtAddrCode.ReadOnly = txtAddr1.ReadOnly = txtAddr2.ReadOnly = txtAddrDetail.ReadOnly = true;
 
+            txtMPhone.isNumeric = txtBusinessNo.isNumeric = true;
+
             txtClientName.isRequired = txtBusinessNo.isRequired = txtAddr1.isRequired
                 = txtManager.isRequired = txtMPhone.isRequired = txtEmail.isRequired = true;
 
@@ -68,14 +70,26 @@ namespace BikeProd
                 return;
             }
 
-            //phoneNumCheck();
+            if (txtBusinessNo.Text.Length < 11)
+            {
+                txtBusinessNo.Clear();                       
+                MessageBox.Show("사업자번호를 확인해 주세요");
+                return;
+            }
+
+            if (txtMPhone.Text.Length < 13)
+            {
+                txtMPhone.Clear();
+                MessageBox.Show("담당자 전화번호를 확인해 주세요");
+                return;
+            }            
 
             ClientVO client = new ClientVO
             {
                 ClientName = txtClientName.Text,
                 BusinessNo = txtBusinessNo.Text,
                 Type = cboType.Text,
-                Address = string.Concat(txtAddr1.Text, " ", txtAddr2.Text, " ", txtAddrDetail.Text),
+                Address = string.Concat(txtAddr1.Text, " ", txtAddr2.Text, " ", txtAddrDetail.Text, " / ", txtAddrCode.Text),
                 Manager = txtManager.Text,
                 ManagerPhone = txtMPhone.Text,                
                 Email = string.Concat(txtEmail.Text, "@", txtDomain.Text)            
@@ -152,7 +166,7 @@ namespace BikeProd
         /// <param name="e"></param>
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            Boolean ismatch = IsMatch(@"^[0-9a-z]{1,50}$", txtEmail.Text);
+            Boolean ismatch = IsMatch(@"^[0-9a-zA-Z]{1,50}$", txtEmail.Text);
             if (!ismatch)
             {
                 lblMessage1.Text = "이메일 : 영문자와 숫자만 입력해 주세요.";
@@ -180,16 +194,25 @@ namespace BikeProd
             }
             else
                 lblMessage2.Text = "";
+        }       
+               
+
+        private void txtBusinessNo_Leave(object sender, EventArgs e)        {
+            
+            if (txtBusinessNo.Text.Length == 9)
+            {
+                txtBusinessNo.Text = txtBusinessNo.Text.Insert(3, "-");
+                txtBusinessNo.Text = txtBusinessNo.Text.Insert(6, "-");                
+            }
         }
 
-        //private void phoneNumCheck()
-        //{
-        //    Boolean ismatch = IsMatch(@"01{1}[016789]{1]-[0-9]{3,4}-[0-9]{4}", txtMPhone.Text);
-        //    if (!ismatch)
-        //    {
-        //        MessageBox.Show("전화번호를 확인해 주세요.");        
-        //    }                            
-                
-        //}
+        private void txtMPhone_Leave(object sender, EventArgs e)
+        {
+            if (txtMPhone.Text.Length == 11)
+            {
+                txtMPhone.Text = txtMPhone.Text.Insert(3, "-");
+                txtMPhone.Text = txtMPhone.Text.Insert(8, "-");
+            }
+        }        
     }
 }

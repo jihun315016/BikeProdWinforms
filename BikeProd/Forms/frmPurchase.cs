@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,11 +35,10 @@ namespace BikeProd
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", colWidth: 80, alignContent:DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주서", "PurchaseName", colWidth: 240);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입고처", "ClientName", colWidth: 220);  
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주일자", "PurchaseNo", isVisible: false);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입고처", "ClientName", colWidth: 220);   
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처번호", "BusinessNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처 담당자", "PManager", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주일자", "PurchaseDate", colWidth: 110);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주일자", "PurchaseDate", colWidth: 110, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "도착일자", "ArriveDate", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "상태", "StateName", colWidth: 70);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "상태코드", "State", isVisible:false);
@@ -71,7 +71,9 @@ namespace BikeProd
         {
             purchaseSrv = new PurchaseService();
             purchaseList = purchaseSrv.GetPurchase();
-            dgvList.DataSource = purchaseList;
+
+            //Thread.Sleep(500);
+            this.Invoke(new Action(() => { dgvList.DataSource = purchaseList; }));
         }
        
         /// <summary>
@@ -82,11 +84,9 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
             popSavePur pop = new popSavePur();
             if (pop.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("등록이 완료되었습니다.");
                 LoadData();
             }
         }
@@ -120,9 +120,13 @@ namespace BikeProd
                     if (!result)
                     {
                         //제품,부품 수량, 날짜 업데이트
+
+                        popLoading pop = new popLoading(LoadData);
+                        pop.ShowDialog();
+
                         purchaseSrv.UpdateStateOK(purchaseNo);
                         MessageBox.Show("입고완료 되었습니다");
-                        LoadData();
+                        //LoadData();
                     }
                     else
                     {

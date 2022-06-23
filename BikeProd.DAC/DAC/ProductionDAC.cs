@@ -70,15 +70,30 @@ namespace BikeProd.DAC
         /// 생산 지시 등록된 리스트 조회
         /// </summary>
         /// <returns></returns>
-        public List<ProductionVO> GetProductionList()
-        {
-            string sql = @"SELECT 
-	                            ID, pn.ProdCode, ProdName, ps.Inventory, Qty, LeadTime, 
-	                            ps.Price, OrderDate, ReqDate,State, Team, Loss, ComplateDate
-                            FROM TB_Production pn
-                            JOIN TB_Products ps ON pn.ProdCode = ps.ProdCode";
+        public List<ProductionVO> GetProductionList(DateTime start, DateTime end, string state, string team)
+        {            
+            start.AddDays(1);
+            end.AddDays(1);
 
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(@"SELECT 
+	                        ID, pn.ProdCode, ProdName, ps.Inventory, Qty, LeadTime, 
+	                        ps.Price, OrderDate, ReqDate,State, Team, Loss, CompleteDate
+                        FROM TB_Production pn
+                        JOIN TB_Products ps ON pn.ProdCode = ps.ProdCode
+                        WHERE OrderDate BETWEEN @StartDate AND @EndDate ");
+
+            if (!string.IsNullOrWhiteSpace(state))            
+                sb.Append("AND State IN (@State, '생산 완료') ");
+
+            if (!string.IsNullOrWhiteSpace(team))
+                sb.Append("AND Team = @Team ");           
+
+            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            cmd.Parameters.AddWithValue("@StartDate", start);
+            cmd.Parameters.AddWithValue("@EndDate", end);
+            cmd.Parameters.AddWithValue("@State", state);
+            cmd.Parameters.AddWithValue("@Team", team);
             SqlDataReader reader = cmd.ExecuteReader();
             return DBConverter.DataReaderToList<ProductionVO>(reader);
         }
@@ -152,7 +167,7 @@ namespace BikeProd.DAC
         /// <param name="isComplete"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool UpdateProductionState(bool isComplete, int id, string prodCode)
+        public bool UpdateProductionState(bool isComplete, int id, string prodCode, int loss = -1)
         {
             SqlTransaction tran = conn.BeginTransaction();
             SqlCommand cmd = new SqlCommand();
@@ -165,9 +180,10 @@ namespace BikeProd.DAC
                 cmd.Parameters.AddWithValue("@State", state);
                 cmd.Parameters.AddWithValue("@ID", id);
                 cmd.Parameters.AddWithValue("@ProdCode", prodCode);
+                cmd.Parameters.AddWithValue("@Loss", loss);
 
                 cmd.CommandText = @"UPDATE TB_Production
-                                    SET State = @State
+                                    SET State = @State, Loss = @Loss, CompleteDate = CONVERT(date, GETDATE())
                                     WHERE ID = @ID";
 
                 cmd.ExecuteNonQuery();
@@ -175,7 +191,7 @@ namespace BikeProd.DAC
                 if (isComplete) // 생산 완료
                 {
                     cmd.CommandText = @"UPDATE TB_Products 
-                                        SET Inventory = Inventory + (SELECT Qty FROM TB_Production WHERE ID = @ID) 
+                                        SET Inventory = Inventory + (SELECT Qty FROM TB_Production WHERE ID = @ID)
                                         WHERE ProdCode = @ProdCode";
                 }
                 else // 생산 취소

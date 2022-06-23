@@ -51,10 +51,10 @@ namespace BikeProd
             return list;
         }
 
-        public List<ProductionVO> GetProductionList()
+        public List<ProductionVO> GetProductionList(DateTime start, DateTime end, string state = "", string team = "")
         {
             ProductionDAC dac = new ProductionDAC();
-            List<ProductionVO> list = dac.GetProductionList();
+            List<ProductionVO> list = dac.GetProductionList(start, end, state, team);
             dac.Dispose();          
             return list;
         }
@@ -77,11 +77,14 @@ namespace BikeProd
         /// 생산 완료 또는 취소 처리
         /// </summary>
         /// <param name="isComplete"></param>
+        /// <param name="id"></param>
+        /// <param name="prodCode"></param>
+        /// <param name="loss"></param>
         /// <returns></returns>
-        public bool UpdateProductionState(bool isComplete, int id, string prodCode)
+        public bool UpdateProductionState(bool isComplete, int id, string prodCode, int loss = -1)
         {
             ProductionDAC dac = new ProductionDAC();
-            bool result = dac.UpdateProductionState(isComplete, id, prodCode);
+            bool result = dac.UpdateProductionState(isComplete, id, prodCode, loss);
             dac.Dispose();
             return result;
         }

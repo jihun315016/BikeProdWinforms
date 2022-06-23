@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,7 +39,7 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처번호", "BusinessNo", isVisible : false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처명", "ClientName", colWidth: 220);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래처 담당자", "PManager", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주문일자", "OrderDate", colWidth: 110);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주문일자", "OrderDate", colWidth: 110, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "출고일자", "DeliveryDate", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "주소", "Address", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "상태", "StateName", colWidth: 70);
@@ -88,7 +89,10 @@ namespace BikeProd
         {
             OrderList = null; 
             OrderList = OrderSrv.GetOrderList();
-            dgvList.DataSource = OrderList;
+
+            Thread.Sleep(500);
+            this.Invoke(new Action(() => { dgvList.DataSource = OrderList; }));
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -210,9 +214,12 @@ namespace BikeProd
 
                     if (result)
                     {
+
+                        popLoading pop = new popLoading(LoadData);
+                        pop.ShowDialog();
                         OrderSrv.UpdateStateOK(update.OrderNo);
                         MessageBox.Show("출고완료 되었습니다");
-                        LoadData();
+                        //LoadData();
                     }
                     else
                     {

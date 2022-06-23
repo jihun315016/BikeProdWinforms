@@ -69,7 +69,7 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
-            this.panel1.Size = new System.Drawing.Size(1042, 438);
+            this.panel1.Size = new System.Drawing.Size(1010, 476);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboAddr
@@ -152,7 +152,7 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1042, 438);
+            this.dgvList.Size = new System.Drawing.Size(1010, 476);
             this.dgvList.TabIndex = 2;
             // 
             // frmClient
@@ -161,8 +161,7 @@ namespace BikeProd
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 623);
             this.Name = "frmClient";
-            this.Text = "frmClient";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "거래처";
             this.Load += new System.EventHandler(this.frmClient_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

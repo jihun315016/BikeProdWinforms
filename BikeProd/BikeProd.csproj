@@ -119,12 +119,6 @@
     <Compile Include="Forms\frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPerformance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmPerformance.Designer.cs">
-      <DependentUpon>frmPerformance.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,16 +149,16 @@
     <Compile Include="Forms\frmPurchaseStatus.Designer.cs">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSalesStatus.cs">
+    <Compile Include="Forms\frmOrderStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSalesStatus.Designer.cs">
-      <DependentUpon>frmSalesStatus.cs</DependentUpon>
+    <Compile Include="Forms\frmOrderStatus.Designer.cs">
+      <DependentUpon>frmOrderStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProduction.cs">
+    <Compile Include="Forms\frmProduction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProduction.Designer.cs">
+    <Compile Include="Forms\frmProduction.Designer.cs">
       <DependentUpon>frmProduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popSaveProduction.cs">
@@ -184,12 +178,6 @@
     </Compile>
     <Compile Include="Popup\popSelectSaveBOM.Designer.cs">
       <DependentUpon>popSelectSaveBOM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Popup\popProduction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Popup\popProduction.Designer.cs">
-      <DependentUpon>popProduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Popup\popResign.cs">
       <SubType>Form</SubType>
@@ -251,6 +239,12 @@
     <Compile Include="Popup\popSaveModel.Designer.cs">
       <DependentUpon>popSaveModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Popup\popLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\popLoading.Designer.cs">
+      <DependentUpon>popLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ClientService.cs" />
@@ -302,9 +296,6 @@
     <EmbeddedResource Include="Forms\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPerformance.resx">
-      <DependentUpon>frmPerformance.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,10 +311,10 @@
     <EmbeddedResource Include="Forms\frmPurchaseStatus.resx">
       <DependentUpon>frmPurchaseStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSalesStatus.resx">
-      <DependentUpon>frmSalesStatus.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmOrderStatus.resx">
+      <DependentUpon>frmOrderStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProduction.resx">
+    <EmbeddedResource Include="Forms\frmProduction.resx">
       <DependentUpon>frmProduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSaveProduction.resx">
@@ -334,9 +325,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSelectSaveBOM.resx">
       <DependentUpon>popSelectSaveBOM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Popup\popProduction.resx">
-      <DependentUpon>popProduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popResign.resx">
       <DependentUpon>popResign.cs</DependentUpon>
@@ -368,6 +356,9 @@
     <EmbeddedResource Include="Popup\popSaveModel.resx">
       <DependentUpon>popSaveModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Popup\popLoading.resx">
+      <DependentUpon>popLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -376,6 +367,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -390,7 +382,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BikeProd.DAC\BikeProd.DAC.csproj">
       <Project>{ffa761dc-f4dd-489b-951e-163939eb5f19}</Project>

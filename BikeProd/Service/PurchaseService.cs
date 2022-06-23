@@ -117,20 +117,7 @@ namespace BikeProd
 
              return result;
          }*/
-
-        /// <summary>
-        /// Author 이진형
-        /// </summary>
-        /// <returns></returns>
-        public DataTable GetTopChart()
-        {
-            PurchaseDAC dac = new PurchaseDAC();
-            DataTable result = dac.GetTopChart();
-            dac.Dispose();
-
-            return result;
-        }
-
+        
 
 
     }

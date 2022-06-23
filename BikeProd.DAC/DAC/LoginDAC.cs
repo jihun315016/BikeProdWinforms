@@ -43,24 +43,38 @@ namespace BikeProd.DAC
         }
 
         /// <summary>
-        /// /// Authur: 이진형
-        /// 로그인시 사원 정보 체크
+        /// Author : 강지훈
+        /// 로그인 정보 조회
+        /// 로그인 실패시 null 리턴
         /// </summary>
-        /// <param name="empNo">사번</param>
-        /// <param name="pwd">이름</param>
+        /// <param name="empNo">로그인에 사용되는 사번</param>
+        /// <param name="pwd">비밀번호</param>
         /// <returns></returns>
-        public int GetLoginInfo(int empNo, string pwd)
+        public EmployeeVO GetEmpInfo(int empNo, string pwd)
         {
-            string sql = @"select count(EmpNo) 
-                           from TB_Employees where EmpNo = @EmpNo 
-                           and Pwd = @Pwd and ToDate is null";
+            string sql = @"SELECT EmpNo, EmpName, DeptName
+                            FROM TB_Employees e
+                            JOIN TB_Department d ON e.DeptNo = d.DeptNo
+                            WHERE EmpNo = @EmpNo 
+                            AND Pwd = @Pwd 
+                            AND ToDate is null";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@EmpNo", empNo);
             cmd.Parameters.AddWithValue("@Pwd", pwd);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                EmployeeVO empVO = new EmployeeVO()
+                {
+                    EmpNo = Convert.ToInt32(reader["EmpNo"]),
+                    EmpName = reader["EmpName"].ToString(),
+                    DeptName = reader["DeptName"].ToString()
+                };
 
-            return Convert.ToInt32(cmd.ExecuteScalar());
-
+                return empVO;
+            }
+            return null;
         }
 
 

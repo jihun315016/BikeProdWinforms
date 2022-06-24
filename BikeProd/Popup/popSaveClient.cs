@@ -15,7 +15,7 @@ namespace BikeProd
     public partial class popSaveClient : bPopCommon
     {
         ClientService clientSrv = new ClientService();
-        
+        bool b_NoCheck = false;
         public popSaveClient()
         {
             InitializeComponent();
@@ -70,10 +70,9 @@ namespace BikeProd
                 return;
             }
 
-            if (txtBusinessNo.Text.Length < 11)
-            {
-                txtBusinessNo.Clear();                       
-                MessageBox.Show("사업자번호를 확인해 주세요");
+            if (!b_NoCheck)            {
+                              
+                MessageBox.Show("사업자번호 중복체크 확인해 주세요");
                 return;
             }
 
@@ -213,6 +212,33 @@ namespace BikeProd
                 txtMPhone.Text = txtMPhone.Text.Insert(3, "-");
                 txtMPhone.Text = txtMPhone.Text.Insert(8, "-");
             }
-        }        
+        }
+
+        private void btnBusinessNoCheck_Click(object sender, EventArgs e)
+        {
+            if (txtBusinessNo.Text.Length < 11)
+            {
+                MessageBox.Show("사업자번호를 정확하게 입력해 주세요");
+                txtBusinessNo.Clear();
+                txtBusinessNo.Focus();
+                return;
+            }
+
+            clientSrv = new ClientService();
+            ClientVO b_no = clientSrv.GetBusinessNo(txtBusinessNo.Text.Trim());
+            if (b_no != null)
+            {
+                MessageBox.Show("해당 사업자번호는 이미 존재 합니다.");
+                txtBusinessNo.Focus();
+                return;
+            }
+            else
+            {
+                b_NoCheck = true;
+                txtBusinessNo.ReadOnly = true;
+                MessageBox.Show("등록 가능한 사업자번호 입니다.");
+                return;
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace BikeProd.DAC
         /// <returns></returns>
         public List<DepartmentVO> GetAllDeptInfo()
         {
-            string sql = @"select DeptNo, DeptName from TB_Department";
+            string sql = @"select DeptNo, DeptName from TB_Department WHERE DeptNo <> 1001";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 return DBConverter.DataReaderToList<DepartmentVO>(cmd.ExecuteReader());
@@ -62,7 +62,7 @@ namespace BikeProd.DAC
         public List<DeptMenuVO> GetAllDeptMenuInfo()
         {
             string sql = @"select D.DeptNo, D.MenuID, M.MenuName
-                            from TB_DepartmentAuth D inner
+                            from TB_DepartmentCode D inner
                             join TB_Menu M on D.MenuID = M.MenuID";
 
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -157,7 +157,7 @@ namespace BikeProd.DAC
         public DeptMenuVO GetAuthMenuInfo(int DeptNo)
         {
             string sql = @"select D.DeptNo, D.MenuID, M.MenuName
-                            from TB_DepartmentAuth D inner
+                            from TB_DepartmentCode D inner
                             join TB_Menu M on D.MenuID = M.MenuID
                             where DeptNo = @DeptNo";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -181,7 +181,7 @@ namespace BikeProd.DAC
         public List<DeptMenuVO> GetAuthMenu(int DeptNo)
         {
             string sql = @"select D.DeptNo, D.MenuID, M.MenuName
-                            from TB_DepartmentAuth D inner
+                            from TB_DepartmentCode D inner
                             join TB_Menu M on D.MenuID = M.MenuID
                             where DeptNo = @DeptNo";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -226,7 +226,7 @@ namespace BikeProd.DAC
             SqlTransaction trans = conn.BeginTransaction();
             try
             {
-                string sql = @"delete from TB_DepartmentAuth where DeptNo = @DeptNo";
+                string sql = @"delete from TB_DepartmentCode where DeptNo = @DeptNo";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -234,7 +234,7 @@ namespace BikeProd.DAC
                     cmd.Transaction = trans;
                     cmd.ExecuteNonQuery();
 
-                    sql = @"insert into TB_DepartmentAuth(DeptNo, MenuID)
+                    sql = @"insert into TB_DepartmentCode(DeptNo, MenuID)
                          values (@DeptNo, @MenuID)";
 
                     cmd.CommandText = sql;
@@ -376,7 +376,7 @@ namespace BikeProd.DAC
         //        cmd.Transaction = trans;
         //        cmd.ExecuteNonQuery();
 
-        //        sql = @"insert into TB_DepartmentAuth(DeptNo, MenuID)
+        //        sql = @"insert into TB_DepartmentCode(DeptNo, MenuID)
         //                 values (@DeptNo, @MenuID)";
 
         //        cmd.CommandText = sql;

@@ -18,9 +18,7 @@ namespace BikeProd
         ModelService modelSrv;
         List<OrderVO> OrderList;
         List<CommonCodeVO> StateList;
-        List<ProductVO> prodList;
         List<OrderDetailsVO> orderDetailsList;
-        List<BomInfoVO> bomList;
 
         public frmOrder()
         {
@@ -114,7 +112,6 @@ namespace BikeProd
             txtBusinessNo.Text = (dgvList.SelectedRows[0].Cells["BusinessNo"].Value).ToString();
             txtManager.Text = (dgvList.SelectedRows[0].Cells["PManager"].Value).ToString();
             txtOrderDate.Text = ((DateTime)dgvList.SelectedRows[0].Cells["OrderDate"].Value).ToShortDateString();
-            //txtAliveDate.Text = ((DateTime)dgvList.SelectedRows[0].Cells["DeliveryDate"].Value).ToShortDateString();
 
             if (((DateTime)dgvList.SelectedRows[0].Cells["DeliveryDate"].Value).ToString("yyyy-MM-dd") == "9998-12-31")
             {
@@ -209,23 +206,29 @@ namespace BikeProd
                 {
                     update.OrderNo = Convert.ToInt32(dgvList.SelectedRows[0].Cells["OrderNo"].Value);
                     update.State = "OK";
-                    
-                    bool result = OrderSrv.UpdateState(update);
-
-                    if (result)
+                    popLoading pop = new popLoading(LoadData);
+                    bool resultOK = OrderSrv.UpdateStateOK(update.OrderNo);
+                    if (resultOK)
                     {
-
-                        popLoading pop = new popLoading(LoadData);
-                        pop.ShowDialog();
-                        OrderSrv.UpdateStateOK(update.OrderNo);
-                        MessageBox.Show("출고완료 되었습니다");
-                        //LoadData();
+                        bool result = OrderSrv.UpdateState(update);
+                        if (result)
+                        { 
+                            pop.ShowDialog();
+                            MessageBox.Show("출고완료 되었습니다");
+                        }
+                        else
+                        {
+                            MessageBox.Show("출고 중 오류가 발생하였습니다..");
+                            return;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("오류가 발생하였습니다");
+                        MessageBox.Show("재고가 부족합니다.");
                         return;
                     }
+
+                    
                 }
                 else if (State == "OK")
                 {
@@ -244,10 +247,6 @@ namespace BikeProd
             }
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -304,10 +303,6 @@ namespace BikeProd
             }
         }
 
-        private void dgvList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void dgvList3_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -317,6 +312,12 @@ namespace BikeProd
             dgvList4.DataSource = null;
             dgvList4.DataSource = list;
             
+        }
+
+        private void frmOrder_Activated(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

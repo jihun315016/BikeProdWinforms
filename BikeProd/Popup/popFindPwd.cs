@@ -71,7 +71,7 @@ namespace BikeProd
                 logingSrv = new LoginService();
 
 
-                string newPwd = CreatePassword();
+                string newPwd = CreatePwd();
 
                 if (txtName.Text == empVo.EmpName && int.Parse(txtEmpNo.Text) == empVo.EmpNo && string.Concat(txtEmail.Text, "@", txtDomain.Text) == empVo.Email)
                 {
@@ -79,6 +79,7 @@ namespace BikeProd
                     bool result1 = logingSrv.ChangePassword(empNo, newPwd);
                     if (result1)
                     {
+                        // 로딩폼
                         popLoading pop = new popLoading(LoadSendMail);
                         pop.ShowDialog();
 
@@ -110,18 +111,18 @@ namespace BikeProd
         {
             if (cboDomain.SelectedIndex == 0) // 선택
             {                
-                txtDomain.ReadOnly = true;
+                txtDomain.Enabled = false;
                 txtDomain.Clear();
             }
             else if (cboDomain.SelectedIndex == 1) // 직접입력
             {
-                txtDomain.ReadOnly = false;
+                txtDomain.Enabled = true;
                 txtDomain.Focus();
                 txtDomain.Clear();
             }
             else // 도메인 주소
             {
-                txtDomain.ReadOnly = true;
+                txtDomain.Enabled = false;
                 txtDomain.Text = cboDomain.Text;
                 txtDomain.Focus();
             }
@@ -181,6 +182,14 @@ namespace BikeProd
                 lblMessage2.Text = "";
         }
 
+        /// <summary>
+        /// Author : 이진형
+        /// 메일 발송
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="recipient"></param>
+        /// <param name="newPwd"></param>
+        /// <returns></returns>
         public bool SendEmail(string name, string recipient, string newPwd)
         {
             string sender = ConfigurationManager.AppSettings["mailId"]; // 보내는 메일
@@ -193,7 +202,7 @@ namespace BikeProd
             mail.To.Add(recipient);
 
             mail.Subject = "신규 비밀번호 안내";
-            mail.Body = GetPassworkMessage(name, newPwd);
+            mail.Body = GetPwdMessage(name, newPwd);
             mail.IsBodyHtml = true;
 
             mail.SubjectEncoding = Encoding.UTF8;
@@ -227,7 +236,7 @@ namespace BikeProd
         /// <param name="name">사원 이름</param>
         /// <param name="password">신규 비밀번호</param>
         /// <returns></returns>
-        string GetPassworkMessage(string name, string password)
+        string GetPwdMessage(string name, string password)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"<strong>{name}님.</strong><br>");
@@ -243,16 +252,17 @@ namespace BikeProd
         /// <summary>
         /// Author : 이진형
         /// 신규 비밀번호 생성
+        /// 0~35난수 0~9(숫자) 10~35(영어대문자 , A:65)
         /// </summary>
         /// <returns></returns>
-        public string CreatePassword()
+        public string CreatePwd()
         {
             StringBuilder sb = new StringBuilder();
             Random rnd = new Random();
 
             for (int i = 0; i < 8; i++)
             {
-                int temp = rnd.Next(0, 36); //0~35난수 0~9(숫자) 10~35(영어대문자 , A:65)
+                int temp = rnd.Next(0, 36);
                 if (temp < 10)
                     sb.Append(temp);
                 else

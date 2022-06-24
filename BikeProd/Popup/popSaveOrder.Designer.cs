@@ -90,7 +90,7 @@ namespace BikeProd
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel1.Size = new System.Drawing.Size(836, 728);
             // 
             // dtpdeliverDate
@@ -99,7 +99,7 @@ namespace BikeProd
             this.dtpdeliverDate.Location = new System.Drawing.Point(530, 160);
             this.dtpdeliverDate.Name = "dtpdeliverDate";
             this.dtpdeliverDate.Size = new System.Drawing.Size(154, 27);
-            this.dtpdeliverDate.TabIndex = 25;
+            this.dtpdeliverDate.TabIndex = 6;
             // 
             // dtpOrderDate
             // 
@@ -107,7 +107,7 @@ namespace BikeProd
             this.dtpOrderDate.Location = new System.Drawing.Point(210, 163);
             this.dtpOrderDate.Name = "dtpOrderDate";
             this.dtpOrderDate.Size = new System.Drawing.Size(154, 27);
-            this.dtpOrderDate.TabIndex = 24;
+            this.dtpOrderDate.TabIndex = 5;
             // 
             // chkNull
             // 
@@ -115,7 +115,7 @@ namespace BikeProd
             this.chkNull.Location = new System.Drawing.Point(693, 163);
             this.chkNull.Name = "chkNull";
             this.chkNull.Size = new System.Drawing.Size(61, 24);
-            this.chkNull.TabIndex = 26;
+            this.chkNull.TabIndex = 7;
             this.chkNull.Text = "미정";
             this.chkNull.UseVisualStyleBackColor = true;
             this.chkNull.CheckedChanged += new System.EventHandler(this.chkNull_CheckedChanged);
@@ -128,7 +128,7 @@ namespace BikeProd
             this.txtClientManager.Name = "txtClientManager";
             this.txtClientManager.PlaceHolder = null;
             this.txtClientManager.Size = new System.Drawing.Size(154, 27);
-            this.txtClientManager.TabIndex = 23;
+            this.txtClientManager.TabIndex = 3;
             this.txtClientManager.Tag = "고객담당자";
             // 
             // txtBusinessID
@@ -139,7 +139,7 @@ namespace BikeProd
             this.txtBusinessID.Name = "txtBusinessID";
             this.txtBusinessID.PlaceHolder = null;
             this.txtBusinessID.Size = new System.Drawing.Size(154, 27);
-            this.txtBusinessID.TabIndex = 34;
+            this.txtBusinessID.TabIndex = 2;
             this.txtBusinessID.Tag = "고객ID";
             // 
             // txtManager
@@ -150,7 +150,7 @@ namespace BikeProd
             this.txtManager.Name = "txtManager";
             this.txtManager.PlaceHolder = null;
             this.txtManager.Size = new System.Drawing.Size(154, 27);
-            this.txtManager.TabIndex = 22;
+            this.txtManager.TabIndex = 4;
             this.txtManager.Tag = "주문담당자";
             // 
             // txtClient
@@ -161,7 +161,7 @@ namespace BikeProd
             this.txtClient.Name = "txtClient";
             this.txtClient.PlaceHolder = null;
             this.txtClient.Size = new System.Drawing.Size(154, 27);
-            this.txtClient.TabIndex = 21;
+            this.txtClient.TabIndex = 1;
             this.txtClient.Tag = "고객";
             this.txtClient.Enter += new System.EventHandler(this.txtClient_Enter);
             // 
@@ -173,7 +173,7 @@ namespace BikeProd
             this.txtOrderName.Name = "txtOrderName";
             this.txtOrderName.PlaceHolder = null;
             this.txtOrderName.Size = new System.Drawing.Size(475, 27);
-            this.txtOrderName.TabIndex = 20;
+            this.txtOrderName.TabIndex = 0;
             this.txtOrderName.Tag = "주문서명";
             // 
             // label7
@@ -242,10 +242,10 @@ namespace BikeProd
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(648, 671);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 31);
-            this.btnCancel.TabIndex = 41;
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -253,10 +253,10 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(544, 671);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 31);
-            this.btnSave.TabIndex = 40;
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "등록";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -275,21 +275,21 @@ namespace BikeProd
             this.txtAddr.isNumeric = false;
             this.txtAddr.isRequired = false;
             this.txtAddr.Location = new System.Drawing.Point(210, 213);
-            this.txtAddr.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddr.Multiline = true;
             this.txtAddr.Name = "txtAddr";
             this.txtAddr.PlaceHolder = null;
-            this.txtAddr.Size = new System.Drawing.Size(397, 70);
+            this.txtAddr.Size = new System.Drawing.Size(397, 71);
             this.txtAddr.TabIndex = 43;
             this.txtAddr.Tag = "주소";
             // 
             // btnAddr
             // 
             this.btnAddr.Location = new System.Drawing.Point(616, 213);
-            this.btnAddr.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddr.Name = "btnAddr";
             this.btnAddr.Size = new System.Drawing.Size(141, 31);
-            this.btnAddr.TabIndex = 39;
+            this.btnAddr.TabIndex = 8;
             this.btnAddr.Text = "우편번호 검색";
             this.btnAddr.UseVisualStyleBackColor = true;
             this.btnAddr.Click += new System.EventHandler(this.btnAddr_Click);
@@ -298,16 +298,16 @@ namespace BikeProd
             // 
             this.numQty.Location = new System.Drawing.Point(510, 313);
             this.numQty.Name = "numQty";
-            this.numQty.Size = new System.Drawing.Size(51, 27);
-            this.numQty.TabIndex = 46;
+            this.numQty.Size = new System.Drawing.Size(67, 27);
+            this.numQty.TabIndex = 11;
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(685, 309);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(77, 31);
-            this.btnDelete.TabIndex = 47;
+            this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -315,10 +315,10 @@ namespace BikeProd
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(600, 309);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(77, 31);
-            this.btnAdd.TabIndex = 48;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "추가";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -328,10 +328,10 @@ namespace BikeProd
             this.cboName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboName.FormattingEnabled = true;
             this.cboName.Location = new System.Drawing.Point(265, 312);
-            this.cboName.Margin = new System.Windows.Forms.Padding(4);
+            this.cboName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboName.Name = "cboName";
             this.cboName.Size = new System.Drawing.Size(238, 28);
-            this.cboName.TabIndex = 45;
+            this.cboName.TabIndex = 10;
             this.cboName.SelectedIndexChanged += new System.EventHandler(this.cboName_SelectedIndexChanged);
             // 
             // cboModel
@@ -339,10 +339,10 @@ namespace BikeProd
             this.cboModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboModel.FormattingEnabled = true;
             this.cboModel.Location = new System.Drawing.Point(140, 313);
-            this.cboModel.Margin = new System.Windows.Forms.Padding(4);
+            this.cboModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboModel.Name = "cboModel";
             this.cboModel.Size = new System.Drawing.Size(116, 28);
-            this.cboModel.TabIndex = 44;
+            this.cboModel.TabIndex = 9;
             this.cboModel.SelectedIndexChanged += new System.EventHandler(this.cboModel_SelectedIndexChanged);
             // 
             // label9
@@ -361,7 +361,7 @@ namespace BikeProd
             this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(100, 368);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
@@ -377,6 +377,7 @@ namespace BikeProd
             this.Name = "popSaveOrder";
             this.Text = "제품";
             this.Load += new System.EventHandler(this.popSaveOrder_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.popSaveOrder_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).EndInit();

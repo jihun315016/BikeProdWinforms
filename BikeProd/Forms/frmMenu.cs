@@ -21,15 +21,9 @@ namespace BikeProd
         List<MenuVO> menuList;
         TreeView menuTree;
 
-        public frmMenu(EmployeeVO empInfo)
+        public frmMenu()
         {
-            InitializeComponent();
-
-            lblUserInfo.Text = $"[{empInfo.DeptName}] {empInfo.EmpName}님 안녕하세요.";
-            lblUserInfo.Left = btnChangePwd.Left - lblUserInfo.Width - 20;
-            loginService = new LoginService();
-            menuList = loginService.GetMenuList(Convert.ToInt32(empInfo.EmpNo));
-            Console.WriteLine($"{empInfo.EmpNo}");
+            InitializeComponent();           
         }
 
         /// <summary>
@@ -40,8 +34,24 @@ namespace BikeProd
         /// <param name="e"></param>
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            this.Hide();
+            frmLogin pop = new frmLogin();
+            if (pop.ShowDialog() != DialogResult.OK)
+            {
+                this.Close();
+                return;
+            }
+            else
+            {
+                this.Show();
+                lblUserInfo.Text = $"[{pop.empVO.DeptName}] {pop.empVO.EmpName}님 안녕하세요.";
+                lblUserInfo.Left = btnChangePwd.Left - lblUserInfo.Width - 20;
+                lblUserInfo.Tag = pop.empVO.EmpNo; // 사번
+                loginService = new LoginService();
+                menuList = loginService.GetMenuList(Convert.ToInt32(pop.empVO.EmpNo));
+            }
+            
             base.IsNotVisibleLabel();            
-
 
             // 최상위 메뉴 버튼 초기화
             var list = menuList.FindAll(m => string.IsNullOrWhiteSpace(m.FrmName));
@@ -72,7 +82,9 @@ namespace BikeProd
 
         private void btnChangePwd_Click(object sender, EventArgs e)
         {
-
+            int empNo = Convert.ToInt32(lblUserInfo.Tag);
+            popChangePwd pop = new popChangePwd(empNo);
+            pop.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -143,7 +155,6 @@ namespace BikeProd
 
             Form frm = (Form)Activator.CreateInstance(type);
             frm.MdiParent = this;
-            frm.WindowState = FormWindowState.Maximized;
             CreateUcFormControl(frm);
             frm.Show();
         }

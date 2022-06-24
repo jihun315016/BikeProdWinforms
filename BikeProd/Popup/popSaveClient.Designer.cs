@@ -55,11 +55,13 @@ namespace BikeProd
             this.lblMessage1 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtAddrDetail = new BikeProd.ccTextBox();
+            this.btnBusinessNoCheck = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBusinessNoCheck);
             this.panel1.Controls.Add(this.txtAddrDetail);
             this.panel1.Controls.Add(this.lblMessage2);
             this.panel1.Controls.Add(this.lblMessage1);
@@ -352,13 +354,23 @@ namespace BikeProd
             this.txtAddrDetail.Size = new System.Drawing.Size(121, 23);
             this.txtAddrDetail.TabIndex = 60;
             // 
+            // btnBusinessNoCheck
+            // 
+            this.btnBusinessNoCheck.Location = new System.Drawing.Point(271, 66);
+            this.btnBusinessNoCheck.Name = "btnBusinessNoCheck";
+            this.btnBusinessNoCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnBusinessNoCheck.TabIndex = 62;
+            this.btnBusinessNoCheck.Text = "중복확인";
+            this.btnBusinessNoCheck.UseVisualStyleBackColor = true;
+            this.btnBusinessNoCheck.Click += new System.EventHandler(this.btnBusinessNoCheck_Click);
+            // 
             // popSaveClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 457);
             this.Name = "popSaveClient";
-            this.Text = "popSaveClient";
+            this.Text = "거래처 등록";
             this.Load += new System.EventHandler(this.popSaveClient_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -394,5 +406,6 @@ namespace BikeProd
         private System.Windows.Forms.Label lblMessage1;
         private System.Windows.Forms.Label lblEmail;
         private ccTextBox txtAddrDetail;
+        private System.Windows.Forms.Button btnBusinessNoCheck;
     }
 }

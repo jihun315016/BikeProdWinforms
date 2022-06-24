@@ -62,7 +62,7 @@ namespace BikeProd
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSendEmail);
-            this.panel1.Size = new System.Drawing.Size(447, 214);
+            this.panel1.Size = new System.Drawing.Size(447, 190);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -94,7 +94,7 @@ namespace BikeProd
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(355, 182);
+            this.btnCancel.Location = new System.Drawing.Point(355, 133);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -104,7 +104,7 @@ namespace BikeProd
             // 
             // btnSendEmail
             // 
-            this.btnSendEmail.Location = new System.Drawing.Point(264, 182);
+            this.btnSendEmail.Location = new System.Drawing.Point(264, 133);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(75, 23);
             this.btnSendEmail.TabIndex = 4;
@@ -119,7 +119,7 @@ namespace BikeProd
             this.txtName.Location = new System.Drawing.Point(60, 21);
             this.txtName.Name = "txtName";
             this.txtName.PlaceHolder = null;
-            this.txtName.Size = new System.Drawing.Size(100, 23);
+            this.txtName.Size = new System.Drawing.Size(242, 23);
             this.txtName.TabIndex = 0;
             this.txtName.Tag = "이름";
             // 
@@ -130,12 +130,13 @@ namespace BikeProd
             this.txtEmpNo.Location = new System.Drawing.Point(60, 61);
             this.txtEmpNo.Name = "txtEmpNo";
             this.txtEmpNo.PlaceHolder = null;
-            this.txtEmpNo.Size = new System.Drawing.Size(100, 23);
+            this.txtEmpNo.Size = new System.Drawing.Size(242, 23);
             this.txtEmpNo.TabIndex = 1;
             this.txtEmpNo.Tag = "사번";
             // 
             // txtDomain
             // 
+            this.txtDomain.Enabled = false;
             this.txtDomain.isNumeric = false;
             this.txtDomain.isRequired = false;
             this.txtDomain.Location = new System.Drawing.Point(182, 101);
@@ -204,9 +205,9 @@ namespace BikeProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 240);
+            this.ClientSize = new System.Drawing.Size(505, 224);
             this.Name = "popFindPwd";
-            this.Text = "popFindPwd";
+            this.Text = "비밀번호 찾기";
             this.Load += new System.EventHandler(this.popFindPwd_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

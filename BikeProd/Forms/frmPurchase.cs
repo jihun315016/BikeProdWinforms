@@ -72,7 +72,7 @@ namespace BikeProd
             purchaseSrv = new PurchaseService();
             purchaseList = purchaseSrv.GetPurchase();
 
-            //Thread.Sleep(500);
+            Thread.Sleep(500);
             this.Invoke(new Action(() => { dgvList.DataSource = purchaseList; }));
         }
        
@@ -297,21 +297,15 @@ namespace BikeProd
             }
         }
 
-
-
-        private void txtSearch_Enter(object sender, EventArgs e)
-        {
-            /*popSearchClient pop = new popSearchClient(false);
-            if (pop.ShowDialog() == DialogResult.OK)
-            {
-                txtSearch.Text = pop.selectedClient.ClientName;
-                txtSearch.Tag = pop.selectedClient.BusinessNo;
-            }*/
-        }
-
         private void dtpFrom_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmPurchase_Activated(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

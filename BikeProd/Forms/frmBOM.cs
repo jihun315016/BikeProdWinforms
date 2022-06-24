@@ -61,25 +61,25 @@ namespace BikeProd
 
             // 정전개
             DataGridViewUtil.SetInitGridView(dgvChild);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "코드", "Code", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "코드", "Code", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "이름", "Name", colWidth: 220);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "분류", "Kind", colWidth: 110);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "품목", "Category", colWidth: 110);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "가격", "Price");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "수량", "Requirement");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "합계", "Total");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "가격", "Price", alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "수량", "Requirement", alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "합계", "Total", alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvChild, "관계", "Relation", isVisible: false);
             dgvChild.Columns["Price"].DefaultCellStyle.Format = "###,##0";
 
             // 역전개
             DataGridViewUtil.SetInitGridView(dgvParent);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "코드", "Code", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "코드", "Code", colWidth: 120, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "이름", "Name", colWidth: 220);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "분류", "Kind", colWidth: 110);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "품목", "Category", colWidth: 110);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "가격", "Price");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "가격", "Price", alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "관계", "Relation", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "재고", "Inventory");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "재고", "Inventory", alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvParent, "LeadTime", "LeadTime");
             dgvParent.Columns["Price"].DefaultCellStyle.Format = "###,##0";
         }

@@ -75,7 +75,7 @@ namespace BikeProd
             this.panel1.Controls.Add(this.dgvList);
             this.panel1.Location = new System.Drawing.Point(28, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Size = new System.Drawing.Size(816, 272);
+            this.panel1.Size = new System.Drawing.Size(686, 186);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboDept
@@ -135,7 +135,7 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(896, 395);
+            this.btnSave.Location = new System.Drawing.Point(896, 396);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 40);
             this.btnSave.TabIndex = 2;
@@ -163,7 +163,7 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(816, 272);
+            this.dgvList.Size = new System.Drawing.Size(686, 186);
             this.dgvList.TabIndex = 1;
             this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
@@ -171,7 +171,7 @@ namespace BikeProd
             // btnResign
             // 
             this.btnResign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResign.Location = new System.Drawing.Point(805, 395);
+            this.btnResign.Location = new System.Drawing.Point(805, 396);
             this.btnResign.Margin = new System.Windows.Forms.Padding(2);
             this.btnResign.Name = "btnResign";
             this.btnResign.Size = new System.Drawing.Size(84, 40);
@@ -188,6 +188,7 @@ namespace BikeProd
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "frmEmployee";
             this.Text = "사원조회";
+            this.Activated += new System.EventHandler(this.frmEmployee_Activated);
             this.Load += new System.EventHandler(this.frmEmployee_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmEmployee_KeyPress);
             this.splitContainer1.Panel1.ResumeLayout(false);

@@ -49,13 +49,13 @@ namespace BikeProd
             InitDetail();
 
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 180);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", colWidth: 180, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 200);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind", colWidth: 140);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 140);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 140);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 140);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "논리재고", "TotInvn", colWidth: 140);            
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "가격", "Price", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "재고", "Inventory", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "논리재고", "TotInvn", colWidth: 140, alignContent: DataGridViewContentAlignment.MiddleRight);            
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "거래 여부", "Dealing", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이미지 유무", "Image", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "안전 재고", "SfInvn", isVisible: false);

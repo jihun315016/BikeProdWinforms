@@ -44,7 +44,7 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제폼코드", "ProdCode");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제품명", "ProdName");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty" ,colWidth:60, alignContent:DataGridViewContentAlignment.MiddleRight);
 
 
         }
@@ -218,6 +218,14 @@ namespace BikeProd
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void popSaveOrder_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != 13)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

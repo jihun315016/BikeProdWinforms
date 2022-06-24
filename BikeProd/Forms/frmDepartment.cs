@@ -51,7 +51,6 @@ namespace BikeProd
 
             LoadData();
             LoadcboDept();
-            //txtDeptName.Enabled = false;
         }
 
         private void LoadcboDept()
@@ -95,8 +94,6 @@ namespace BikeProd
             txtDeptName.Text = dgvDept[1, e.RowIndex].Value.ToString();
             lblDept.Text = "[" + dgvDept[1, e.RowIndex].Value.ToString() + "]";
 
-            //cboTeamselect.DataSource = null;
-
             teamlist.Insert(0, new TeamVO
             { TeamName = "팀 선택" });
 
@@ -110,38 +107,19 @@ namespace BikeProd
             var selList = authlist.FindAll((m) => m.DeptNo == DeptNo);
             foreach (DeptMenuVO item in selList)
             {
-                //lstSelect.Items.Add(item.MenuName);
                 txtDeptAuth.AppendText(item.MenuName + Environment.NewLine);
             }
             txtDeptAuth.SelectionStart = 0;
             txtDeptAuth.ScrollToCaret();
-            //txtDeptAuth.Select(txtDeptAuth.Text.Length, 0);
-
-            //DataRow dr = dt.NewRow();
-            //dr["TeamName"] = "---팀 선택---";
-            //dt.Rows.InsertAt(dr, 0);
-            //dt.AcceptChanges();
-
-            //txtDeptAuth.Text = deptVO.MenuName.ToString();
+            
         }
 
         private void txtEmpSearch_Click(object sender, EventArgs e)
         {
             txtEmpSearch.Clear();
 
-
             cboTeamselect.Enabled = false;
-            lblDept.Text = "";
-
-            //if (cboTeamselect.SelectedIndex != 0)
-            //{
-            //    txtEmpSearch.Clear();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("먼저 팀을 선택하십시오.");
-            //    return;
-            //}
+            lblDept.Text = "";            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -165,101 +143,87 @@ namespace BikeProd
                 }
                 else
                 {
-                    //List<TeamEmpVO> tEAllList = employeeSrv.GetAllEmpTeamInfo();
                     var tEList = tEAllList.FindAll((m) => m.EmpName.Equals(empName));
 
                     dgvDetail.DataSource = null;
                     dgvDetail.DataSource = tEList;
                 }
                 cboTeamselect.Enabled = true;
-                //cboTeamselect.SelectedIndex = 0;
             }
         }
 
         private void btnTeamInsert_Click(object sender, EventArgs e)
         {
-            int deptNo = deptList.Find((m) => m.DeptName.Equals(cboDept.Text)).DeptNo;
-            string teamName = txtNewTeam.Text;
-            teamList = departmentSrv.GetTeamInfo(deptNo);
-            //string inserted = teamList.FindAll((n) => n.TeamName == txtTeamName.Text);
+            try
+            {
+                int deptNo = deptList.Find((m) => m.DeptName.Equals(cboDept.Text)).DeptNo;
+                string teamName = txtNewTeam.Text;
+                teamList = departmentSrv.GetTeamInfo(deptNo);
 
-
-            if (cboDept.SelectedIndex == 0)
-            {
-                MessageBox.Show("부서를 선택해 주십시오.");
-                return;
-            }
-            else if (string.IsNullOrEmpty(txtNewTeam.Text))
-            {
-                MessageBox.Show("팀명은 필수 입력입니다.");
-                return;
-            }
-            else if (txtNewTeam.Text.Contains("예)"))
-            {
-                MessageBox.Show("팀명을 확인해 주십시오.");
-                txtNewTeam.Clear();
-                return;
-            }
-            foreach (var a in teamList)
-            {
-                if (a.TeamName.Contains(teamName))
+                if (cboDept.SelectedIndex == 0)
                 {
-                    MessageBox.Show("중복된 팀명입니다.");
+                    MessageBox.Show("부서를 선택해 주십시오.");
+                    return;
+                }
+                else if (string.IsNullOrEmpty(txtNewTeam.Text))
+                {
+                    MessageBox.Show("팀명은 필수 입력입니다.");
+                    return;
+                }
+                else if (txtNewTeam.Text.Contains("예)"))
+                {
+                    MessageBox.Show("팀명을 확인해 주십시오.");
                     txtNewTeam.Clear();
                     return;
                 }
-            }
-
-            bool result = departmentSrv.SaveTeam(deptNo, teamName);
-            if (result)
-            {
-                //MessageBox.Show("등록완료!");
-
-                DialogResult result1 = MessageBox.Show("등록완료!", "", MessageBoxButtons.OK);
-                if (result1 == DialogResult.OK)
+                foreach (var a in teamList)
                 {
-                    teamList = departmentSrv.GetTeamInfo(deptNo);
+                    if (a.TeamName.Contains(teamName))
+                    {
+                        MessageBox.Show("중복된 팀명입니다.");
+                        txtNewTeam.Clear();
+                        return;
+                    }
+                }
 
-                    dgvTeam.DataSource = teamList;
-                    dgvTeam.Columns[0].Frozen = true;
-                    dgvTeam.Columns[1].Frozen = true;
+                bool result = departmentSrv.SaveTeam(deptNo, teamName);
+                if (result)
+                {
+                    DialogResult result1 = MessageBox.Show("등록완료!", "", MessageBoxButtons.OK);
+                    if (result1 == DialogResult.OK)
+                    {
+                        teamList = departmentSrv.GetTeamInfo(deptNo);
 
-                    txtNewTeam.Clear();
+                        dgvTeam.DataSource = teamList;
+                        dgvTeam.Columns[0].Frozen = true;
+                        dgvTeam.Columns[1].Frozen = true;
+
+                        txtNewTeam.Clear();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("등록중 오류가 발생하였습니다.");
+                    return;
                 }
             }
-            else
+            catch (Exception err)
             {
-                MessageBox.Show("등록중 오류가 발생하였습니다.");
-                return;
+                MessageBox.Show("등록중 오류가 발생했습니다.");                
             }
         }
-
-        //private void txtDeptName_TextChanged(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtDeptName.Text))
-        //    {
-        //        txtDeptAuth.Clear();
-        //    }
-        //}
 
         private void txtNewTeam_MouseClick(object sender, MouseEventArgs e)
         {
             if (cboDept.SelectedIndex == 0)
             {
-                //MessageBox.Show("부서를 먼저 선택하십시오.");
-
                 DialogResult result2 = MessageBox.Show("부서를 선택해 주십시오.", "", MessageBoxButtons.OK);
                 if (result2 == DialogResult.OK)
                 {
                     txtNewTeam.SetPlaceHolder();
                     return;
                 }
-            }
-            //txtTeamName.SetPlaceHolder();
-            //if (txtTeamName.Text == "예)생산 1팀")
-            //{
-            //    txtTeamName.Clear();
-            //}
+            }            
         }
 
         private void btnDeptInsert_Click(object sender, EventArgs e)
@@ -380,7 +344,6 @@ namespace BikeProd
                     var selList = authlist.FindAll((m) => m.DeptNo == deptNo);
                     foreach (DeptMenuVO item in selList)
                     {
-                        //lstSelect.Items.Add(item.MenuName);
                         txtDeptAuth.AppendText(item.MenuName + Environment.NewLine);
                     }
                     txtDeptAuth.SelectionStart = 0;
@@ -428,8 +391,7 @@ namespace BikeProd
                         dgvTeam.Columns[1].Frozen = true;
                         
                         txtNewDept.Clear();
-                    }
-                    
+                    }                    
                 }
                 else
                 {
@@ -453,7 +415,6 @@ namespace BikeProd
             }
             else
             {
-                //cboTeamselect.DataSource = null;
                 List<TeamVO> teamList = departmentSrv.GetAllTeamList();
                 int teamNo = teamList.Find((m) => m.TeamName.Equals(cboTeamselect.Text.ToString())).TeamNo;
 

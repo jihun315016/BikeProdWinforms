@@ -109,14 +109,14 @@ namespace BikeProd
             return result;
         }
 
-        /* public List<PartVO> GetUnit(string PartName)
+            public List<PartVO> GetUnit()
          {
              PurchaseDAC dac = new PurchaseDAC();
-             List<PartVO> result = dac.GetPurchaseList(PartName);
+             List<PartVO> result = dac.GetUnit();
              dac.Dispose();
 
              return result;
-         }*/
+         }
         
 
 

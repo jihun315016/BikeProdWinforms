@@ -163,7 +163,7 @@ namespace BikeProd
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 502);
             this.Name = "popSaveAddress";
-            this.Text = "popSaveAddress";
+            this.Text = "주소 찾기";
             this.Load += new System.EventHandler(this.popSaveAddress_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

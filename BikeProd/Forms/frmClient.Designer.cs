@@ -60,8 +60,8 @@ namespace BikeProd
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnSave);
             this.splitContainer1.Panel2.Controls.Add(this.btnDelete);
-            this.splitContainer1.Size = new System.Drawing.Size(1128, 623);
-            this.splitContainer1.SplitterDistance = 72;
+            this.splitContainer1.Size = new System.Drawing.Size(1129, 581);
+            this.splitContainer1.SplitterDistance = 66;
             // 
             // panel1
             // 
@@ -69,7 +69,7 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
-            this.panel1.Size = new System.Drawing.Size(1010, 476);
+            this.panel1.Size = new System.Drawing.Size(1068, 454);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboAddr
@@ -123,10 +123,10 @@ namespace BikeProd
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(878, 476);
+            this.btnSave.Location = new System.Drawing.Point(920, 477);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 40);
+            this.btnSave.Size = new System.Drawing.Size(84, 23);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "신규등록";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -135,9 +135,9 @@ namespace BikeProd
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(983, 476);
+            this.btnDelete.Location = new System.Drawing.Point(1009, 476);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 40);
+            this.btnDelete.Size = new System.Drawing.Size(87, 23);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -152,16 +152,17 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1010, 476);
+            this.dgvList.Size = new System.Drawing.Size(1068, 454);
             this.dgvList.TabIndex = 2;
             // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 623);
+            this.ClientSize = new System.Drawing.Size(1129, 581);
             this.Name = "frmClient";
             this.Text = "거래처";
+            this.Activated += new System.EventHandler(this.frmClient_Activated);
             this.Load += new System.EventHandler(this.frmClient_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

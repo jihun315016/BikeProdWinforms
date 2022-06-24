@@ -161,6 +161,12 @@
     <Compile Include="Forms\frmProduction.Designer.cs">
       <DependentUpon>frmProduction.cs</DependentUpon>
     </Compile>
+    <Compile Include="popChangePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popChangePwd.Designer.cs">
+      <DependentUpon>popChangePwd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popup\popSaveProduction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmProduction.resx">
       <DependentUpon>frmProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popChangePwd.resx">
+      <DependentUpon>popChangePwd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\popSaveProduction.resx">
       <DependentUpon>popSaveProduction.cs</DependentUpon>

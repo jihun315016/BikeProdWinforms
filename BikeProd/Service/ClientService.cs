@@ -48,6 +48,14 @@ namespace BikeProd
             dac.Dispose();
             return result;
         }
+
+        public ClientVO GetBusinessNo(string BusinessNo)
+        {
+            ClientDAC dac = new ClientDAC();
+            ClientVO B_no = dac.GetBusinessNo(BusinessNo);
+            dac.Dispose();
+            return B_no;
+        }
     }
 
 }

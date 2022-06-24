@@ -117,5 +117,13 @@ namespace BikeProd
 
             return result;
         }
+
+        public bool UpdateEmpPwd(int empNo, string pwd)
+        {
+            EmployeeDAC dac = new EmployeeDAC();
+            bool result = dac.UpdateEmpPwd(empNo, pwd);
+            dac.Dispose();
+            return result;
+        }
     }
 }

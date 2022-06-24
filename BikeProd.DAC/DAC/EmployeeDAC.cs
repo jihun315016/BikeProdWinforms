@@ -285,5 +285,33 @@ namespace BikeProd.DAC
                     return null;
             }
         }
+
+        /// <summary>
+        /// Author : 강지훈
+        /// 사용자 비밀번호 변경
+        /// </summary>
+        /// <param name="empNo"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool UpdateEmpPwd(int empNo, string pwd)
+        {
+            string sql = @"UPDATE TB_Employees 
+                            SET Pwd = @Pwd
+                            WHERE EmpNo = @EmpNo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Pwd", pwd);
+            cmd.Parameters.AddWithValue("@EmpNo", empNo);
+
+            try
+            {
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
     }
 }

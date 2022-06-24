@@ -13,16 +13,18 @@ namespace BikeProd
 {
     public partial class frmLogin : bPopCommon
     {
+        public EmployeeVO empVO { get; set; }
+
         public frmLogin()
         {
             InitializeComponent();
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
-        {            
+        {
             txtEmpNo.isNumeric = true;
             txtPwd.PasswordChar = '*';
-
+            
 #if DEBUG
             txtEmpNo.Text = "10001";
             txtPwd.Text = "1234";
@@ -39,12 +41,10 @@ namespace BikeProd
             }
 
             LoginService LoginSrv = new LoginService();
-            EmployeeVO empVO = LoginSrv.GetEmpInfo(Convert.ToInt32(txtEmpNo.Text.Trim()), txtPwd.Text.Trim());
+            empVO = LoginSrv.GetEmpInfo(Convert.ToInt32(txtEmpNo.Text.Trim()), txtPwd.Text.Trim());
             if (empVO != null)
             {
-                frmMenu frm = new frmMenu(empVO);
-                frm.Show();
-                txtEmpNo.Text = txtPwd.Text = String.Empty;
+                this.DialogResult = DialogResult.OK;                
             }
             else
             {

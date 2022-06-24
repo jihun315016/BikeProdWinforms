@@ -37,11 +37,11 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "사원명", "EmpName",colWidth : 150);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서", "DeptName", colWidth: 150);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀", "TeamName", colWidth: 150);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone", colWidth: 150);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "전화번호", "Phone", colWidth: 150, alignContent : DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "이메일", "Email", colWidth: 150);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "비밀번호", "Pwd", colWidth: 150);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate", colWidth: 150, alignContent : DataGridViewContentAlignment.MiddleRight);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleRight);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "입사일자", "FromDate", colWidth: 150, alignContent : DataGridViewContentAlignment.MiddleCenter);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "퇴사일자", "ToDate", colWidth: 150, alignContent: DataGridViewContentAlignment.MiddleCenter);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "부서번호", "DeptNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "팀번호", "TeamNo", isVisible: false);
 
@@ -202,6 +202,12 @@ namespace BikeProd
             {
                 e.Handled = true;
             }
+        }
+
+        private void frmEmployee_Activated(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

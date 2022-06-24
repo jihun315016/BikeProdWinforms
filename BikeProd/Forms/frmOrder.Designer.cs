@@ -109,7 +109,7 @@ namespace BikeProd
             this.txtSearch.isNumeric = false;
             this.txtSearch.isRequired = false;
             this.txtSearch.Location = new System.Drawing.Point(140, 160);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceHolder = null;
             this.txtSearch.Size = new System.Drawing.Size(282, 27);
@@ -128,7 +128,6 @@ namespace BikeProd
             this.dgvList.RowTemplate.Height = 27;
             this.dgvList.Size = new System.Drawing.Size(707, 495);
             this.dgvList.TabIndex = 23;
-            this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
             this.dgvList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvList_CellFormatting);
             this.dgvList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvList_CellMouseDoubleClick);
             // 
@@ -237,7 +236,6 @@ namespace BikeProd
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.dtpTo);
             this.splitContainer1.Panel1.Controls.Add(this.dtpFrom);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -311,7 +309,7 @@ namespace BikeProd
             this.tabControl.Controls.Add(this.tpList);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(4, 4);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(700, 776);
@@ -340,9 +338,9 @@ namespace BikeProd
             this.tpOrderDetail.Controls.Add(this.txtOrderNo);
             this.tpOrderDetail.Controls.Add(this.label9);
             this.tpOrderDetail.Location = new System.Drawing.Point(4, 29);
-            this.tpOrderDetail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tpOrderDetail.Margin = new System.Windows.Forms.Padding(5);
             this.tpOrderDetail.Name = "tpOrderDetail";
-            this.tpOrderDetail.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tpOrderDetail.Padding = new System.Windows.Forms.Padding(5);
             this.tpOrderDetail.Size = new System.Drawing.Size(692, 743);
             this.tpOrderDetail.TabIndex = 0;
             this.tpOrderDetail.Text = "주문상세";
@@ -356,7 +354,7 @@ namespace BikeProd
             this.dgvList2.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList2.Location = new System.Drawing.Point(175, 313);
-            this.dgvList2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvList2.Margin = new System.Windows.Forms.Padding(4);
             this.dgvList2.Name = "dgvList2";
             this.dgvList2.RowHeadersWidth = 51;
             this.dgvList2.RowTemplate.Height = 23;
@@ -568,10 +566,10 @@ namespace BikeProd
             // 
             this.tpList.Controls.Add(this.tableLayoutPanel2);
             this.tpList.Location = new System.Drawing.Point(4, 29);
-            this.tpList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tpList.Margin = new System.Windows.Forms.Padding(5);
             this.tpList.Name = "tpList";
-            this.tpList.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.tpList.Size = new System.Drawing.Size(691, 743);
+            this.tpList.Padding = new System.Windows.Forms.Padding(5);
+            this.tpList.Size = new System.Drawing.Size(692, 743);
             this.tpList.TabIndex = 1;
             this.tpList.Text = "자재목록";
             this.tpList.UseVisualStyleBackColor = true;
@@ -584,12 +582,12 @@ namespace BikeProd
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 5);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(681, 733);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(682, 733);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox1
@@ -597,10 +595,10 @@ namespace BikeProd
             this.groupBox1.Controls.Add(this.dgvList3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(673, 358);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(674, 358);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "주문 제품";
@@ -609,7 +607,7 @@ namespace BikeProd
             // 
             this.dgvList3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList3.Location = new System.Drawing.Point(14, 29);
-            this.dgvList3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvList3.Margin = new System.Windows.Forms.Padding(4);
             this.dgvList3.Name = "dgvList3";
             this.dgvList3.RowHeadersWidth = 51;
             this.dgvList3.RowTemplate.Height = 23;
@@ -622,10 +620,10 @@ namespace BikeProd
             this.groupBox2.Controls.Add(this.dgvList4);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(4, 370);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(673, 359);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(674, 359);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "자재 리스트";
@@ -634,7 +632,7 @@ namespace BikeProd
             // 
             this.dgvList4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList4.Location = new System.Drawing.Point(14, 29);
-            this.dgvList4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvList4.Margin = new System.Windows.Forms.Padding(4);
             this.dgvList4.Name = "dgvList4";
             this.dgvList4.RowHeadersWidth = 51;
             this.dgvList4.RowTemplate.Height = 23;
@@ -650,6 +648,7 @@ namespace BikeProd
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "frmOrder";
             this.Text = "주문";
+            this.Activated += new System.EventHandler(this.frmOrder_Activated);
             this.Load += new System.EventHandler(this.frmOrder_Load);
             this.Controls.SetChildIndex(this.DescriptLabel1, 0);
             this.Controls.SetChildIndex(this.DescriptLabel2, 0);

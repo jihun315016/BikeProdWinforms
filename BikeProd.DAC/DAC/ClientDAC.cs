@@ -90,5 +90,27 @@ namespace BikeProd.DAC
                 return (iRowAffect > 0);
             }
         }
+
+        public ClientVO GetBusinessNo(string BusinessNo)
+        {
+            string sql = @"select BusinessNo
+                          from TB_Client
+                           where BusinessNo = @BusinessNo";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@BusinessNo", BusinessNo);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                ClientVO empVO = new ClientVO()
+                {
+                    BusinessNo = reader["BusinessNo"].ToString()
+                };
+
+                return empVO;
+            }
+            return null;
+        }
     }
 }

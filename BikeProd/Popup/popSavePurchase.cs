@@ -16,8 +16,8 @@ namespace BikeProd
     {
 
         List<ProdPartVO> prodPartList;
-        List<CommonCodeVO> commonList;
         List<PurchaseListVO> purchaseList;
+        List<PartVO> partList;
         PurchaseService purchaseSrv;
         ModelService modelSrv;
         ClientService clientSrv;
@@ -233,6 +233,33 @@ namespace BikeProd
             dgvList.DataSource = null;
             dgvList.DataSource = purchaseList;
             dgvList.ClearSelection();
+        }
+
+        private void popSavePur_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != 13)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cboName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            partList = purchaseSrv.GetUnit();
+
+            PartVO partUnit = partList.FindAll((p) => p.PartName.Equals(cboName.Text)).FirstOrDefault();
+
+            if (partUnit != null)
+            {
+                numQty.Value = partUnit.Unit;
+                numQty.Increment = (partUnit.Unit > 0)? partUnit.Unit : 1;
+            }
+            else
+            {
+                numQty.Value = 0;
+            }
+
+
         }
     }
 }

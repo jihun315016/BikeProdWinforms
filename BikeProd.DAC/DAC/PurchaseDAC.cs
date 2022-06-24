@@ -310,18 +310,18 @@ namespace BikeProd.DAC
             return list;
         }
 
-        /*public List<PartVO> GetUnit(string PartName)
+        public List<PartVO> GetUnit()
         {
             List<PartVO> list = new List<PartVO>();
 
-            string sql = @"select Unit from TB_Parts where PartName = @PartName";
+            string sql = @"select PartCode, PartName, Unit from TB_Parts";
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
-                cmd.Parameters.AddWithValue("@PartName", PartName);
+
                 list = DBConverter.DataReaderToList<PartVO>(cmd.ExecuteReader());
             }
             return list;
-        }*/
+        }
 
         public bool UpdateStateOK(int purchaseNo)
         {

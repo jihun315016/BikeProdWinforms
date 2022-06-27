@@ -34,8 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblDept = new System.Windows.Forms.Label();
             this.cboTeamselect = new System.Windows.Forms.ComboBox();
-            this.txtEmpSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDeptAuth = new BikeProd.ccTextBox();
             this.btnMenuInsert = new System.Windows.Forms.Button();
@@ -115,7 +113,6 @@
             this.dgvDept.Size = new System.Drawing.Size(390, 262);
             this.dgvDept.TabIndex = 2;
             this.dgvDept.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDept_CellClick);
-            //this.dgvDept.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDept_CellContentClick);
             // 
             // dgvTeam
             // 
@@ -130,6 +127,7 @@
             this.dgvTeam.RowTemplate.Height = 27;
             this.dgvTeam.Size = new System.Drawing.Size(390, 262);
             this.dgvTeam.TabIndex = 3;
+            this.dgvTeam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeam_CellClick);
             // 
             // dgvDetail
             // 
@@ -178,28 +176,8 @@
             this.cboTeamselect.Name = "cboTeamselect";
             this.cboTeamselect.Size = new System.Drawing.Size(95, 23);
             this.cboTeamselect.TabIndex = 8;
+            this.cboTeamselect.Visible = false;
             this.cboTeamselect.SelectedIndexChanged += new System.EventHandler(this.cboTeamselect_SelectedIndexChanged);
-            // 
-            // txtEmpSearch
-            // 
-            this.txtEmpSearch.Location = new System.Drawing.Point(180, 2);
-            this.txtEmpSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmpSearch.Name = "txtEmpSearch";
-            this.txtEmpSearch.Size = new System.Drawing.Size(102, 23);
-            this.txtEmpSearch.TabIndex = 9;
-            this.txtEmpSearch.Click += new System.EventHandler(this.txtEmpSearch_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearch.Location = new System.Drawing.Point(286, 1);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(68, 24);
-            this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "검색";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBox1
             // 
@@ -305,7 +283,6 @@
             this.cboDept.Name = "cboDept";
             this.cboDept.Size = new System.Drawing.Size(225, 25);
             this.cboDept.TabIndex = 14;
-            //this.cboDept.SelectedIndexChanged += new System.EventHandler(this.cboDept_SelectedIndexChanged);
             // 
             // btnTeamDelete
             // 
@@ -436,10 +413,8 @@
             // panel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
-            this.panel1.Controls.Add(this.txtEmpSearch);
             this.panel1.Controls.Add(this.dgvDetail);
             this.panel1.Controls.Add(this.lblDept);
-            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.cboTeamselect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 293);
@@ -466,8 +441,8 @@
             this.Name = "frmDepartment";
             this.Text = "8";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmDepartment_Activated);
             this.Load += new System.EventHandler(this.frmDeptMain_Load);
-            //this.Shown += new System.EventHandler(this.frmDepartment_Shown);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -497,9 +472,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtEmpSearch;
         private System.Windows.Forms.ComboBox cboTeamselect;
         private System.Windows.Forms.Label lblDept;
         private System.Windows.Forms.Label label1;

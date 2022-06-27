@@ -47,6 +47,7 @@ namespace BikeProd
             dgvList.DataSource = clientList;
         }
 
+        // 초기화 버튼
         private void btnReturn_Click(object sender, EventArgs e)
         {
             cboType.SelectedIndex = cboAddr.SelectedIndex = 0;
@@ -78,7 +79,6 @@ namespace BikeProd
             dgvList.DataSource = list;
         }        
 
-        // - 수정 예정
         private void AddressListBinding()
         {
             cboAddr.Items.AddRange(new string[]
@@ -91,28 +91,44 @@ namespace BikeProd
         // 삭제 버튼
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvList.SelectedRows.Count < 1)
+            try
             {
-                MessageBox.Show("삭제할 거래처를 선택해주세요.");
-                return;
-            }
-            
-            string clientName = (dgvList.SelectedRows[0].Cells["ClientName"].Value).ToString();
-            if (MessageBox.Show($"[{clientName}] : 거래처를 삭제 하시겠습니까?", "삭제확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {                
-                bool result = clientSrv.DeleteClient(clientName);
-                if (result)
+                if (dgvList.SelectedRows.Count < 1)
                 {
-                    MessageBox.Show($"[{clientName}] 삭제 완료.");
-                    clientList = clientSrv.GetClientList();
-                    dgvList.DataSource = clientList;
-                }
-                else
-                {
-                    MessageBox.Show("삭제 중 오류 발생.");
+                    MessageBox.Show("삭제할 거래처를 선택해주세요.");
                     return;
                 }
-            }            
+
+                // 해당 거래처가 거래중이거나 부품, 제품이 등록되어있다면 삭제 불가
+                string clientName = (dgvList.SelectedRows[0].Cells["ClientName"].Value).ToString();
+                string BusinessNo = (dgvList.SelectedRows[0].Cells["BusinessNo"].Value).ToString();
+                if (!clientSrv.ChkClient(BusinessNo))
+                {
+                    MessageBox.Show("거래중인 거래처입니다. 확인 후 삭제 부탁드립니다");
+                    return;
+                }
+
+                if (MessageBox.Show($"[{clientName}] : 거래처를 삭제 하시겠습니까?", "삭제확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    bool result = clientSrv.DeleteClient(clientName);
+                    if (result)
+                    {
+                        MessageBox.Show($"[{clientName}] 삭제 완료.");
+                        clientList = clientSrv.GetClientList();
+                        dgvList.DataSource = clientList;
+                    }
+                    else
+                    {
+                        MessageBox.Show("삭제 중 오류 발생.");
+                        return;
+                    }
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show("삭제 중 오류가 발생하였습니다.");
+            }
+                       
         }
 
         // 등록 버튼
@@ -130,6 +146,14 @@ namespace BikeProd
         {
             this.WindowState = FormWindowState.Normal;
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);
+            }
         }
     }
 }

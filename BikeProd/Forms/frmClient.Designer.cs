@@ -58,8 +58,8 @@ namespace BikeProd
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnSave);
             this.splitContainer1.Panel2.Controls.Add(this.btnDelete);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSave);
             this.splitContainer1.Size = new System.Drawing.Size(1129, 581);
             this.splitContainer1.SplitterDistance = 66;
             // 
@@ -69,7 +69,7 @@ namespace BikeProd
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.dgvList);
-            this.panel1.Size = new System.Drawing.Size(1068, 454);
+            this.panel1.Size = new System.Drawing.Size(1053, 436);
             this.panel1.Controls.SetChildIndex(this.dgvList, 0);
             // 
             // cboAddr
@@ -119,6 +119,7 @@ namespace BikeProd
             this.txtSearch.PlaceHolder = "";
             this.txtSearch.Size = new System.Drawing.Size(143, 23);
             this.txtSearch.TabIndex = 14;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // btnSave
             // 
@@ -152,7 +153,7 @@ namespace BikeProd
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(1068, 454);
+            this.dgvList.Size = new System.Drawing.Size(1053, 436);
             this.dgvList.TabIndex = 2;
             // 
             // frmClient

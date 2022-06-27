@@ -60,15 +60,16 @@
             this.panel1.Controls.Add(this.txtCode);
             this.panel1.Controls.Add(this.dgvList);
             this.panel1.Location = new System.Drawing.Point(6, 12);
-            this.panel1.Size = new System.Drawing.Size(1097, 422);
+            this.panel1.Size = new System.Drawing.Size(1179, 422);
             // 
             // dgvList
             // 
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(3, 3);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
-            this.dgvList.Size = new System.Drawing.Size(540, 411);
+            this.dgvList.Size = new System.Drawing.Size(627, 411);
             this.dgvList.TabIndex = 0;
             this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
@@ -76,7 +77,7 @@
             // 
             this.txtCatagory.isNumeric = false;
             this.txtCatagory.isRequired = false;
-            this.txtCatagory.Location = new System.Drawing.Point(717, 362);
+            this.txtCatagory.Location = new System.Drawing.Point(801, 362);
             this.txtCatagory.Name = "txtCatagory";
             this.txtCatagory.PlaceHolder = "모델명 검색";
             this.txtCatagory.ReadOnly = true;
@@ -85,7 +86,7 @@
             // 
             // btnSaveProduction
             // 
-            this.btnSaveProduction.Location = new System.Drawing.Point(960, 392);
+            this.btnSaveProduction.Location = new System.Drawing.Point(1044, 392);
             this.btnSaveProduction.Name = "btnSaveProduction";
             this.btnSaveProduction.Size = new System.Drawing.Size(60, 22);
             this.btnSaveProduction.TabIndex = 20;
@@ -97,7 +98,7 @@
             // 
             this.txtQty.isNumeric = true;
             this.txtQty.isRequired = true;
-            this.txtQty.Location = new System.Drawing.Point(868, 362);
+            this.txtQty.Location = new System.Drawing.Point(952, 362);
             this.txtQty.Name = "txtQty";
             this.txtQty.PlaceHolder = "수량";
             this.txtQty.Size = new System.Drawing.Size(82, 23);
@@ -107,7 +108,7 @@
             // 
             this.txtKind.isNumeric = false;
             this.txtKind.isRequired = false;
-            this.txtKind.Location = new System.Drawing.Point(566, 362);
+            this.txtKind.Location = new System.Drawing.Point(650, 362);
             this.txtKind.Name = "txtKind";
             this.txtKind.PlaceHolder = "모델명 검색";
             this.txtKind.ReadOnly = true;
@@ -118,7 +119,7 @@
             // 
             this.txtName.isNumeric = false;
             this.txtName.isRequired = false;
-            this.txtName.Location = new System.Drawing.Point(717, 335);
+            this.txtName.Location = new System.Drawing.Point(801, 335);
             this.txtName.Name = "txtName";
             this.txtName.PlaceHolder = "모델명 검색";
             this.txtName.ReadOnly = true;
@@ -129,7 +130,7 @@
             // 
             this.txtCode.isNumeric = false;
             this.txtCode.isRequired = false;
-            this.txtCode.Location = new System.Drawing.Point(566, 335);
+            this.txtCode.Location = new System.Drawing.Point(650, 335);
             this.txtCode.Name = "txtCode";
             this.txtCode.PlaceHolder = "모델명 검색";
             this.txtCode.ReadOnly = true;
@@ -138,7 +139,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(1026, 392);
+            this.btnCancel.Location = new System.Drawing.Point(1110, 392);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(60, 22);
             this.btnCancel.TabIndex = 22;
@@ -148,8 +149,9 @@
             // 
             // dgvPart
             // 
+            this.dgvPart.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPart.Location = new System.Drawing.Point(566, 3);
+            this.dgvPart.Location = new System.Drawing.Point(650, 3);
             this.dgvPart.Name = "dgvPart";
             this.dgvPart.RowTemplate.Height = 23;
             this.dgvPart.Size = new System.Drawing.Size(520, 326);
@@ -158,7 +160,7 @@
             // dtpReqDate
             // 
             this.dtpReqDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpReqDate.Location = new System.Drawing.Point(649, 391);
+            this.dtpReqDate.Location = new System.Drawing.Point(733, 391);
             this.dtpReqDate.Name = "dtpReqDate";
             this.dtpReqDate.Size = new System.Drawing.Size(185, 23);
             this.dtpReqDate.TabIndex = 24;
@@ -168,7 +170,7 @@
             // 
             this.cboProductionTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductionTeam.FormattingEnabled = true;
-            this.cboProductionTeam.Location = new System.Drawing.Point(956, 362);
+            this.cboProductionTeam.Location = new System.Drawing.Point(1040, 362);
             this.cboProductionTeam.Name = "cboProductionTeam";
             this.cboProductionTeam.Size = new System.Drawing.Size(130, 23);
             this.cboProductionTeam.TabIndex = 25;
@@ -176,7 +178,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(563, 397);
+            this.label1.Location = new System.Drawing.Point(647, 397);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 15);
             this.label1.TabIndex = 26;
@@ -186,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 438);
+            this.ClientSize = new System.Drawing.Size(1197, 438);
             this.Name = "popSaveProduction";
             this.Text = "popSaveProduction";
             this.Load += new System.EventHandler(this.popSaveProduction_Load);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -296,59 +297,83 @@ namespace BikeProd.DAC
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@PI_DeptName", deptName);
+                try
+                {
+                    cmd.Parameters.AddWithValue("@PI_DeptName", deptName);
 
-                int iRowAffect = cmd.ExecuteNonQuery();
+                    int iRowAffect = cmd.ExecuteNonQuery();
 
-                if (iRowAffect > 0)
-                    return true;
-                else
-                    return false;
+                    if (iRowAffect > 0)
+                        return true;
+                }
+                catch (Exception err)
+                {
+                    Debug.WriteLine(err.Message);
+                }
             }
+            return false;
         }
 
         /// <summary>
-        /// Author: 정희록
-        /// 부서삭제하기
+        /// Author: 강지훈
+        /// 부서 삭제 기능
+        /// 해당 부서에 소속된 사원이 있다면 삭제되지 않는다.
         /// </summary>
-        /// <param name="deptName"></param>
+        /// <param name="deptCode">삭제하고자 하는 부서 번호</param>
         /// <returns></returns>
-        public bool DeleteDept(string deptName)
+        public bool DeleteDept(int deptCode)
         {
-            string sql = @"delete from TB_department where deptname = @deptname";
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            SqlTransaction tran = conn.BeginTransaction();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.Transaction = tran;
+            cmd.Parameters.AddWithValue("@DeptNo", deptCode);
+            cmd.CommandText = @"SELECT COUNT(*) cnt FROM TB_Employees
+                                WHERE DeptNo = @DeptNo";
+
+            if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
             {
-                cmd.Parameters.AddWithValue("@deptname", deptName);
-
-                int iRowAffect = cmd.ExecuteNonQuery();
-
-                if (iRowAffect > 0)
-                    return true;
-                else
-                    return false;
+                return false;
             }
+
+            cmd.CommandText = "DELETE FROM TB_DepartmentCode WHERE DeptNo = @DeptNo";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "DELETE FROM TB_department WHERE DeptNo = @DeptNo";
+
+            try
+            {
+                int iRow = cmd.ExecuteNonQuery();
+                tran.Commit();
+                return iRow > 0;
+            }
+            catch (Exception err)
+            {
+                tran.Rollback();
+                throw new Exception(err.Message);
+            }            
         }
 
         /// <summary>
-        /// Author: 정희록
-        /// 팀삭제
+        /// Author: 강지훈
+        /// 팀 삭제 기능
+        /// 해당 팀에 소속된 사원이 있다면 삭제되지 않는다.
         /// </summary>
-        /// <param name="teamName"></param>
+        /// <param name="teamCode">삭제하고자 하는 팀 번호</param>
         /// <returns></returns>
-        public bool DeleteTeam(string teamName)
+        public bool DeleteTeam(int teamCode)
         {
-            string sql = @"delete from TB_Team where teamname = @teamname";
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
-            {
-                cmd.Parameters.AddWithValue("@teamname", teamName);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.Parameters.AddWithValue("@TeamNo", teamCode);
+            cmd.CommandText = @"SELECT COUNT(*) cnt FROM TB_Employees
+                                WHERE TeamNo = @TeamNo";
 
-                int iRowAffect = cmd.ExecuteNonQuery();
-
-                if (iRowAffect > 0)
-                    return true;
-                else
-                    return false;
-            }
+            if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
+                return false;
+            
+            cmd.CommandText = "delete from TB_Team where TeamNo = @TeamNo";
+            return cmd.ExecuteNonQuery() > 0;            
         }
 
         /// <summary>

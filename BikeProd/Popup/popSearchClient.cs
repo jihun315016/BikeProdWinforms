@@ -50,9 +50,9 @@ namespace BikeProd
             for (int i = 0; i < list.Count; i++)
             {
                 ucSelector selector = new ucSelector();
-                selector.LabelText = list[i].ClientName;
-                selector.Location = new Point(3, 3 + 25 * i);
                 selector.Width = 235;
+                selector.Location = new Point(3, 3 + 25 * i);
+                selector.LabelText = list[i].ClientName;
                 selector.Tag = list[i];
 
                 selector.LabelClick += (object obj, EventArgs eArgs) =>

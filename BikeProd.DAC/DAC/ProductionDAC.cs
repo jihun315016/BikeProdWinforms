@@ -31,18 +31,21 @@ namespace BikeProd.DAC
         /// Author : 강지훈
         /// 주문되어 생산해야 하는 제품 리스트 조회
         /// 총 주문 수량이 논리재고보다 큰 제품만 조회된다.
+        /// 취소된 주문은 제외하고 조회된다.
         /// </summary>
         /// <returns></returns>
         public List<BomInfoVO> GetOrderedProd()
         {
             string sql = @"SELECT 
-	                            p.ProdCode Code, p.ProdName Name,
-	                            CASE WHEN p.IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind,
-	                            p.Category, SUM(Qty) Requirement, p.Inventory, LeadTime, TotInvn
-                            FROM TB_OrderDetails o
-                            JOIN TB_Products p ON o.ProdCode = p.ProdCode
-                            GROUP BY p.ProdCode, ProdName, p.IsFinished, Category, Inventory, LeadTime, TotInvn
-                            HAVING SUM(Qty) > TotInvn";
+	                        p.ProdCode Code, p.ProdName Name,
+	                        CASE WHEN p.IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind,
+	                        p.Category, SUM(Qty) Requirement, p.Inventory, LeadTime, TotInvn, p.TotInvn
+                        FROM TB_OrderDetails od
+                        JOIN TB_Order o ON od.OrderNo = o.OrderNo
+                        JOIN TB_Products p ON od.ProdCode = p.ProdCode
+                        WHERE State <> 'OK'
+                        GROUP BY p.ProdCode, ProdName, p.IsFinished, Category, Inventory, LeadTime, TotInvn, p.TotInvn
+                        HAVING SUM(Qty) > TotInvn";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();

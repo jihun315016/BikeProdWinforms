@@ -27,6 +27,8 @@ namespace BikeProd
 
         private void popSaveOrder_Load(object sender, EventArgs e)
         {
+            EmployeeVO emp = ((frmMenu)(this.Owner)).EmpInfo;
+            txtManager.Text = emp.EmpName;
             commonList = new List<CommonCodeVO>();
             orderSrv = new OrderService();
             commonList = orderSrv.GetProdCommon();
@@ -126,14 +128,26 @@ namespace BikeProd
 
         private void cboModel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<ProductVO> list;
             prodList = orderSrv.GetProdList();
-            list = prodList.FindAll(c => c.Category == cboModel.Text);
+            prodList = prodList.FindAll(c => c.Category == cboModel.Text);
+
+            var Bom = (from model in prodList
+                              where model.Category.Equals(cboModel.Text)
+                              group model by model.ProdName);
+
+            List<ProductVO> list = new List<ProductVO>();
+
+            foreach (var cate in Bom)
+            {
+                list.Add(new ProductVO() { ProdCode = cate.Key, ProdName = cate.Key, Category = "Category" });
+            }
+
             list.Insert(0, new ProductVO()
             {
                 ProdName = "제품명",
                 ProdCode = String.Empty
             });
+
             ComboBoxUtil.SetComboBoxByList<ProductVO>(cboName, list, "ProdName", "ProdCode");
         }
 

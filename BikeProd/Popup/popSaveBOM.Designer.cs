@@ -74,15 +74,14 @@
             // 
             // dgvList
             // 
-            this.dgvList.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(3, 77);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 23;
             this.dgvList.Size = new System.Drawing.Size(429, 332);
             this.dgvList.TabIndex = 0;
-            this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
+            this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
             // cboKind
             // 
@@ -112,6 +111,7 @@
             this.txtSearch.PlaceHolder = "모델명 검색";
             this.txtSearch.Size = new System.Drawing.Size(87, 23);
             this.txtSearch.TabIndex = 3;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // btnSearch
             // 
@@ -135,15 +135,14 @@
             // 
             // dgvBom
             // 
-            this.dgvBom.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvBom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBom.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvBom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBom.Location = new System.Drawing.Point(449, 78);
             this.dgvBom.Name = "dgvBom";
             this.dgvBom.RowTemplate.Height = 23;
             this.dgvBom.Size = new System.Drawing.Size(490, 303);
             this.dgvBom.TabIndex = 6;
-            this.dgvBom.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBom_CellDoubleClick);
+            this.dgvBom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBom_CellClick);
             // 
             // txtCode
             // 

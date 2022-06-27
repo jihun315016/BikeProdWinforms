@@ -70,8 +70,8 @@ namespace BikeProd
                 return;
             }
 
-            if (!b_NoCheck)            {
-                              
+            if (!b_NoCheck)            
+            {                              
                 MessageBox.Show("사업자번호 중복체크 확인해 주세요");
                 return;
             }
@@ -116,7 +116,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 이진형
-        /// 도메인 콤보박스 선택에 따른 처리
+        /// 이메일 콤보박스 선택에 따른 처리
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -133,7 +133,7 @@ namespace BikeProd
                 txtDomain.Focus();
                 txtDomain.Clear();
             }
-            else // 도메인 주소
+            else // 이메일 주소
             {
                 txtDomain.ReadOnly = true;
                 txtDomain.Text = cboDomain.Text;
@@ -143,7 +143,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 이진형
-        /// 콤보박스 이메일 도메인 주소 바인딩
+        /// 콤보박스 이메일 주소 바인딩
         /// </summary>
         private void DomainListBinding()
         {
@@ -178,7 +178,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 이진형
-        /// 공백없는 영문 소문자 도메인(xxx.com)형식 유효성 검사
+        /// 공백없는 영문 소문자 이메일주소(xxx.com)형식 유효성 검사
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -195,16 +195,17 @@ namespace BikeProd
                 lblMessage2.Text = "";
         }       
                
-
+        // 사업자 번호 형식 (xxx-xx-xxxxx)
         private void txtBusinessNo_Leave(object sender, EventArgs e)        {
             
-            if (txtBusinessNo.Text.Length == 9)
+            if (txtBusinessNo.Text.Length == 10)
             {
                 txtBusinessNo.Text = txtBusinessNo.Text.Insert(3, "-");
                 txtBusinessNo.Text = txtBusinessNo.Text.Insert(6, "-");                
             }
         }
 
+        // 연락처 번호 형식 (xxx-xxxx-xxxxx)
         private void txtMPhone_Leave(object sender, EventArgs e)
         {
             if (txtMPhone.Text.Length == 11)
@@ -214,9 +215,10 @@ namespace BikeProd
             }
         }
 
+        // 사업자번호 중복 체크 버튼
         private void btnBusinessNoCheck_Click(object sender, EventArgs e)
         {
-            if (txtBusinessNo.Text.Length < 11)
+            if (txtBusinessNo.Text.Length < 12)
             {
                 MessageBox.Show("사업자번호를 정확하게 입력해 주세요");
                 txtBusinessNo.Clear();
@@ -239,6 +241,15 @@ namespace BikeProd
                 MessageBox.Show("등록 가능한 사업자번호 입니다.");
                 return;
             }
+        }
+
+        // 사업자 번호 중복 체크 초기화
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            b_NoCheck = false;
+            txtBusinessNo.ReadOnly = false;
+            txtBusinessNo.Clear();
+            txtBusinessNo.Focus();
         }
     }
 }

@@ -34,9 +34,10 @@
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 23);
+            this.label1.Size = new System.Drawing.Size(38, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -60,9 +61,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "ucSelector";
-            this.Size = new System.Drawing.Size(150, 23);
+            this.Size = new System.Drawing.Size(150, 25);
             this.Load += new System.EventHandler(this.ucSelector_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

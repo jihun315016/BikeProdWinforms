@@ -192,7 +192,7 @@ namespace BikeProd
                     imageByte = br.ReadBytes((int)fs.Length);
                 }
 
-                string url = "http://jihun3100.pythonanywhere.com/saveImg";
+                string url = "http://3.39.226.41:5000/saveImg";
 
                 try
                 {

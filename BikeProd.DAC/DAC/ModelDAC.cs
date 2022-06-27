@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,12 @@ namespace BikeProd.DAC
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
+
+            //Console.WriteLine($"FieldCount : {reader.FieldCount}");
+            //while (reader.Read())
+            //{
+            //    Console.WriteLine("!!!");
+            //}
             return DBConverter.DataReaderToList<CommonCodeVO>(reader);
         }
 
@@ -363,15 +370,15 @@ namespace BikeProd.DAC
             {
                 cmd.Parameters.AddWithValue("@Code", part.PartCode);
                 cmd.Parameters.AddWithValue("@Name", part.PartName);
-                cmd.Parameters.AddWithValue("@IsFinished", 0);
                 cmd.Parameters.AddWithValue("@Category", part.Category);
-                cmd.Parameters.AddWithValue("@LeadTime", 0);
                 cmd.Parameters.AddWithValue("@Price", part.Price);
                 cmd.Parameters.AddWithValue("@Image", part.Image);
-                cmd.Parameters.AddWithValue("@StartCode", startCode);
                 cmd.Parameters.AddWithValue("@BusinessNo", part.BusinessNo);
                 cmd.Parameters.AddWithValue("@SfInvn", part.SfInvn);
                 cmd.Parameters.AddWithValue("@Unit", part.Unit);
+                cmd.Parameters.AddWithValue("@IsFinished", 0);
+                cmd.Parameters.AddWithValue("@LeadTime", 0);
+                cmd.Parameters.AddWithValue("@StartCode", startCode);
             }
 
             try
@@ -382,9 +389,8 @@ namespace BikeProd.DAC
             catch (Exception err)
             {
                 throw new Exception(err.Message);
-                return false;
             }
-        }
+}
 
         /// <summary>
         /// Author : 강지훈

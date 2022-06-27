@@ -81,6 +81,7 @@ namespace BikeProd
             this.txtEmpNo.Size = new System.Drawing.Size(190, 23);
             this.txtEmpNo.TabIndex = 1;
             this.txtEmpNo.Tag = "";
+            this.txtEmpNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtPwd
             // 
@@ -93,6 +94,7 @@ namespace BikeProd
             this.txtPwd.Size = new System.Drawing.Size(190, 23);
             this.txtPwd.TabIndex = 2;
             this.txtPwd.Tag = "";
+            this.txtPwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label1
             // 

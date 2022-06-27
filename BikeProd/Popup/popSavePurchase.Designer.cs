@@ -1,6 +1,6 @@
 ﻿namespace BikeProd
 {
-    partial class popSavePur
+    partial class popSavePurchase
     {
         /// <summary>
         /// Required designer variable.
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(84, 48);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel1.Size = new System.Drawing.Size(706, 199);
             // 
             // label5
@@ -157,18 +157,19 @@
             this.cboModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboModel.FormattingEnabled = true;
             this.cboModel.Location = new System.Drawing.Point(167, 256);
-            this.cboModel.Margin = new System.Windows.Forms.Padding(4);
+            this.cboModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboModel.Name = "cboModel";
             this.cboModel.Size = new System.Drawing.Size(116, 28);
             this.cboModel.TabIndex = 7;
             this.cboModel.SelectedIndexChanged += new System.EventHandler(this.cboModel_SelectedIndexChanged);
+            this.cboModel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cboModel_MouseClick);
             // 
             // cboName
             // 
             this.cboName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboName.FormattingEnabled = true;
             this.cboName.Location = new System.Drawing.Point(292, 255);
-            this.cboName.Margin = new System.Windows.Forms.Padding(4);
+            this.cboName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboName.Name = "cboName";
             this.cboName.Size = new System.Drawing.Size(238, 28);
             this.cboName.TabIndex = 8;
@@ -177,7 +178,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(627, 252);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(77, 31);
             this.btnAdd.TabIndex = 10;
@@ -192,7 +193,7 @@
             this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(84, 307);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
@@ -202,7 +203,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(618, 653);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 31);
             this.btnSave.TabIndex = 12;
@@ -213,7 +214,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(723, 653);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 31);
             this.btnCancel.TabIndex = 13;
@@ -244,6 +245,7 @@
             this.txtBusiness.Tag = "거래처명";
             this.txtBusiness.TextChanged += new System.EventHandler(this.txtBusiness_TextChanged);
             this.txtBusiness.Enter += new System.EventHandler(this.txtBusiness_Enter);
+            this.txtBusiness.Leave += new System.EventHandler(this.txtBusiness_Leave);
             // 
             // txtManager
             // 
@@ -315,7 +317,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(712, 252);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(77, 31);
             this.btnDelete.TabIndex = 11;

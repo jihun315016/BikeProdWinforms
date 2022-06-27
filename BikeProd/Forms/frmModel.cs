@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -253,10 +254,10 @@ namespace BikeProd
                 try
                 {
                     // 이미지가 있다면 불러오기
-                    int isImg = Convert.ToInt32(dgvList["Image", iRow].Value.ToString());
+                    int isImg = Convert.ToInt32(dgvList["Image", iRow].Value);
                     if (isImg > 0)
                     {
-                        string url = "http://jihun3100.pythonanywhere.com/getImg";
+                        string url = "http://3.39.226.41:5000/getImg";
                         byte[] imgByte = WebRequestUtil.GetImage(url, txtName.Text);
                         TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
                         Image img = (Bitmap)tc.ConvertFrom(imgByte);
@@ -267,7 +268,7 @@ namespace BikeProd
                         ptbModel.Image = null;
                     }
                 }
-                catch (Exception err) { MessageBox.Show(err.Message); }
+                catch (Exception err) { Debug.WriteLine(err.Message); }
             }
             ));
         }
@@ -334,7 +335,8 @@ namespace BikeProd
                     TotInvn = txtTotInventory.Text == String.Empty ? -1 : Convert.ToInt32(txtTotInventory.Text),
                     Unit = txtUnit.Text == String.Empty ? -1 : Convert.ToInt32(txtUnit.Text),
                     BusinessNo = txtClient.Tag.ToString(),
-                    ClientName = txtClient.Text
+                    ClientName = txtClient.Text,
+                    Image = !string.IsNullOrWhiteSpace(ptbModel.Tag.ToString()) ? 1 : 0
                 };
 
                 try
@@ -433,6 +435,19 @@ namespace BikeProd
             {
                 e.CellStyle.ForeColor = Color.Red;
             }           
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);
+            }
+        }
+
+        private void frmModel_Activated(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

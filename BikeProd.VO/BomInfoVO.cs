@@ -18,5 +18,6 @@ namespace BikeProd.VO
         public string Relation { get; set; }
         public int Inventory { get; set; }
         public int LeadTime { get; set; }
+        public int TotInvn { get; set; }
     }
 }

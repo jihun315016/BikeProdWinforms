@@ -32,13 +32,6 @@ namespace BikeProd
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSearchProduction = new System.Windows.Forms.Button();
-            this.cboTeam = new System.Windows.Forms.ComboBox();
-            this.cboState = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.ccTxtLoss = new BikeProd.ccTextBox();
             this.btnCancelProduction = new System.Windows.Forms.Button();
             this.btnCompleteProduction = new System.Windows.Forms.Button();
@@ -57,6 +50,13 @@ namespace BikeProd
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnInit = new System.Windows.Forms.Button();
+            this.btnSearchProduction = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboTeam = new System.Windows.Forms.ComboBox();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.cboState = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -113,68 +113,6 @@ namespace BikeProd
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1084, 34);
             this.panel2.TabIndex = 0;
-            // 
-            // btnSearchProduction
-            // 
-            this.btnSearchProduction.Location = new System.Drawing.Point(436, 18);
-            this.btnSearchProduction.Name = "btnSearchProduction";
-            this.btnSearchProduction.Size = new System.Drawing.Size(65, 23);
-            this.btnSearchProduction.TabIndex = 10;
-            this.btnSearchProduction.Text = "검색";
-            this.btnSearchProduction.UseVisualStyleBackColor = true;
-            this.btnSearchProduction.Click += new System.EventHandler(this.btnSearchProduction_Click);
-            // 
-            // cboTeam
-            // 
-            this.cboTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTeam.FormattingEnabled = true;
-            this.cboTeam.Location = new System.Drawing.Point(332, 18);
-            this.cboTeam.Name = "cboTeam";
-            this.cboTeam.Size = new System.Drawing.Size(98, 23);
-            this.cboTeam.TabIndex = 9;
-            // 
-            // cboState
-            // 
-            this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboState.FormattingEnabled = true;
-            this.cboState.Location = new System.Drawing.Point(228, 18);
-            this.cboState.Name = "cboState";
-            this.cboState.Size = new System.Drawing.Size(98, 23);
-            this.cboState.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 15);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "생산 지시일";
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(126, 18);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(96, 23);
-            this.dtpEnd.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "~";
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(3, 18);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(96, 23);
-            this.dtpStart.TabIndex = 4;
             // 
             // ccTxtLoss
             // 
@@ -233,6 +171,7 @@ namespace BikeProd
             // 
             // dgvProduction
             // 
+            this.dgvProduction.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduction.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduction.Location = new System.Drawing.Point(3, 19);
@@ -255,6 +194,7 @@ namespace BikeProd
             // 
             // dgvComplete
             // 
+            this.dgvComplete.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvComplete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComplete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComplete.Location = new System.Drawing.Point(3, 19);
@@ -377,6 +317,68 @@ namespace BikeProd
             this.btnInit.UseVisualStyleBackColor = true;
             this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
             // 
+            // btnSearchProduction
+            // 
+            this.btnSearchProduction.Location = new System.Drawing.Point(436, 18);
+            this.btnSearchProduction.Name = "btnSearchProduction";
+            this.btnSearchProduction.Size = new System.Drawing.Size(65, 23);
+            this.btnSearchProduction.TabIndex = 10;
+            this.btnSearchProduction.Text = "검색";
+            this.btnSearchProduction.UseVisualStyleBackColor = true;
+            this.btnSearchProduction.Click += new System.EventHandler(this.btnSearchProduction_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 15);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "생산 지시일";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(105, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "~";
+            // 
+            // cboTeam
+            // 
+            this.cboTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTeam.FormattingEnabled = true;
+            this.cboTeam.Location = new System.Drawing.Point(332, 18);
+            this.cboTeam.Name = "cboTeam";
+            this.cboTeam.Size = new System.Drawing.Size(98, 23);
+            this.cboTeam.TabIndex = 9;
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStart.Location = new System.Drawing.Point(3, 18);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(96, 23);
+            this.dtpStart.TabIndex = 4;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEnd.Location = new System.Drawing.Point(126, 18);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(96, 23);
+            this.dtpEnd.TabIndex = 6;
+            // 
+            // cboState
+            // 
+            this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboState.FormattingEnabled = true;
+            this.cboState.Location = new System.Drawing.Point(228, 18);
+            this.cboState.Name = "cboState";
+            this.cboState.Size = new System.Drawing.Size(98, 23);
+            this.cboState.TabIndex = 8;
+            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -385,6 +387,7 @@ namespace BikeProd
             this.Controls.Add(this.panel1);
             this.Name = "frmProduction";
             this.Text = "frmProduction";
+            this.Activated += new System.EventHandler(this.frmProduction_Activated);
             this.Load += new System.EventHandler(this.frmProduction_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.DescriptLabel1, 0);

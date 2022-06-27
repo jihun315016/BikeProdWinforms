@@ -115,9 +115,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(28, 15);
+            this.dgvList.Location = new System.Drawing.Point(28, 30);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 23;
@@ -157,6 +156,7 @@
             this.txtSearch.PlaceHolder = "모델명 검색";
             this.txtSearch.Size = new System.Drawing.Size(143, 23);
             this.txtSearch.TabIndex = 3;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // btnSearch
             // 
@@ -195,6 +195,7 @@
             this.ptbModel.Location = new System.Drawing.Point(184, 14);
             this.ptbModel.Name = "ptbModel";
             this.ptbModel.Size = new System.Drawing.Size(150, 150);
+            this.ptbModel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbModel.TabIndex = 5;
             this.ptbModel.TabStop = false;
             // 
@@ -466,7 +467,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "frmModel";
             this.Text = "frmProduct";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmModel_Activated);
             this.Load += new System.EventHandler(this.frmProduct_Load);
             this.Shown += new System.EventHandler(this.frmModel_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);

@@ -76,6 +76,7 @@ namespace BikeProd
             this.txtAddrSearch.PlaceHolder = null;
             this.txtAddrSearch.Size = new System.Drawing.Size(300, 23);
             this.txtAddrSearch.TabIndex = 1;
+            this.txtAddrSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddrSearch_KeyPress);
             // 
             // btnSearch
             // 
@@ -103,7 +104,7 @@ namespace BikeProd
             this.btanSave.Location = new System.Drawing.Point(383, 433);
             this.btanSave.Name = "btanSave";
             this.btanSave.Size = new System.Drawing.Size(93, 27);
-            this.btanSave.TabIndex = 57;
+            this.btanSave.TabIndex = 4;
             this.btanSave.Text = "주소 등록";
             this.btanSave.UseVisualStyleBackColor = true;
             this.btanSave.Click += new System.EventHandler(this.btanSave_Click);
@@ -155,7 +156,7 @@ namespace BikeProd
             this.txtAddrDetail.Name = "txtAddrDetail";
             this.txtAddrDetail.PlaceHolder = null;
             this.txtAddrDetail.Size = new System.Drawing.Size(128, 23);
-            this.txtAddrDetail.TabIndex = 61;
+            this.txtAddrDetail.TabIndex = 3;
             // 
             // popSaveAddress
             // 

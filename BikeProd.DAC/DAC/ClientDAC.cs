@@ -58,6 +58,12 @@ namespace BikeProd.DAC
             return list;
         }
 
+        /// <summary>
+        /// Author : 이진형
+        /// 거래처 등록
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         public bool SaveClient(ClientVO client)
         {            
             string sql = @"insert into TB_Client (BusinessNo, ClientName, Type, Email, Address, Manager, ManagerPhone)
@@ -78,6 +84,12 @@ namespace BikeProd.DAC
             }
         }
 
+        /// <summary>
+        /// Author : 이진형
+        /// 선택 거래처 삭제
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <returns></returns>
         public bool DeleteClient(string clientName)
         {
             string sql = "delete from TB_Client where ClientName = @ClientName";
@@ -90,7 +102,12 @@ namespace BikeProd.DAC
                 return (iRowAffect > 0);
             }
         }
-
+        /// <summary>
+        /// Author : 이진형
+        /// 중복 체크를 위한 거래처 조회
+        /// </summary>
+        /// <param name="BusinessNo"></param>
+        /// <returns></returns>
         public ClientVO GetBusinessNo(string BusinessNo)
         {
             string sql = @"select BusinessNo
@@ -111,6 +128,39 @@ namespace BikeProd.DAC
                 return empVO;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Author : 이진형
+        /// 거래처 삭제를 위한 거래상태, 제품, 부품, 등록 상태 체크
+        /// </summary>
+        /// <param name="BusinessNO"></param>
+        /// <returns></returns>
+        public bool ChkClient(string BusinessNO)
+        {
+            string sql = @"select count(*)
+                            from TB_Client c 
+                            left join TB_Parts p on c.BusinessNo = p.BusinessNo
+                            left join TB_Order o on c.BusinessNo = o.BusinessNo
+                            left join TB_Purchase pur on c.BusinessNo = pur.BusinessNo
+                            where (c.BusinessNo = p.BusinessNo and c.BusinessNo = @BusinessNo)
+	                            or (c.BusinessNo = o.BusinessNo and c.BusinessNo = @BusinessNo)
+	                            or (c.BusinessNo = pur.BusinessNo and c.BusinessNo = @BusinessNo)";
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@BusinessNo", BusinessNO);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if(count > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }

@@ -202,7 +202,6 @@ namespace BikeProd
                     //txtClientP.Clear();
                     dgvSoldList.DataSource = null;
                     dgvSoldDetail.DataSource = null;
-                    MessageBox.Show("해당사항이 없습니다. 거래처명 또는 매입일자를 확인해 주세요.");
                     return;
                 }
                 else
@@ -225,6 +224,20 @@ namespace BikeProd
                     return;
                 }
 
+            }
+        }
+
+        private void frmOrderStatus_Activated(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void txtClientS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);
             }
         }
     }

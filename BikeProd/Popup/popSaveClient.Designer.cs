@@ -56,11 +56,13 @@ namespace BikeProd
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtAddrDetail = new BikeProd.ccTextBox();
             this.btnBusinessNoCheck = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReturn);
             this.panel1.Controls.Add(this.btnBusinessNoCheck);
             this.panel1.Controls.Add(this.txtAddrDetail);
             this.panel1.Controls.Add(this.lblMessage2);
@@ -164,14 +166,14 @@ namespace BikeProd
             this.cboType.Location = new System.Drawing.Point(103, 102);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(80, 23);
-            this.cboType.TabIndex = 2;
+            this.cboType.TabIndex = 3;
             // 
             // txtBusinessNo
             // 
             this.txtBusinessNo.isNumeric = false;
             this.txtBusinessNo.isRequired = false;
             this.txtBusinessNo.Location = new System.Drawing.Point(103, 66);
-            this.txtBusinessNo.MaxLength = 9;
+            this.txtBusinessNo.MaxLength = 10;
             this.txtBusinessNo.Name = "txtBusinessNo";
             this.txtBusinessNo.PlaceHolder = null;
             this.txtBusinessNo.Size = new System.Drawing.Size(161, 23);
@@ -199,7 +201,7 @@ namespace BikeProd
             this.cboDomain.Location = new System.Drawing.Point(352, 325);
             this.cboDomain.Name = "cboDomain";
             this.cboDomain.Size = new System.Drawing.Size(121, 23);
-            this.cboDomain.TabIndex = 8;
+            this.cboDomain.TabIndex = 9;
             this.cboDomain.SelectedIndexChanged += new System.EventHandler(this.cboDomain_SelectedIndexChanged);
             // 
             // txtEmail
@@ -211,7 +213,7 @@ namespace BikeProd
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceHolder = null;
             this.txtEmail.Size = new System.Drawing.Size(100, 23);
-            this.txtEmail.TabIndex = 7;
+            this.txtEmail.TabIndex = 8;
             this.txtEmail.Tag = "이메일";
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
@@ -229,7 +231,7 @@ namespace BikeProd
             this.btnSave.Location = new System.Drawing.Point(304, 400);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 48;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "등록";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -239,7 +241,7 @@ namespace BikeProd
             this.btnCancel.Location = new System.Drawing.Point(398, 400);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 49;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -249,7 +251,7 @@ namespace BikeProd
             this.btnZipCodeSearch.Location = new System.Drawing.Point(209, 148);
             this.btnZipCodeSearch.Name = "btnZipCodeSearch";
             this.btnZipCodeSearch.Size = new System.Drawing.Size(123, 23);
-            this.btnZipCodeSearch.TabIndex = 3;
+            this.btnZipCodeSearch.TabIndex = 4;
             this.btnZipCodeSearch.Text = "우편번호 검색";
             this.btnZipCodeSearch.UseVisualStyleBackColor = true;
             this.btnZipCodeSearch.Click += new System.EventHandler(this.btnZipCodeSearch_Click);
@@ -303,7 +305,7 @@ namespace BikeProd
             this.txtMPhone.Name = "txtMPhone";
             this.txtMPhone.PlaceHolder = null;
             this.txtMPhone.Size = new System.Drawing.Size(161, 23);
-            this.txtMPhone.TabIndex = 5;
+            this.txtMPhone.TabIndex = 7;
             this.txtMPhone.Tag = "담당자 연락처";
             this.txtMPhone.Leave += new System.EventHandler(this.txtMPhone_Leave);
             // 
@@ -316,7 +318,7 @@ namespace BikeProd
             this.txtManager.Name = "txtManager";
             this.txtManager.PlaceHolder = null;
             this.txtManager.Size = new System.Drawing.Size(101, 23);
-            this.txtManager.TabIndex = 4;
+            this.txtManager.TabIndex = 6;
             this.txtManager.Tag = "담당자";
             // 
             // lblMessage2
@@ -352,17 +354,27 @@ namespace BikeProd
             this.txtAddrDetail.Name = "txtAddrDetail";
             this.txtAddrDetail.PlaceHolder = null;
             this.txtAddrDetail.Size = new System.Drawing.Size(121, 23);
-            this.txtAddrDetail.TabIndex = 60;
+            this.txtAddrDetail.TabIndex = 5;
             // 
             // btnBusinessNoCheck
             // 
             this.btnBusinessNoCheck.Location = new System.Drawing.Point(271, 66);
             this.btnBusinessNoCheck.Name = "btnBusinessNoCheck";
-            this.btnBusinessNoCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnBusinessNoCheck.TabIndex = 62;
+            this.btnBusinessNoCheck.Size = new System.Drawing.Size(65, 23);
+            this.btnBusinessNoCheck.TabIndex = 2;
             this.btnBusinessNoCheck.Text = "중복확인";
             this.btnBusinessNoCheck.UseVisualStyleBackColor = true;
             this.btnBusinessNoCheck.Click += new System.EventHandler(this.btnBusinessNoCheck_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(342, 66);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(65, 23);
+            this.btnReturn.TabIndex = 12;
+            this.btnReturn.Text = "초기화";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // popSaveClient
             // 
@@ -407,5 +419,6 @@ namespace BikeProd
         private System.Windows.Forms.Label lblEmail;
         private ccTextBox txtAddrDetail;
         private System.Windows.Forms.Button btnBusinessNoCheck;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

@@ -42,9 +42,11 @@ namespace BikeProd
 
             LoginService LoginSrv = new LoginService();
             empVO = LoginSrv.GetEmpInfo(Convert.ToInt32(txtEmpNo.Text.Trim()), txtPwd.Text.Trim());
+           
             if (empVO != null)
             {
-                this.DialogResult = DialogResult.OK;                
+                this.DialogResult = DialogResult.OK;
+                
             }
             else
             {
@@ -57,6 +59,14 @@ namespace BikeProd
         {
             popFindPwd pop = new popFindPwd();
             pop.ShowDialog();
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin_Click(this, null);
+            }
         }
     }
 }

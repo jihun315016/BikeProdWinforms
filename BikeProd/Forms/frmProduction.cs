@@ -103,11 +103,18 @@ namespace BikeProd
         private void btnSaveProduction_Click(object sender, EventArgs e)
         {
             popSaveProduction pop = new popSaveProduction();
-            pop.ShowDialog();
+            if (pop.ShowDialog() == DialogResult.OK)
+            {
+                ccTxtLoss.Text = string.Empty;
+                ccTxtLoss.SetPlaceHolder();
+                SetDataGridView();
+            }
         }
 
         private void btnCompleteProduction_Click(object sender, EventArgs e)
         {
+            if (dgvProduction.CurrentRow == null || !int.TryParse(ccTxtLoss.Text, out int a)) 
+                return;
             int id = Convert.ToInt32(dgvProduction.CurrentRow.Cells["ID"].Value);
             string code = dgvProduction.CurrentRow.Cells["ProdCode"].Value.ToString();
             int loss = Convert.ToInt32(ccTxtLoss.Text);
@@ -170,6 +177,11 @@ namespace BikeProd
         {
             cboState.SelectedIndex = cboTeam.SelectedIndex = 0;
             SetDataGridView();
+        }
+
+        private void frmProduction_Activated(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

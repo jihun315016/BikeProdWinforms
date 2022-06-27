@@ -46,10 +46,10 @@ namespace BikeProd
 
             DataGridViewUtil.SetInitGridView(dgvList2);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "발주번호", "PurchaseNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "PartCode", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "Name", colWidth: 170);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "PartCode", colWidth: 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "Name", colWidth: 190);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 80, alignContent: DataGridViewContentAlignment.MiddleRight);
 
             LoadData();
             StateList = purchaseSrv.GetStateCommon();
@@ -61,6 +61,12 @@ namespace BikeProd
             txtState.PlaceHolder = "상태";
 
             dtpFrom.Value = dtpTo.Value.AddDays(-7);
+
+            
+            
+
+           
+
 
         }
         /// <summary>
@@ -84,8 +90,8 @@ namespace BikeProd
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            popSavePur pop = new popSavePur();
-            if (pop.ShowDialog() == DialogResult.OK)
+            popSavePurchase pop = new popSavePurchase();
+            if (pop.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();
             }
@@ -272,7 +278,7 @@ namespace BikeProd
 
 
             txtPurNo.Text = txtBusinessNo.Text = txtPurName.Text = txtState.Text = txtPurDate.Text =
-                txtAliveDate.Text = txtManager.Text = txtSubManager.Text = txtClient.Text = txtAddress.Text = String.Empty;
+                txtAliveDate.Text = txtManager.Text = txtSubManager.Text = txtClient.Text = txtSearch.Text = txtAddress.Text = String.Empty;
         }
         /// <summary>
         /// Author : 류경석
@@ -306,6 +312,11 @@ namespace BikeProd
         {
             this.WindowState = FormWindowState.Normal;
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

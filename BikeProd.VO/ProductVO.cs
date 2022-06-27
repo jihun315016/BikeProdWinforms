@@ -17,5 +17,6 @@ namespace BikeProd.VO
         public int Inventory { get; set; }
         public string State { get; set; }
         public int LeadTime { get; set; }
+        public string ParentCode { get; set; }
     }
 }

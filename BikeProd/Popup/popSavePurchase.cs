@@ -12,21 +12,25 @@ using System.Windows.Forms;
 
 namespace BikeProd
 {
-    public partial class popSavePur : bPopCommon
+    public partial class popSavePurchase : bPopCommon
     {
-
+        
         List<ProdPartVO> prodPartList;
         List<PurchaseListVO> purchaseList;
         List<PartVO> partList;
         PurchaseService purchaseSrv;
         ModelService modelSrv;
         ClientService clientSrv;
-        public popSavePur()
+
+        public popSavePurchase()
         {
             InitializeComponent();
         }
         private void popSavePur_Load(object sender, EventArgs e)
         {
+            EmployeeVO emp = ((frmMenu)(this.Owner)).EmpInfo;
+
+            txtManager.Text = emp.EmpName;
             modelSrv = new ModelService();
             purchaseSrv = new PurchaseService();
             prodPartList = modelSrv.GetModelList();
@@ -50,12 +54,15 @@ namespace BikeProd
 
             ComboBoxUtil.SetComboBoxByList<CommonCodeVO>(cboModel, list, "Name", "Code");
 
+
             DataGridViewUtil.SetInitGridView(dgvList);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "발주번호", "PurchaseNo", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "PartCode", colWidth: 80);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "모델명", "Name", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 80);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty", colWidth: 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "수량", "Qty", colWidth: 60, alignContent: DataGridViewContentAlignment.MiddleRight);
+
+    
         }
 
         private void chkNull_CheckedChanged(object sender, EventArgs e)
@@ -85,19 +92,18 @@ namespace BikeProd
 
         private void cboModel_SelectedIndexChanged(object sender, EventArgs e)
         {
-                /*cboName.DataSource = null;
-                cboName.Items.Add("부품명");
-                cboName.SelectedIndex = 0;*/
-            
-                List<ProdPartVO> list;
-                list = modelSrv.GetModelList();
-                list = prodPartList.FindAll(c => c.Category == cboModel.Text);
-                list.Insert(0, new ProdPartVO()
+                partList = purchaseSrv.GetPartList();
+                partList = partList.FindAll(c => c.Category == cboModel.Text
+                && c.BusinessNo == txtBusinessID.Text);
+                partList.Insert(0, new PartVO()
                 {
-                    Name = "부품명",
-                    Code = String.Empty
+                    PartName = "부품명",
+                    PartCode = String.Empty 
                 });
-                ComboBoxUtil.SetComboBoxByList<ProdPartVO>(cboName, list, "Name", "Code");
+                ComboBoxUtil.SetComboBoxByList<PartVO>(cboName, partList, "PartName", "PartCode");
+
+
+                
         }
         /// <summary>
         /// Auther : 류경석
@@ -202,6 +208,8 @@ namespace BikeProd
 
             txtBusinessID.Text = clientList.Find((c) => c.ClientName == txtBusiness.Text).BusinessNo.ToString();
 
+            
+
         }
         /// <summary>
         /// Author : 류경석
@@ -260,6 +268,41 @@ namespace BikeProd
             }
 
 
+        }
+
+        private void txtBusiness_Leave(object sender, EventArgs e)
+        {
+            partList = purchaseSrv.GetPartList();
+            partList = partList.FindAll(c => c.BusinessNo == txtBusinessID.Text);
+
+            var categoryes = (from model in partList
+                              where model.Kind.Equals("부품")
+                              group model by model.Category);
+
+            List<CommonCodeVO> list = new List<CommonCodeVO>();
+
+            foreach (var cate in categoryes)
+            {
+                list.Add(new CommonCodeVO() { Code = cate.Key, Name = cate.Key, Category = "Category" });
+            }
+
+            list.Insert(0, new CommonCodeVO()
+            {
+                Category = "Category",
+                Code = String.Empty,
+                Name = "품목"
+            });
+
+            ComboBoxUtil.SetComboBoxByList<CommonCodeVO>(cboModel, list, "Name", "Code");
+        }
+
+        private void cboModel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBusinessID.Text))
+            {
+                MessageBox.Show("거래처를 먼저 선택해주세요");
+                return;
+            }
         }
     }
 }

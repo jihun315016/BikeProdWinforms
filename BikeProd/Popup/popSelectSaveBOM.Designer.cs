@@ -64,6 +64,7 @@
             this.txtSearch.PlaceHolder = "제품명 검색";
             this.txtSearch.Size = new System.Drawing.Size(100, 23);
             this.txtSearch.TabIndex = 9;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // cboCategory
             // 
@@ -86,7 +87,6 @@
             // dgvList
             // 
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(3, 54);
             this.dgvList.Name = "dgvList";

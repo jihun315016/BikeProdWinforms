@@ -204,46 +204,6 @@ namespace BikeProd.DAC
                 return (iRowAffect > 0);
             }
         }
-        
-        /// <summary>
-        /// Author :류경석
-        /// 검색된 리스트 가져오기
-        /// </summary>
-        /// <param name="ClientName"></param>
-        /// <param name="State"></param>
-        /// <param name="purDT"></param>
-        /// <param name="AliveDate"></param>
-        /// <returns></returns>
-        /*public List<PurchaseVO> getSearchList(string ClientName, string State, DateTime purDT, DateTime AliveDate)
-        {
-            List<PurchaseVO> list = new List<PurchaseVO>();
-            using (SqlCommand cmd = new SqlCommand())
-            {
-                StringBuilder sb = new StringBuilder();
-
-                sb.Append(@"select PurchaseNo, PurchaseName, p.BusinessNo,c.ClientName, c.Manager, PurchaseDate, ArriveDate, State
-                            from TB_Purchase p
-                            join TB_Client c on p.BusinessNo = c.BusinessNo
-                            where PurchaseDate >= @purDT and PurchaseDate <= @AliveDate");
-                if (!string.IsNullOrWhiteSpace(ClientName))
-                {
-                    sb.Append(" or c.ClientName = @ClientName");
-                    cmd.Parameters.AddWithValue("@ClientName", ClientName);
-                }
-                if (!string.IsNullOrWhiteSpace(State))
-                {
-                    sb.Append(" or State = @State");
-                    cmd.Parameters.AddWithValue("@State", State);
-                }
-                cmd.Parameters.AddWithValue("@purDT", purDT);
-                cmd.Parameters.AddWithValue("@AliveDate", AliveDate);
-
-                cmd.CommandText = sb.ToString();
-                cmd.Connection = conn;
-
-                return DBConverter.DataReaderToList<PurchaseVO>(cmd.ExecuteReader());
-            }
-        }*/
 
         public List<PurchaseVO> getSearchList(DateTime purDT, DateTime AliveDate)
         {
@@ -370,9 +330,22 @@ namespace BikeProd.DAC
                     return false;
                 }
             }
-        }    
+        }
 
+        public List<PartVO> GetPartList()
+        {
+            List<PartVO> list = new List<PartVO>();
 
+            string sql = @"SELECT 
+                            PartCode Code, PartName, '부품' Kind, Category, BusinessNo,
+                            Price, Inventory, SfInvn, Dealing, Image, TotInvn
+                            FROM TB_Parts";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                list = DBConverter.DataReaderToList<PartVO>(cmd.ExecuteReader());
+            }
+            return list;
+        }
 
     }
 }

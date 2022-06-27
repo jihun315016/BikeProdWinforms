@@ -120,7 +120,7 @@
             this.txtLeadTime.Name = "txtLeadTime";
             this.txtLeadTime.PlaceHolder = null;
             this.txtLeadTime.Size = new System.Drawing.Size(171, 23);
-            this.txtLeadTime.TabIndex = 10;
+            this.txtLeadTime.TabIndex = 4;
             this.txtLeadTime.Tag = "제품 가격";
             // 
             // btnProdCancel
@@ -161,7 +161,7 @@
             this.txtProdPrice.Name = "txtProdPrice";
             this.txtProdPrice.PlaceHolder = null;
             this.txtProdPrice.Size = new System.Drawing.Size(171, 23);
-            this.txtProdPrice.TabIndex = 6;
+            this.txtProdPrice.TabIndex = 5;
             this.txtProdPrice.Tag = "제품 가격";
             // 
             // label2
@@ -180,7 +180,7 @@
             this.cboProdCategory.Location = new System.Drawing.Point(303, 40);
             this.cboProdCategory.Name = "cboProdCategory";
             this.cboProdCategory.Size = new System.Drawing.Size(78, 23);
-            this.cboProdCategory.TabIndex = 4;
+            this.cboProdCategory.TabIndex = 3;
             // 
             // cboIsFinished
             // 
@@ -189,7 +189,7 @@
             this.cboIsFinished.Location = new System.Drawing.Point(210, 40);
             this.cboIsFinished.Name = "cboIsFinished";
             this.cboIsFinished.Size = new System.Drawing.Size(78, 23);
-            this.cboIsFinished.TabIndex = 3;
+            this.cboIsFinished.TabIndex = 2;
             // 
             // txtProdName
             // 
@@ -200,7 +200,7 @@
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.PlaceHolder = null;
             this.txtProdName.Size = new System.Drawing.Size(171, 23);
-            this.txtProdName.TabIndex = 2;
+            this.txtProdName.TabIndex = 1;
             this.txtProdName.Tag = "제품명";
             // 
             // label1
@@ -217,6 +217,7 @@
             this.ptbProd.Location = new System.Drawing.Point(6, 6);
             this.ptbProd.Name = "ptbProd";
             this.ptbProd.Size = new System.Drawing.Size(128, 128);
+            this.ptbProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbProd.TabIndex = 0;
             this.ptbProd.TabStop = false;
             // 
@@ -253,7 +254,7 @@
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.PlaceHolder = null;
             this.txtUnit.Size = new System.Drawing.Size(50, 23);
-            this.txtUnit.TabIndex = 25;
+            this.txtUnit.TabIndex = 11;
             this.txtUnit.Tag = "발주 단위";
             // 
             // label7
@@ -273,7 +274,7 @@
             this.txtPartPrice.Name = "txtPartPrice";
             this.txtPartPrice.PlaceHolder = null;
             this.txtPartPrice.Size = new System.Drawing.Size(90, 23);
-            this.txtPartPrice.TabIndex = 23;
+            this.txtPartPrice.TabIndex = 7;
             this.txtPartPrice.Tag = "가격";
             // 
             // label6
@@ -294,7 +295,8 @@
             this.txtClient.Name = "txtClient";
             this.txtClient.PlaceHolder = null;
             this.txtClient.Size = new System.Drawing.Size(171, 23);
-            this.txtClient.TabIndex = 21;
+            this.txtClient.TabIndex = 9;
+            this.txtClient.TabStop = false;
             this.txtClient.Tag = "거래처";
             this.txtClient.Click += new System.EventHandler(this.txtClient_Click);
             // 
@@ -345,7 +347,7 @@
             this.txtSafeInv.Name = "txtSafeInv";
             this.txtSafeInv.PlaceHolder = null;
             this.txtSafeInv.Size = new System.Drawing.Size(50, 23);
-            this.txtSafeInv.TabIndex = 16;
+            this.txtSafeInv.TabIndex = 10;
             this.txtSafeInv.Tag = "안전 재고";
             // 
             // label3
@@ -361,10 +363,11 @@
             // 
             this.cboPartCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPartCategory.FormattingEnabled = true;
+            this.cboPartCategory.ItemHeight = 15;
             this.cboPartCategory.Location = new System.Drawing.Point(306, 40);
             this.cboPartCategory.Name = "cboPartCategory";
             this.cboPartCategory.Size = new System.Drawing.Size(75, 23);
-            this.cboPartCategory.TabIndex = 13;
+            this.cboPartCategory.TabIndex = 8;
             // 
             // txtPartName
             // 
@@ -375,7 +378,7 @@
             this.txtPartName.Name = "txtPartName";
             this.txtPartName.PlaceHolder = null;
             this.txtPartName.Size = new System.Drawing.Size(171, 23);
-            this.txtPartName.TabIndex = 12;
+            this.txtPartName.TabIndex = 6;
             this.txtPartName.Tag = "부품명";
             // 
             // label4
@@ -392,6 +395,7 @@
             this.ptbPart.Location = new System.Drawing.Point(6, 6);
             this.ptbPart.Name = "ptbPart";
             this.ptbPart.Size = new System.Drawing.Size(128, 128);
+            this.ptbPart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbPart.TabIndex = 10;
             this.ptbPart.TabStop = false;
             // 

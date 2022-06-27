@@ -30,6 +30,7 @@ namespace BikeProd
         private void ucSelector_Load(object sender, EventArgs e)
         {
             button1.Visible = false;
+            label1.Top = button1.Top + 5;
         }
 
         private void label1_Click(object sender, EventArgs e)

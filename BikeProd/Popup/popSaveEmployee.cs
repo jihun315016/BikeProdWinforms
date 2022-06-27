@@ -29,6 +29,8 @@ namespace BikeProd
         private void popEmployee_Load(object sender, EventArgs e)
         {
             txtEmail.isRequired = txtPhone.isRequired = txtEmail.isRequired = txtPhone.isNumeric = true;
+            cboTeam.Items.Add("선택");
+            cboTeam.SelectedIndex = 0;
             DeptComboBinding();
             DomainListBinding();
         }
@@ -177,6 +179,8 @@ namespace BikeProd
                 TeamName = "선택",
                 DeptNo = 0
             });
+
+            cboTeam.DataSource = null;
             ComboBoxUtil.SetComboBoxByList<TeamVO>(cboTeam, TeamList, "TeamName", "DeptNo");
             cboTeam.SelectedIndex = 0;
         }
@@ -257,6 +261,14 @@ namespace BikeProd
             {
                 txtPhone.Text = txtPhone.Text.Insert(3, "-");
                 txtPhone.Text = txtPhone.Text.Insert(8, "-");
+            }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtPhone.Text.Length > 10 && e.KeyChar != '\b' && e.KeyChar != '\t')
+            {
+                e.Handled = true;
             }
         }
     }

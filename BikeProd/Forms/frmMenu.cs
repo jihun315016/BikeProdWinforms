@@ -21,6 +21,8 @@ namespace BikeProd
         List<MenuVO> menuList;
         TreeView menuTree;
 
+        public EmployeeVO EmpInfo { get; set; }
+
         public frmMenu()
         {
             InitializeComponent();           
@@ -44,6 +46,8 @@ namespace BikeProd
             else
             {
                 this.Show();
+                this.EmpInfo = pop.empVO;
+
                 lblUserInfo.Text = $"[{pop.empVO.DeptName}] {pop.empVO.EmpName}님 안녕하세요.";
                 lblUserInfo.Left = btnChangePwd.Left - lblUserInfo.Width - 20;
                 lblUserInfo.Tag = pop.empVO.EmpNo; // 사번
@@ -62,7 +66,6 @@ namespace BikeProd
                 btn.Size = new Size(175, 30);
                 btn.Tag = new int[2] { list[i].PntID, i }; // [상위 메뉴 ID, FlowLayoutPanel 인덱스 번호]
                 btn.Click += MenuButtonClick;
-
                 flowLayoutPanel1.Controls.Add(btn);
             }
 
@@ -110,7 +113,7 @@ namespace BikeProd
             foreach (MenuVO item in list)
             {
                 TreeNode node = new TreeNode(item.MenuName);
-                node.Tag = item.FrmName;
+                node.Tag = new string[] { item.FrmName, item.MenuName }; // [폼 클래스 이름, 폼 한글 이름]
                 menuTree.Nodes.Add(node);
             }
 
@@ -126,7 +129,7 @@ namespace BikeProd
         {
             try
             {
-                OpenCreateForm(e.Node.Tag.ToString());            
+                OpenCreateForm(((string[])e.Node.Tag)[0], ((string[])e.Node.Tag)[1]);            
             }
             catch
             {
@@ -139,11 +142,12 @@ namespace BikeProd
         /// menuTree에서 더블클릭된 메뉴 조회
         /// 프로그램당 하나의 페이지만 열린다.
         /// </summary>
-        /// <param name="formName">활성화시킬 폼 이름</param>
-        void OpenCreateForm(string formName)
+        /// <param name="fomClassName">활성화시킬 폼 클래스 이름</param>
+        /// <param name="frmKorName">활성화시킬 폼 한글 이름</param>
+        void OpenCreateForm(string fomClassName, string frmKorName)
         {
             string appName = Assembly.GetEntryAssembly().GetName().Name;           
-            Type type = Type.GetType($"{appName}.{formName}");
+            Type type = Type.GetType($"{appName}.{fomClassName}");
             foreach (Form form in Application.OpenForms)
             {
                 if (form.GetType() == type)
@@ -155,7 +159,7 @@ namespace BikeProd
 
             Form frm = (Form)Activator.CreateInstance(type);
             frm.MdiParent = this;
-            CreateUcFormControl(frm);
+            CreateUcFormControl(frm, frmKorName);
             frm.Show();
         }
 
@@ -164,13 +168,13 @@ namespace BikeProd
         /// 새로 생성되는 폼에 대한 ucFormController 생성
         /// </summary>
         /// <param name="frm">새로 생성되는 폼</param>
-        void CreateUcFormControl(Form frm)
+        void CreateUcFormControl(Form frm, string name)
         {
             ucFormController formControl = new ucFormController();
             int cnt = GetPosition();
             panel1.Controls.Add(formControl);
             formControl.Location = new Point(210 + 170 * cnt, 40);
-            formControl.FormControlText = frm.GetType().Name; // 폼 이름
+            formControl.FormControlText = name; // 폼 이름
             formControl.SetButtonPosition();
             
             frm.Tag = formControl;

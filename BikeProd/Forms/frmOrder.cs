@@ -47,24 +47,24 @@ namespace BikeProd
 
             DataGridViewUtil.SetInitGridView(dgvList2);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "발주번호", "OrderNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "ProdCode", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "ProdName", colWidth: 170);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 40);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "코드", "ProdCode", colWidth: 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "모델명", "ProdName", colWidth: 190);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "품목", "Category", colWidth: 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList2, "수량", "Qty", colWidth: 60, alignContent : DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetInitGridView(dgvList3);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "발주번호", "OrderNo", isVisible: false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "코드", "ProdCode", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "모델명", "ProdName", colWidth: 170);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "품목", "Category", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "수량", "Qty", colWidth: 40);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "코드", "ProdCode", colWidth: 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "모델명", "ProdName", colWidth: 190);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "품목", "Category", colWidth: 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList3, "수량", "Qty", colWidth: 60, alignContent: DataGridViewContentAlignment.MiddleRight);
 
             DataGridViewUtil.SetInitGridView(dgvList4);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "제품코드", "Code", isVisible:false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "부품코드", "Name", colWidth : 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "부품명", "Name", colWidth: 120);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "품목", "Category", colWidth: 120);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "부품코드", "Name", colWidth : 130);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "부품명", "Name", colWidth: 190);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "품목", "Category", colWidth: 130);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "가격", "Price", isVisible : false);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "수량", "Requirement", colWidth: 60);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "수량", "Requirement", colWidth: 60, alignContent: DataGridViewContentAlignment.MiddleRight);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "가격", "Total", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "재고", "Relation", isVisible: false);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList4, "재고", "Inventory", isVisible: false);
@@ -158,7 +158,7 @@ namespace BikeProd
         private void button1_Click_1(object sender, EventArgs e)
         {
             popSaveOrder pop = new popSaveOrder();
-            if(pop.ShowDialog() == DialogResult.OK)
+            if(pop.ShowDialog(this) == DialogResult.OK)
             {
                 LoadData();
             }
@@ -224,7 +224,7 @@ namespace BikeProd
                     }
                     else
                     {
-                        MessageBox.Show("재고가 부족합니다.");
+                        MessageBox.Show("제품 재고가 부족합니다.");
                         return;
                     }
 

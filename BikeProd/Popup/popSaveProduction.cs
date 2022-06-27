@@ -25,9 +25,8 @@ namespace BikeProd
         {
             ProductionSrv = new ProductionService();
             prodList = ProductionSrv.GetOrderedProd();
-
-            foreach (BomInfoVO item in prodList)
-                Console.WriteLine($"{item.Name} {item.Requirement}");
+            dtpReqDate.Value = DateTime.Now;
+            
             InitControl();
         }
 
@@ -38,6 +37,7 @@ namespace BikeProd
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제품명", "Name", colWidth: 170);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind", colWidth: 70);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "품목", "Category", colWidth: 70);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "논리 재고", "TotInvn");
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "필요 수량", "Requirement", colWidth: 90);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "Lead Time", "LeadTime", colWidth: 90);
             dgvList.DataSource = prodList;

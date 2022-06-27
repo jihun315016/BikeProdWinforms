@@ -87,6 +87,7 @@ namespace BikeProd
                 return;
 
             txtAddrDetail.ReadOnly = false;
+            txtAddrDetail.Focus();
 
             txtAddrCode.Text = dgvList["zipNo", e.RowIndex].Value.ToString();
             txtAddr1.Text = dgvList["roadAddrPart1", e.RowIndex].Value.ToString();            
@@ -110,6 +111,14 @@ namespace BikeProd
 
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }       
+        }
+
+        private void txtAddrSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);               
+            }
+        }
     }
 }

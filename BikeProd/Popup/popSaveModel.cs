@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,16 @@ namespace BikeProd
         private void popSaveModel_Load(object sender, EventArgs e)
         {
             modelSrv = new ModelService();
+            try
+            {
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("등록 정보를 불러올 수 없습니다.");
+                Debug.WriteLine(err.Message);
+            }
+
             categoryList = modelSrv.GetCategory();
             categoryList.Insert(0, new CommonCodeVO()
             {
@@ -62,7 +73,7 @@ namespace BikeProd
             {
                 ProdCode = $"{cboProdCategory.SelectedValue}{category.LastNum.ToString("0000")}",
                 ProdName = txtProdName.Text,
-                IsFinished = (cboProdCategory.SelectedIndex == 1) ? 1 : 0,
+                IsFinished = (cboIsFinished.SelectedIndex == 1) ? 1 : 0,
                 Category = cboProdCategory.Text,
                 LeadTime = Convert.ToInt32(txtLeadTime.Text),
                 Price = Convert.ToInt32(txtProdPrice.Text),
@@ -76,19 +87,17 @@ namespace BikeProd
                 {
                     MessageBox.Show("제품이 등록되었습니다.");
                     category.LastNum++; // 제품 CodeCnt++
-                    InputClear();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
-                    // 쿼리에 문제가 있을 확률
                     MessageBox.Show("제품 등록에 실패했습니다.");
                 }
             }
             catch (Exception err)
             {
-                string url = "http://jihun3100.pythonanywhere.com/logging";
-                
-                WebRequestUtil.WriteErrLog(url, err.Message, err.StackTrace);
+                Debug.WriteLine(err.Message);
             }           
         }
 
@@ -124,25 +133,25 @@ namespace BikeProd
                 Image = !string.IsNullOrWhiteSpace(ptbPart.Tag.ToString()) ? 1 : 0
             };
 
-            try
-            {
+            //try
+            //{
                 bool result = modelSrv.SaveModel(null, part, cboPartCategory.SelectedValue.ToString(), ptbPart.Tag.ToString());
                 if (result)
                 {
                     MessageBox.Show("부품이 등록되었습니다.");
                     category.LastNum++; // 부품 CodeCnt++
-                    InputClear();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {                    
                     MessageBox.Show("부품 등록에 실패했습니다.");
                 }
-            }
-            catch (Exception err)
-            {
-                string url = "http://127.0.0.1:5000/logging";
-                WebRequestUtil.WriteErrLog(url, err.Message, err.StackTrace);
-            }
+            //}
+            //catch (Exception err)
+            //{
+            //    Debug.WriteLine(err.Message);
+            //}
         }
 
         private void btnUploadProdImg_Click(object sender, EventArgs e)
@@ -228,21 +237,7 @@ namespace BikeProd
             ComboBoxUtil.SetComboBoxByList(cboPartCategory, list, "Name", "Code");
         }
 
-        /// <summary>
-        /// Author : 강지훈
-        /// 제품 또는 부품 등록 후 입력 컨트롤 초기화
-        /// </summary>
-        void InputClear()
-        {
-            txtProdName.Text = txtProdPrice.Text = txtLeadTime.Text = String.Empty;
-            txtPartName.Text = txtPartPrice.Text = txtSafeInv.Text = txtUnit.Text = txtClient.Text = String.Empty;
-
-            cboIsFinished.SelectedIndex = cboProdCategory.SelectedIndex = 0;
-            cboPartCategory.SelectedIndex = 0;
-
-            ptbProd.Image = ptbPart.Image = null;
-            ptbProd.Tag = ptbPart.Tag = string.Empty;
-        }
+        
 
     }
 }

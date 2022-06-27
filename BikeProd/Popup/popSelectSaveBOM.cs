@@ -109,5 +109,13 @@ namespace BikeProd
 
             btnNext_Click(this, null);
         }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);
+            }
+        }
     }
 }

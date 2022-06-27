@@ -57,7 +57,7 @@ namespace BikeProd.DAC
                             JOIN TB_Department d ON e.DeptNo = d.DeptNo
                             WHERE EmpNo = @EmpNo 
                             AND Pwd = @Pwd 
-                            AND ToDate is null";
+                            AND ToDate is null or ToDate = '9998-12-31'";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@EmpNo", empNo);

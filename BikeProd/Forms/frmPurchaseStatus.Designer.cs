@@ -93,9 +93,9 @@ namespace BikeProd
             this.groupBox1.Controls.Add(this.dtpTo);
             this.groupBox1.Controls.Add(this.cboPeriod);
             this.groupBox1.Location = new System.Drawing.Point(649, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Size = new System.Drawing.Size(437, 208);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
@@ -104,15 +104,16 @@ namespace BikeProd
             // txtClientP
             // 
             this.txtClientP.Location = new System.Drawing.Point(130, 51);
-            this.txtClientP.Margin = new System.Windows.Forms.Padding(2);
+            this.txtClientP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtClientP.Name = "txtClientP";
             this.txtClientP.Size = new System.Drawing.Size(223, 23);
             this.txtClientP.TabIndex = 12;
+            this.txtClientP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClientP_KeyPress);
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(280, 135);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(73, 26);
             this.btnSearch.TabIndex = 15;
@@ -134,7 +135,7 @@ namespace BikeProd
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(202, 135);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(73, 26);
             this.btnReset.TabIndex = 14;
@@ -169,7 +170,7 @@ namespace BikeProd
             this.dtpFrom.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFrom.Location = new System.Drawing.Point(130, 78);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(97, 26);
             this.dtpFrom.TabIndex = 9;
@@ -179,7 +180,7 @@ namespace BikeProd
             this.dtpTo.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTo.Location = new System.Drawing.Point(256, 78);
-            this.dtpTo.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(97, 26);
             this.dtpTo.TabIndex = 10;
@@ -189,7 +190,7 @@ namespace BikeProd
             this.cboPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPeriod.FormattingEnabled = true;
             this.cboPeriod.Location = new System.Drawing.Point(202, 108);
-            this.cboPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPeriod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboPeriod.Name = "cboPeriod";
             this.cboPeriod.Size = new System.Drawing.Size(150, 23);
             this.cboPeriod.TabIndex = 11;
@@ -201,7 +202,7 @@ namespace BikeProd
             this.dgvPCList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPCList.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvPCList.Location = new System.Drawing.Point(5, 2);
-            this.dgvPCList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPCList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvPCList.Name = "dgvPCList";
             this.dgvPCList.ReadOnly = true;
             this.dgvPCList.RowHeadersWidth = 51;
@@ -225,7 +226,7 @@ namespace BikeProd
             // 
             this.txtListTotal.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtListTotal.Location = new System.Drawing.Point(422, 189);
-            this.txtListTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.txtListTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtListTotal.Name = "txtListTotal";
             this.txtListTotal.Size = new System.Drawing.Size(151, 27);
             this.txtListTotal.TabIndex = 19;
@@ -236,7 +237,7 @@ namespace BikeProd
             this.dgvPCDetail.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPCDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPCDetail.Location = new System.Drawing.Point(3, 230);
-            this.dgvPCDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPCDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvPCDetail.Name = "dgvPCDetail";
             this.dgvPCDetail.RowHeadersWidth = 51;
             this.dgvPCDetail.RowTemplate.Height = 27;
@@ -258,7 +259,7 @@ namespace BikeProd
             // 
             this.txtDetailTotal.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.txtDetailTotal.Location = new System.Drawing.Point(936, 417);
-            this.txtDetailTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDetailTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDetailTotal.Name = "txtDetailTotal";
             this.txtDetailTotal.Size = new System.Drawing.Size(151, 27);
             this.txtDetailTotal.TabIndex = 20;
@@ -283,6 +284,7 @@ namespace BikeProd
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "frmPurchaseStatus";
             this.Text = "매입현황";
+            this.Activated += new System.EventHandler(this.frmPurchaseStatus_Activated);
             this.Load += new System.EventHandler(this.frmPurchaseStatus_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

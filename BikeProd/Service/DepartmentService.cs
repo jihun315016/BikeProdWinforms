@@ -178,10 +178,10 @@ namespace BikeProd
         /// </summary>
         /// <param name="deptName"></param>
         /// <returns></returns>
-        public bool DeleteDept(string deptName)
+        public bool DeleteDept(int deptCode)
         {
             DepartmentDAC dac = new DepartmentDAC();
-            bool result = dac.DeleteDept(deptName);
+            bool result = dac.DeleteDept(deptCode);
             dac.Dispose();
 
             return result;
@@ -191,12 +191,12 @@ namespace BikeProd
         /// Author: 정희록
         /// 팀삭제
         /// </summary>
-        /// <param name="teamName"></param>
+        /// <param name="teamCode"></param>
         /// <returns></returns>
-        public bool DeleteTeam(string teamName)
+        public bool DeleteTeam(int teamCode)
         {
             DepartmentDAC dac = new DepartmentDAC();
-            bool result = dac.DeleteTeam(teamName);
+            bool result = dac.DeleteTeam(teamCode);
             dac.Dispose();
 
             return result;

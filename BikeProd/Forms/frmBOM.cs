@@ -53,9 +53,9 @@ namespace BikeProd
 
             // Bom 등록된 모델 리스트            
             DataGridViewUtil.SetInitGridView(dgvList);
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제품명", "Name", colWidth: 220);
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "제품명", "Name", colWidth: 230);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "분류", "Kind");
-            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "카테고리", "Category");
+            DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "카테고리", "Category", colWidth: 120);
             DataGridViewUtil.SetDataGridViewColumn_TextBox(dgvList, "코드", "Code", isVisible: false);
             dgvList.DataSource = bomProdList;
 
@@ -293,6 +293,19 @@ namespace BikeProd
                     MessageBox.Show("삭제에 실패했습니다.");
                 }                
             }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);
+            }
+        }
+
+        private void frmBOM_Activated(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

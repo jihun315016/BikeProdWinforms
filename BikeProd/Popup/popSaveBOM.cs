@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -140,7 +141,8 @@ namespace BikeProd
             }
         }
 
-        private void dgvList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+       
+        private void dgvList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -154,7 +156,7 @@ namespace BikeProd
             txtRequirement.SetPlaceHolder();
         }
 
-        private void dgvBom_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
@@ -229,7 +231,16 @@ namespace BikeProd
             }
             catch (Exception err)
             {
+                Debug.WriteLine(err.Message);
                 MessageBox.Show("BOM 등록에 실패했습니다.");
+            }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSearch_Click(this, null);
             }
         }
 

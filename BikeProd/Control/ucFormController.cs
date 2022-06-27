@@ -29,7 +29,7 @@ namespace BikeProd
         public void SetButtonPosition()
         {
             button1.Location = new Point(label1.Left + label1.Width + 10, 0);
-            label1.Location = new Point(3, 2);
+            label1.Location = new Point(3, 5);
             button1.Height = label1.Height = 23;
         }
 

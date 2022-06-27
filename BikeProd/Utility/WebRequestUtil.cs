@@ -44,36 +44,7 @@ namespace BikeProd
             string response = ReqPost(postData, webRequest);
             byte[] result = Array.ConvertAll(response.Split('-'), byte.Parse);
             return result;
-        }
-
-        /// <summary>
-        /// Author : 강지훈
-        /// 웹 서버에 에러 로그 등록
-        /// </summary>
-        /// <param name="url">로그 경로</param>
-        /// <param name="msg">에러 메세지</param>
-        /// <param name="stackTrace">에러 Strack Trace</param>
-        public static void WriteErrLog(string url, string msg, string stackTrace)
-        {
-            string responseText = string.Empty;
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
-            webRequest.Method = "POST";
-            webRequest.Timeout = 30 * 1000;
-            webRequest.ContentType = "application/json; charset=utf-8";
-
-            Regex engRegex = new Regex(@"[a-zA-Z]");
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in stackTrace)
-            {
-                if (char.IsDigit(c) || engRegex.IsMatch(c.ToString()) ||
-                    char.GetUnicodeCategory(c) == System.Globalization.UnicodeCategory.OtherLetter || c == ' ')
-                    sb.Append(c);
-            }
-
-            string postData = "{\"msg\":" + $"\"{msg}\"" + ", \"stack\" :" + $"\"{sb.ToString()}\"" + " }";
-            ReqPost(postData, webRequest);
-        }
-
+        }        
 
         /// <summary>
         /// Author : 강지훈
@@ -117,7 +88,6 @@ namespace BikeProd
                 }
             }
 
-            Console.WriteLine(responseText);
             return responseText;
         }        
     }

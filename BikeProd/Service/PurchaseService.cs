@@ -117,7 +117,14 @@ namespace BikeProd
 
              return result;
          }
-        
+        public List<PartVO> GetPartList()
+        {
+            PurchaseDAC dac = new PurchaseDAC();
+            List<PartVO> result = dac.GetPartList();
+            dac.Dispose();
+
+            return result;
+        }
 
 
     }

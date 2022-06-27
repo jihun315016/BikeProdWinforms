@@ -96,6 +96,7 @@ namespace BikeProd
             MessageBox.Show("사원 정보를 확인해주세요.");
         }
 
+        // 취소 버튼
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -103,7 +104,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 이진형
-        /// 도메인 콤보박스 선택에 따른 처리
+        /// 이메일주소 콤보박스 선택에 따른 처리
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,7 +121,7 @@ namespace BikeProd
                 txtDomain.Focus();
                 txtDomain.Clear();
             }
-            else // 도메인 주소
+            else // 이메일 주소
             {
                 txtDomain.Enabled = false;
                 txtDomain.Text = cboDomain.Text;
@@ -130,7 +131,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 이진형
-        /// 콤보박스 이메일 도메인 주소 바인딩
+        /// 콤보박스 이메일 주소 바인딩
         /// </summary>
         private void DomainListBinding()
         {
@@ -165,7 +166,7 @@ namespace BikeProd
 
         /// <summary>
         /// Author : 이진형
-        /// 공백없는 영문 소문자 도메인(xxx.com)형식 유효성 검사
+        /// 공백없는 영문 소문자 이메일주소(xxx.com)형식 유효성 검사
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -98,7 +98,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Location = new System.Drawing.Point(43, 83);
             this.dgvList.Name = "dgvList";
@@ -125,7 +124,6 @@
             // dgvChild
             // 
             this.dgvChild.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvChild.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvChild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChild.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvChild.Location = new System.Drawing.Point(3, 19);
@@ -151,7 +149,6 @@
             // dgvParent
             // 
             this.dgvParent.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvParent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvParent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvParent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvParent.Location = new System.Drawing.Point(3, 19);
@@ -207,6 +204,7 @@
             this.txtSearch.PlaceHolder = "모델명 검색";
             this.txtSearch.Size = new System.Drawing.Size(124, 23);
             this.txtSearch.TabIndex = 6;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // cboKind
             // 
@@ -294,7 +292,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "frmBOM";
             this.Text = "fromBOM";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmBOM_Activated);
             this.Load += new System.EventHandler(this.frmBOM_Load);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);

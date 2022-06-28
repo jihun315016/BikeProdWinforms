@@ -92,30 +92,27 @@ namespace BikeProd
             this.groupBox1.Controls.Add(this.dtpFrom);
             this.groupBox1.Controls.Add(this.dtpTo);
             this.groupBox1.Controls.Add(this.cboPeriod);
-            this.groupBox1.Location = new System.Drawing.Point(649, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(834, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(437, 208);
+            this.groupBox1.Size = new System.Drawing.Size(562, 277);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "상세 검색";
             // 
             // txtClientP
             // 
-            this.txtClientP.Location = new System.Drawing.Point(130, 51);
-            this.txtClientP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtClientP.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.txtClientP.Location = new System.Drawing.Point(167, 68);
             this.txtClientP.Name = "txtClientP";
-            this.txtClientP.Size = new System.Drawing.Size(223, 23);
+            this.txtClientP.Size = new System.Drawing.Size(286, 27);
             this.txtClientP.TabIndex = 12;
             this.txtClientP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClientP_KeyPress);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(280, 135);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Location = new System.Drawing.Point(360, 180);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(73, 26);
+            this.btnSearch.Size = new System.Drawing.Size(94, 35);
             this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "검색";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -125,19 +122,17 @@ namespace BikeProd
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(65, 51);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(84, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 19);
+            this.label4.Size = new System.Drawing.Size(78, 23);
             this.label4.TabIndex = 7;
             this.label4.Text = "거래처명";
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(202, 135);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Location = new System.Drawing.Point(260, 180);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(73, 26);
+            this.btnReset.Size = new System.Drawing.Size(94, 35);
             this.btnReset.TabIndex = 14;
             this.btnReset.Text = "초기화";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -147,10 +142,9 @@ namespace BikeProd
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(60, 81);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(77, 108);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 19);
+            this.label5.Size = new System.Drawing.Size(84, 23);
             this.label5.TabIndex = 8;
             this.label5.Text = "매입 일자";
             // 
@@ -158,10 +152,9 @@ namespace BikeProd
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(231, 78);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(297, 104);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 21);
+            this.label6.Size = new System.Drawing.Size(26, 28);
             this.label6.TabIndex = 13;
             this.label6.Text = "~";
             // 
@@ -169,30 +162,27 @@ namespace BikeProd
             // 
             this.dtpFrom.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(130, 78);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFrom.Location = new System.Drawing.Point(167, 104);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(97, 26);
+            this.dtpFrom.Size = new System.Drawing.Size(124, 30);
             this.dtpFrom.TabIndex = 9;
             // 
             // dtpTo
             // 
             this.dtpTo.Font = new System.Drawing.Font("맑은 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(256, 78);
-            this.dtpTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpTo.Location = new System.Drawing.Point(329, 104);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(97, 26);
+            this.dtpTo.Size = new System.Drawing.Size(124, 30);
             this.dtpTo.TabIndex = 10;
             // 
             // cboPeriod
             // 
             this.cboPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPeriod.FormattingEnabled = true;
-            this.cboPeriod.Location = new System.Drawing.Point(202, 108);
-            this.cboPeriod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPeriod.Location = new System.Drawing.Point(260, 144);
             this.cboPeriod.Name = "cboPeriod";
-            this.cboPeriod.Size = new System.Drawing.Size(150, 23);
+            this.cboPeriod.Size = new System.Drawing.Size(192, 28);
             this.cboPeriod.TabIndex = 11;
             this.cboPeriod.SelectedIndexChanged += new System.EventHandler(this.cboPeriod_SelectedIndexChanged);
             // 
@@ -201,13 +191,12 @@ namespace BikeProd
             this.dgvPCList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPCList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPCList.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvPCList.Location = new System.Drawing.Point(5, 2);
-            this.dgvPCList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPCList.Location = new System.Drawing.Point(6, 3);
             this.dgvPCList.Name = "dgvPCList";
             this.dgvPCList.ReadOnly = true;
             this.dgvPCList.RowHeadersWidth = 51;
             this.dgvPCList.RowTemplate.Height = 27;
-            this.dgvPCList.Size = new System.Drawing.Size(567, 182);
+            this.dgvPCList.Size = new System.Drawing.Size(729, 243);
             this.dgvPCList.TabIndex = 17;
             this.dgvPCList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPurchasedList_CellClick);
             // 
@@ -215,20 +204,18 @@ namespace BikeProd
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(344, 191);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(442, 255);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
+            this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 21;
             this.label2.Text = "총 매입액";
             // 
             // txtListTotal
             // 
             this.txtListTotal.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtListTotal.Location = new System.Drawing.Point(422, 189);
-            this.txtListTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtListTotal.Location = new System.Drawing.Point(543, 252);
             this.txtListTotal.Name = "txtListTotal";
-            this.txtListTotal.Size = new System.Drawing.Size(151, 27);
+            this.txtListTotal.Size = new System.Drawing.Size(193, 31);
             this.txtListTotal.TabIndex = 19;
             this.txtListTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -236,32 +223,29 @@ namespace BikeProd
             // 
             this.dgvPCDetail.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPCDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPCDetail.Location = new System.Drawing.Point(3, 230);
-            this.dgvPCDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPCDetail.Location = new System.Drawing.Point(4, 307);
             this.dgvPCDetail.Name = "dgvPCDetail";
             this.dgvPCDetail.RowHeadersWidth = 51;
             this.dgvPCDetail.RowTemplate.Height = 27;
-            this.dgvPCDetail.Size = new System.Drawing.Size(1083, 182);
+            this.dgvPCDetail.Size = new System.Drawing.Size(1392, 243);
             this.dgvPCDetail.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(858, 419);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(1103, 559);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(95, 25);
             this.label3.TabIndex = 22;
             this.label3.Text = "총 매입액";
             // 
             // txtDetailTotal
             // 
             this.txtDetailTotal.Font = new System.Drawing.Font("맑은 고딕", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txtDetailTotal.Location = new System.Drawing.Point(936, 417);
-            this.txtDetailTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDetailTotal.Location = new System.Drawing.Point(1203, 556);
             this.txtDetailTotal.Name = "txtDetailTotal";
-            this.txtDetailTotal.Size = new System.Drawing.Size(151, 27);
+            this.txtDetailTotal.Size = new System.Drawing.Size(193, 31);
             this.txtDetailTotal.TabIndex = 20;
             this.txtDetailTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -269,19 +253,18 @@ namespace BikeProd
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(51, 48);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(66, 64);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 30);
+            this.label7.Size = new System.Drawing.Size(205, 38);
             this.label7.TabIndex = 2;
             this.label7.Text = "매입 완료 현황";
             // 
             // frmPurchaseStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 601);
-            this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.ClientSize = new System.Drawing.Size(1471, 801);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "frmPurchaseStatus";
             this.Text = "매입현황";
             this.Activated += new System.EventHandler(this.frmPurchaseStatus_Activated);

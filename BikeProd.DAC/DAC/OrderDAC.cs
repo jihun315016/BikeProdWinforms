@@ -49,7 +49,8 @@ namespace BikeProd.DAC
                         o.PManager, OrderDate, DeliveryDate, o.Address, State, cc.Name StateName, c.ClientName
                             from TB_Order o join TB_CommonCode cc on o.State = cc.Code
                             join TB_Client c on o.BusinessNo = c.BusinessNo
-                            where  OrderDate  Between @purDT and @AliveDate";
+                            where  OrderDate  Between @purDT and @AliveDate
+                            and cc.Category = '주문상태'";        
             using (SqlCommand cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@purDT", purDT);

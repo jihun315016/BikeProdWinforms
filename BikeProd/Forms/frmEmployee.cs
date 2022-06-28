@@ -110,7 +110,7 @@ namespace BikeProd
                 MessageBox.Show("사원이름을 입력해주세요");
             }
 
-            var SearchList = empList.FindAll((emp) => emp.EmpName == txtEmpName.Text);
+            var SearchList = empList.FindAll((emp) => emp.EmpName.Contains(txtEmpName.Text));
             
             
             if (SearchList.Count < 1)

@@ -196,8 +196,8 @@ namespace BikeProd
         }       
                
         // 사업자 번호 형식 (xxx-xx-xxxxx)
-        private void txtBusinessNo_Leave(object sender, EventArgs e)        {
-            
+        private void txtBusinessNo_Leave(object sender, EventArgs e)        
+        {            
             if (txtBusinessNo.Text.Length == 10)
             {
                 txtBusinessNo.Text = txtBusinessNo.Text.Insert(3, "-");
@@ -232,6 +232,7 @@ namespace BikeProd
             {
                 MessageBox.Show("해당 사업자번호는 이미 존재 합니다.");
                 txtBusinessNo.Focus();
+                txtBusinessNo.Clear();
                 return;
             }
             else

@@ -37,15 +37,15 @@ namespace BikeProd.DAC
         public List<BomInfoVO> GetOrderedProd()
         {
             string sql = @"SELECT 
-	                        p.ProdCode Code, p.ProdName Name,
-	                        CASE WHEN p.IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind,
-	                        p.Category, SUM(Qty) Requirement, p.Inventory, LeadTime, TotInvn, p.TotInvn
-                        FROM TB_OrderDetails od
-                        JOIN TB_Order o ON od.OrderNo = o.OrderNo
-                        JOIN TB_Products p ON od.ProdCode = p.ProdCode
-                        WHERE State <> 'OK'
-                        GROUP BY p.ProdCode, ProdName, p.IsFinished, Category, Inventory, LeadTime, TotInvn, p.TotInvn
-                        HAVING SUM(Qty) > TotInvn";
+	                            p.ProdCode Code, p.ProdName Name,
+	                            CASE WHEN p.IsFinished = 1 THEN '완제품' ELSE '반제품' END Kind,
+	                            p.Category, SUM(Qty) Requirement, p.Inventory, LeadTime, TotInvn, p.TotInvn, State
+                            FROM TB_OrderDetails od
+                            JOIN TB_Order o ON od.OrderNo = o.OrderNo
+                            JOIN TB_Products p ON od.ProdCode = p.ProdCode
+                            WHERE State = 'Out'
+                            GROUP BY p.ProdCode, ProdName, p.IsFinished, Category, Inventory, LeadTime, TotInvn, p.TotInvn, State
+                            HAVING SUM(Qty) > TotInvn";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -187,30 +187,78 @@ namespace BikeProd.DAC
 
                 cmd.CommandText = @"UPDATE TB_Production
                                     SET State = @State, Loss = @Loss, CompleteDate = CONVERT(date, GETDATE())
-                                    WHERE ID = @ID";
+                                    WHERE ID = @ID;";
 
                 cmd.ExecuteNonQuery();
+
+                cmd.CommandText = @"WITH BomCTE AS
+                                    (
+	                                    SELECT ParentCode, ChildCode Code, Requirement FROM TB_BOM b
+	                                    WHERE ParentCode = @ProdCode AND LEFT(ChildCode, 3) in (SELECT Code FROM TB_CommonCode WHERE Category = '제품')
+	                                    AND ChildCode <> @ProdCode
+	                                    UNION
+	                                    SELECT ParentCode, ChildCode Code, Requirement FROM TB_BOM b
+	                                    WHERE ParentCode = @ProdCode AND LEFT(ChildCode, 3) in (SELECT Code FROM TB_CommonCode WHERE Category = '부품')
+                                    )
+                                    SELECT Code, Requirement * Qty Total FROM BomCTE b
+                                    JOIN TB_Production p ON b.ParentCode = p.ProdCode
+                                    WHERE ID = @ID";
+
+                cmd.Parameters.Add("@cnt", DbType.Int32);
+                cmd.Parameters.Add("@itemCode", DbType.String);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<BomInfoVO> list = DBConverter.DataReaderToList<BomInfoVO>(reader);
+                reader.Close();
 
                 if (isComplete) // 생산 완료
                 {
                     cmd.CommandText = @"UPDATE TB_Products 
-                                        SET Inventory = Inventory + (SELECT Qty FROM TB_Production WHERE ID = @ID)
+                                        SET 
+                                            Inventory = Inventory + (SELECT Qty FROM TB_Production WHERE ID = @ID) - @Loss,
+                                            TotInvn = TotInvn - @Loss
                                         WHERE ProdCode = @ProdCode";
+                    cmd.ExecuteNonQuery();
+
+                    foreach (BomInfoVO item in list)
+                    {
+                        cmd.Parameters["@cnt"].Value = item.Total;
+                        cmd.Parameters["@itemCode"].Value = item.Code;
+                        cmd.CommandText = @"UPDATE TB_Products SET Inventory = Inventory - @cnt
+                                            WHERE ProdCode = @itemCode; 
+                                            UPDATE TB_Parts SET Inventory = Inventory - @cnt
+                                            WHERE PartCode = @itemCode ";
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 else // 생산 취소
                 {
                     cmd.CommandText = @"UPDATE TB_Products 
                                         SET TotInvn = TotInvn - (SELECT Qty FROM TB_Production WHERE ID = @ID) 
                                         WHERE ProdCode = @ProdCode";
+
+                    cmd.ExecuteNonQuery();
+
+
+                    foreach (BomInfoVO item in list)
+                    {
+                        cmd.Parameters["@cnt"].Value = item.Total;
+                        cmd.Parameters["@itemCode"].Value = item.Code;
+                        cmd.CommandText = @"UPDATE TB_Products SET TotInvn = TotInvn + @cnt
+                                            WHERE ProdCode = @itemCode ;
+                                            UPDATE TB_Parts SET TotInvn = TotInvn + @cnt
+                                            WHERE PartCode = @itemCode; ";
+                        cmd.ExecuteNonQuery();                        
+                    }
                 }
 
-                cmd.ExecuteNonQuery();
                 tran.Commit();
                 return true;
             }
             catch (Exception err)
             {
                 tran.Rollback();
+                return false;
                 throw new Exception(err.Message);
             }
         }

@@ -90,9 +90,6 @@ namespace BikeProd
                 return;
             }
 
-            // 지시 날짜 기본값 : CONVERT (date, GETDATE())
-            // C# 말고 SQL Server에서 설정할 것
-
             /* 생산할 부품의 재고가 있는지 검사 */
             StringBuilder sb = new StringBuilder();
             List<BomInfoVO> partList = new List<BomInfoVO>();

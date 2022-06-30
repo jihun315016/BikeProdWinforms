@@ -86,6 +86,8 @@ namespace BikeProd
                 total = total + Convert.ToInt32(row.Cells["Qty"].Value);
                 loss = loss + Convert.ToInt32(row.Cells["Loss"].Value);
             }
+            total = total - loss;
+
             ccTxtTotal.Text = total.ToString();
             ccTxtTotalLoss.Text = loss.ToString();
             if (ccTxtTotal.Text == "0")
@@ -115,6 +117,11 @@ namespace BikeProd
         {
             if (dgvProduction.CurrentRow == null || !int.TryParse(ccTxtLoss.Text, out int a)) 
                 return;
+            if (dgvProduction.CurrentRow.Cells["State"].Value.ToString() == "생산 취소")
+            {
+                MessageBox.Show("취소된 항목입니다.");
+                return;
+            }
             int id = Convert.ToInt32(dgvProduction.CurrentRow.Cells["ID"].Value);
             string code = dgvProduction.CurrentRow.Cells["ProdCode"].Value.ToString();
             int loss = Convert.ToInt32(ccTxtLoss.Text);

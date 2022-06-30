@@ -128,7 +128,8 @@ namespace BikeProd
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bomTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+
+        private void bomTree_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             btnInit_Click(this, null);
             for (int i = 0; i < dgvList.Rows.Count; i++)

@@ -281,7 +281,7 @@
             this.bomTree.Name = "bomTree";
             this.bomTree.Size = new System.Drawing.Size(220, 481);
             this.bomTree.TabIndex = 0;
-            this.bomTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.bomTree_NodeMouseDoubleClick);
+            this.bomTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.bomTree_NodeMouseClick);
             // 
             // frmBOM
             // 

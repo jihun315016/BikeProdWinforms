@@ -43,3 +43,12 @@ C:\Users\admin\Desktop\새 폴더\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.c
 C:\Users\admin\Desktop\새 폴더\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CopyComplete
 C:\Users\admin\Desktop\새 폴더\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.dll
 C:\Users\admin\Desktop\새 폴더\BikeProd\BikeProd.DAC\obj\Debug\BikeProd.DAC.pdb
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\bin\Debug\BikeProd.DAC.dll
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\bin\Debug\BikeProd.DAC.pdb
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\bin\Debug\BikeProd.VO.dll
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\bin\Debug\BikeProd.VO.pdb
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\obj\Debug\BikeProd.DAC.csproj.CopyComplete
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\obj\Debug\BikeProd.DAC.dll
+C:\Users\admin\Desktop\Prod\BikeProdWinforms\BikeProd.DAC\obj\Debug\BikeProd.DAC.pdb

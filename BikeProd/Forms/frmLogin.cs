@@ -24,7 +24,11 @@ namespace BikeProd
         {
             txtEmpNo.isNumeric = true;
             txtPwd.PasswordChar = '*';
-            
+
+#if DEBUG
+            txtEmpNo.Text = "10001";
+            txtPwd.Text = "1234";
+#endif
         }        
         
         private void btnLogin_Click(object sender, EventArgs e)
